@@ -7,14 +7,22 @@ function TeamCard(props) {
 
   return (
     <div className="team-card card">
-      <div className="team-info">
-        <h2>{props.draftPosition}.</h2>
-        <img className="team-logo" src={props.logo}></img>
-        <h2>
-          {props.city} {props.teamName}
-        </h2>
-      </div>
+      <h2>{props.draftPosition}.</h2>
+      <img className="team-logo" src={props.logo}></img>
+      {/* {props.city} {props.teamName} */}
       {props.pick && (
+        <h2>
+          {draftPick.firstName} {draftPick.lastName}{" "}
+          {
+            <FaTimes
+              className="x-icon"
+              size={20}
+              onClick={() => props.removePlayer(draftPick.id)}
+            />
+          }
+        </h2>
+      )}
+      {/* {props.pick && (
         <div className="mini-player-card card">
           <div className="playerInfo">
             <img className="player-img-mini" src={draftPick.img}></img>
@@ -27,7 +35,7 @@ function TeamCard(props) {
           </div>
           <FaTimes className="x-icon" size={20} onClick={() => props.removePlayer(draftPick.id)} />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

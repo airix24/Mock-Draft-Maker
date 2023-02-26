@@ -109,7 +109,7 @@ export const teams = [
     teamName: "Chiefs",
     abr: "KC",
     logo: "https://content.sportslogos.net/logos/7/162/thumbs/857.gif",
-    picks: [30]
+    picks: [31]
   },
   {
     city: "Las Vegas",
@@ -179,7 +179,7 @@ export const teams = [
     teamName: "Eagles",
     abr: "PHI",
     logo: "https://content.sportslogos.net/logos/7/167/thumbs/960.gif",
-    picks: [10, 31]
+    picks: [10, 30]
   },
   {
     city: "Pittsburgh",

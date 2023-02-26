@@ -73,23 +73,24 @@ body {
 }
 
 .teamContainer {
-  width: 30vw;
+  width: 60vw;
   height: 85vh;
   overflow-y: scroll;
-  /* display: grid;
+  display: grid;
   grid-template-rows: repeat(16, auto);
-  grid-auto-flow: column; */
+  grid-auto-flow: column;
 }
 
 .team-card {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 25vw;
 }
 
-.team-info {
+/* .team-info {
   display: flex;
   align-items: center;
-}
+} */
 
 .team-logo {
   height: 20px;
@@ -97,11 +98,10 @@ body {
   margin-right: 10px;
 }
 
-.mini-player-card {
+/* .mini-player-card {
   border: dashed;
-  /* width: 70%; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0;
-}
+} */

@@ -26,6 +26,10 @@ function App() {
 
   function addPlayer(playerId, teamAbr) {
     const nextOpenSlot = findNextOpenSlot();
+    if (!nextOpenSlot === -1) {
+      console.log("all slots full");
+      return;
+    }
     // change the drafted property to true for the player
     setPlayerPool(prev => {
       const newPool = [...prev];
