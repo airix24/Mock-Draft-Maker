@@ -24,7 +24,7 @@ body {
 
 .playerContainer {
   width: 30vw;
-  height: 85vh;
+  height: 78vh;
   overflow-y: scroll;
 }
 
@@ -73,8 +73,8 @@ body {
 }
 
 .teamContainer {
-  width: 60vw;
-  height: 85vh;
+  width: 56vw;
+  height: 78vh;
   overflow-y: scroll;
   display: grid;
   grid-template-rows: repeat(16, auto);
@@ -105,3 +105,18 @@ body {
   justify-content: space-between;
   padding: 0;
 } */
+
+.box {
+  background-color: #aba7b0;
+  border-radius: 5px;
+  height: 85vh;
+}
+
+.top-bar {
+  height: 2vh;
+  /* margin-bottom: 5px; */
+  padding: 10px;
+  background-color: #03277a;
+  color: white;
+  border-radius: 5px 5px 0 0;
+}

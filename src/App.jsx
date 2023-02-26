@@ -24,32 +24,35 @@ function App() {
     return mockSlots;
   }
 
-  function addPlayer(playerId, teamAbr) {
+  function addPlayer(playerId) {
     const nextOpenSlot = findNextOpenSlot();
-    if (!nextOpenSlot === -1) {
+    console.log(nextOpenSlot);
+    // checks to see if there's an open slot, if not, return, if so, add player
+    if (nextOpenSlot === -1) {
       console.log("all slots full");
-      return;
     }
-    // change the drafted property to true for the player
-    setPlayerPool(prev => {
-      const newPool = [...prev];
-      for (let i=0; i<newPool.length; i++) {
-        if (newPool[i].id === playerId) {
-          newPool[i].drafted = true;
+    else {
+      // change the drafted property to true for the player
+      setPlayerPool(prev => {
+        const newPool = [...prev];
+        for (let i=0; i<newPool.length; i++) {
+          if (newPool[i].id === playerId) {
+            newPool[i].drafted = true;
+          }
         }
-      }
-      return newPool;
-    })
-    // add the player to the mock slot pick property
-    setMockDraft(prev => {
-      const newMock = [...prev];
-      newMock[nextOpenSlot].pick = playerId;
-      return newMock;     
-    })
+        return newPool;
+      })
+      // add the player to the mock slot pick property
+      setMockDraft(prev => {
+        const newMock = [...prev];
+        newMock[nextOpenSlot].pick = playerId;
+        return newMock;     
+      })
+    }
   }
 
 
-  function removePlayer(playerId, teamId) {
+  function removePlayer(playerId) {
     const index = mockDraft.findIndex(slot => slot.pick === playerId);
     // change the drafted property to false for the player
     setPlayerPool(prev => {
