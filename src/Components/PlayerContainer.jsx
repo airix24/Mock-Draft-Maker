@@ -3,9 +3,20 @@ import PlayerCard from "./PlayerCard";
 
 function PlayerContainer(props) {
   const [selectedPosition, setSelectedPosition] = React.useState("all");
+  const [search, setSearch] = React.useState("");
 
-  const playerElements = props.playerPool.map((player, index) => {
-    if (!player.drafted && (selectedPosition === "all" || selectedPosition.toUpperCase() === player.position)) {
+  function filterPlayers(newPool) {
+    return newPool.filter(
+      (player) =>
+        !player.drafted &&
+        (selectedPosition === "all" ||
+          selectedPosition.toUpperCase() === player.position) &&
+        (player.firstName.toLowerCase().includes(search.toLowerCase()) ||
+        player.lastName.toLowerCase().includes(search.toLowerCase()))
+    );
+  }
+
+  const playerElements = filterPlayers(props.playerPool).map((player, index) => {
       return (
         <PlayerCard
           key={index}
@@ -21,15 +32,18 @@ function PlayerContainer(props) {
           addPlayer={props.addPlayer}
         />
       );
-    }
-  });
+    });
 
   return (
     <div className="box">
       <div className="top-bar">
         <label>
-          position: {" "}
-          <select name="positions" value={selectedPosition} onChange={e => setSelectedPosition(e.target.value)}>
+          Position:{" "}
+          <select
+            name="positions"
+            value={selectedPosition}
+            onChange={(e) => setSelectedPosition(e.target.value)}
+          >
             <option value="all">All</option>
             <option value="qb">QB</option>
             <option value="rb">RB</option>
@@ -43,6 +57,14 @@ function PlayerContainer(props) {
             <option value="s">S</option>
             <option value="cb">CB</option>
           </select>
+        </label>
+        <label>
+          <input
+            type="text"
+            value={search}
+            placeholder="Search"
+            onChange={(e) => setSearch(e.target.value)}
+          ></input>
         </label>
       </div>
       <div className="playerContainer">{playerElements}</div>

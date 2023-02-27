@@ -12,17 +12,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // TODO:
 // fix plus icons
 // styling
+// style team cards
 // better format
 // Make it responsive
 //
 // Add drag and drop
-//
-// Filter by position
+// 
 // Sort
 // Add capablity for multiple rounds
 // Save mock drafts
+// View previous mock drafts
 // API!
 // choose what year?
 // update the prospect ranks
 // trades
-// search bar for players
