@@ -9,7 +9,9 @@ function PlayerCard(props) {
   return (
     <div className="playerCard card">
       <div className="playerInfo">
-        <img className="playerImg" src={props.img}></img>
+        <div className="img-container">
+          <img className="playerImg" src={props.img}></img>
+        </div>
         <div className="playerText">
           <h2>
             {props.firstName} {props.lastName}
@@ -21,7 +23,11 @@ function PlayerCard(props) {
           </h4>
         </div>
       </div>
-      <FaPlus className="plus-icon" size={20} onClick={() => props.addPlayer(props.id)} />
+      <FaPlus
+        className="plus-icon"
+        size={20}
+        onClick={() => props.addPlayer(props.id)}
+      />
     </div>
   );
 }
