@@ -46,17 +46,24 @@ body {
   align-items: center;
 }
 
-.playerImg {
-  width: 20%;
-  border-radius: 0% 0% 50% 50%;
+.img-container {
+  height: 70px;
+  width: 70px;
   margin-right: 20px;
 }
 
-.player-img-mini {
+.playerImg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0% 0% 50% 50%;
+}
+
+/* .player-img-mini {
   height: 50px;
   border-radius: 0% 0% 50% 50%;
   margin-right: 20px;
-}
+} */
 
 .plus-icon {
   margin-right: 20px;
