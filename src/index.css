@@ -141,3 +141,19 @@ button {
   background-color: rgb(52, 196, 52);
   color: white;
 }
+
+.desc {
+  display: flex;
+  color: #03277a;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.saved-drafts-screen {
+  height: 50vh;
+  width: 50vw;
+  background-color: white;
+  position: absolute;
+  right: 25%;
+  top: 25%;
+}

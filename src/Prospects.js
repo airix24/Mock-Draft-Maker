@@ -1,8 +1,28 @@
-import { nanoid } from "nanoid";
+// grab the prospects from the database instead
+// of hardcoding them here
+
+// import React, { useState } from "react";
+// import { Link } from "react-router-dom";
+// import { useQuery } from "@apollo/client";
+// import { GET_PROSPECTS } from "./queries";
+
+// const Prospects = () => {
+//   const { loading, error, data } = useQuery(GET_PROSPECTS);
+//   const [prospects, setProspects] = useState([]);
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>Error :(</p>;
+
+//   return (
+//     <div className="prospects">
+//       {data.prospects.map((prospect) => (
+//         <div className="prospect" key={prospect.id}>
+//           <Link to={`/prospect/${prospect.id}`}>
+
 
 export const prospects = [
   {
-    id: nanoid(),
+    id: 100000,
     drafted: false,
     firstName: "Bryce",
     lastName: "Young",
@@ -12,9 +32,10 @@ export const prospects = [
     weight: 194,
     school: "Alabama",
     img: "https://media.pff.com/player-photos/nfl/123943.webp",
+    desc: ["Playmaker", "Accurate"],
   },
   {
-    id: nanoid(),
+    id: 1,
     drafted: false,
     firstName: "Jalen",
     lastName: "Carter",
@@ -24,9 +45,10 @@ export const prospects = [
     weight: 300,
     school: "Georgia",
     img: "https://media.pff.com/player-photos/nfl/124019.webp",
+    desc: ["Elite Athlete", "Total Package"],
   },
   {
-    id: nanoid(),
+    id: 2,
     drafted: false,
     firstName: "Will",
     lastName: "Levis",
@@ -36,9 +58,10 @@ export const prospects = [
     weight: 232,
     school: "Kentucky",
     img: "https://media.pff.com/player-photos/nfl/83542.webp",
+    desc: ["Big Arm"],
   },
   {
-    id: nanoid(),
+    id: 3,
     drafted: false,
     firstName: "Will",
     lastName: "Anderson Jr.",
@@ -48,9 +71,10 @@ export const prospects = [
     weight: 243,
     school: "Alabama",
     img: "https://media.pff.com/player-photos/nfl/123903.webp",
+    desc: ["Elite Athlete", "Total Package"],
   },
   {
-    id: nanoid(),
+    id: 4,
     drafted: false,
     firstName: "C.J.",
     lastName: "Stroud",
@@ -60,9 +84,10 @@ export const prospects = [
     weight: 215,
     school: "Ohio State",
     img: "https://media.pff.com/player-photos/nfl/129759.webp",
+    desc: ["Pocket Passer", "Accurate"],
   },
   {
-    id: nanoid(),
+    id: 5,
     drafted: false,
     firstName: "Myles",
     lastName: "Murphy",
@@ -72,9 +97,10 @@ export const prospects = [
     weight: 275,
     school: "Clemson",
     img: "https://media.pff.com/player-photos/nfl/122154.webp",
+    desc: ["Elite Athlete", "Project"],
   },
   {
-    id: nanoid(),
+    id: 6,
     drafted: false,
     firstName: "Tyree",
     lastName: "Wilson",
@@ -84,9 +110,10 @@ export const prospects = [
     weight: 275,
     school: "Texas Tech",
     img: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.rocnation.com%2Fwp-content%2Fuploads%2F2022%2F09%2Ftyree.png&f=1&nofb=1&ipt=a93f34d3a928d526df74233966b022d0de1705ec05086df477dcc8572a1b0893&ipo=images",
+    desc: ["Elite Athlete", "Versatile", "Long Arms"],
   },
   {
-    id: nanoid(),
+    id: 7,
     drafted: false,
     firstName: "Bryan",
     lastName: "Bresee",
@@ -96,9 +123,10 @@ export const prospects = [
     weight: 300,
     school: "Clemson",
     img: "https://media.pff.com/player-photos/nfl/122142.webp",
+    desc: ["Elite Athlete", "Powerful"],
   },
   {
-    id: nanoid(),
+    id: 8,
     drafted: false,
     firstName: "Paris",
     lastName: "Johnson Jr.",
@@ -108,9 +136,10 @@ export const prospects = [
     weight: 310,
     school: "Ohio State",
     img: "https://media.pff.com/player-photos/nfl/129749.webp",
+    desc: ["Elite Athlete", "Project"],
   },
   {
-    id: nanoid(),
+    id: 9,
     drafted: false,
     firstName: "Brian",
     lastName: "Branch",
@@ -120,9 +149,10 @@ export const prospects = [
     weight: 193,
     school: "Alabama",
     img: "https://media.pff.com/player-photos/nfl/123907.webp",
+    desc: ["Slot", "Cerebral", "Tackler"]
   },
   {
-    id: nanoid(),
+    id: 10,
     drafted: false,
     firstName: "Anthony",
     lastName: "Richardson",
@@ -132,9 +162,10 @@ export const prospects = [
     weight: 232,
     school: "Florida",
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.gaXz8ax8M21VkHj4e7ON8AHaFY%26pid%3DApi&f=1&ipt=aa157ec26dc61577c49649a36bff8af365c8d0f2b0b23ba22de29390fe68161d&ipo=images",
+    desc: ["Elite Athlete", "Big Arm", "Project"],
   },
   {
-    id: nanoid(),
+    id: 11,
     drafted: false,
     firstName: "Devon",
     lastName: "Witherspoon",
@@ -144,9 +175,10 @@ export const prospects = [
     weight: 180,
     school: "Illinois",
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.-rWowyXfflk4C4sKIPQYwQHaFY%26pid%3DApi&f=1&ipt=3922e1393dc98f26d6ccbde527ead2c2e9719703f82b647ddf8ec932acf5c541&ipo=images",
+    desc: ["Man-to-man", "Feisty", "Playmaker"]
   },
   {
-    id: nanoid(),
+    id: 12,
     drafted: false,
     firstName: "Peter",
     lastName: "Skoronski",
@@ -158,7 +190,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/129737.webp",
   },
   {
-    id: nanoid(),
+    id: 13,
     drafted: false,
     firstName: "Christain",
     lastName: "Gonzalez",
@@ -170,7 +202,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.k_kFAx_ZLhg5nTRlgeMljAHaFY%26pid%3DApi&f=1&ipt=aa0d31b921b2ece41b5dae2424313c341798329a7c0f74dd59db8ff571aabe75&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 14,
     drafted: false,
     firstName: "Quentin",
     lastName: "Johnston",
@@ -182,7 +214,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/123085.webp",
   },
   {
-    id: nanoid(),
+    id: 15,
     drafted: false,
     firstName: "Lukas",
     lastName: "Van Ness",
@@ -192,9 +224,10 @@ export const prospects = [
     weight: 269,
     school: "Iowa",
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.GtpxVP14wxNM849RbKwYcgHaHa%26pid%3DApi&f=1&ipt=685e18c4579d6e88ee3558a783e1cb53923afde106c9405dfd1fc91b19b62ca5&ipo=images",
+    desc: ["Power Rusher"]
   },
   {
-    id: nanoid(),
+    id: 16,
     drafted: false,
     firstName: "Michael",
     lastName: "Mayer",
@@ -205,7 +238,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/122906.webp",
   },
   {
-    id: nanoid(),
+    id: 17,
     drafted: false,
     firstName: "Bijan",
     lastName: "Robinson",
@@ -215,9 +248,10 @@ export const prospects = [
     weight: 220,
     school: "Texas",
     img: "https://media.pff.com/player-photos/nfl/123126.webp",
+    desc: ["Elite Athlete", "Total Package"],
   },
   {
-    id: nanoid(),
+    id: 18,
     drafted: false,
     firstName: "Zay",
     lastName: "Flowers",
@@ -229,7 +263,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/97268.webp",
   },
   {
-    id: nanoid(),
+    id: 19,
     drafted: false,
     firstName: "Jaxon",
     lastName: "Smith-Njigba",
@@ -241,7 +275,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/129758.webp",
   },
   {
-    id: nanoid(),
+    id: 20,
     drafted: false,
     firstName: "Anton",
     lastName: "Harrison",
@@ -253,7 +287,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xCBsrlO4lD8WxZJR066WzgHaFY%26pid%3DApi&f=1&ipt=fdb07cfb03945a009f8434c89e50d898fce2513fb853d7c98dc469ffee5cfca0&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 21,
     drafted: false,
     firstName: "Nolan",
     lastName: "Smith",
@@ -265,7 +299,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.YcHt4lLNjRhlTtSZnyQzFgHaFY%26pid%3DApi&f=1&ipt=cc3843e7ebc966a1c481e7f4363bc57e8ae335a0ad3707bb1d527d67c0724d04&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 22,
     drafted: false,
     firstName: "Jordan",
     lastName: "Addison",
@@ -277,7 +311,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/123000.webp",
   },
   {
-    id: nanoid(),
+    id: 23,
     drafted: false,
     firstName: "Broderick",
     lastName: "Jones",
@@ -289,7 +323,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.EcCH5xj7B192vsZxhLvbqAHaFY%26pid%3DApi&f=1&ipt=c671f175caae1cfae4750d6bbc5e41d6e0e591c3ba2673083d20f3e79080222a&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 24,
     drafted: false,
     firstName: "Cam",
     lastName: "Smith",
@@ -301,7 +335,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/98837.webp",
   },
   {
-    id: nanoid(),
+    id: 25,
     drafted: false,
     firstName: "Joey",
     lastName: "Porter Jr.",
@@ -313,7 +347,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6LeeWLro2y1qf7t0VuOMKAHaFY%26pid%3DApi&f=1&ipt=1baaa67efdace80f6b13d8158a0034f686e0983f50321df38a944cad30e4598a&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 26,
     drafted: false,
     firstName: "O'Cyrus",
     lastName: "Torrence",
@@ -325,7 +359,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.VQKs5AoSHjbg9oDPg6kVzAAAAA%26pid%3DApi&f=1&ipt=e23daf20a9c1dc783278d3170043986063ca224d9e429fe084dd5c40c20e07ca&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 27,
     drafted: false,
     firstName: "Tanner",
     lastName: "McKee",
@@ -337,7 +371,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/131770.webp",
   },
   {
-    id: nanoid(),
+    id: 28,
     drafted: false,
     firstName: "Trenton",
     lastName: "Simpson",
@@ -349,7 +383,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/122157.webp",
   },
   {
-    id: nanoid(),
+    id: 29,
     drafted: false,
     firstName: "Luke",
     lastName: "Musgrave",
@@ -361,7 +395,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.MLTA2khYaL-C8CnbmtDg-AHaHa%26pid%3DApi&f=1&ipt=589fb7702bff6080d69d1a76240e441121fe30227bfb78e7a17539dfe57c6db6&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 30,
     drafted: false,
     firstName: "Siaki",
     lastName: "Ika",
@@ -373,7 +407,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Wh4Ov64e5xpgWQO9hKacnwHaFY%26pid%3DApi&f=1&ipt=e561230bf33e11ba647a904fb93cf8e4cb57a2830c0c363c9cd3120693daab20&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 31,
     drafted: false,
     firstName: "BJ",
     lastName: "Ojulari",
@@ -385,7 +419,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/124105.webp",
   },
   {
-    id: nanoid(),
+    id: 32,
     drafted: false,
     firstName: "Andre",
     lastName: "Carter II",
@@ -397,7 +431,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/102780.webp",
   },
   {
-    id: nanoid(),
+    id: 33,
     drafted: false,
     firstName: "Dalton",
     lastName: "Kincaid",
@@ -409,7 +443,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.explicit.bing.net%2Fth%3Fid%3DOIP.paNOE-T8E-cm5X3WQn2akAHaFY%26pid%3DApi&f=1&ipt=b516e2b0231386c6c34a761cdd4d0c8d2973a404bcae8c4a5de8b280e15ac08a&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 34,
     drafted: false,
     firstName: "Calijah",
     lastName: "Kancey",
@@ -421,7 +455,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/99822.webp",
   },
   {
-    id: nanoid(),
+    id: 35,
     drafted: false,
     firstName: "Deonte",
     lastName: "Banks",
@@ -433,7 +467,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OPpaC_z4XihbqiV_k4ExYgAAAA%26pid%3DApi&f=1&ipt=d4fbf4ff4826671680fb7761b3efe906be9cf5ed75e297d9eb20d917cb7f41e7&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 36,
     drafted: false,
     firstName: "Will",
     lastName: "McDonald IV",
@@ -445,7 +479,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ourlads.com%2Fimages%2Fplayers%2Fncaa%2FMCD222153.png&f=1&nofb=1&ipt=14e6db2f907974f8160087e19a0f86277413dd750e9bfc63264f19b774363d5d&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 37,
     drafted: false,
     firstName: "Antonio",
     lastName: "Johnson",
@@ -457,7 +491,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/124326.webp",
   },
   {
-    id: nanoid(),
+    id: 38,
     drafted: false,
     firstName: "Mazi",
     lastName: "Smith",
@@ -469,7 +503,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/101419.webp",
   },
   {
-    id: nanoid(),
+    id: 39,
     drafted: false,
     firstName: "Nathaniel",
     lastName: "Dell",
@@ -481,7 +515,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/78874.webp",
   },
   {
-    id: nanoid(),
+    id: 40,
     drafted: false,
     firstName: "Daiyan",
     lastName: "Henley",
@@ -493,7 +527,7 @@ export const prospects = [
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6PQIZ5MzisaZqgCL4-XgTwAAAA%26pid%3DApi&f=1&ipt=0ee7575fcd6b315e5a7d8a00c3e1c95b570de09ebd2742afeffc873ddb9a1b70&ipo=images",
   },
   {
-    id: nanoid(),
+    id: 41,
     drafted: false,
     firstName: "Tyrique",
     lastName: "Stevenson",
@@ -505,7 +539,7 @@ export const prospects = [
     img: "https://media.pff.com/player-photos/nfl/97562.webp",
   },
   {
-    id: nanoid(),
+    id: 42,
     drafted: false,
     firstName: "Josh",
     lastName: "Downs",
@@ -516,16 +550,88 @@ export const prospects = [
     school: "North Carolina",
     img: "https://media.pff.com/player-photos/nfl/122832.webp",
   },
+  {
+    id: 43,
+    drafted: false,
+    firstName: "Jalin",
+    lastName: "Hyatt",
+    position: "WR",
+    age: 21.4,
+    height: 73,
+    weight: 180,
+    school: "Tennessee",
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs3media.247sports.com%2FUploads%2FAssets%2F216%2F929%2F9929216.jpeg%3Ffit%3Dcrop%26width%3D100&f=1&nofb=1&ipt=3b09d9e56360d6d7246a15355ce6b124aa8d974eb864968cf1955dccac0ff615&ipo=images",
+  },
+  {
+    id: 44,
+    drafted: false,
+    firstName: "Jahmyr",
+    lastName: "Gibbs",
+    position: "RB",
+    age: 20.9,
+    height: 71,
+    weight: 200,
+    school: "Alabama",
+    img: "https://media.pff.com/player-photos/nfl/122474.webp",
+  },
+  {
+    id: 45,
+    drafted: false,
+    firstName: "Kelee",
+    lastName: "Ringo",
+    position: "CB",
+    age: 20.6,
+    height: 74,
+    weight: 210,
+    school: "Georgia",
+    img: "https://media.pff.com/player-photos/nfl/124035.webp",
+  },
+  {
+    id: 46,
+    drafted: false,
+    firstName: "Drew",
+    lastName: "Sanders",
+    position: "LB",
+    age: 21.1,
+    height: 77,
+    weight: 232,
+    school: "Arkansas",
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.JW_cciyE5bDbZ2PXiYTJcgHaFY%26pid%3DApi&f=1&ipt=1955e1420dbeec266f45a9e94fbc0c11cfb8c5d677e810a8bfee7f82b2d5ec6e&ipo=images", 
+  },
+  {
+    id: 47,
+    drafted: false,
+    firstName: "Emmanuel",
+    lastName: "Forbes",
+    position: "CB",
+    age: 22.1,
+    height: 72,
+    weight: 180,
+    school: "Mississippi State",
+    img: "https://media.pff.com/player-photos/nfl/124166.webp",
+  },
+  {
+    id: 48,
+    drafted: false,
+    firstName: "Darnell",
+    lastName: "Washington",
+    position: "TE",
+    age: 21.5,
+    height: 79,
+    weight: 270,
+    school: "Georgia",
+    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cSbZpzOfbWPeh0m6yEROKgHaFY%26pid%3DApi&f=1&ipt=d918ea528bcde22a9b2b59bf62c4791e2baa596b9608b935a901766861092cd6&ipo=images",
+  },
+  {
+    id: 49,
+    drafted: false,
+    firstName: "Isaiah",
+    lastName: "Foskey",
+    position: "ED",
+    age: 22.3,
+    height: 77,
+    weight: 265,
+    school: "Notre Dame",
+    img: "https://media.pff.com/player-photos/nfl/102728.webp",
+  },
 ];
-//     {
-//         id: nanoid(), 
-//         drafted: false,
-//         firstName: ,
-//         lastName: ,
-//         position: ,
-//         age: ,
-//         height: ,
-//         weight: ,
-//         school: ,
-//         img: ,
-//     },

@@ -30,6 +30,7 @@ function PlayerContainer(props) {
           img={player.img}
           id={player.id}
           addPlayer={props.addPlayer}
+          desc={player.desc}
         />
       );
     });
