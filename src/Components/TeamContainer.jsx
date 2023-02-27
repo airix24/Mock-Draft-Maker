@@ -20,7 +20,10 @@ function TeamContainer(props) {
 
   return (
     <div className="box">
-      <div className="top-bar"></div>
+      <div className="top-bar">
+        <button onClick={props.clearDraft}>Clear Draft</button>
+        <button className="save-btn" onClick={props.saveDraft}>Save Draft</button>
+      </div>
       <div className="teamContainer">
       {teamElements}
     </div>

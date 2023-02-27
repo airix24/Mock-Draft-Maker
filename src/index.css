@@ -122,3 +122,15 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0.2em;
+  border-radius: 2px;
+}
+
+.save-btn {
+  background-color: rgb(52, 196, 52);
+  color: white;
+}

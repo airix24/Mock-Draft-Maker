@@ -8,6 +8,7 @@ import { teams } from "./Teams";
 function App() {
   const [playerPool, setPlayerPool] = useState(prospects);
   const [mockDraft, setMockDraft] = useState(initializeMock(teams));
+  const [savedDrafts, setSavedDrafts] = useState([]);
 
   function initializeMock(teams) {
     const mockSlots = new Array(31);
@@ -72,6 +73,27 @@ function App() {
     })
   }
 
+  function clearDraft() {
+    setMockDraft(initializeMock(teams));
+    setPlayerPool(prev => {
+      const newPool = [...prev];
+      for (let i=0; i<newPool.length; i++) {
+        newPool[i].drafted = false;
+      }
+      return newPool;
+    })
+  }
+
+  function saveDraft() {
+    console.log("saving draft");
+    setSavedDrafts(prev => {
+      const newSaved = [...prev];
+      newSaved.push(mockDraft);
+      return newSaved;
+    }
+    )
+  }
+
   function findNextOpenSlot() {
     return mockDraft.findIndex(slot => slot.pick === null);
   }
@@ -80,8 +102,8 @@ function App() {
     <div>
       <Header />
       <div className="container">
-        <TeamContainer mockDraft={mockDraft} removePlayer={removePlayer} />
-        <PlayerContainer playerPool={playerPool} addPlayer={addPlayer} />
+        <TeamContainer mockDraft={mockDraft} removePlayer={removePlayer} clearDraft={clearDraft} saveDraft={saveDraft}/>
+        <PlayerContainer playerPool={playerPool} addPlayer={addPlayer}/>
       </div>
     </div>
   );
