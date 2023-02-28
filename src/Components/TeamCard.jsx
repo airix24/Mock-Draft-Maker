@@ -15,7 +15,7 @@ function TeamCard(props) {
           {draftPick.firstName} {draftPick.lastName}{" "}
           {
             <FaTimes
-              className="x-icon"
+              className="icon x-icon"
               size={20}
               onClick={() => props.removePlayer(draftPick.id)}
             />

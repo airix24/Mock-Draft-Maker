@@ -8,6 +8,10 @@ body {
   background-color: #bdb8c4;
 }
 
+.light {
+  color: gray;
+}
+
 .container {
   display: flex;
   justify-content: space-evenly;
@@ -52,7 +56,7 @@ body {
   margin-right: 20px;
 }
 
-.playerImg {
+.player-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -66,15 +70,15 @@ body {
 } */
 
 .plus-icon {
-  margin-right: 20px;
+  margin-right: 5px;
+  margin-left: 15px;
 }
 
 .x-icon {
   margin-right: 10px;
 }
 
-.plus-icon:hover,
-.x-icon:hover {
+.icon:hover {
   opacity: 70%;
   cursor: pointer;
 }
@@ -130,11 +134,19 @@ body {
   justify-content: space-between;
 }
 
+.position-select {
+  cursor: pointer;
+}
+
 button {
   cursor: pointer;
   border: none;
   padding: 0.2em;
   border-radius: 2px;
+}
+
+button:hover {
+  opacity: 90%;
 }
 
 .save-btn {
@@ -156,4 +168,33 @@ button {
   position: absolute;
   right: 25%;
   top: 25%;
+}
+
+.outer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.unexpanded {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expanded {
+  display: flex;
+  align-items: center;
 }

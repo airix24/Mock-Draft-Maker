@@ -11,9 +11,17 @@ function SavedDrafts(props) {
   });
 
   return (
-    <div className="saved-drafts-screen">
-      <h1>Saved Drafts</h1>
-      {savedDraftsElements}
+    <div
+      className="outer-modal"
+      onClick={(e) => {
+        // e.stopPropagation();
+        props.setShowSavedDrafts(false);
+      }}
+    >
+      <div className="inner-modal" onClick={(e) => e.stopPropagation()} >
+        <h1>Saved Drafts</h1>
+        {savedDraftsElements}
+      </div>
     </div>
   );
 }

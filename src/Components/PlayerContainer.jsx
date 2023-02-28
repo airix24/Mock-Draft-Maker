@@ -42,6 +42,7 @@ function PlayerContainer(props) {
           Position:{" "}
           <select
             name="positions"
+            className="position-select"
             value={selectedPosition}
             onChange={(e) => setSelectedPosition(e.target.value)}
           >

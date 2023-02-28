@@ -107,18 +107,6 @@ function App() {
   function viewSavedDrafts() {
     setShowSavedDrafts((prev) => !prev);
 
-    // for(let i=0; i<savedDrafts.length; i++) {
-    //   console.log(savedDrafts[i].name);
-    //   for (let j=0; j<savedDrafts[i].draft.length; j++) {
-    //     console.log(savedDrafts[i].draft[j].team);
-
-    //     // console.log(savedDrafts[i].draft[j].pick);
-    //     // console.log(playerPool);
-
-    //     const name = playerPool.find(player => player.id === savedDrafts[i].draft[j].pick);
-    //     console.log(name)
-    //   }
-    // }
   }
 
   function findNextOpenSlot() {
@@ -127,7 +115,7 @@ function App() {
 
   return (
     <div>
-      {showSavedDrafts && <SavedDrafts savedDrafts={savedDrafts} />}
+      {showSavedDrafts && <SavedDrafts savedDrafts={savedDrafts} setShowSavedDrafts={setShowSavedDrafts} />}
       <Header viewSavedDrafts={viewSavedDrafts} />
       <div className="container">
         <TeamContainer
