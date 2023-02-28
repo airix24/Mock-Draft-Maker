@@ -63,20 +63,13 @@ body {
   border-radius: 0% 0% 50% 50%;
 }
 
-/* .player-img-mini {
-  height: 50px;
-  border-radius: 0% 0% 50% 50%;
-  margin-right: 20px;
-} */
-
 .plus-icon {
   margin-right: 5px;
   margin-left: 15px;
 }
 
-.x-icon {
-  margin-right: 10px;
-}
+/* .x-icon {
+} */
 
 .icon:hover {
   opacity: 70%;
@@ -93,29 +86,25 @@ body {
 }
 
 .team-card {
-  display: flex;
-  align-items: center;
   width: 25vw;
-}
-
-/* .team-info {
-  display: flex;
-  align-items: center;
-} */
-
-.team-logo {
-  height: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-/* .mini-player-card {
-  border: dashed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0;
-} */
+}
+
+.team-card-info {
+  display: flex;
+  align-items: center;
+}
+
+.pick-position {
+  margin-right: 5px;
+}
+
+.team-logo {
+  height: 20px;
+  margin-right: 5px;
+}
 
 .box {
   background-color: #aba7b0;
@@ -184,8 +173,9 @@ button:hover {
 
 .inner-modal {
   background-color: white;
-  padding: 20px;
   border-radius: 5px;
+  height: 50vh;
+  width: 50vw;
 }
 
 .unexpanded {
@@ -196,5 +186,54 @@ button:hover {
 
 .expanded {
   display: flex;
+  align-items: center;
+}
+
+.modal-bar {
+  justify-content: right;
+}
+
+.modal-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.saved-drafts-content {
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.saved-draft-card {
+  background-color: #aba7b0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  min-width: 200px;
+}
+
+.saved-draft-card:hover {
+  opacity: 90%;
+  cursor: pointer;
+}
+
+.saved-draft-card > h4 {
+  opacity: 50%;
+}
+
+.save-text {
+  margin-top: 10%;
+}
+
+.save-bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.save-form {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }

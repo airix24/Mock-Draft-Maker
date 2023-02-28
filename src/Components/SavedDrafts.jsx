@@ -1,9 +1,10 @@
 import React from "react";
+import { FaTimes } from "react-icons/fa";
 
 function SavedDrafts(props) {
-  const savedDraftsElements = props.savedDrafts.map((draft) => {
+  const savedDraftsElements = props.savedDrafts.map((draft, index) => {
     return (
-      <div>
+      <div className="saved-draft-card card" key={index}>
         <h2>{draft.name}</h2>
         <h4>{draft.date}</h4>
       </div>
@@ -13,14 +14,19 @@ function SavedDrafts(props) {
   return (
     <div
       className="outer-modal"
-      onClick={(e) => {
-        // e.stopPropagation();
-        props.setShowSavedDrafts(false);
-      }}
+      onClick={() => props.setShowSavedDrafts(false)}
     >
-      <div className="inner-modal" onClick={(e) => e.stopPropagation()} >
-        <h1>Saved Drafts</h1>
-        {savedDraftsElements}
+      <div
+        className="inner-modal"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="top-bar modal-bar">
+          <FaTimes className="icon" size={20} onClick={() => props.setShowSavedDrafts(false)} />
+        </div>
+        <div className="modal-content saved-drafts-content">
+          <h1>Saved Drafts</h1>
+          {savedDraftsElements}
+        </div>
       </div>
     </div>
   );

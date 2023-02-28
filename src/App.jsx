@@ -5,6 +5,7 @@ import { useState } from "react";
 import { prospects } from "./Prospects";
 import { teams } from "./Teams";
 import SavedDrafts from "./Components/SavedDrafts";
+import SaveScreen from "./Components/SaveScreen";
 
 function App() {
   const [playerPool, setPlayerPool] = useState(prospects);
@@ -16,6 +17,7 @@ function App() {
   );
 
   const [showSavedDrafts, setShowSavedDrafts] = useState(false);
+  const [showSaveScreen, setShowSaveScreen] = useState(false);
 
   function initializeMock(teams) {
     const mockSlots = new Array(31);
@@ -89,10 +91,11 @@ function App() {
     });
   }
 
-  function saveDraft() {
-    const draftName = prompt("Enter a name for your mock draft");
+  function saveDraft(name) {
+    console.log("saving draft", name);
+
     const draft = {
-      name: draftName,
+      name: name,
       date: new Date().toLocaleDateString(),
       draft: mockDraft,
     };
@@ -102,11 +105,12 @@ function App() {
       localStorage.setItem("savedDrafts", JSON.stringify(newDrafts));
       return newDrafts;
     });
+    setShowSaveScreen(false);
+    clearDraft();
   }
 
   function viewSavedDrafts() {
     setShowSavedDrafts((prev) => !prev);
-
   }
 
   function findNextOpenSlot() {
@@ -115,14 +119,25 @@ function App() {
 
   return (
     <div>
-      {showSavedDrafts && <SavedDrafts savedDrafts={savedDrafts} setShowSavedDrafts={setShowSavedDrafts} />}
+      {showSavedDrafts && (
+        <SavedDrafts
+          savedDrafts={savedDrafts}
+          setShowSavedDrafts={setShowSavedDrafts}
+        />
+      )}
+      {showSaveScreen && (
+        <SaveScreen
+          setShowSaveScreen={setShowSaveScreen}
+          saveDraft={saveDraft}
+        />
+      )}
       <Header viewSavedDrafts={viewSavedDrafts} />
       <div className="container">
         <TeamContainer
           mockDraft={mockDraft}
           removePlayer={removePlayer}
           clearDraft={clearDraft}
-          saveDraft={saveDraft}
+          setShowSaveScreen={setShowSaveScreen}
         />
         <PlayerContainer playerPool={playerPool} addPlayer={addPlayer} />
       </div>

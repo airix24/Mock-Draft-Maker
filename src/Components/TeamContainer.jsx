@@ -22,7 +22,7 @@ function TeamContainer(props) {
     <div className="box">
       <div className="top-bar">
         <button onClick={props.clearDraft}>Clear Draft</button>
-        <button className="save-btn" onClick={props.saveDraft}>Save Draft</button>
+        <button className="save-btn" onClick={() => props.setShowSaveScreen(true)}>Save Draft</button>
       </div>
       <div className="teamContainer">
       {teamElements}

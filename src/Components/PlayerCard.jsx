@@ -68,52 +68,6 @@ function PlayerCard(props) {
       ) : null}
     </div>
   );
-  {
-    /* {expanded ? (
-        <div className="playerCard card">
-          <div className="playerInfo">
-            <div className="img-container">
-              <img className="player-img" src={props.img}></img>
-            </div>
-            <div className="playerText">
-              <h2>
-                {props.firstName} {props.lastName}
-              </h2>
-              <h3>{props.position}</h3>
-              <h4>{props.school}</h4>
-              <h4>{props.age ? `age: ${props.age}`: null}</h4>
-              <h4>
-                {convertHeight(props.height)} {props.weight} lbs
-              </h4>
-              <div className="desc">{descElements}</div>
-            </div>
-          </div>
-          <FaChevronUp size={20} onClick={() => setExpanded(false)} />
-          <FaPlus
-            className="plus-icon"
-            size={20}
-            onClick={() => props.addPlayer(props.id)}
-          />
-        </div>
-      ) : (
-        <div className="card unexpanded">
-          <div className="unexpanded-player-info">
-            <h3>
-              {props.firstName} {props.lastName}
-            </h3>
-            <h4 className="light">{props.position}</h4>
-          </div>
-          <div className="player-card-btns">
-            <FaChevronDown size={15} onClick={() => setExpanded(true)} />
-            <FaPlus
-              className="plus-icon"
-              size={15}
-              onClick={() => props.addPlayer(props.id)}
-            />
-          </div>
-        </div>
-      )} */
-  }
 }
 
 export default PlayerCard;

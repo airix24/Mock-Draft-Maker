@@ -17,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // Make it responsive
 // split CSS into multiple files
 // update CSS naming conventions
+// complete rehaul of design eventually
 //
 // Add drag and drop
 // 
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // Add capablity for multiple rounds
 // View previous mock drafts
 // Edit previous mock drafts
+// Delete previous mock drafts
 // API!
 // database?
 // choose what year?
@@ -44,6 +46,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // put in money and compete?
 // scouting reports for teams?
 // add links to player scouting reports
+// change how I structure this application in general
 //
 // add a short description of the player, a few key words like speedster or big arm
 // this will a great feature for people who don't know every single prospect
