@@ -7,6 +7,7 @@ import { teams } from "./Teams";
 import SavedDrafts from "./Components/SavedDrafts";
 import SaveScreen from "./Components/SaveScreen";
 import SideMenu from "./Components/SideMenu";
+import DisplayDraft from "./Components/DisplayDraft";
 
 function App() {
   const [playerPool, setPlayerPool] = useState(prospects);
@@ -16,9 +17,11 @@ function App() {
       ? JSON.parse(localStorage.getItem("savedDrafts"))
       : []
   );
+  const [displayedDraft, setDisplayedDraft] = useState(null);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [showSavedDrafts, setShowSavedDrafts] = useState(false);
   const [showSaveScreen, setShowSaveScreen] = useState(false);
+  const [showDisplayDraft, setShowDisplayDraft] = useState(false);
 
   // initialize the mock draft slots
   function initializeMock(teams) {
@@ -107,6 +110,11 @@ function App() {
     clearDraft();
   }
 
+  function findNextOpenSlot() {
+    const abr = mockDraft.find((slot) => slot.pick === null).team;
+    return abr;
+  }
+
   return (
     <div>
       {showSideMenu && (
@@ -119,12 +127,21 @@ function App() {
         <SavedDrafts
           savedDrafts={savedDrafts}
           setShowSavedDrafts={setShowSavedDrafts}
+          setShowDisplayDraft={setShowDisplayDraft}
+          setDisplayedDraft={setDisplayedDraft}
         />
       )}
       {showSaveScreen && (
         <SaveScreen
           setShowSaveScreen={setShowSaveScreen}
           saveDraft={saveDraft}
+        />
+      )}
+      {showDisplayDraft && (
+        <DisplayDraft
+          setShowDisplayDraft={setShowDisplayDraft}
+          setShowSavedDrafts={setShowSavedDrafts}
+          displayedDraft={displayedDraft}
         />
       )}
       <Header showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
@@ -135,7 +152,11 @@ function App() {
           clearDraft={clearDraft}
           setShowSaveScreen={setShowSaveScreen}
         />
-        <PlayerContainer playerPool={playerPool} addPlayer={addPlayer} />
+        <PlayerContainer
+          playerPool={playerPool}
+          addPlayer={addPlayer}
+          findNextOpenSlot={findNextOpenSlot}
+        />
       </div>
     </div>
   );

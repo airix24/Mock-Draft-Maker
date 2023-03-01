@@ -21,26 +21,22 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 //
 // Add drag and drop
 // 
-// Sort
+// Sort feature
 // Add capablity for multiple rounds
-// View previous mock drafts
-// Edit previous mock drafts
-// Delete previous mock drafts
+// Add ability to edit previous mock drafts
+// Add ability to delete previous mock drafts
 // API!
 // database?
 // choose what year?
 // update the prospect ranks to better sort them
 // trades
-// inclue a trade value chart(s)
+// include a trade value chart(s)
 // auto draft for teams you don't control
 // add combine stats?
 // RAS is better though
-// make player cards smaller, but also have an expanded view
-// grade mock drafts once the actual draft happens
+// grade the accuracy of all mock drafts once the actual draft happens
 // add side menu
 // add ability to add notes to each selection
-// change prompt to be a modal
-// clear mock when saved
 // leaderboard for top mock drafts
 // other social features?
 // put in money and compete?
@@ -50,7 +46,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // make rank and position rank visible
 // have player card visible when hovering over player that is drafted
 // fix weird expand bug
-// fix hamburger menu bug
-//
-// add a short description of the player, a few key words like speedster or big arm
-// this will a great feature for people who don't know every single prospect
+// add description for each prospect

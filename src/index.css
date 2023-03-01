@@ -172,6 +172,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .inner-modal {
@@ -179,10 +180,16 @@ button:hover {
   border-radius: 5px;
   height: 50vh;
   width: 50vw;
+  z-index: 2;
 }
 
 .inner-modal-saved-drafts {
   height: 70vh;
+}
+
+.inner-modal-display-draft {
+  height: 70vh;
+  width: 70vw;
 }
 
 .unexpanded {
@@ -211,6 +218,10 @@ button:hover {
   justify-content: right;
 }
 
+.display-draft-bar {
+  justify-content: left;
+}
+
 .modal-content {
   padding: 10px;
   display: flex;
@@ -219,6 +230,11 @@ button:hover {
 }
 
 .saved-drafts-content {
+  height: 85%;
+  overflow-y: scroll;
+}
+
+.display-draft-content {
   height: 85%;
   overflow-y: scroll;
 }
@@ -235,10 +251,6 @@ button:hover {
 .saved-draft-card:hover {
   opacity: 90%;
   cursor: pointer;
-}
-
-.saved-draft-card > h4 {
-  opacity: 50%;
 }
 
 .save-text {
@@ -283,4 +295,15 @@ button:hover {
 
 .side-menu > ul > li {
   font-size: 1.2rem;
+}
+
+.draft-pick-cards {
+  display: grid;
+  grid-template-rows: repeat(16, auto);
+  grid-auto-flow: column;
+}
+
+.draft-pick-card {
+  background-color: #aba7b0;
+  width: 15vw;
 }

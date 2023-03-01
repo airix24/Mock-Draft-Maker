@@ -4,9 +4,13 @@ import { FaTimes } from "react-icons/fa";
 function SavedDrafts(props) {
   const savedDraftsElements = props.savedDrafts.map((draft, index) => {
     return (
-      <div className="saved-draft-card card" key={index}>
+      <div className="saved-draft-card card" key={index} onClick={() => {
+        props.setShowSavedDrafts(false);
+        props.setShowDisplayDraft(true);
+        props.setDisplayedDraft(draft);
+      }}>
         <h2>{draft.name}</h2>
-        <h4>{draft.date}</h4>
+        <h4 className="light">{draft.date}</h4>
       </div>
     );
   });

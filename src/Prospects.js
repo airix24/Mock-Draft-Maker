@@ -1,25 +1,3 @@
-// grab the prospects from the database instead
-// of hardcoding them here
-
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import { useQuery } from "@apollo/client";
-// import { GET_PROSPECTS } from "./queries";
-
-// const Prospects = () => {
-//   const { loading, error, data } = useQuery(GET_PROSPECTS);
-//   const [prospects, setProspects] = useState([]);
-
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p>Error :(</p>;
-
-//   return (
-//     <div className="prospects">
-//       {data.prospects.map((prospect) => (
-//         <div className="prospect" key={prospect.id}>
-//           <Link to={`/prospect/${prospect.id}`}>
-
-
 export const prospects = [
   {
     id: 100000,
