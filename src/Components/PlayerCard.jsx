@@ -22,10 +22,21 @@ function PlayerCard(props) {
     <div className="card">
       <div className="unexpanded">
         <div className="unexpanded-player-info">
-          <h3>
-            {props.firstName} {props.lastName}
-          </h3>
-          <h4 className="light">{props.position}</h4>
+          {expanded ? (
+            <div className="exp-player-name">
+              <h2>
+                {props.firstName} {props.lastName}
+              </h2>
+              <h2 className="light">{props.position}</h2>
+            </div>
+          ) : (
+            <>
+              <h3>
+                {props.firstName} {props.lastName}
+              </h3>
+              <h4 className="light">{props.position}</h4>
+            </>
+          )}
         </div>
         <div className="player-card-btns">
           {expanded ? (
@@ -45,10 +56,9 @@ function PlayerCard(props) {
             className="icon plus-icon"
             size={15}
             onClick={() => {
-              props.addPlayer(props.id)
-              setExpanded(false)
-            }
-            }
+              props.addPlayer(props.id, "GB");
+              setExpanded(false);
+            }}
           />
         </div>
       </div>

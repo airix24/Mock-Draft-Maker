@@ -47,6 +47,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // scouting reports for teams?
 // add links to player scouting reports
 // change how I structure this application in general
+// make rank and position rank visible
+// have player card visible when hovering over player that is drafted
+// fix weird expand bug
+// fix hamburger menu bug
 //
 // add a short description of the player, a few key words like speedster or big arm
 // this will a great feature for people who don't know every single prospect

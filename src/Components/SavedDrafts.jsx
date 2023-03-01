@@ -17,7 +17,7 @@ function SavedDrafts(props) {
       onClick={() => props.setShowSavedDrafts(false)}
     >
       <div
-        className="inner-modal"
+        className="inner-modal inner-modal-saved-drafts"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="top-bar modal-bar">

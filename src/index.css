@@ -21,7 +21,8 @@ body {
   background-color: #03277a;
   color: white;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -68,12 +69,14 @@ body {
   margin-left: 15px;
 }
 
-/* .x-icon {
-} */
-
-.icon:hover {
+.icon:hover,
+li:hover {
   opacity: 70%;
   cursor: pointer;
+}
+
+.header-icon {
+  z-index: 1;
 }
 
 .teamContainer {
@@ -178,6 +181,10 @@ button:hover {
   width: 50vw;
 }
 
+.inner-modal-saved-drafts {
+  height: 70vh;
+}
+
 .unexpanded {
   display: flex;
   align-items: center;
@@ -187,6 +194,17 @@ button:hover {
 .expanded {
   display: flex;
   align-items: center;
+}
+
+.exp-player-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.exp-player-name > h2 {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .modal-bar {
@@ -201,7 +219,7 @@ button:hover {
 }
 
 .saved-drafts-content {
-  height: 80%;
+  height: 85%;
   overflow-y: scroll;
 }
 
@@ -236,4 +254,33 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.whole-screen {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+.side-menu {
+  position: fixed;
+  right: 0;
+  background-color: #03277a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 100vh;
+  width: 20vw;
+}
+
+.side-menu > ul {
+  list-style-type: none;
+  margin-top: 20%;
+}
+
+.side-menu > ul > li {
+  font-size: 1.2rem;
 }
