@@ -6,6 +6,7 @@ import { prospects } from "./Prospects";
 import { teams } from "./Teams";
 import SavedDrafts from "./Components/SavedDrafts";
 import SaveScreen from "./Components/SaveScreen";
+import SideMenu from "./Components/SideMenu";
 
 function App() {
   const [playerPool, setPlayerPool] = useState(prospects);
@@ -15,10 +16,11 @@ function App() {
       ? JSON.parse(localStorage.getItem("savedDrafts"))
       : []
   );
-
+  const [showSideMenu, setShowSideMenu] = useState(false);
   const [showSavedDrafts, setShowSavedDrafts] = useState(false);
   const [showSaveScreen, setShowSaveScreen] = useState(false);
 
+  // initialize the mock draft slots
   function initializeMock(teams) {
     const mockSlots = new Array(31);
     teams.map((team) => {
@@ -34,32 +36,28 @@ function App() {
     return mockSlots;
   }
 
-  function addPlayer(playerId) {
-    const nextOpenSlot = findNextOpenSlot();
-    console.log(nextOpenSlot);
-    // checks to see if there's an open slot, if not, return, if so, add player
-    if (nextOpenSlot === -1) {
-      console.log("all slots full");
-    } else {
-      // change the drafted property to true for the player
-      setPlayerPool((prev) => {
-        const newPool = [...prev];
-        for (let i = 0; i < newPool.length; i++) {
-          if (newPool[i].id === playerId) {
-            newPool[i].drafted = true;
-          }
+  // add a player to the mock draft
+  function addPlayer(playerId, abr) {
+    const index = mockDraft.findIndex((slot) => slot.team === abr);
+    // change the drafted property to true for the player
+    setPlayerPool((prev) => {
+      const newPool = [...prev];
+      for (let i = 0; i < newPool.length; i++) {
+        if (newPool[i].id === playerId) {
+          newPool[i].drafted = true;
         }
-        return newPool;
-      });
-      // add the player to the mock slot pick property
-      setMockDraft((prev) => {
-        const newMock = [...prev];
-        newMock[nextOpenSlot].pick = playerId;
-        return newMock;
-      });
-    }
+      }
+      return newPool;
+    });
+    // add the player to the mock slot pick property
+    setMockDraft((prev) => {
+      const newMock = [...prev];
+      newMock[index].pick = playerId;
+      return newMock;
+    });
   }
 
+  // remove a player from the mock draft
   function removePlayer(playerId) {
     const index = mockDraft.findIndex((slot) => slot.pick === playerId);
     // change the drafted property to false for the player
@@ -72,7 +70,7 @@ function App() {
       }
       return newPool;
     });
-    // remove the player to the mock slot pick property
+    // remove the player from the mock slot pick property
     setMockDraft((prev) => {
       const newMock = [...prev];
       newMock[index].pick = null;
@@ -80,6 +78,7 @@ function App() {
     });
   }
 
+  // clear the mock draft and reset the player pool
   function clearDraft() {
     setMockDraft(initializeMock(teams));
     setPlayerPool((prev) => {
@@ -91,9 +90,8 @@ function App() {
     });
   }
 
+  // save the mock draft to local storage
   function saveDraft(name) {
-    console.log("saving draft", name);
-
     const draft = {
       name: name,
       date: new Date().toLocaleDateString(),
@@ -109,16 +107,14 @@ function App() {
     clearDraft();
   }
 
-  function viewSavedDrafts() {
-    setShowSavedDrafts((prev) => !prev);
-  }
-
-  function findNextOpenSlot() {
-    return mockDraft.findIndex((slot) => slot.pick === null);
-  }
-
   return (
     <div>
+      {showSideMenu && (
+        <SideMenu
+          setShowSideMenu={setShowSideMenu}
+          setShowSavedDrafts={setShowSavedDrafts}
+        />
+      )}
       {showSavedDrafts && (
         <SavedDrafts
           savedDrafts={savedDrafts}
@@ -131,7 +127,7 @@ function App() {
           saveDraft={saveDraft}
         />
       )}
-      <Header viewSavedDrafts={viewSavedDrafts} />
+      <Header showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
       <div className="container">
         <TeamContainer
           mockDraft={mockDraft}
