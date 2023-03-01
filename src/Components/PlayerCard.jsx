@@ -56,7 +56,7 @@ function PlayerCard(props) {
             className="icon plus-icon"
             size={15}
             onClick={() => {
-              props.addPlayer(props.id, props.findNextOpenSlot());
+              props.addPlayer(props.id);
               setExpanded(false);
             }}
           />

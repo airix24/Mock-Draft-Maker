@@ -1,7 +1,7 @@
 import TeamContainer from "./Components/TeamContainer";
 import Header from "./Components/Header";
 import PlayerContainer from "./Components/PlayerContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { prospects } from "./Prospects";
 import { teams } from "./Teams";
 import SavedDrafts from "./Components/SavedDrafts";
@@ -11,7 +11,7 @@ import DisplayDraft from "./Components/DisplayDraft";
 
 function App() {
   const [playerPool, setPlayerPool] = useState(prospects);
-  const [mockDraft, setMockDraft] = useState(initializeMock(teams));
+  const [mockDraft, setMockDraft] = useState([]);
   const [savedDrafts, setSavedDrafts] = useState(
     localStorage.getItem("savedDrafts")
       ? JSON.parse(localStorage.getItem("savedDrafts"))
@@ -23,8 +23,14 @@ function App() {
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [showDisplayDraft, setShowDisplayDraft] = useState(false);
 
-  // initialize the mock draft slots
+  // initialize the mock draft when the app loads for the first time
+  useEffect(() => { 
+    setMockDraft(initializeMock(teams));
+  }, []);
+
+  // initialize the mock draft
   function initializeMock(teams) {
+    console.log("initializing mock")
     const mockSlots = new Array(31);
     teams.map((team) => {
       if (team.picks) {
@@ -41,7 +47,7 @@ function App() {
 
   // add a player to the mock draft
   function addPlayer(playerId, abr) {
-    const index = mockDraft.findIndex((slot) => slot.team === abr);
+    const index = abr ? mockDraft.findIndex((slot) => slot.team === abr) : mockDraft.findIndex((slot) => slot.pick === null);
     // change the drafted property to true for the player
     setPlayerPool((prev) => {
       const newPool = [...prev];
@@ -54,6 +60,7 @@ function App() {
     });
     // add the player to the mock slot pick property
     setMockDraft((prev) => {
+      console.log("adding player to mock")
       const newMock = [...prev];
       newMock[index].pick = playerId;
       return newMock;
@@ -110,11 +117,6 @@ function App() {
     clearDraft();
   }
 
-  function findNextOpenSlot() {
-    const abr = mockDraft.find((slot) => slot.pick === null).team;
-    return abr;
-  }
-
   return (
     <div>
       {showSideMenu && (
@@ -155,7 +157,6 @@ function App() {
         <PlayerContainer
           playerPool={playerPool}
           addPlayer={addPlayer}
-          findNextOpenSlot={findNextOpenSlot}
         />
       </div>
     </div>

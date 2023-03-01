@@ -25,7 +25,7 @@ function DisplayDraft(props) {
       className="outer-modal"
       onClick={() => props.setShowDisplayDraft(false)}
     >
-      <div className="inner-modal inner-modal-display-draft">
+      <div className="inner-modal inner-modal-display-draft" onClick={(e) => e.stopPropagation()}>
         <div className="top-bar display-draft-bar">
           <FaArrowLeft
             className="icon"
