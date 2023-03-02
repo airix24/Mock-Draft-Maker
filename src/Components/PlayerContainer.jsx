@@ -31,6 +31,8 @@ function PlayerContainer(props) {
           id={player.id}
           addPlayer={props.addPlayer}
           desc={player.desc}
+          strengths={player.strengths}
+          weaknesses={player.weaknesses}
         />
       );
     });

@@ -203,6 +203,19 @@ button:hover {
   align-items: center;
 }
 
+.exp-player-info {
+  display: flex;
+}
+
+.player-skills {
+  margin-left: 20px;
+}
+
+.player-skills > h4 {
+  text-decoration-line: underline;
+  color: gray;
+}
+
 .exp-player-name {
   display: flex;
   align-items: center;
