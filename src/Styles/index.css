@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+body {
+  background-color: #bdb8c4;
+}
+
+.light {
+  color: gray;
+}
+
+.icon:hover,
+li:hover {
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.top-bar {
+  height: 2vh;
+  padding: 10px;
+  background-color: #03277a;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0.2em;
+  border-radius: 2px;
+}
+
+button:hover {
+  opacity: 90%;
+}
+
+.save-btn {
+  background-color: rgb(52, 196, 52);
+  color: white;
+}
+
+.disabled {
+  opacity: 50%;
+  cursor: not-allowed;
+  pointer-events: none;
+}

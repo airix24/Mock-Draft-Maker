@@ -1,0 +1,64 @@
+.playerCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.playerInfo {
+  display: flex;
+  align-items: center;
+}
+
+.img-container {
+  height: 70px;
+  width: 70px;
+  margin-right: 20px;
+}
+
+.player-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0% 0% 50% 50%;
+}
+
+.plus-icon {
+  margin-right: 5px;
+  margin-left: 15px;
+}
+
+.unexpanded {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expanded {
+  display: flex;
+  align-items: center;
+}
+
+.exp-player-info {
+  display: flex;
+}
+
+.player-skills {
+  margin-left: 20px;
+}
+
+.player-skills > h4 {
+  text-decoration-line: underline;
+  color: gray;
+}
+
+.exp-player-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.exp-player-name > h2 {
+  margin-right: 10px;
+}

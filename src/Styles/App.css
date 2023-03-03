@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  background-color: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.box {
+  background-color: #aba7b0;
+  border-radius: 5px;
+  height: 85vh;
+}
+
+.outer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-modal {
+  background-color: white;
+  border-radius: 5px;
+  height: 50vh;
+  width: 50vw;
+}
+
+.modal-bar {
+  justify-content: right;
+}
+
+.modal-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

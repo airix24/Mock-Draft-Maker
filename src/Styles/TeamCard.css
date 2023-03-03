@@ -1,0 +1,20 @@
+.team-card {
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.team-card-info {
+  display: flex;
+  align-items: center;
+}
+
+.pick-position {
+  margin-right: 5px;
+}
+
+.team-logo {
+  height: 20px;
+  margin-right: 5px;
+}

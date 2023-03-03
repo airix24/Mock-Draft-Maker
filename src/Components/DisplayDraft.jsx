@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/DisplayDraft.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { findProspect } from "../util";
 

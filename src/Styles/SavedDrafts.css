@@ -1,0 +1,31 @@
+.saved-drafts-screen {
+  height: 50vh;
+  width: 50vw;
+  background-color: white;
+  position: absolute;
+  right: 25%;
+  top: 25%;
+}
+
+.inner-modal-saved-drafts {
+  height: 70vh;
+}
+
+.saved-drafts-content {
+  height: 85%;
+  overflow-y: scroll;
+}
+
+.saved-draft-card {
+  background-color: #aba7b0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  min-width: 200px;
+}
+
+.saved-draft-card:hover {
+  opacity: 90%;
+  cursor: pointer;
+}

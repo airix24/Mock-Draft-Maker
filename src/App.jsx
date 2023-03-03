@@ -1,3 +1,4 @@
+import "./Styles/App.css";
 import TeamContainer from "./Components/TeamContainer";
 import Header from "./Components/Header";
 import PlayerContainer from "./Components/PlayerContainer";
@@ -8,6 +9,7 @@ import SavedDrafts from "./Components/SavedDrafts";
 import SaveScreen from "./Components/SaveScreen";
 import SideMenu from "./Components/SideMenu";
 import DisplayDraft from "./Components/DisplayDraft";
+import TradeScreen from "./Components/TradeScreen";
 
 function App() {
   const [playerPool, setPlayerPool] = useState([]);
@@ -22,6 +24,11 @@ function App() {
   const [showSavedDrafts, setShowSavedDrafts] = useState(false);
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [showDisplayDraft, setShowDisplayDraft] = useState(false);
+  const [showTradeScreen, setShowTradeScreen] = useState(false);
+  const [isSimulating, setIsSimulating] = useState(false);
+
+  const RANDOM_FACTOR = 3;
+  const SPEED = 200;
 
   // initialize the mock draft when the app loads for the first time
   useEffect(() => {
@@ -35,7 +42,6 @@ function App() {
 
   // initialize the mock draft
   function initializeMock(teams) {
-    console.log("initializing mock");
     const mockSlots = new Array(31);
     teams.map((team) => {
       if (team.picks) {
@@ -55,15 +61,45 @@ function App() {
     return prospects.sort((a, b) => a.rank - b.rank);
   }
 
-  // add a player to the mock draft
-  function addPlayer(playerId, abr) {
-    const index = abr
-      ? mockDraft.findIndex((slot) => slot.team === abr)
-      : mockDraft.findIndex((slot) => slot.pick === null);
-    if (index === -1) {
-      return;
+  // simulate draft
+  useEffect(() => {
+    if (isSimulating) {
+      const interval = setInterval(() => {
+        const slot = mockDraft.find((slot) => slot.pick === null);
+        if (slot) {
+          const team = teams.find((team) => team.abr === slot.team);
+          const playerId = selectPlayer(team);
+          addPlayer(playerId);
+        } else {
+          setIsSimulating(false);
+        }
+      }, SPEED);
+      return () => clearInterval(interval);
     }
-    // change the drafted property to true for the player
+  }, [isSimulating]);
+
+  // Randomly choose among the three highest ranked player that have not been drafted and that match the team's needs
+  function selectPlayer(team) {
+    const potentialPicks = [];
+    for (let i = 0; i < RANDOM_FACTOR; i++) {
+      const index = playerPool.findIndex(
+        (player) =>
+          player.drafted === false &&
+          team.needs.includes(player.position) &&
+          !potentialPicks.includes(player.id)
+      );
+      potentialPicks.push(playerPool[index].id);
+    }
+    // randomly select a player from the potential picks
+    const randomIndex = Math.floor(Math.random() * potentialPicks.length);
+    return potentialPicks[randomIndex];
+  }
+
+  // add a player to the mock draft
+  function addPlayer(playerId, slotIndex) {
+    const index = slotIndex
+      ? slotIndex
+      : mockDraft.findIndex((slot) => slot.pick === null);
     setPlayerPool((prev) => {
       const newPool = [...prev];
       for (let i = 0; i < newPool.length; i++) {
@@ -73,28 +109,12 @@ function App() {
       }
       return newPool;
     });
-    // add the player to the mock slot pick property
     setMockDraft((prev) => {
-      console.log("adding player to mock");
       const newMock = [...prev];
       newMock[index].pick = playerId;
       return newMock;
     });
   }
-
-  // function randomizeDraft() {
-  //   const newMock = [...mockDraft];
-  //   const newPool = [...playerPool];
-  //   for (let i = 0; i < newMock.length; i++) {
-  //     const randomIndex = Math.floor(Math.random() * newPool.length);
-  //     const player = newPool[randomIndex];
-  //     newMock[i].pick = player.id;
-  //     player.drafted = true;
-  //     newPool.splice(randomIndex, 1);
-  //   }
-  //   setMockDraft(newMock);
-  //   setPlayerPool(newPool);
-  // }
 
   // remove a player from the mock draft
   function removePlayer(playerId) {
@@ -117,6 +137,7 @@ function App() {
     });
   }
 
+  // swap the picks of two mock draft slots
   // function swapPicks(index1, index2) {
   //   const newMock = [...mockDraft];
   //   const temp = newMock[index1];
@@ -156,7 +177,6 @@ function App() {
 
   return (
     <div>
-      {/* <button onClick={randomizeDraft}>randomize</button> */}
       {showSideMenu && (
         <SideMenu
           setShowSideMenu={setShowSideMenu}
@@ -184,6 +204,9 @@ function App() {
           displayedDraft={displayedDraft}
         />
       )}
+      {showTradeScreen && (
+        <TradeScreen setShowTradeScreen={setShowTradeScreen} />
+      )}
       <Header showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
       <div className="container">
         <TeamContainer
@@ -191,8 +214,15 @@ function App() {
           removePlayer={removePlayer}
           clearDraft={clearDraft}
           setShowSaveScreen={setShowSaveScreen}
+          setIsSimulating={setIsSimulating}
+          isSimulating={isSimulating}
+          setShowTradeScreen={setShowTradeScreen}
         />
-        <PlayerContainer playerPool={playerPool} addPlayer={addPlayer} />
+        <PlayerContainer
+          playerPool={playerPool}
+          addPlayer={addPlayer}
+          isSimulating={isSimulating}
+        />
       </div>
     </div>
   );

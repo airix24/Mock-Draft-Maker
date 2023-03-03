@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/TeamCard.css";
 import { prospects } from "../Prospects";
 import { FaTimes } from "react-icons/fa";
 
@@ -19,7 +20,7 @@ function TeamCard(props) {
 
       {props.pick && (
         <FaTimes
-          className="icon x-icon"
+          className="icon"
           size={15}
           onClick={() => props.removePlayer(draftPick.id)}
         />

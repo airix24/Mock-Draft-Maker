@@ -1,0 +1,14 @@
+.save-text {
+  margin-top: 10%;
+}
+
+.save-bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.save-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

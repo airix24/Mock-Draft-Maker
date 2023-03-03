@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/PlayerContainer.css";
 import PlayerCard from "./PlayerCard";
 
 function PlayerContainer(props) {
@@ -30,9 +31,10 @@ function PlayerContainer(props) {
           img={player.img}
           id={player.id}
           addPlayer={props.addPlayer}
-          desc={player.desc}
+          archetype={player.archetype}
           strengths={player.strengths}
           weaknesses={player.weaknesses}
+          isSimulating={props.isSimulating}
         />
       );
     });

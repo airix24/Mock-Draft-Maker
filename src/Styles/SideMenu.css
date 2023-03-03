@@ -1,0 +1,28 @@
+.whole-screen {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+.side-menu {
+  position: fixed;
+  right: 0;
+  background-color: #03277a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  height: 100vh;
+  width: 20vw;
+}
+
+.side-menu > ul {
+  list-style-type: none;
+  margin-top: 20%;
+}
+
+.side-menu > ul > li {
+  font-size: 1.2rem;
+}

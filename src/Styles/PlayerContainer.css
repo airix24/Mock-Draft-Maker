@@ -1,0 +1,9 @@
+.playerContainer {
+  width: 30vw;
+  height: 78vh;
+  overflow-y: scroll;
+}
+
+.position-select {
+  cursor: pointer;
+}

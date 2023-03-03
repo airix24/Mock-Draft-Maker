@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/PlayerCard.css";
 import { FaChevronUp, FaChevronDown, FaPlus } from "react-icons/fa";
 
 function PlayerCard(props) {
@@ -7,16 +8,6 @@ function PlayerCard(props) {
   function convertHeight(height) {
     return `${Math.floor(height / 12)}'${height % 12}"`;
   }
-
-  // const descElements = props.desc
-  //   ? props.desc.map((desc, index) => {
-  //       if (index === props.desc.length - 1) {
-  //         return <p key={index}>{desc}</p>;
-  //       } else {
-  //         return <p key={index}>{desc},&nbsp;</p>;
-  //       }
-  //     })
-  //   : [];
 
   const strengthElements = props.strengths
     ? props.strengths.map((strength, index) => {
@@ -39,7 +30,7 @@ function PlayerCard(props) {
               <h2>
                 {props.firstName} {props.lastName}
               </h2>
-              <h2 className="light">{props.position}</h2>
+              <h3 className="light">{props.position} - {props.archetype}</h3>
             </div>
           ) : (
             <>
@@ -65,7 +56,7 @@ function PlayerCard(props) {
             />
           )}
           <FaPlus
-            className="icon plus-icon"
+            className={props.isSimulating ? "icon plus-icon disabled" : "icon plus-icon"}
             size={15}
             onClick={() => {
               props.addPlayer(props.id);
@@ -83,7 +74,6 @@ function PlayerCard(props) {
             <div>
               <h4><span className="light">school: </span>{props.school}</h4>
               <h4><span className="light">age: </span>{props.age ? props.age : "---"}</h4>
-              {/* <h4>{props.age ? `age: ${props.age}` : null}</h4> */}
               <h4><span className="light">height: </span>{convertHeight(props.height)}</h4>
               <h4><span className="light">weight: </span>{props.weight} lbs</h4>
             </div>
@@ -93,7 +83,6 @@ function PlayerCard(props) {
               <h4>Weaknesses:</h4>
               {weaknessElements}
             </div>
-            {/* <div className="desc">{descElements}</div> */}
           </div>
         </div>
       ) : null}

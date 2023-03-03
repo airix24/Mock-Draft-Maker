@@ -1,4 +1,5 @@
 import React from "react";
+import "../Styles/SaveScreen.css";
 import { FaTimes } from "react-icons/fa";
 
 function SaveScreen(props) {
