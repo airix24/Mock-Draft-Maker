@@ -50,7 +50,6 @@ SAVED DRAFTS:
 - Add ability to edit previous mock drafts
 - Add ability to delete previous mock drafts
 - Use a list component for viewing saved mock drafts?
-- Show most recent mock draft at the top of the list
 - If a name already exists, add a number to the end of it (ex. "My Mock Draft(1)")
 
 MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
