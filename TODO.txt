@@ -1,0 +1,97 @@
+TODO:
+
+APPLICATION:
+- Move images to assets folder in public folder
+- API?
+- Database?
+- Change how I structure this application in general (don't put functions in app.js?)
+
+CSS:
+- Styling
+- Better format?
+- Make it responsive
+- Update CSS naming conventions
+- Probably complete rehaul of design eventually
+- Have that cool background on saved drafts page and maybe the draft board page?
+
+FEATURES:
+- Add back arrows?
+- Add capablity for multiple rounds
+- Have player card visible when hovering over player that is drafted
+- Message pops up when mock draft full
+- Dark mode?
+- Show team needs (and maybe more) when you hover over a team?
+- Choose different years?
+
+TRADES:
+- Add trade feature
+- Other teams offer you trades when you're on the clock
+- Include trade value chart(s)?
+- Place at bottom that lists what trades were made?
+- Negotiate with AI GMs!?!? Don't make the GM mad. Each GM uses different trade charts, has a different personality, etc.
+
+PLAYER CARD:
+- Add combine stats?
+- RAS is better though
+- Add links to player scouting reports?
+- Make rank and position rank visible?
+- Add arm length to some positions?
+- Add player comp?
+- Include link to film?
+
+SEARCH:
+- Sort feature?
+- More advanced filtering?
+- More advanced search (can search for more things than just name)?
+- Select multiple positions in position filter?
+
+SAVED DRAFTS:
+- Add ability to view mock drafts
+- Add ability to edit previous mock drafts
+- Add ability to delete previous mock drafts
+- Use a list component for viewing saved mock drafts?
+- Show most recent mock draft at the top of the list
+- If a name already exists, add a number to the end of it (ex. "My Mock Draft(1)")
+
+MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
+- Add drag and drop
+- Be able to star prospects or put them in a watchlist
+- Add ability to add notes to each selection?
+- Scouting reports for teams?
+    - Team tendencies
+    - Team needs
+    - Other data about how they pick
+- Let user update/add their own ranks
+- Let the user add their own scouting reports
+
+MOCK DRAFT SIMULATOR (SIMULATION MODE):
+- Be able to choose team and then only pick for that team
+- Add loading icon when simulating
+- Improve algorithm for selecting best player to draft
+- Add ability to change speed
+- Have a team's need get eliminated when they draft a player that fits that need
+- Have your "assistant GM" suggest picks when you're on the clock
+- Actually be on the clock (timer)
+
+CONTEST:
+- Grade the accuracy of all mock drafts once the actual draft happens
+- Leaderboard for top mock drafts?
+- Other social features?
+- Put in money and compete in gpp?
+
+"BACKEND":
+- Add birthday so age updates automatically. Or just add year (junior, senior, etc.)
+- Add all picks
+
+BUGS:
+- Fix weird expand bug (might be a lot of work)
+- Make entire buttons clickable on start page
+- Fix bug where the player pool isn't reset when you go back to the start page and then come back to the mock draft maker tool
+
+MISCELLANEOUS:
+- Incorporate AI
+    - AI assistant?
+    - AI generated scouting reports?
+    - Talk with AI to figure out who the best pick is? (kind wack)
+- Add basketball eventually
+- Get rid of side menu?

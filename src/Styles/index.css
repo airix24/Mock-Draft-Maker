@@ -12,8 +12,7 @@ body {
   color: gray;
 }
 
-.icon:hover,
-li:hover {
+.icon:hover {
   opacity: 70%;
   cursor: pointer;
 }
@@ -40,6 +39,10 @@ button:hover {
   opacity: 90%;
 }
 
+button:active {
+  opacity: 70%;
+}
+
 .save-btn {
   background-color: rgb(52, 196, 52);
   color: white;
@@ -47,6 +50,10 @@ button:hover {
 
 .disabled {
   opacity: 50%;
-  cursor: not-allowed;
   pointer-events: none;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
 }

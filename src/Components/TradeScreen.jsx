@@ -19,12 +19,12 @@ function TradeScreen(props) {
         <div className="modal-content">
           <h1>Trade Screen</h1>
           <div className="trade-container">
-            <div className="trade-team-container">
+            {/* <div className="trade-team-container">
                 <h2>Other Team</h2>
             </div>
             <div className="trade-team-container">
                 <h2>User Team</h2>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,0 +1,10 @@
+.box {
+  background-color: #aba7b0;
+  border-radius: 5px;
+  height: 85vh;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}

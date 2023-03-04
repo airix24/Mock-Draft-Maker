@@ -253,6 +253,6 @@ export const teams = [
     abr: "WAS",
     logo: "https://content.sportslogos.net/logos/7/6832/thumbs/683260482022.gif",
     picks: [16],
-    needs: ["QB", "G", "C", "LB"],
+    needs: ["QB", "T", "G", "C", "CB", "LB"],
   },
 ];

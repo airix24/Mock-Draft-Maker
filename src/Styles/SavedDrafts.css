@@ -1,31 +1,46 @@
-.saved-drafts-screen {
-  height: 50vh;
-  width: 50vw;
-  background-color: white;
-  position: absolute;
-  right: 25%;
-  top: 25%;
-}
-
-.inner-modal-saved-drafts {
-  height: 70vh;
-}
-
-.saved-drafts-content {
-  height: 85%;
-  overflow-y: scroll;
-}
-
-.saved-draft-card {
-  background-color: #aba7b0;
+.new-saved-drafts-screen {
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.saved-drafts-container {
   width: 50%;
-  min-width: 200px;
+  max-width: 400px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.saved-drafts-container > h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.saved-drafts-container > hr {
+  border: 1px solid;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.saved-draft-elements {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.saved-draft-card {
+  padding: 0.2rem;
+  margin: 1rem;
+  border-radius: 5px;
 }
 
 .saved-draft-card:hover {
-  opacity: 90%;
+  background-color: #f2f2f2;
   cursor: pointer;
 }

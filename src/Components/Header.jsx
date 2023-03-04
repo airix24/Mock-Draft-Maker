@@ -1,16 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Styles/Header.css";
-import { FaBars, FaTimes } from "react-icons/fa";
 
-function Header(props) {
+function Header() {
   return (
     <div className="header">
-      <h1>Mock Draft Machine</h1>
-      <FaBars
-        className="icon header-icon"
-        size={20}
-        onClick={() => props.setShowSideMenu((prev) => !prev)}
-      />
+      <h1>
+        <Link to="/" className="link" >Mock Draft Machine</Link>
+      </h1>
     </div>
   );
 }

@@ -56,7 +56,7 @@ function PlayerCard(props) {
             />
           )}
           <FaPlus
-            className={props.isSimulating ? "icon plus-icon disabled" : "icon plus-icon"}
+            className={props.isSimulating ? "disabled icon plus-icon" : "icon plus-icon"}
             size={15}
             onClick={() => {
               props.addPlayer(props.id);

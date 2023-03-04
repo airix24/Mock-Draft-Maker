@@ -5,7 +5,7 @@ import { FaTimes } from "react-icons/fa";
 function SaveScreen(props) {
   return (
     <div className="outer-modal" onClick={() => props.setShowSaveScreen(false)}>
-      <div className="inner-modal" onClick={(e) => e.stopPropagation()}>
+      <div className="inner-modal save-inner-modal" onClick={(e) => e.stopPropagation()}>
         <div className="top-bar modal-bar">
           <FaTimes
             className="icon"
