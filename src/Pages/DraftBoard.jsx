@@ -1,6 +1,5 @@
 import "../Styles/DraftBoard.css";
 import TeamContainer from "../Components/TeamContainer";
-// import Header from "./Header";
 import PlayerContainer from "../Components/PlayerContainer";
 import { useEffect, useState } from "react";
 import { prospects } from "../Prospects";
@@ -16,7 +15,7 @@ function App(props) {
   const [isSimulating, setIsSimulating] = useState(false);
 
   const RANDOM_FACTOR = 3;
-  const SPEED = 50;
+  const SPEED = 100;
 
   // initialize the mock draft when the app loads for the first time
   useEffect(() => {
@@ -133,15 +132,6 @@ function App(props) {
     });
   }
 
-  // swap the picks of two mock draft slots
-  // function swapPicks(index1, index2) {
-  //   const newMock = [...mockDraft];
-  //   const temp = newMock[index1];
-  //   newMock[index1] = newMock[index2];
-  //   newMock[index2] = temp;
-  //   setMockDraft(newMock);
-  // }
-
   // clear the mock draft and reset the player pool
   function clearDraft() {
     setMockDraft(initializeMock(teams));
@@ -154,38 +144,14 @@ function App(props) {
     });
   }
 
-  // save the mock draft to local storage
-  function saveDraft(name) {
-    name = name === "" ? "Untitled" : name;
-    // if the name already exists, append a number to the end of it
-    // let i = 1;
-    // while (props.savedDrafts.some((draft) => draft.name === name)) {
-    //   i++;
-    // }
-    // if (i > 1) {
-    //   name = `${name}(${i})`;
-    // }
-    const draft = {
-      name: name,
-      date: new Date().toLocaleDateString(),
-      draft: mockDraft,
-    };
-    props.setSavedDrafts((prev) => {
-      const newDrafts = [...prev];
-      newDrafts.push(draft);
-      localStorage.setItem("savedDrafts", JSON.stringify(newDrafts));
-      return newDrafts;
-    });
-    setShowSaveScreen(false);
-    clearDraft();
-  }
-
   return (
     <div>
       {showSaveScreen && (
         <SaveScreen
           setShowSaveScreen={setShowSaveScreen}
-          saveDraft={saveDraft}
+          mockDraft={mockDraft}
+          setSavedDrafts={props.setSavedDrafts}
+          clearDraft={clearDraft}
         />
       )}
       {showTradeScreen && (

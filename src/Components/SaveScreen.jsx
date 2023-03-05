@@ -3,6 +3,32 @@ import "../Styles/SaveScreen.css";
 import { FaTimes } from "react-icons/fa";
 
 function SaveScreen(props) {
+  // save the mock draft to local storage
+  function saveDraft(name) {
+    name = name === "" ? "Untitled" : name;
+    // if the name already exists, append a number to the end of it
+    // let i = 1;
+    // while (props.savedDrafts.some((draft) => draft.name === name)) {
+    //   i++;
+    // }
+    // if (i > 1) {
+    //   name = `${name}(${i})`;
+    // }
+    const draft = {
+      name: name,
+      date: new Date().toLocaleDateString(),
+      draft: props.mockDraft,
+    };
+    props.setSavedDrafts((prev) => {
+      const newDraft = [...prev];
+      newDraft.push(draft);
+      localStorage.setItem("savedDrafts", JSON.stringify(newDraft));
+      return newDraft;
+    });
+    props.setShowSaveScreen(false);
+    props.clearDraft();
+  }
+
   return (
     <div className="outer-modal" onClick={() => props.setShowSaveScreen(false)}>
       <div className="inner-modal save-inner-modal" onClick={(e) => e.stopPropagation()}>
@@ -17,7 +43,7 @@ function SaveScreen(props) {
           <h3 className="save-text">Enter a name for your draft</h3>
           <form className="save-form" onSubmit={(e) => {
             e.preventDefault();
-            props.saveDraft(e.target[0].value);
+            saveDraft(e.target[0].value);
           }}>
             <input type="text" className="save-bar" />
             <button className="save-btn">Save</button>

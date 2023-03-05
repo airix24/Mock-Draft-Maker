@@ -6,10 +6,8 @@ import Header from "./Components/Header";
 import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
 import NewSavedDrafts from "./Pages/SavedDrafts";
-// import DisplayDraft from "./DisplayDraft";
 
 function App() {
-  // const [displayDraft, setDisplayDraft] = useState(false);
   const [savedDrafts, setSavedDrafts] = useState(
     localStorage.getItem("savedDrafts")
       ? JSON.parse(localStorage.getItem("savedDrafts"))
