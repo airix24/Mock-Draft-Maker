@@ -43,7 +43,7 @@ function TeamContainer(props) {
           </button>
         )}
 
-        <button className={props.isSimulating ? "disabled" : ""} onClick={() => props.setShowTradeScreen(true)}>
+        <button className={props.isSimulating ? "disabled" : "disabled"} onClick={() => props.setShowTradeScreen(true)}>
           Make a Trade
         </button>
 

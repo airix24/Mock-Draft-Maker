@@ -7,12 +7,14 @@ APPLICATION:
 - Change how I structure this application in general (don't put functions in app.js?)
 
 CSS:
+- Add footer with buttons: clear draft, save draft, simulate, make trade, trade offers, adjust speed, etc.?
 - Styling
 - Better format?
 - Make it responsive
 - Update CSS naming conventions
 - Probably complete rehaul of design eventually
 - Have that cool background on saved drafts page and maybe the draft board page?
+- Add mobile view
 
 FEATURES:
 - Add back arrows?
@@ -62,6 +64,7 @@ MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
     - Other data about how they pick
 - Let user update/add their own ranks
 - Let the user add their own scouting reports
+- Let use change number of rounds while making mock without deleting all picks they've already made
 
 MOCK DRAFT SIMULATOR (SIMULATION MODE):
 - Be able to choose team and then only pick for that team
@@ -71,6 +74,9 @@ MOCK DRAFT SIMULATOR (SIMULATION MODE):
 - Have a team's need get eliminated when they draft a player that fits that need
 - Have your "assistant GM" suggest picks when you're on the clock
 - Actually be on the clock (timer)
+- Show what pick each team has when you're selecting what team you are
+- Have team list scroll as it is simulating
+- Allow non-user teams to make trades
 
 CONTEST:
 - Grade the accuracy of all mock drafts once the actual draft happens
@@ -93,4 +99,4 @@ MISCELLANEOUS:
     - AI generated scouting reports?
     - Talk with AI to figure out who the best pick is? (kind wack)
 - Add basketball eventually
-- Get rid of side menu?
+- Add ability to create draft board?

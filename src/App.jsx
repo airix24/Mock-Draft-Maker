@@ -1,11 +1,9 @@
-import React from "react";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./Styles/App.css";
 import Header from "./Components/Header";
 import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
-import NewSavedDrafts from "./Pages/SavedDrafts";
 
 function App() {
   const [savedDrafts, setSavedDrafts] = useState(
@@ -18,14 +16,15 @@ function App() {
     <div className="app">
       <Header />
       <Routes>
-        <Route path="/" element={<StartupScreen />} />
+        <Route path="/" element={<StartupScreen savedDrafts={savedDrafts} />} />
         <Route
           path="/draft-board"
-          element={<DraftBoard savedDrafts={savedDrafts} setSavedDrafts={setSavedDrafts} />}
-        />
-        <Route
-          path="/saved-drafts"
-          element={<NewSavedDrafts savedDrafts={savedDrafts} />}
+          element={
+            <DraftBoard
+              savedDrafts={savedDrafts}
+              setSavedDrafts={setSavedDrafts}
+            />
+          }
         />
       </Routes>
     </div>

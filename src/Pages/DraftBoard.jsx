@@ -2,20 +2,27 @@ import "../Styles/DraftBoard.css";
 import TeamContainer from "../Components/TeamContainer";
 import PlayerContainer from "../Components/PlayerContainer";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { prospects } from "../Prospects";
 import { teams } from "../Teams";
 import SaveScreen from "../Components/SaveScreen";
 import TradeScreen from "../Components/TradeScreen";
 
-function App(props) {
+function DraftBoard(props) {
+  const location = useLocation();
+  const draftSettings = location.state;
+  console.log(draftSettings)
+
   const [playerPool, setPlayerPool] = useState([]);
   const [mockDraft, setMockDraft] = useState([]);
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [showTradeScreen, setShowTradeScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
-
-  const RANDOM_FACTOR = 3;
-  const SPEED = 100;
+  // const [mode, setMode] = useState("playground");
+  const [userTeam, setUserTeam] = useState(draftSettings ? draftSettings.team : null);
+  // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
+  const [speed] = useState(draftSettings ? draftSettings.speed : 1000);
+  const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 2);
 
   // initialize the mock draft when the app loads for the first time
   useEffect(() => {
@@ -64,7 +71,7 @@ function App(props) {
         } else {
           setIsSimulating(false);
         }
-      }, SPEED);
+      }, speed);
       return () => clearInterval(interval);
     }
   }, [isSimulating]);
@@ -72,7 +79,7 @@ function App(props) {
   // Randomly choose among the three highest ranked player that have not been drafted and that match the team's needs
   function selectPlayer(team) {
     const potentialPicks = [];
-    for (let i = 0; i < RANDOM_FACTOR; i++) {
+    for (let i = 0; i < randomFactor; i++) {
       const index = playerPool.findIndex(
         (player) =>
           player.drafted === false &&
@@ -177,4 +184,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default DraftBoard;

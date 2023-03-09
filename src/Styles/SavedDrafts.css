@@ -1,4 +1,4 @@
-.new-saved-drafts-screen {
+/* .new-saved-drafts-screen {
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -27,10 +27,14 @@
   border: 1px solid;
   width: 100%;
   margin-bottom: 1rem;
+} */
+
+.inner-modal-saved-drafts {
+  height: 70vh;
 }
 
 .saved-draft-elements {
-  height: 60vh;
+  /* height: 60vh; */
   overflow-y: auto;
 }
 
@@ -43,4 +47,16 @@
 .saved-draft-card:hover {
   background-color: #f2f2f2;
   cursor: pointer;
+}
+
+.saved-drafts-content {
+  overflow-y: scroll;
+  height: 55vh;
+}
+
+.idk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

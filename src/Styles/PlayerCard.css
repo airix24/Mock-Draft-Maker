@@ -53,12 +53,20 @@
 
 .exp-player-name {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  align-items: center;
   margin-bottom: 10px;
   margin-left: 10px;
+
+  flex-wrap: wrap;
 }
 
 .exp-player-name > h2 {
   margin-right: 10px;
+}
+
+.player-card-btns {
+  display: flex;
+  align-items: center;
 }

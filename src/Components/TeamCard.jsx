@@ -12,9 +12,12 @@ function TeamCard(props) {
         <img className="team-logo" src={props.logo}></img>
         <h3 className="pick-position">{props.draftPosition}.</h3>
         {props.pick && (
-          <h3>
-            {draftPick.firstName} {draftPick.lastName}
-          </h3>
+          <div className="drafted-player-info">
+            <h3>
+              {draftPick.firstName} {draftPick.lastName}
+            </h3>
+            <h3 className="light">{draftPick.position}</h3>
+          </div>
         )}
       </div>
 

@@ -1,0 +1,8 @@
+.settings-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-btn {
+  margin-top: 10px;
+}

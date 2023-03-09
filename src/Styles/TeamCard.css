@@ -1,5 +1,4 @@
 .team-card {
-  width: 25vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,4 +16,13 @@
 .team-logo {
   height: 20px;
   margin-right: 5px;
+}
+
+.drafted-player-info {
+  display: flex;
+  align-items: center;
+}
+
+.drafted-player-info > h3 {
+  margin-right: 10px;
 }
