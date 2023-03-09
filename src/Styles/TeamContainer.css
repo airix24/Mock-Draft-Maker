@@ -1,6 +1,7 @@
 .teamContainer {
   width: 35vw;
-  min-width: 100%;
+  /* min-width: 100%; */
+  min-width: 400px;
   height: 79vh;
   overflow-y: scroll;
   /* display: grid;

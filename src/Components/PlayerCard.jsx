@@ -30,7 +30,7 @@ function PlayerCard(props) {
               <h2>
                 {props.firstName} {props.lastName}
               </h2>
-              <h3 className="light">{props.position} - {props.archetype}</h3>
+              <h3 className="light">{props.position}{props.archetype != "" ? ` - ${props.archetype}` : ""}</h3>
             </div>
           ) : (
             <>
@@ -73,9 +73,10 @@ function PlayerCard(props) {
           <div className="exp-player-info">
             <div>
               <h4><span className="light">school: </span>{props.school}</h4>
-              <h4><span className="light">age: </span>{props.age ? props.age : "---"}</h4>
+              <h4><span className="light">class: </span>{props.class}</h4>
               <h4><span className="light">height: </span>{convertHeight(props.height)}</h4>
               <h4><span className="light">weight: </span>{props.weight} lbs</h4>
+              <h4><span className="light">RAS: </span>{props.ras ? props.ras : "---"}</h4>
             </div>
             <div className="player-skills">
               <h4>Strengths:</h4>

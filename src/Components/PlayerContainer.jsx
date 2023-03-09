@@ -27,7 +27,8 @@ function PlayerContainer(props) {
           school={player.school}
           height={player.height}
           weight={player.weight}
-          age={player.age}
+          ras={player.ras}
+          class={player.class}
           img={player.img}
           id={player.id}
           addPlayer={props.addPlayer}
@@ -57,6 +58,7 @@ function PlayerContainer(props) {
             <option value="te">TE</option>
             <option value="t">T</option>
             <option value="g">G</option>
+            <option value="c">C</option>
             <option value="di">DI</option>
             <option value="ed">ED</option>
             <option value="lb">LB</option>
