@@ -20,7 +20,7 @@ function DraftBoard(props) {
   // const [mode, setMode] = useState("builder");
   const [userTeam, setUserTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
-  const [speed] = useState(draftSettings ? draftSettings.speed : 1000);
+  const [speed] = useState(draftSettings ? draftSettings.speed : 200);
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 2);
 
   // initialize the mock draft when the app loads for the first time

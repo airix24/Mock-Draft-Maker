@@ -6,6 +6,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/177/thumbs/kwth8f1cfa2sch5xhjjfaof90.gif",
     picks: [3],
     needs: ["G", "ED", "CB"],
+    mainColor: "#97233F",
+    secondaryColor: "#FFB612",
   },
   {
     city: "Atlanta",
@@ -14,6 +16,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/173/thumbs/299.gif",
     picks: [8],
     needs: ["QB", "WR", "ED", "LB", "RB"],
+    mainColor: "#A71930",
+    secondaryColor: "#000000",
   },
   {
     city: "Baltimore",
@@ -22,6 +26,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/153/thumbs/318.gif",
     picks: [22],
     needs: ["WR", "ED", "CB"],
+    mainColor: "#241773",
+    secondaryColor: "#9E7C0C",
   },
   {
     city: "Buffalo",
@@ -30,6 +36,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/149/thumbs/n0fd1z6xmhigb0eej3323ebwq.gif",
     picks: [27],
     needs: ["G", "C", "CB", "S", "WR", "RB"],
+    mainColor: "#00338D",
+    secondaryColor: "#C60C30",
   },
   {
     city: "Carolina",
@@ -38,6 +46,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/174/thumbs/f1wggq2k8ql88fe33jzhw641u.gif",
     picks: [9],
     needs: ["QB", "RB", "TE", "ED"],
+    mainColor: "#0085CA",
+    secondaryColor: "#101820",
   },
   {
     city: "Chicago",
@@ -46,6 +56,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/169/thumbs/364.gif",
     picks: [1],
     needs: ["WR", "TE", "T", "G", "C", "ED", "DI", "LB", "CB", "S"],
+    mainColor: "#0B162A",
+    secondaryColor: "#C83803",
   },
   {
     city: "Cincinnati",
@@ -54,6 +66,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/154/thumbs/15420492021.gif",
     picks: [28],
     needs: ["T", "DI", "CB"],
+    mainColor: "#FB4F14",
+    secondaryColor: "#000000",
   },
   {
     city: "Cleveland",
@@ -62,6 +76,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/155/thumbs/15578552015.gif",
     picks: [],
     needs: ["WR", "DI", "S"],
+    mainColor: "#311D00",
+    secondaryColor: "#FF3C00",
   },
   {
     city: "Dallas",
@@ -70,6 +86,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/165/thumbs/406.gif",
     picks: [26],
     needs: ["WR", "DI", "LB", "RB"],
+    mainColor: "#041E42",
+    secondaryColor: "#869397",
   },
   {
     city: "Denver",
@@ -78,6 +96,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/161/thumbs/9ebzja2zfeigaziee8y605aqp.gif",
     picks: [],
     needs: ["T", "DI", "LB"],
+    mainColor: "#FB4F14",
+    secondaryColor: "#002244",
   },
   {
     city: "Detroit",
@@ -86,6 +106,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/170/thumbs/17013982017.gif",
     picks: [6, 18],
     needs: ["DI", "LB", "CB", "RB"],
+    mainColor: "#0076B6",
+    secondaryColor: "#B0B7BC",
   },
   {
     city: "Green Bay",
@@ -94,6 +116,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/171/thumbs/dcy03myfhffbki5d7il3.gif",
     picks: [15],
     needs: ["WR", "TE", "ED", "S"],
+    mainColor: "#203731",
+    secondaryColor: "#FFB612",
   },
   {
     city: "Houston",
@@ -102,6 +126,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/157/thumbs/570.gif",
     picks: [2, 12],
     needs: ["QB", "G", "C", "ED", "DI"],
+    mainColor: "#03202F",
+    secondaryColor: "#A71930",
   },
   {
     city: "Indianapolis",
@@ -110,6 +136,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/158/thumbs/593.gif",
     picks: [4],
     needs: ["QB", "T", "G", "C"],
+    mainColor: "#002C5F",
+    secondaryColor: "#A2AAAD",
   },
   {
     city: "Jacksonville",
@@ -118,6 +146,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/159/thumbs/15988562013.gif",
     picks: [24],
     needs: ["G", "C", "CB", "S"],
+    mainColor: "#006778",
+    secondaryColor: "#D7A22A",
   },
   {
     city: "Kansas City",
@@ -126,6 +156,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/162/thumbs/857.gif",
     picks: [31],
     needs: ["WR", "DI", "ED"],
+    mainColor: "#E31837",
+    secondaryColor: "#FFB81C",
   },
   {
     city: "Las Vegas",
@@ -134,6 +166,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/6708/thumbs/670885212020.gif",
     picks: [7],
     needs: ["QB", "T", "G", "C", "CB", "S"],
+    mainColor: "#000000",
+    secondaryColor: "#A5ACAF",
   },
   {
     city: "Los Angeles",
@@ -142,6 +176,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/6446/thumbs/644616602020.gif",
     picks: [21],
     needs: ["WR", "T", "LB", "CB"],
+    mainColor: "#002A5E",
+    secondaryColor: "#FFC20E",
   },
   {
     city: "Los Angeles",
@@ -150,6 +186,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/5941/thumbs/594183342020.gif",
     picks: [],
     needs: ["T", "G", "C", "ED", "S"],
+    mainColor: "#003594",
+    secondaryColor: "#FFD100",
   },
   {
     city: "Miami",
@@ -158,6 +196,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/150/thumbs/15073062018.gif",
     picks: [],
     needs: ["T", "G", "C", "CB"],
+    mainColor: "#008E97",
+    secondaryColor: "#F58220",
   },
   {
     city: "Minnesota",
@@ -166,6 +206,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/172/thumbs/17227042013.gif",
     picks: [23],
     needs: ["DI", "LB", "CB", "WR"],
+    mainColor: "#4F2683",
+    secondaryColor: "#FFC62F",
   },
   {
     city: "New England",
@@ -174,6 +216,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/151/thumbs/y71myf8mlwlk8lbgagh3fd5e0.gif",
     picks: [14],
     needs: ["QB", "T", "ED"],
+    mainColor: "#002244",
+    secondaryColor: "#C60C30",
   },
   {
     city: "New Orleans",
@@ -182,6 +226,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/175/thumbs/907.gif",
     picks: [29],
     needs: ["QB", "DI", "CB"],
+    mainColor: "#D3BC8D",
+    secondaryColor: "#101820",
   },
   {
     city: "New York",
@@ -190,6 +236,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/166/thumbs/919.gif",
     picks: [25],
     needs: ["WR", "TE", "C", "LB"],
+    mainColor: "#0B2265",
+    secondaryColor: "#A71930",
   },
   {
     city: "New York",
@@ -198,6 +246,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/152/thumbs/15291162019.gif",
     picks: [13],
     needs: ["QB", "T", "LB"],
+    mainColor: "#125740",
+    secondaryColor: "#000000",
   },
   {
     city: "Philadelphia",
@@ -206,6 +256,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/167/thumbs/960.gif",
     picks: [10, 30],
     needs: ["G", "C", "WR", "DI", "ED", "T", "RB"],
+    mainColor: "#004C54",
+    secondaryColor: "#A5ACAF",
   },
   {
     city: "Pittsburgh",
@@ -214,6 +266,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/156/thumbs/970.gif",
     picks: [17],
     needs: ["T", "LB", "CB"],
+    mainColor: "#FFB612",
+    secondaryColor: "#000000",
   },
   {
     city: "San Francisco",
@@ -222,6 +276,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/179/thumbs/17994552009.gif",
     picks: [],
     needs: ["G", "C", "DI", "CB"],
+    mainColor: "#AA0000",
+    secondaryColor: "#B3995D",
   },
   {
     city: "Seattle",
@@ -230,6 +286,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/180/thumbs/pfiobtreaq7j0pzvadktsc6jv.gif",
     picks: [5, 20],
     needs: ["G", "C", "ED", "DI"],
+    mainColor: "#002244",
+    secondaryColor: "#69BE28",
   },
   {
     city: "Tampa Bay",
@@ -238,6 +296,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/176/thumbs/17683632020.gif",
     picks: [19],
     needs: ["QB", "TE", "G", "C", "DI"],
+    mainColor: "#D50A0A",
+    secondaryColor: "#34302D",
   },
   {
     city: "Tennessee",
@@ -246,6 +306,8 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/160/thumbs/1053.gif",
     picks: [11],
     needs: ["WR", "T", "ED"],
+    mainColor: "#0C2340",
+    secondaryColor: "#4B92DB",
   },
   {
     city: "Washington",
@@ -254,5 +316,7 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/6832/thumbs/683260482022.gif",
     picks: [16],
     needs: ["QB", "T", "G", "C", "CB", "LB"],
+    mainColor: "#773141",
+    secondaryColor: "#FFB612",
   },
 ];

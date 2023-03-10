@@ -40,6 +40,11 @@
 
 .exp-player-info {
   display: flex;
+  letter-spacing: 0.8px;
+}
+
+.class-year {
+  margin-bottom: 5px;
 }
 
 .player-skills {

@@ -10,7 +10,7 @@ function TeamCard(props) {
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isPlayerHovered, setIsPlayerHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [boxPosition, setBoxPosition] = useState({ top: 0, left: 0 });
+  // const [boxPosition, setBoxPosition] = useState({ top: 0, left: 0 });
 
   // function handleBoxPosition(boxRef) {
   //   if (!boxRef) return;
@@ -70,7 +70,6 @@ function TeamCard(props) {
             >
               {isPlayerHovered && (
                 <div
-                  className="card"
                   // ref={handleBoxPosition}
                   style={{
                     position: "absolute",
@@ -78,6 +77,10 @@ function TeamCard(props) {
                     left: mousePosition.x + 10,
                     boxShadow: "0 0 5px gray",
                     zIndex: 100,
+                    backgroundImage: `linear-gradient(to bottom right, ${props.mainColor}, ${props.secondaryColor})`,
+                    borderRadius: "5px",
+                    padding: "3px",
+                    width: "400px",
                   }}
                 >
                   <PlayerCard

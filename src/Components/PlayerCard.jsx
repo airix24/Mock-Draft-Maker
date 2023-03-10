@@ -93,7 +93,7 @@ function PlayerCard(props) {
                 <span className="light">school: </span>
                 {props.school}
               </h4>
-              <h4>
+              <h4 className="class-year">
                 <span className="light">class: </span>
                 {props.class}
               </h4>

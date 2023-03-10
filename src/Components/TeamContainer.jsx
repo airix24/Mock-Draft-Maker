@@ -13,6 +13,8 @@ function TeamContainer(props) {
         city={currTeam.city}
         teamName={currTeam.teamName}
         logo={currTeam.logo}
+        mainColor={currTeam.mainColor}
+        secondaryColor={currTeam.secondaryColor}
         pick={mockSlot.pick}
         removePlayer={props.removePlayer}
         teamNeeds={currTeam.needs}
