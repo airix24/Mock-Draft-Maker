@@ -18,7 +18,6 @@ CSS:
 
 FEATURES:
 - Add capablity for multiple rounds
-- Have player card visible when hovering over player that is drafted
 - Message pops up when mock draft full
 - Dark mode?
 - Click on team to get summary? (team needs, team tendencies, roster, cap space, etc.)
@@ -109,6 +108,7 @@ CONTEST:
 - Add arm length to some positions?
 
 BUGS:
+- Make it so pop up player card is always visible on the screen
 - Fix weird expand bug (might be a lot of work)
 - Make entire buttons clickable on start page
 - Fix bug where the player pool isn't reset when you go back to the start page and then come back to the mock draft maker tool

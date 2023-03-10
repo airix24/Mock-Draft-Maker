@@ -11,7 +11,6 @@ import TradeScreen from "../Components/TradeScreen";
 function DraftBoard(props) {
   const location = useLocation();
   const draftSettings = location.state;
-  console.log(draftSettings)
 
   const [playerPool, setPlayerPool] = useState([]);
   const [mockDraft, setMockDraft] = useState([]);

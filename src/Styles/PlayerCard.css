@@ -54,17 +54,11 @@
 .exp-player-name {
   display: flex;
   align-items: center;
-  /* flex-direction: column; */
-  /* justify-content: center;
-  align-items: center; */
   margin-bottom: 8px;
-  /* margin-left: 10px; */
-
-  /* flex-wrap: wrap; */
 }
 
 .exp-player-name > h3 {
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .player-card-btns {

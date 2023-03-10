@@ -3,7 +3,9 @@ import "../Styles/PlayerCard.css";
 import { FaChevronUp, FaChevronDown, FaPlus } from "react-icons/fa";
 
 function PlayerCard(props) {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(
+    props.hoveredCard ? true : false
+  );
 
   function convertHeight(height) {
     return `${Math.floor(height / 12)}'${height % 12}"`;
@@ -50,31 +52,35 @@ function PlayerCard(props) {
             </div>
           )}
         </div>
-        <div className="player-card-btns">
-          {expanded ? (
-            <FaChevronUp
-              className="icon"
+        {props.hoveredCard ? null : (
+          <div className="player-card-btns">
+            {expanded ? (
+              <FaChevronUp
+                className="icon"
+                size={15}
+                onClick={() => setExpanded(false)}
+              />
+            ) : (
+              <FaChevronDown
+                className="icon"
+                size={15}
+                onClick={() => setExpanded(true)}
+              />
+            )}
+            <FaPlus
+              className={
+                props.isSimulating
+                  ? "disabled icon plus-icon"
+                  : "icon plus-icon"
+              }
               size={15}
-              onClick={() => setExpanded(false)}
+              onClick={() => {
+                props.addPlayer(props.id);
+                setExpanded(false);
+              }}
             />
-          ) : (
-            <FaChevronDown
-              className="icon"
-              size={15}
-              onClick={() => setExpanded(true)}
-            />
-          )}
-          <FaPlus
-            className={
-              props.isSimulating ? "disabled icon plus-icon" : "icon plus-icon"
-            }
-            size={15}
-            onClick={() => {
-              props.addPlayer(props.id);
-              setExpanded(false);
-            }}
-          />
-        </div>
+          </div>
+        )}
       </div>
       {expanded ? (
         <div className="expanded">
