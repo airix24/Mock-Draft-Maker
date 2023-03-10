@@ -15,6 +15,7 @@ function TeamContainer(props) {
         logo={currTeam.logo}
         pick={mockSlot.pick}
         removePlayer={props.removePlayer}
+        teamNeeds={currTeam.needs}
       />
     );
   });

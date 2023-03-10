@@ -21,6 +21,7 @@ function PlayerContainer(props) {
       return (
         <PlayerCard
           key={index}
+          rank={player.rank}
           firstName={player.firstName}
           lastName={player.lastName}
           position={player.position}

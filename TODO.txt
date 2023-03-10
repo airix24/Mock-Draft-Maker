@@ -5,6 +5,7 @@ APPLICATION:
 - API?
 - Database?
 - Change how I structure this application in general (move around functions?)
+- Accessibility
 
 CSS:
 - Add footer with buttons: clear draft, save draft, simulate, make trade, trade offers, adjust speed, etc.?
@@ -20,9 +21,11 @@ FEATURES:
 - Have player card visible when hovering over player that is drafted
 - Message pops up when mock draft full
 - Dark mode?
-- Show team needs (and maybe more) when you hover over a team?
 - Click on team to get summary? (team needs, team tendencies, roster, cap space, etc.)
 - Choose different years?
+- Add expand all button?
+- Have different buttons show up depending on the mode
+- Make it so team needs that show up when you hover and what positions the team actually target are different (eg. Philly has bigger needs than DL and OL but they still always target those positions no matter what)
 
 TRADES:
 - Add trade feature
@@ -34,7 +37,7 @@ TRADES:
 PLAYER CARD:
 - Have link for all combine drills?
 - Add links to player scouting reports?
-- Make rank and position rank visible?
+- Make position rank visible?
 - Add arm length to some positions?
 - Add player comp?
 - Include link to film?
@@ -75,13 +78,23 @@ MOCK DRAFT SIMULATOR (SIMULATION MODE):
 - Be able to choose team and then only pick for that team
 - Add loading icon when simulating
 - Improve algorithm for selecting best player to draft
+   - Make QB needy teams much more likely to pick one
+   - Sometimes have teams go for BPA if no positions of need are near the top of the board
+   - Make it random but more likely to higher up in the ranks
+   - Base it on level of need and overall rank
+   - Have different levels of need?
 - Add ability to change speed
 - Have a team's need get eliminated when they draft a player that fits that need
-- Have your "assistant GM" suggest picks when you're on the clock
+- Have your "assistant GM" suggest picks when you're on the clock?
+   - Give the user a short list to choose from?
 - Actually be on the clock (timer)?
 - Show what pick each team has when you're selecting what team you are
 - Have team list scroll as it is simulating
 - Allow non-user teams to make trades
+
+GAMIFY IT:
+- Have a list of goals for the draft that the owner gives you (ex. "Draft a top 3 WR", "get a first round pick for next year", etc.)
+- Maybe a new goal could pop up in the middle of the draft?
 
 CONTEST:
 - Grade the accuracy of all mock drafts once the actual draft happens
@@ -102,6 +115,8 @@ BUGS:
 
 MISCELLANEOUS:
 - Incorporate AI?
+    - Get a message from the owner telling you not to screw it up at the beginning (this doesn't have to be AI I guess)
+    - The owner gives feedback on each one of your picks?
     - AI assistant?
     - AI generated scouting reports?
     - Talk with AI to figure out who the best pick is? (kind wack)

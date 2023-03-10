@@ -18,7 +18,7 @@ function DraftBoard(props) {
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [showTradeScreen, setShowTradeScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
-  // const [mode, setMode] = useState("playground");
+  // const [mode, setMode] = useState("builder");
   const [userTeam, setUserTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
   const [speed] = useState(draftSettings ? draftSettings.speed : 1000);

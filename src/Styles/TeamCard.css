@@ -23,6 +23,7 @@
   align-items: center;
 }
 
-.drafted-player-info > h3 {
+.drafted-player-name {
+  position: relative;
   margin-right: 10px;
 }

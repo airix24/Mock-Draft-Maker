@@ -93,7 +93,7 @@ export const teams = [
     abr: "GB",
     logo: "https://content.sportslogos.net/logos/7/171/thumbs/dcy03myfhffbki5d7il3.gif",
     picks: [15],
-    needs: ["WR", "TE", "ED", "LB"],
+    needs: ["WR", "TE", "ED", "S"],
   },
   {
     city: "Houston",

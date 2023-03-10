@@ -29,7 +29,7 @@
 
 .unexpanded {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
 }
 
@@ -53,20 +53,31 @@
 
 .exp-player-name {
   display: flex;
-  /* flex-direction: column; */
-  /* justify-content: center; */
   align-items: center;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  /* flex-direction: column; */
+  /* justify-content: center;
+  align-items: center; */
+  margin-bottom: 8px;
+  /* margin-left: 10px; */
 
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
-.exp-player-name > h2 {
-  margin-right: 15px;
+.exp-player-name > h3 {
+  margin-right: 5px;
 }
 
 .player-card-btns {
   display: flex;
   align-items: center;
+  margin-top: 10px;
+}
+
+.unexp-player-name {
+  display: flex;
+  align-items: center;
+}
+
+.unexp-player-name > h3 {
+  margin-right: 5px;
 }

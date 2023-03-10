@@ -27,18 +27,27 @@ function PlayerCard(props) {
         <div className="unexpanded-player-info">
           {expanded ? (
             <div className="exp-player-name">
-              <h2>
-                {props.firstName} {props.lastName}
-              </h2>
-              <h3 className="light">{props.position}{props.archetype != "" ? ` - ${props.archetype}` : ""}</h3>
+              <h3>{props.rank}.</h3>
+              <div>
+                <h2>
+                  {props.firstName} {props.lastName}
+                </h2>
+                <h3 className="light">
+                  {props.position}
+                  {props.archetype != "" ? ` - ${props.archetype}` : ""}
+                </h3>
+              </div>
             </div>
           ) : (
-            <>
-              <h3>
-                {props.firstName} {props.lastName}
-              </h3>
-              <h4 className="light">{props.position}</h4>
-            </>
+            <div className="unexp-player-name">
+              <h3>{props.rank}.</h3>
+              <div>
+                <h3>
+                  {props.firstName} {props.lastName}
+                </h3>
+                <h4 className="light">{props.position}</h4>
+              </div>
+            </div>
           )}
         </div>
         <div className="player-card-btns">
@@ -56,7 +65,9 @@ function PlayerCard(props) {
             />
           )}
           <FaPlus
-            className={props.isSimulating ? "disabled icon plus-icon" : "icon plus-icon"}
+            className={
+              props.isSimulating ? "disabled icon plus-icon" : "icon plus-icon"
+            }
             size={15}
             onClick={() => {
               props.addPlayer(props.id);
@@ -72,11 +83,26 @@ function PlayerCard(props) {
           </div>
           <div className="exp-player-info">
             <div>
-              <h4><span className="light">school: </span>{props.school}</h4>
-              <h4><span className="light">class: </span>{props.class}</h4>
-              <h4><span className="light">height: </span>{convertHeight(props.height)}</h4>
-              <h4><span className="light">weight: </span>{props.weight} lbs</h4>
-              <h4><span className="light">RAS: </span>{props.ras ? props.ras : "---"}</h4>
+              <h4>
+                <span className="light">school: </span>
+                {props.school}
+              </h4>
+              <h4>
+                <span className="light">class: </span>
+                {props.class}
+              </h4>
+              <h4>
+                <span className="light">height: </span>
+                {convertHeight(props.height)}
+              </h4>
+              <h4>
+                <span className="light">weight: </span>
+                {props.weight} lbs
+              </h4>
+              <h4>
+                <span className="light">RAS: </span>
+                {props.ras ? props.ras : "---"}
+              </h4>
             </div>
             <div className="player-skills">
               <h4>Strengths:</h4>

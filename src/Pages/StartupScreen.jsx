@@ -21,7 +21,7 @@ function StartupScreen(props) {
           <button className="startup-btn">
             <h3>
               <Link to="/draft-board" className="startup-link">
-                Playground
+                Mock Builder
               </Link>
             </h3>
           </button>
