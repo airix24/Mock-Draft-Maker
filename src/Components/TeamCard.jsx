@@ -77,7 +77,7 @@ function TeamCard(props) {
                     left: mousePosition.x + 10,
                     boxShadow: "0 0 5px gray",
                     zIndex: 100,
-                    backgroundImage: `linear-gradient(to bottom right, ${props.mainColor}, ${props.secondaryColor})`,
+                    backgroundImage: `linear-gradient(to bottom right, ${props.mainColor} 45%, ${props.secondaryColor} 55%)`,
                     borderRadius: "5px",
                     padding: "3px",
                     width: "400px",

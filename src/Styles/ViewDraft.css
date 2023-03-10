@@ -1,0 +1,20 @@
+.inner-modal-view-draft {
+  height: 70vh;
+  width: 40vw;
+}
+
+.modal-content-view-draft {
+  height: 87%;
+  overflow-y: scroll;
+}
+
+.draft-element {
+  margin: 10px;
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+
+.draft-element > *:nth-child(2) {
+  margin-right: 10px;
+}

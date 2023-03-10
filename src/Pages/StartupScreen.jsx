@@ -1,15 +1,18 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/StartupScreen.css";
 import DraftSettings from "../Components/DraftSettings";
 import SavedDrafts from "../Components/SavedDrafts";
+import ViewDraft from "../Components/ViewDraft";
 
 function StartupScreen(props) {
-  const [showDraftSettings, setShowDraftSettings] = React.useState(false);
-  const [showSavedDrafts, setShowSavedDrafts] = React.useState(false);
+  const [showDraftSettings, setShowDraftSettings] = useState(false);
+  const [showSavedDrafts, setShowSavedDrafts] = useState(false);
+  const [showViewDraft, setShowViewDraft] = useState(false);
+  const [currDraft, setCurrDraft] = useState({});
 
   return (
-    <>
+    <div>
       <div className="context">
         <div className="startup-menu-content">
           <button
@@ -54,9 +57,18 @@ function StartupScreen(props) {
         <SavedDrafts
           setShowSavedDrafts={setShowSavedDrafts}
           savedDrafts={props.savedDrafts}
+          setShowViewDraft={setShowViewDraft}
+          setCurrDraft={setCurrDraft}
         />
       )}
-    </>
+      {showViewDraft && (
+        <ViewDraft
+          setShowViewDraft={setShowViewDraft}
+          setShowSavedDrafts={setShowSavedDrafts}
+          currDraft={currDraft}
+        />
+      )}
+    </div>
   );
 }
 

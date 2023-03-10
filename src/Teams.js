@@ -176,7 +176,7 @@ export const teams = [
     logo: "https://content.sportslogos.net/logos/7/6446/thumbs/644616602020.gif",
     picks: [21],
     needs: ["WR", "T", "LB", "CB"],
-    mainColor: "#002A5E",
+    mainColor: "#0073CF",
     secondaryColor: "#FFC20E",
   },
   {

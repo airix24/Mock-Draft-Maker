@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "../Styles/SavedDrafts.css";
 import { FaTimes } from "react-icons/fa";
 
@@ -6,7 +6,11 @@ function SavedDrafts(props) {
   const savedDraftElements = props.savedDrafts
     .map((draft, index) => {
       return (
-        <div className="saved-draft-card" key={index}>
+        <div className="saved-draft-card" onClick={() => {
+          props.setShowSavedDrafts(false);
+          props.setShowViewDraft(true);
+          props.setCurrDraft(draft);
+        }} key={index}>
           <h2>{draft.name}</h2>
           <h4 className="light">{draft.date}</h4>
           <hr></hr>
