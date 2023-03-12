@@ -61,7 +61,7 @@ function PlayerCard(props) {
               <FaChevronUp
                 className="icon"
                 size={15}
-                onClick={() => {
+                onClick={(e) => {
                   setExpanded(false);
                   e.stopPropagation();
                 }}
