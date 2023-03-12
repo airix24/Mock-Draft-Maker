@@ -17,6 +17,7 @@ CSS:
 - Add mobile view
 
 FEATURES:
+- Have the teams automatically scroll down when you add a player
 - Add capablity for multiple rounds
 - Message pops up when mock draft full
 - Dark mode?
@@ -25,6 +26,8 @@ FEATURES:
 - Add expand all button?
 - Have different buttons show up depending on the mode
 - Make it so team needs that show up when you hover and what positions the team actually target are different (eg. Philly has bigger needs than DL and OL but they still always target those positions no matter what)
+- Upload your mock draft and be able to see other people's mock drafts?
+- Have a share button that copies a pic of your mock draft? or a link to share it somewhere?
 
 TRADES:
 - Add trade feature
@@ -45,22 +48,25 @@ PLAYER CARD:
 - Be able to open full screen view with even more info?
 
 SEARCH:
+- Better searching (e.g. if you type L, it should show Lukas Van Ness before Will Anderson)
 - Sort feature?
 - More advanced filtering?
 - More advanced search (can search for more things than just name)?
 - Select multiple positions in position filter?
 
 SAVED DRAFTS:
-- Add ability to view mock drafts
 - Add ability to edit previous mock drafts
 - Add ability to delete previous mock drafts
 - Use a list component for viewing saved mock drafts?
 - If a name already exists, add a number to the end of it (ex. "My Mock Draft(1)")
+- Add a limit to how long the name of your draft can be
+- Have the space to write a name automatically selected when you click on the save button
 
 MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
 - Add drag and drop
 - Be able to star prospects or put them in a watchlist
 - Add ability to add notes to each selection?
+- Be able to write a summary of the entire draft?
 - Scouting reports for teams?
     - Team tendencies
     - Team needs
@@ -72,6 +78,8 @@ MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
 - Let user update/add their own ranks
 - Let the user add their own scouting reports
 - Let use change number of rounds while making mock without deleting all picks they've already made
+- Show the betting odds of a player being drafted at a certain position or by a certain team
+- Show the most commonly mocked players for each pick
 
 MOCK DRAFT SIMULATOR (SIMULATION MODE):
 - Be able to choose team and then only pick for that team
@@ -82,6 +90,7 @@ MOCK DRAFT SIMULATOR (SIMULATION MODE):
    - Make it random but more likely to higher up in the ranks
    - Base it on level of need and overall rank
    - Have different levels of need?
+   - Could just be based on most commonly mocked player for that pick
 - Add ability to change speed
 - Have a team's need get eliminated when they draft a player that fits that need
 - Have your "assistant GM" suggest picks when you're on the clock?
@@ -108,6 +117,7 @@ CONTEST:
 - Add arm length to some positions?
 
 BUGS:
+- When you expand bottom player, have it that player visible
 - Make it so pop up player card is always visible on the screen
 - Fix weird expand bug (might be a lot of work)
 - Make entire buttons clickable on start page

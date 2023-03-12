@@ -24,7 +24,10 @@ function PlayerCard(props) {
     : [];
 
   return (
-    <div className="card">
+    <div
+      className="card player-card"
+      onClick={() => setExpanded((prev) => !prev)}
+    >
       <div className="unexpanded">
         <div className="unexpanded-player-info">
           {expanded ? (
@@ -58,13 +61,19 @@ function PlayerCard(props) {
               <FaChevronUp
                 className="icon"
                 size={15}
-                onClick={() => setExpanded(false)}
+                onClick={() => {
+                  setExpanded(false);
+                  e.stopPropagation();
+                }}
               />
             ) : (
               <FaChevronDown
                 className="icon"
                 size={15}
-                onClick={() => setExpanded(true)}
+                onClick={(e) => {
+                  setExpanded(true);
+                  e.stopPropagation();
+                }}
               />
             )}
             <FaPlus

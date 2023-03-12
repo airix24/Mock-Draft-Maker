@@ -1,7 +1,5 @@
-.playerCard {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.player-card {
+  cursor: pointer;
 }
 
 .playerInfo {

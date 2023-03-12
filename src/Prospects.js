@@ -193,7 +193,7 @@ export const prospects = [
     school: "Florida",
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.gaXz8ax8M21VkHj4e7ON8AHaFY%26pid%3DApi&f=1&ipt=aa157ec26dc61577c49649a36bff8af365c8d0f2b0b23ba22de29390fe68161d&ipo=images",
     desc: ["Elite Athlete", "Strong Arm", "Project"],
-    archetype: "Gunslinger",
+    archetype: "Dual Threat",
     strengths: ["Upside", "Arm Strength", "Athleticism"],
     weaknesses: ["Accuracy", "Raw"],
   },
