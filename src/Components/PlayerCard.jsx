@@ -76,18 +76,21 @@ function PlayerCard(props) {
                 }}
               />
             )}
-            <FaPlus
-              className={
-                props.isSimulating
-                  ? "disabled icon plus-icon"
-                  : "icon plus-icon"
-              }
-              size={15}
-              onClick={() => {
-                props.addPlayer(props.id);
-                setExpanded(false);
-              }}
-            />
+            {props.mode === "builder" || props.isUserPick() ? (
+              <FaPlus
+                className={
+                  props.isSimulating
+                    ? "disabled icon plus-icon"
+                    : "icon plus-icon"
+                }
+                size={15}
+                onClick={(e) => {
+                  props.addPlayer(props.id);
+                  setExpanded(false);
+                  e.stopPropagation();
+                }}
+              />
+            ) : null}
           </div>
         )}
       </div>

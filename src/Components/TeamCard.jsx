@@ -33,7 +33,7 @@ function TeamCard(props) {
   // };
 
   return (
-    <div className="team-card card">
+    <div className={`card ${props.userTeam === props.abr ? "user-team-card" : ""}`}>
       <div className="team-card-info">
         <img
           className="team-logo"
@@ -109,12 +109,14 @@ function TeamCard(props) {
         )}
       </div>
 
-      {props.pick && (
+      {props.pick && props.mode === "builder" ? (
         <FaTimes
           className="icon"
           size={15}
           onClick={() => props.removePlayer(draftPick.id)}
         />
+      ) : (
+        <div></div>
       )}
     </div>
   );

@@ -16,7 +16,7 @@ function StartupScreen(props) {
       <div className="context">
         <div className="startup-menu-content">
           <button
-            className="startup-btn disabled"
+            className="startup-btn"
             onClick={() => setShowDraftSettings(true)}
           >
             <h3>Be The GM</h3>

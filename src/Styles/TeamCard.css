@@ -1,8 +1,8 @@
-.team-card {
+/* .team-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .team-card-info {
   display: flex;
@@ -25,4 +25,8 @@
 
 .drafted-player-name {
   margin-right: 10px;
+}
+
+.user-team-card {
+  border: 2px solid #03277a;
 }

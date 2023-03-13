@@ -37,6 +37,8 @@ function PlayerContainer(props) {
           strengths={player.strengths}
           weaknesses={player.weaknesses}
           isSimulating={props.isSimulating}
+          mode={props.mode}
+          isUserPick={props.isUserPick}
         />
       );
     });

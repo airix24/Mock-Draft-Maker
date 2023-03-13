@@ -18,6 +18,9 @@ function TeamContainer(props) {
         pick={mockSlot.pick}
         removePlayer={props.removePlayer}
         teamNeeds={currTeam.needs}
+        mode={props.mode}
+        userTeam={props.userTeam}
+        abr={currTeam.abr}
       />
     );
   });
@@ -25,37 +28,50 @@ function TeamContainer(props) {
   return (
     <div className="box">
       <div className="top-bar">
-        <button
-          onClick={props.clearDraft}
-          className={props.isSimulating ? "disabled" : null}
-        >
-          Clear Draft
-        </button>
         {props.isSimulating ? (
           <button
             onClick={() => props.setIsSimulating(false)}
-            className="stop-btn"
+            className={props.mode === "builder" ? "stop-btn" : ""}
           >
-            Stop
+            {props.mode === "builder" ? "Stop" : "Pause"}
           </button>
         ) : (
           <button
+            className={
+              props.isUserPick() || props.isDraftFinished() ? "disabled" : ""
+            }
             onClick={() => props.setIsSimulating(true)}
           >
-            Simulate
+            {props.mode === "builder"
+              ? "Simulate"
+              : props.isDraftStarted()
+              ? "Resume"
+              : "Start Draft"}
+          </button>
+        )}
+        {props.isDraftStarted() && (
+          <button
+            onClick={props.clearDraft}
+            className={props.isSimulating ? "disabled" : null}
+          >
+            {props.mode === "builder" ? "Clear Draft" : "Restart Draft"}
           </button>
         )}
 
-        <button className={props.isSimulating ? "disabled" : "disabled"} onClick={() => props.setShowTradeScreen(true)}>
+        <button
+          className={props.isSimulating ? "disabled" : "disabled"}
+          onClick={() => props.setShowTradeScreen(true)}
+        >
           Make a Trade
         </button>
-
-        <button
-          className={props.isSimulating ? "disabled save-btn" : "save-btn"}
-          onClick={() => props.setShowSaveScreen(true)}
-        >
-          Save Draft
-        </button>
+        {props.mode === "builder" || props.isDraftFinished() ? (
+          <button
+            className={props.isSimulating ? "disabled save-btn" : "save-btn"}
+            onClick={() => props.setShowSaveScreen(true)}
+          >
+            Save Draft
+          </button>
+        ) : null}
       </div>
       <div className="teamContainer">{teamElements}</div>
     </div>

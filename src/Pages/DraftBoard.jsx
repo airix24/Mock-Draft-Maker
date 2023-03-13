@@ -17,7 +17,7 @@ function DraftBoard(props) {
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [showTradeScreen, setShowTradeScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
-  // const [mode, setMode] = useState("builder");
+  const [mode, setMode] = useState(draftSettings ? "gm" : "builder");
   const [userTeam, setUserTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
   const [speed] = useState(draftSettings ? draftSettings.speed : 200);
@@ -29,8 +29,16 @@ function DraftBoard(props) {
   }, []);
 
   // initialize the player pool when the app loads for the first time
+  // sort them by rank and set the drafted property to false
   useEffect(() => {
-    setPlayerPool(sortProspects(prospects));
+    const sortedProspects = sortProspects(prospects);
+    const newPlayerPool = sortedProspects.map((prospect) => {
+      return {
+        ...prospect,
+        drafted: false,
+      };
+    });
+    setPlayerPool(newPlayerPool);
   }, []);
 
   // initialize the mock draft
@@ -63,7 +71,8 @@ function DraftBoard(props) {
       }
       const interval = setInterval(() => {
         const slot = mockDraft.find((slot) => slot.pick === null);
-        if (slot) {
+        // if the user's team is up to pick, stop simulating
+        if (slot && slot.team !== userTeam) {
           const team = teams.find((team) => team.abr === slot.team);
           const playerId = selectPlayer(team);
           addPlayer(playerId);
@@ -115,6 +124,10 @@ function DraftBoard(props) {
       newMock[index].pick = playerId;
       return newMock;
     });
+    // if it's gm mode, start simulating again
+    if (mode === "gm") {
+      setIsSimulating(true);
+    }
   }
 
   // remove a player from the mock draft
@@ -150,6 +163,19 @@ function DraftBoard(props) {
     });
   }
 
+  function isDraftStarted() {
+    return mockDraft.find((slot) => slot.pick !== null);
+  }
+
+  function isUserPick() {
+    const slot = mockDraft.find((slot) => slot.pick === null);
+    return slot && slot.team === userTeam;
+  }
+
+  function isDraftFinished() {
+    return mockDraft.every((slot) => slot.pick !== null);
+  }
+
   return (
     <div>
       {showSaveScreen && (
@@ -166,17 +192,24 @@ function DraftBoard(props) {
       <div className="container">
         <TeamContainer
           mockDraft={mockDraft}
+          mode={mode}
+          userTeam={userTeam}
           removePlayer={removePlayer}
           clearDraft={clearDraft}
           setShowSaveScreen={setShowSaveScreen}
           setIsSimulating={setIsSimulating}
           isSimulating={isSimulating}
           setShowTradeScreen={setShowTradeScreen}
+          isDraftStarted={isDraftStarted}
+          isDraftFinished={isDraftFinished}
+          isUserPick={isUserPick}
         />
         <PlayerContainer
           playerPool={playerPool}
           addPlayer={addPlayer}
           isSimulating={isSimulating}
+          mode={mode}
+          isUserPick={isUserPick}
         />
       </div>
     </div>

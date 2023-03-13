@@ -82,6 +82,7 @@ MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
 - Show the most commonly mocked players for each pick
 
 MOCK DRAFT SIMULATOR (SIMULATION MODE):
+- Be able to select multiple teams to select for?
 - Be able to choose team and then only pick for that team
 - Add loading icon when simulating
 - Improve algorithm for selecting best player to draft
@@ -91,6 +92,7 @@ MOCK DRAFT SIMULATOR (SIMULATION MODE):
    - Base it on level of need and overall rank
    - Have different levels of need?
    - Could just be based on most commonly mocked player for that pick
+   - Have certain players that teams like (e.g. Panthers are likely to draft Stroud, Seahawks like Richardson, etc.)
 - Add ability to change speed
 - Have a team's need get eliminated when they draft a player that fits that need
 - Have your "assistant GM" suggest picks when you're on the clock?
@@ -121,7 +123,6 @@ BUGS:
 - Make it so pop up player card is always visible on the screen
 - Fix weird expand bug (might be a lot of work)
 - Make entire buttons clickable on start page
-- Fix bug where the player pool isn't reset when you go back to the start page and then come back to the mock draft maker tool
 
 MISCELLANEOUS:
 - Incorporate AI?
