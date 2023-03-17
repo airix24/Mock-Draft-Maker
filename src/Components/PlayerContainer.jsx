@@ -1,11 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import "../Styles/PlayerContainer.css";
 import PlayerCard from "./PlayerCard";
 
 function PlayerContainer(props) {
-  const [selectedPosition, setSelectedPosition] = React.useState("all");
-  const [search, setSearch] = React.useState("");
+  const [selectedPosition, setSelectedPosition] = useState("all");
+  const [showWatchlist, setShowWatchList] = useState(false);
+  const [search, setSearch] = useState("");
 
+  // This is the function that filters the player pool based on the selected position, search query, and whether or not the player has been drafted
+  // If showWatchlist is true, it will only show players that are starred
   function filterPlayers(newPool) {
     return newPool.filter(
       (player) =>
@@ -13,9 +16,21 @@ function PlayerContainer(props) {
         (selectedPosition === "all" ||
           selectedPosition.toUpperCase() === player.position) &&
         (player.firstName.toLowerCase().includes(search.toLowerCase()) ||
-        player.lastName.toLowerCase().includes(search.toLowerCase()))
+          player.lastName.toLowerCase().includes(search.toLowerCase())) &&
+        (!showWatchlist || player.starred)  
     );
   }
+
+  // function filterPlayers(newPool) {
+  //   return newPool.filter(
+  //     (player) =>
+  //       !player.drafted &&
+  //       (selectedPosition === "all" ||
+  //         selectedPosition.toUpperCase() === player.position) &&
+  //       (player.firstName.toLowerCase().includes(search.toLowerCase()) ||
+  //       player.lastName.toLowerCase().includes(search.toLowerCase()))
+  //   );
+  // }
 
   const playerElements = filterPlayers(props.playerPool).map((player, index) => {
       return (
@@ -39,6 +54,9 @@ function PlayerContainer(props) {
           isSimulating={props.isSimulating}
           mode={props.mode}
           isUserPick={props.isUserPick}
+          starred={player.starred}
+          playerPool={props.playerPool}
+          setPlayerPool={props.setPlayerPool}
         />
       );
     });
@@ -69,6 +87,7 @@ function PlayerContainer(props) {
             <option value="cb">CB</option>
           </select>
         </label>
+        <button onClick={() => setShowWatchList(prev => !prev)}>Toggle Watchlist</button>
         <label>
           <input
             type="text"

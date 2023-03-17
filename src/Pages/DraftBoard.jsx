@@ -29,13 +29,13 @@ function DraftBoard(props) {
   }, []);
 
   // initialize the player pool when the app loads for the first time
-  // sort them by rank and set the drafted property to false
   useEffect(() => {
     const sortedProspects = sortProspects(prospects);
     const newPlayerPool = sortedProspects.map((prospect) => {
       return {
         ...prospect,
         drafted: false,
+        starred: false,
       };
     });
     setPlayerPool(newPlayerPool);
@@ -210,6 +210,7 @@ function DraftBoard(props) {
           isSimulating={isSimulating}
           mode={mode}
           isUserPick={isUserPick}
+          setPlayerPool={setPlayerPool}
         />
       </div>
     </div>

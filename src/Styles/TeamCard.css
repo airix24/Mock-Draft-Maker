@@ -1,8 +1,8 @@
-/* .team-card {
+.team-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-} */
+}
 
 .team-card-info {
   display: flex;

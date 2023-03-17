@@ -1,7 +1,7 @@
 export const prospects = [
   {
     id: 100000,
-    drafted: false,
+
     rank: 1,
     firstName: "Bryce",
     lastName: "Young",
@@ -19,7 +19,7 @@ export const prospects = [
   },
   {
     id: 1,
-    drafted: false,
+
     rank: 4,
     firstName: "Jalen",
     lastName: "Carter",
@@ -37,7 +37,7 @@ export const prospects = [
   },
   {
     id: 2,
-    drafted: false,
+
     rank: 9,
     firstName: "Will",
     lastName: "Levis",
@@ -55,7 +55,7 @@ export const prospects = [
   },
   {
     id: 3,
-    drafted: false,
+
     rank: 2,
     firstName: "Will",
     lastName: "Anderson Jr.",
@@ -73,7 +73,7 @@ export const prospects = [
   },
   {
     id: 4,
-    drafted: false,
+
     rank: 3,
     firstName: "C.J.",
     lastName: "Stroud",
@@ -91,7 +91,7 @@ export const prospects = [
   },
   {
     id: 5,
-    drafted: false,
+
     rank: 11,
     firstName: "Myles",
     lastName: "Murphy",
@@ -109,7 +109,7 @@ export const prospects = [
   },
   {
     id: 6,
-    drafted: false,
+
     rank: 5,
     firstName: "Tyree",
     lastName: "Wilson",
@@ -127,7 +127,7 @@ export const prospects = [
   },
   {
     id: 7,
-    drafted: false,
+
     rank: 22,
     firstName: "Bryan",
     lastName: "Bresee",
@@ -145,7 +145,7 @@ export const prospects = [
   },
   {
     id: 8,
-    drafted: false,
+
     rank: 10,
     firstName: "Paris",
     lastName: "Johnson Jr.",
@@ -163,7 +163,7 @@ export const prospects = [
   },
   {
     id: 9,
-    drafted: false,
+
     rank: 17,
     firstName: "Brian",
     lastName: "Branch",
@@ -181,7 +181,7 @@ export const prospects = [
   },
   {
     id: 10,
-    drafted: false,
+
     rank: 7,
     firstName: "Anthony",
     lastName: "Richardson",
@@ -199,7 +199,7 @@ export const prospects = [
   },
   {
     id: 11,
-    drafted: false,
+
     rank: 8,
     firstName: "Devon",
     lastName: "Witherspoon",
@@ -217,7 +217,7 @@ export const prospects = [
   },
   {
     id: 12,
-    drafted: false,
+
     rank: 13,
     firstName: "Peter",
     lastName: "Skoronski",
@@ -236,7 +236,7 @@ export const prospects = [
   },
   {
     id: 13,
-    drafted: false,
+
     rank: 6,
     firstName: "Christian",
     lastName: "Gonzalez",
@@ -254,7 +254,7 @@ export const prospects = [
   },
   {
     id: 14,
-    drafted: false,
+
     rank: 14,
     firstName: "Quentin",
     lastName: "Johnston",
@@ -272,7 +272,7 @@ export const prospects = [
   },
   {
     id: 15,
-    drafted: false,
+
     rank: 19,
     firstName: "Lukas",
     lastName: "Van Ness",
@@ -290,7 +290,7 @@ export const prospects = [
   },
   {
     id: 16,
-    drafted: false,
+
     rank: 20,
     firstName: "Michael",
     lastName: "Mayer",
@@ -308,7 +308,7 @@ export const prospects = [
   },
   {
     id: 17,
-    drafted: false,
+
     rank: 15,
     firstName: "Bijan",
     lastName: "Robinson",
@@ -325,7 +325,7 @@ export const prospects = [
   },
   {
     id: 18,
-    drafted: false,
+
     rank: 31,
     firstName: "Zay",
     lastName: "Flowers",
@@ -343,7 +343,7 @@ export const prospects = [
   },
   {
     id: 19,
-    drafted: false,
+
     rank: 16,
     firstName: "Jaxon",
     lastName: "Smith-Njigba",
@@ -361,7 +361,7 @@ export const prospects = [
   },
   {
     id: 20,
-    drafted: false,
+
     rank: 32,
     firstName: "Anton",
     lastName: "Harrison",
@@ -379,7 +379,7 @@ export const prospects = [
   },
   {
     id: 21,
-    drafted: false,
+
     rank: 23,
     firstName: "Nolan",
     lastName: "Smith",
@@ -397,7 +397,7 @@ export const prospects = [
   },
   {
     id: 22,
-    drafted: false,
+
     rank: 18,
     firstName: "Jordan",
     lastName: "Addison",
@@ -415,7 +415,7 @@ export const prospects = [
   },
   {
     id: 23,
-    drafted: false,
+
     rank: 21,
     firstName: "Broderick",
     lastName: "Jones",
@@ -433,7 +433,7 @@ export const prospects = [
   },
   {
     id: 24,
-    drafted: false,
+
     rank: 26,
     firstName: "Cam",
     lastName: "Smith",
@@ -450,7 +450,7 @@ export const prospects = [
   },
   {
     id: 25,
-    drafted: false,
+
     rank: 12,
     firstName: "Joey",
     lastName: "Porter Jr.",
@@ -467,7 +467,7 @@ export const prospects = [
   },
   {
     id: 26,
-    drafted: false,
+
     rank: 29,
     firstName: "O'Cyrus",
     lastName: "Torrence",
@@ -485,7 +485,7 @@ export const prospects = [
   },
   {
     id: 27,
-    drafted: false,
+
     rank: 80,
     firstName: "Tanner",
     lastName: "McKee",
@@ -502,7 +502,7 @@ export const prospects = [
   },
   {
     id: 28,
-    drafted: false,
+
     rank: 39,
     firstName: "Trenton",
     lastName: "Simpson",
@@ -519,7 +519,7 @@ export const prospects = [
   },
   {
     id: 29,
-    drafted: false,
+
     rank: 47,
     firstName: "Luke",
     lastName: "Musgrave",
@@ -536,7 +536,7 @@ export const prospects = [
   },
   {
     id: 30,
-    drafted: false,
+
     rank: 49,
     firstName: "Siaki",
     lastName: "Ika",
@@ -553,7 +553,7 @@ export const prospects = [
   },
   {
     id: 31,
-    drafted: false,
+
     rank: 46,
     firstName: "BJ",
     lastName: "Ojulari",
@@ -570,7 +570,7 @@ export const prospects = [
   },
   {
     id: 32,
-    drafted: false,
+
     rank: 71,
     firstName: "Andre",
     lastName: "Carter II",
@@ -587,7 +587,7 @@ export const prospects = [
   },
   {
     id: 33,
-    drafted: false,
+
     rank: 27,
     firstName: "Dalton",
     lastName: "Kincaid",
@@ -604,7 +604,7 @@ export const prospects = [
   },
   {
     id: 34,
-    drafted: false,
+
     rank: 25,
     firstName: "Calijah",
     lastName: "Kancey",
@@ -621,7 +621,7 @@ export const prospects = [
   },
   {
     id: 35,
-    drafted: false,
+
     rank: 24,
     firstName: "Deonte",
     lastName: "Banks",
@@ -638,7 +638,7 @@ export const prospects = [
   },
   {
     id: 36,
-    drafted: false,
+
     rank: 45,
     firstName: "Will",
     lastName: "McDonald IV",
@@ -655,7 +655,7 @@ export const prospects = [
   },
   {
     id: 37,
-    drafted: false,
+
     rank: 41,
     firstName: "Antonio",
     lastName: "Johnson",
@@ -672,7 +672,7 @@ export const prospects = [
   },
   {
     id: 38,
-    drafted: false,
+
     rank: 40,
     firstName: "Mazi",
     lastName: "Smith",
@@ -689,7 +689,7 @@ export const prospects = [
   },
   {
     id: 39,
-    drafted: false,
+
     rank: 86,
     firstName: "Nathaniel",
     lastName: "Dell",
@@ -706,7 +706,7 @@ export const prospects = [
   },
   {
     id: 40,
-    drafted: false,
+
     rank: 61,
     firstName: "Daiyan",
     lastName: "Henley",
@@ -723,7 +723,7 @@ export const prospects = [
   },
   {
     id: 41,
-    drafted: false,
+
     rank: 57,
     firstName: "Tyrique",
     lastName: "Stevenson",
@@ -740,7 +740,7 @@ export const prospects = [
   },
   {
     id: 42,
-    drafted: false,
+
     rank: 43,
     firstName: "Josh",
     lastName: "Downs",
@@ -757,7 +757,7 @@ export const prospects = [
   },
   {
     id: 43,
-    drafted: false,
+
     rank: 30,
     firstName: "Jalin",
     lastName: "Hyatt",
@@ -774,7 +774,7 @@ export const prospects = [
   },
   {
     id: 44,
-    drafted: false,
+
     rank: 34,
     firstName: "Jahmyr",
     lastName: "Gibbs",
@@ -791,7 +791,7 @@ export const prospects = [
   },
   {
     id: 45,
-    drafted: false,
+
     rank: 28,
     firstName: "Kelee",
     lastName: "Ringo",
@@ -808,7 +808,7 @@ export const prospects = [
   },
   {
     id: 46,
-    drafted: false,
+
     rank: 33,
     firstName: "Drew",
     lastName: "Sanders",
@@ -825,7 +825,7 @@ export const prospects = [
   },
   {
     id: 47,
-    drafted: false,
+
     rank: 38,
     firstName: "Emmanuel",
     lastName: "Forbes",
@@ -842,7 +842,7 @@ export const prospects = [
   },
   {
     id: 48,
-    drafted: false,
+
     rank: 35,
     firstName: "Darnell",
     lastName: "Washington",
@@ -850,7 +850,7 @@ export const prospects = [
     class: "Jr.",
     height: 79,
     weight: 264,
-    ras: 9.90,
+    ras: 9.9,
     school: "Georgia",
     img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.cSbZpzOfbWPeh0m6yEROKgHaFY%26pid%3DApi&f=1&ipt=d918ea528bcde22a9b2b59bf62c4791e2baa596b9608b935a901766861092cd6&ipo=images",
     archetype: "Blocking",
@@ -859,7 +859,7 @@ export const prospects = [
   },
   {
     id: 49,
-    drafted: false,
+
     rank: 48,
     firstName: "Isaiah",
     lastName: "Foskey",
@@ -876,7 +876,7 @@ export const prospects = [
   },
   {
     id: 50,
-    drafted: false,
+
     rank: 36,
     firstName: "Dawand",
     lastName: "Jones",
@@ -893,7 +893,7 @@ export const prospects = [
   },
   {
     id: 51,
-    drafted: false,
+
     rank: 37,
     firstName: "Darnell",
     lastName: "Wright",
@@ -910,7 +910,7 @@ export const prospects = [
   },
   {
     id: 52,
-    drafted: false,
+
     rank: 42,
     firstName: "Keion",
     lastName: "White",
@@ -927,7 +927,7 @@ export const prospects = [
   },
   {
     id: 53,
-    drafted: false,
+
     rank: 44,
     firstName: "Clark",
     lastName: "Phillips III",
@@ -944,7 +944,7 @@ export const prospects = [
   },
   {
     id: 54,
-    drafted: false,
+
     rank: 50,
     firstName: "Jack",
     lastName: "Campbell",
@@ -961,7 +961,7 @@ export const prospects = [
   },
   {
     id: 55,
-    drafted: false,
+
     rank: 51,
     firstName: "Felix",
     lastName: "Anudike-Uzomah",
@@ -978,7 +978,7 @@ export const prospects = [
   },
   {
     id: 56,
-    drafted: false,
+
     rank: 52,
     firstName: "Derick",
     lastName: "Hall",
@@ -995,7 +995,7 @@ export const prospects = [
   },
   {
     id: 57,
-    drafted: false,
+
     rank: 53,
     firstName: "Cody",
     lastName: "Mauch",
@@ -1012,7 +1012,7 @@ export const prospects = [
   },
   {
     id: 58,
-    drafted: false,
+
     rank: 54,
     firstName: "Tuli",
     lastName: "Tuipulotu",
@@ -1029,7 +1029,7 @@ export const prospects = [
   },
   {
     id: 59,
-    drafted: false,
+
     rank: 55,
     firstName: "Adetomiwa",
     lastName: "Adebawore",
@@ -1046,7 +1046,7 @@ export const prospects = [
   },
   {
     id: 60,
-    drafted: false,
+
     rank: 56,
     firstName: "Zach",
     lastName: "Charbonnet",
@@ -1063,7 +1063,7 @@ export const prospects = [
   },
   {
     id: 61,
-    drafted: false,
+
     rank: 58,
     firstName: "John Michael",
     lastName: "Schmitz",
@@ -1080,7 +1080,7 @@ export const prospects = [
   },
   {
     id: 62,
-    drafted: false,
+
     rank: 59,
     firstName: "Hendon",
     lastName: "Hooker",
@@ -1097,7 +1097,7 @@ export const prospects = [
   },
   {
     id: 63,
-    drafted: false,
+
     rank: 60,
     firstName: "Steve",
     lastName: "Avila",

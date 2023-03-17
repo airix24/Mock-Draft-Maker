@@ -78,3 +78,21 @@
 .unexp-player-name > h3 {
   margin-right: 5px;
 }
+
+.name-star {
+  display: flex;
+  align-items: center;
+}
+
+.name-star > h2 {
+  margin-left: 5px;
+}
+
+.star-player-stuff {
+  display: flex;
+  align-items: center;
+}
+
+.star-player-stuff > div {
+  margin-left: 5px;
+}

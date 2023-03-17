@@ -33,7 +33,7 @@ function TeamCard(props) {
   // };
 
   return (
-    <div className={`card ${props.userTeam === props.abr ? "user-team-card" : ""}`}>
+    <div className={`card team-card ${props.userTeam === props.abr ? "user-team-card" : ""}`}>
       <div className="team-card-info">
         <img
           className="team-logo"

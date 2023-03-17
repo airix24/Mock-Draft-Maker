@@ -1,5 +1,15 @@
 TODO:
 
+MAIN STUFF:
+- Connect to backend
+- Control panel at bottom
+- Multiple rounds
+- Trading
+- Edit/delete saved drafts
+- Responsive (mobile view)
+- Drag and drop
+- Grades accuracy of mock drafts once draft happens
+
 APPLICATION:
 - Move images to assets folder in public folder
 - API?
@@ -17,15 +27,14 @@ CSS:
 - Add mobile view
 
 FEATURES:
-- Have the teams automatically scroll down when you add a player
+- Have team list scroll as it is simulating (and have it scroll in builder mode too)
 - Add capablity for multiple rounds
 - Message pops up when mock draft full
 - Dark mode?
 - Click on team to get summary? (team needs, team tendencies, roster, cap space, etc.)
 - Choose different years?
 - Add expand all button?
-- Have different buttons show up depending on the mode
-- Make it so team needs that show up when you hover and what positions the team actually target are different (eg. Philly has bigger needs than DL and OL but they still always target those positions no matter what)
+- Make it so team needs that show up when you hover and what positions the team actually target are different? (eg. Philly has bigger needs than DL and OL but they still always target those positions no matter what)
 - Upload your mock draft and be able to see other people's mock drafts?
 - Have a share button that copies a pic of your mock draft? or a link to share it somewhere?
 
@@ -34,7 +43,7 @@ TRADES:
 - Other teams offer you trades when you're on the clock
 - Include trade value chart(s)?
 - Place at bottom that lists what trades were made?
-- Negotiate with AI GMs!?!? Don't make the GM mad. Each GM uses different trade charts, has a different personality, etc.
+- Negotiate with AI GMs!?!? Don't make the GM mad. Each GM uses different trade charts, has a different personality, different tendencies, etc.
 
 PLAYER CARD:
 - Have link for all combine drills?
@@ -44,7 +53,6 @@ PLAYER CARD:
 - Add player comp?
 - Include link to film?
 - Have college stats?
-- Group school/class together and height/weight/RAS together?
 - Be able to open full screen view with even more info?
 
 SEARCH:
@@ -80,10 +88,12 @@ MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
 - Let use change number of rounds while making mock without deleting all picks they've already made
 - Show the betting odds of a player being drafted at a certain position or by a certain team
 - Show the most commonly mocked players for each pick
+- Keep prospects starred in this mode
+- Can keep permanent notes on each prospect and team
 
 MOCK DRAFT SIMULATOR (SIMULATION MODE):
+- When you click restart, it brings you back to picking the team and the other settings?
 - Be able to select multiple teams to select for?
-- Be able to choose team and then only pick for that team
 - Add loading icon when simulating
 - Improve algorithm for selecting best player to draft
    - Make QB needy teams much more likely to pick one
@@ -99,11 +109,10 @@ MOCK DRAFT SIMULATOR (SIMULATION MODE):
    - Give the user a short list to choose from?
 - Actually be on the clock (timer)?
 - Show what pick each team has when you're selecting what team you are
-- Have team list scroll as it is simulating
 - Allow non-user teams to make trades
 
 GAMIFY IT:
-- Have a list of goals for the draft that the owner gives you (ex. "Draft a top 3 WR", "get a first round pick for next year", etc.)
+- Have a list of goals for the draft that the owner gives you? (ex. "Draft a top 3 WR", "get a first round pick for next year", etc.)
 - Maybe a new goal could pop up in the middle of the draft?
 
 CONTEST:
@@ -119,14 +128,14 @@ CONTEST:
 - Add arm length to some positions?
 
 BUGS:
-- When you expand bottom player, have it that player visible
+- When you expand bottom player, have it so that player's card is completely visible
 - Make it so pop up player card is always visible on the screen
 - Fix weird expand bug (might be a lot of work)
 - Make entire buttons clickable on start page
 
 MISCELLANEOUS:
 - Incorporate AI?
-    - Get a message from the owner telling you not to screw it up at the beginning (this doesn't have to be AI I guess)
+    - Get a message from the owner telling you not to screw it up at the beginning (this doesn't have to be AI I guess but could make it more personalized and random if it was)
     - The owner gives feedback on each one of your picks?
     - AI assistant?
     - AI generated scouting reports?

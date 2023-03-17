@@ -1,6 +1,12 @@
 import React from "react";
 import "../Styles/PlayerCard.css";
-import { FaChevronUp, FaChevronDown, FaPlus } from "react-icons/fa";
+import {
+  FaChevronUp,
+  FaChevronDown,
+  FaPlus,
+  FaRegStar,
+  FaStar,
+} from "react-icons/fa";
 
 function PlayerCard(props) {
   const [expanded, setExpanded] = React.useState(
@@ -34,9 +40,44 @@ function PlayerCard(props) {
             <div className="exp-player-name">
               <h3>{props.rank}.</h3>
               <div>
-                <h2>
-                  {props.firstName} {props.lastName}
-                </h2>
+                <div className="name-star">
+                  {props.starred ? (
+                    <FaStar
+                      size={18}
+                      color={"#DBCE1E"}
+                      // on click, set starred to false
+                      onClick={(e) => {
+                        props.setPlayerPool(
+                          props.playerPool.map((player) => {
+                            if (player.id === props.id) {
+                              player.starred = false;
+                            }
+                            return player;
+                          })
+                        );
+                        e.stopPropagation();
+                      }}
+                    />
+                  ) : (
+                    <FaRegStar
+                      size={18}
+                      onClick={(e) => {
+                        props.setPlayerPool(
+                          props.playerPool.map((player) => {
+                            if (player.id === props.id) {
+                              player.starred = true;
+                            }
+                            return player;
+                          })
+                        );
+                        e.stopPropagation();
+                      }}
+                    />
+                  )}
+                  <h2>
+                    {props.firstName} {props.lastName}
+                  </h2>
+                </div>
                 <h3 className="light">
                   {props.position}
                   {props.archetype != "" ? ` - ${props.archetype}` : ""}
@@ -46,11 +87,45 @@ function PlayerCard(props) {
           ) : (
             <div className="unexp-player-name">
               <h3>{props.rank}.</h3>
-              <div>
-                <h3>
-                  {props.firstName} {props.lastName}
-                </h3>
-                <h4 className="light">{props.position}</h4>
+              <div className="star-player-stuff">
+                {props.starred ? (
+                  <FaStar
+                    size={18}
+                    color={"#DBCE1E"}
+                    onClick={(e) => {
+                      props.setPlayerPool(
+                        props.playerPool.map((player) => {
+                          if (player.id === props.id) {
+                            player.starred = false;
+                          }
+                          return player;
+                        })
+                      );
+                      e.stopPropagation();
+                    }}
+                  />
+                ) : (
+                  <FaRegStar
+                    size={18}
+                    onClick={(e) => {
+                      props.setPlayerPool(
+                        props.playerPool.map((player) => {
+                          if (player.id === props.id) {
+                            player.starred = true;
+                          }
+                          return player;
+                        })
+                      );
+                      e.stopPropagation();
+                    }}
+                  />
+                )}
+                <div className="name-position">
+                  <h3>
+                    {props.firstName} {props.lastName}
+                  </h3>
+                  <h4 className="light">{props.position}</h4>
+                </div>
               </div>
             </div>
           )}
