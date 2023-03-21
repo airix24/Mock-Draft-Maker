@@ -1,10 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../Styles/DraftSettings.css";
 
 function DraftSettings(props) {
-  const [form, setForm] = React.useState({
+  const [form, setForm] = useState({
     team: "GB",
     rounds: 1,
     speed: 1000,
@@ -16,7 +16,7 @@ function DraftSettings(props) {
       className="outer-modal"
       onClick={() => props.setShowDraftSettings(false)}
     >
-      <div className="inner-modal" onClick={(e) => e.stopPropagation()}>
+      <div className="inner-modal inner-modal-settings" onClick={(e) => e.stopPropagation()}>
         <div className="top-bar modal-bar">
           <FaTimes
             className="icon"

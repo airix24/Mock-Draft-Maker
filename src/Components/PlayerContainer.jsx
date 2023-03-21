@@ -87,7 +87,7 @@ function PlayerContainer(props) {
             <option value="cb">CB</option>
           </select>
         </label>
-        <button onClick={() => setShowWatchList(prev => !prev)}>Toggle Watchlist</button>
+        <button onClick={() => setShowWatchList(prev => !prev)}>Watchlist</button>
         <label>
           <input
             type="text"

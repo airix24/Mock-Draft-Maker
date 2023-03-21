@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "../Styles/PlayerCard.css";
 import {
   FaChevronUp,
@@ -9,9 +10,7 @@ import {
 } from "react-icons/fa";
 
 function PlayerCard(props) {
-  const [expanded, setExpanded] = React.useState(
-    props.hoveredCard ? true : false
-  );
+  const [expanded, setExpanded] = useState(props.hoveredCard ? true : false);
 
   function convertHeight(height) {
     return `${Math.floor(height / 12)}'${height % 12}"`;
@@ -41,7 +40,7 @@ function PlayerCard(props) {
               <h3>{props.rank}.</h3>
               <div>
                 <div className="name-star">
-                  {props.starred ? (
+                  {props.hoveredCard ? null : props.starred ? (
                     <FaStar
                       size={18}
                       color={"#DBCE1E"}

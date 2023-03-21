@@ -25,6 +25,7 @@ CSS:
 - Update CSS naming conventions
 - Maybe complete rehaul of design eventually?
 - Add mobile view
+- Have draft button instead of plus?
 
 FEATURES:
 - Have team list scroll as it is simulating (and have it scroll in builder mode too)
