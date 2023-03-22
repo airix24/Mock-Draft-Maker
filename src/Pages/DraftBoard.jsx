@@ -114,22 +114,22 @@ function DraftBoard(props) {
   }
 
   function clearDraft() {
+    setPlayerPool((prev) => {
+      const newPool = prev.map((player) => ({
+        ...player,
+        drafted: false,
+        starred: false,
+      }));
+      return newPool;
+    });
     setMockDraft(initializeMock(teams));
-    updatePlayerPoolAll(false);
   }
 
-  function updatePlayerPool(playerId, drafted) {
+  function updatePlayerPool(playerId, isPlayerBeingDrafted) {
     setPlayerPool((prev) => {
       const index = prev.findIndex((player) => player.id === playerId);
       const newPool = [...prev];
-      newPool[index].drafted = drafted;
-      return newPool;
-    });
-  }
-
-  function updatePlayerPoolAll(drafted) {
-    setPlayerPool((prev) => {
-      const newPool = prev.map((player) => ({ ...player, drafted }));
+      newPool[index].drafted = isPlayerBeingDrafted;
       return newPool;
     });
   }

@@ -21,15 +21,8 @@ function StartupScreen(props) {
           >
             <h3>Be The GM</h3>
           </button>
-          <Link
-            to="/draft-board"
-            className="startup-link"
-            onClick={() => console.log("link clicked")}
-          >
-            <button
-              className="startup-btn"
-              onClick={() => console.log("button clicked")}
-            >
+          <Link to="/draft-board" className="startup-link">
+            <button className="startup-btn">
               <h3>Mock Builder</h3>
             </button>
           </Link>
@@ -62,6 +55,7 @@ function StartupScreen(props) {
         <SavedDrafts
           setShowSavedDrafts={setShowSavedDrafts}
           savedDrafts={props.savedDrafts}
+          setSavedDrafts={props.setSavedDrafts}
           setShowViewDraft={setShowViewDraft}
           setCurrDraft={setCurrDraft}
         />
@@ -71,6 +65,7 @@ function StartupScreen(props) {
           setShowViewDraft={setShowViewDraft}
           setShowSavedDrafts={setShowSavedDrafts}
           currDraft={currDraft}
+          setSavedDrafts={props.setSavedDrafts}
         />
       )}
     </div>

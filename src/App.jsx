@@ -16,7 +16,15 @@ function App() {
     <div className="app">
       <Header />
       <Routes>
-        <Route path="/" element={<StartupScreen savedDrafts={savedDrafts} />} />
+        <Route
+          path="/"
+          element={
+            <StartupScreen
+              savedDrafts={savedDrafts}
+              setSavedDrafts={setSavedDrafts}
+            />
+          }
+        />
         <Route
           path="/draft-board"
           element={

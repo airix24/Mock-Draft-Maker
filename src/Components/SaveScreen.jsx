@@ -1,6 +1,7 @@
 import React from "react";
 import "../Styles/SaveScreen.css";
 import { FaTimes } from "react-icons/fa";
+import { nanoid } from "nanoid";
 
 function SaveScreen(props) {
   // save the mock draft to local storage
@@ -15,6 +16,7 @@ function SaveScreen(props) {
     //   name = `${name}(${i})`;
     // }
     const draft = {
+      id: nanoid(),
       name: name,
       date: new Date().toLocaleDateString(),
       draft: props.mockDraft,
@@ -45,7 +47,7 @@ function SaveScreen(props) {
             e.preventDefault();
             saveDraft(e.target[0].value);
           }}>
-            <input type="text" className="save-bar" />
+            <input type="text" className="save-bar" autoFocus maxLength={30} />
             <button className="save-btn">Save</button>
           </form>
         </div>

@@ -1,6 +1,6 @@
 .inner-modal-view-draft {
   height: 70vh;
-  width: 40vw;
+  width: 50vw;
 }
 
 .modal-content-view-draft {
@@ -17,4 +17,23 @@
 
 .draft-element > *:nth-child(2) {
   margin-right: 10px;
+}
+
+.view-draft-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.view-draft-top {
+  display: flex;
+  align-items: center;
+}
+
+.view-draft-btns {
+  margin-left: 10px;
+}
+
+.view-draft-btns > :nth-child(2) {
+  margin-left: 0.5rem;
 }

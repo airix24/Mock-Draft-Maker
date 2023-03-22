@@ -65,11 +65,8 @@ SEARCH:
 
 SAVED DRAFTS:
 - Add ability to edit previous mock drafts
-- Add ability to delete previous mock drafts
 - Use a list component for viewing saved mock drafts?
 - If a name already exists, add a number to the end of it (ex. "My Mock Draft(1)")
-- Add a limit to how long the name of your draft can be
-- Have the space to write a name automatically selected when you click on the save button
 
 MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
 - Add drag and drop
@@ -132,7 +129,6 @@ BUGS:
 - When you expand bottom player, have it so that player's card is completely visible
 - Make it so pop up player card is always visible on the screen
 - Fix weird expand bug (might be a lot of work)
-- Make entire buttons clickable on start page
 
 MISCELLANEOUS:
 - Incorporate AI?

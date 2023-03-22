@@ -31,6 +31,7 @@
 
 .inner-modal-saved-drafts {
   height: 70vh;
+  width: 50vw;
 }
 
 .saved-draft-elements {
@@ -39,12 +40,22 @@
 }
 
 .saved-draft-card {
-  padding: 0.2rem;
+  padding: 0.4rem;
   margin: 1rem;
   border-radius: 5px;
+  border: 1px solid;
+  min-width: 200px;
 }
 
-.saved-draft-card:hover {
+.saved-draft-card > button {
+  margin: 0.2rem;
+}
+
+.saved-draft-card > button:hover {
+  opacity: 0.7;
+}
+
+.saved-draft-info:hover {
   background-color: #f2f2f2;
   cursor: pointer;
 }
