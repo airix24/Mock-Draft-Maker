@@ -1,8 +1,7 @@
 .playerContainer {
   width: 400px;
-  /* min-width: 100%; */
-  /* min-width: 400px; */
-  height: 79vh;
+  /* height: 79vh; */
+  height: 92.5%;
   overflow-y: scroll;
 }
 

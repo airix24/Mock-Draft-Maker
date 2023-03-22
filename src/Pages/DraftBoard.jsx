@@ -10,6 +10,7 @@ import SaveScreen from "../Components/SaveScreen";
 import TradeScreen from "../Components/TradeScreen";
 import PlayerContainer from "../Components/PlayerContainer";
 import TeamContainer from "../Components/TeamContainer";
+import ControlPanel from "../Components/ControlPanel";
 
 import "../Styles/DraftBoard.css";
 
@@ -23,9 +24,7 @@ function DraftBoard(props) {
   const [showTradeScreen, setShowTradeScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
   const [mode] = useState(draftSettings ? "gm" : "builder");
-  const [userTeam] = useState(
-    draftSettings ? draftSettings.team : null
-  );
+  const [userTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
   const [speed] = useState(draftSettings ? draftSettings.speed : 200);
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
@@ -156,7 +155,7 @@ function DraftBoard(props) {
   }
 
   return (
-    <div>
+    <div className="draft-screen">
       {showSaveScreen && (
         <SaveScreen
           setShowSaveScreen={setShowSaveScreen}
@@ -174,14 +173,6 @@ function DraftBoard(props) {
           mode={mode}
           userTeam={userTeam}
           removePlayer={removePlayer}
-          clearDraft={clearDraft}
-          setShowSaveScreen={setShowSaveScreen}
-          setIsSimulating={setIsSimulating}
-          isSimulating={isSimulating}
-          setShowTradeScreen={setShowTradeScreen}
-          isDraftStarted={isDraftStarted}
-          isDraftFinished={isDraftFinished}
-          isUserPick={isUserPick}
         />
         <PlayerContainer
           playerPool={playerPool}
@@ -192,6 +183,16 @@ function DraftBoard(props) {
           setPlayerPool={setPlayerPool}
         />
       </div>
+      <ControlPanel
+        mode={mode}
+        isDraftFinished={isDraftFinished}
+        isDraftStarted={isDraftStarted}
+        isUserPick={isUserPick}
+        isSimulating={isSimulating}
+        setIsSimulating={setIsSimulating}
+        setShowSaveScreen={setShowSaveScreen}
+        clearDraft={clearDraft}
+      />
     </div>
   );
 }
