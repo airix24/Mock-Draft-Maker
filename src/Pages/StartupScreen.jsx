@@ -21,13 +21,18 @@ function StartupScreen(props) {
           >
             <h3>Be The GM</h3>
           </button>
-          <button className="startup-btn">
-            <h3>
-              <Link to="/draft-board" className="startup-link">
-                Mock Builder
-              </Link>
-            </h3>
-          </button>
+          <Link
+            to="/draft-board"
+            className="startup-link"
+            onClick={() => console.log("link clicked")}
+          >
+            <button
+              className="startup-btn"
+              onClick={() => console.log("button clicked")}
+            >
+              <h3>Mock Builder</h3>
+            </button>
+          </Link>
           <button
             className="startup-btn"
             onClick={() => setShowSavedDrafts(true)}

@@ -21,6 +21,7 @@
 .startup-link {
   text-decoration: none;
   color: black;
+  z-index: 100;
 }
 
 /* -------------------- */

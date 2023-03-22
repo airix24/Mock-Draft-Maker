@@ -22,13 +22,13 @@ function DraftBoard(props) {
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [showTradeScreen, setShowTradeScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
-  const [mode, setMode] = useState(draftSettings ? "gm" : "builder");
-  const [userTeam, setUserTeam] = useState(
+  const [mode] = useState(draftSettings ? "gm" : "builder");
+  const [userTeam] = useState(
     draftSettings ? draftSettings.team : null
   );
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
   const [speed] = useState(draftSettings ? draftSettings.speed : 200);
-  const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 2);
+  const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
 
   function useInitializeMockDraft(teams) {
     useEffect(() => {
