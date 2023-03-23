@@ -8,3 +8,12 @@
 .position-select {
   cursor: pointer;
 }
+
+.watchlist-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.watchlist-toggle > *:first-child {
+  margin-right: 5px;
+}

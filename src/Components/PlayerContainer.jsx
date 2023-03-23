@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Styles/PlayerContainer.css";
+import "../Styles/slider.css";
 import PlayerCard from "./PlayerCard";
 
 function PlayerContainer(props) {
@@ -7,8 +8,6 @@ function PlayerContainer(props) {
   const [showWatchlist, setShowWatchList] = useState(false);
   const [search, setSearch] = useState("");
 
-  // This is the function that filters the player pool based on the selected position, search query, and whether or not the player has been drafted
-  // If showWatchlist is true, it will only show players that are starred
   function filterPlayers(newPool) {
     return newPool.filter(
       (player) =>
@@ -17,22 +16,12 @@ function PlayerContainer(props) {
           selectedPosition.toUpperCase() === player.position) &&
         (player.firstName.toLowerCase().includes(search.toLowerCase()) ||
           player.lastName.toLowerCase().includes(search.toLowerCase())) &&
-        (!showWatchlist || player.starred)  
+        (!showWatchlist || player.starred)
     );
   }
 
-  // function filterPlayers(newPool) {
-  //   return newPool.filter(
-  //     (player) =>
-  //       !player.drafted &&
-  //       (selectedPosition === "all" ||
-  //         selectedPosition.toUpperCase() === player.position) &&
-  //       (player.firstName.toLowerCase().includes(search.toLowerCase()) ||
-  //       player.lastName.toLowerCase().includes(search.toLowerCase()))
-  //   );
-  // }
-
-  const playerElements = filterPlayers(props.playerPool).map((player, index) => {
+  const playerElements = filterPlayers(props.playerPool).map(
+    (player, index) => {
       return (
         <PlayerCard
           key={index}
@@ -59,13 +48,14 @@ function PlayerContainer(props) {
           setPlayerPool={props.setPlayerPool}
         />
       );
-    });
+    }
+  );
 
   return (
     <div className="box">
       <div className="top-bar">
         <label>
-          Position:{" "}
+          {/* Position:{" "} */}
           <select
             name="positions"
             className="position-select"
@@ -87,7 +77,17 @@ function PlayerContainer(props) {
             <option value="cb">CB</option>
           </select>
         </label>
-        <button onClick={() => setShowWatchList(prev => !prev)}>Watchlist</button>
+        <div className="watchlist-toggle">
+          <label className="switch-label">Watchlist:</label>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={showWatchlist}
+              onChange={(e) => setShowWatchList(e.target.checked)}
+            />
+            <span className="slider round"></span>
+          </label>
+        </div>
         <label>
           <input
             type="text"
