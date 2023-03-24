@@ -12,51 +12,59 @@ import {
 } from "react-icons/fa";
 
 function ControlPanel(props) {
-    function getLabelAndIcon() {
-        if (props.isSimulating) {
-          if (props.mode === "builder") {
-            return {
-              label: "Stop",
-              icon: <FaStop size={20} />,
-            };
-          } else {
-            return {
-              label: "Pause",
-              icon: <FaPause size={20} />,
-            };
-          }
+  function getLabelAndIcon() {
+    if (props.isSimulating) {
+      if (props.mode === "builder") {
+        return {
+          label: "Stop",
+          icon: <FaStop size={20} />,
+        };
+      } else {
+        return {
+          label: "Pause",
+          icon: <FaPause size={20} />,
+        };
+      }
+    } else {
+      if (props.mode === "builder") {
+        return {
+          label: "Simulate",
+          icon: <FaPlay size={20} />,
+        };
+      } else {
+        if (props.isDraftStarted()) {
+          return {
+            label: "Resume",
+            icon: <FaPlay size={20} />,
+          };
         } else {
-          if (props.mode === "builder") {
-            return {
-              label: "Simulate",
-              icon: <FaPlay size={20} />,
-            };
-          } else {
-            if (props.isDraftStarted()) {
-              return {
-                label: "Resume",
-                icon: <FaPlay size={20} />,
-              };
-            } else {
-              return {
-                label: "Start",
-                icon: <FaPlay size={20} />,
-              };
-            }
-          }
+          return {
+            label: "Start",
+            icon: <FaPlay size={20} />,
+          };
         }
       }
+    }
+  }
 
   return (
     <div className="control-panel">
       <div className="control-panel-btns">
-        <div className={`control-panel-btn ${props.isUserPick() || props.isDraftFinished() ? "disabled" : ""}`}
-            onClick={() => props.setIsSimulating(!props.isSimulating)}
+        <div
+          className={`control-panel-btn ${
+            props.isUserPick() || props.isDraftFinished() ? "disabled" : ""
+          }`}
+          onClick={() => props.setIsSimulating(!props.isSimulating)}
         >
           {getLabelAndIcon().icon}
           <p>{getLabelAndIcon().label}</p>
         </div>
-        <div className="control-panel-btn" onClick={() => props.clearDraft()}>
+        <div
+          className={`control-panel-btn ${
+            props.isDraftStarted() ? "" : "disabled"
+          }`}
+          onClick={() => props.clearDraft()}
+        >
           {props.mode === "builder" ? (
             <FaEraser size={20} />
           ) : (
