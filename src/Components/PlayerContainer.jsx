@@ -43,6 +43,7 @@ function PlayerContainer(props) {
           isSimulating={props.isSimulating}
           mode={props.mode}
           isUserPick={props.isUserPick}
+          isDraftFinished={props.isDraftFinished}
           starred={player.starred}
           playerPool={props.playerPool}
           setPlayerPool={props.setPlayerPool}

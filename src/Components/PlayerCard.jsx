@@ -150,7 +150,7 @@ function PlayerCard(props) {
                 }}
               />
             )}
-            {props.mode === "builder" || props.isUserPick() ? (
+            {(props.mode === "builder" || props.isUserPick()) && !props.isDraftFinished() ? (
               <FaPlus
                 className={
                   props.isSimulating

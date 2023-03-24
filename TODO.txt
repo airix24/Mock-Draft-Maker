@@ -1,6 +1,9 @@
 TODO:
 
 MAIN STUFF:
+- Add loading icon when simulating
+- Have team list scroll as it is simulating (and have it scroll in builder mode too)
+- When you click restart, it brings you back to picking the team and the other settings?
 - Connect to backend
 - Multiple rounds
 - Trading
@@ -29,7 +32,6 @@ FEATURES:
 - Add loading icon when simulating
 - Have team list scroll as it is simulating (and have it scroll in builder mode too)
 - Add capablity for multiple rounds
-- Message pops up when mock draft full
 - Dark mode?
 - Click on team to get summary? (team needs, team tendencies, roster, cap space, etc.)
 - Choose different years?

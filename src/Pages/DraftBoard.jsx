@@ -180,6 +180,7 @@ function DraftBoard(props) {
           isSimulating={isSimulating}
           mode={mode}
           isUserPick={isUserPick}
+          isDraftFinished={isDraftFinished}
           setPlayerPool={setPlayerPool}
         />
       </div>
