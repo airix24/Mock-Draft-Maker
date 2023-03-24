@@ -26,7 +26,7 @@ function DraftBoard(props) {
   const [mode] = useState(draftSettings ? "gm" : "builder");
   const [userTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
-  const [speed] = useState(draftSettings ? draftSettings.speed : 200);
+  const [speed, setSpeed] = useState(draftSettings ? draftSettings.speed : 200);
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
 
   function useInitializeMockDraft(teams) {
@@ -192,6 +192,8 @@ function DraftBoard(props) {
         setIsSimulating={setIsSimulating}
         setShowSaveScreen={setShowSaveScreen}
         clearDraft={clearDraft}
+        speed={speed}
+        setSpeed={setSpeed}
       />
     </div>
   );

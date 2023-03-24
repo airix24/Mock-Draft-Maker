@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "../Styles/ControlPanel.css";
 import {
   FaPlay,
@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 
 function ControlPanel(props) {
+  const [showSettings, setShowSettings] = useState(false);
+
   function getLabelAndIcon() {
     if (props.isSimulating) {
       if (props.mode === "builder") {
@@ -76,10 +78,35 @@ function ControlPanel(props) {
           <FaExchangeAlt size={20} />
           <p>Trade</p>
         </div>
-        <div className="control-panel-btn disabled">
-          <FaSlidersH size={20} />
-          <p>Settings</p>
+
+        <div
+          className="control-panel-settings"
+          onMouseEnter={() => setShowSettings(true)}
+          onMouseLeave={() => setShowSettings(false)}
+        >
+          <div className="control-panel-btn control-panel-settings-btn">
+            <FaSlidersH size={20} />
+            <p>Settings</p>
+          </div>
+          {showSettings && (
+            <div className="settings-pop-up">
+              <div className="speed-slider">
+                <p>Speed</p>
+                <input
+                  type="range"
+                  min="100"
+                  max="4000"
+                  step="100"
+                  value={Math.abs(props.speed - 4100)}
+                  onChange={(e) => {
+                    props.setSpeed(4100 - e.target.value);
+                  }}
+                />
+              </div>
+            </div>
+          )}
         </div>
+
         {props.mode === "builder" || props.isDraftFinished() ? (
           <div
             className={`control-panel-btn ${

@@ -34,11 +34,6 @@
   width: 50vw;
 }
 
-.saved-draft-elements {
-  /* height: 60vh; */
-  overflow-y: auto;
-}
-
 .saved-draft-card {
   padding: 0.4rem;
   margin: 1rem;
@@ -61,7 +56,7 @@
 }
 
 .saved-drafts-content {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 55vh;
 }
 

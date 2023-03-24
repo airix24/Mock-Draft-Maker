@@ -3,7 +3,6 @@ TODO:
 MAIN STUFF:
 - Connect to backend
 - Multiple rounds
-- Adjust settings while in draft
 - Trading
 - Edit saved drafts
 - Responsive (mobile view)
@@ -18,7 +17,6 @@ APPLICATION:
 - Accessibility
 
 CSS:
-- Add footer with buttons: clear draft, save draft, simulate, make trade, trade offers, adjust speed, etc.?
 - Styling
 - Better format?
 - Make it responsive
@@ -28,6 +26,7 @@ CSS:
 - Have draft button instead of plus?
 
 FEATURES:
+- Add loading icon when simulating
 - Have team list scroll as it is simulating (and have it scroll in builder mode too)
 - Add capablity for multiple rounds
 - Message pops up when mock draft full
@@ -38,7 +37,6 @@ FEATURES:
 - Make it so team needs that show up when you hover and what positions the team actually target are different? (eg. Philly has bigger needs than DL and OL but they still always target those positions no matter what)
 - Upload your mock draft and be able to see other people's mock drafts?
 - Have a share button that copies a pic of your mock draft? or a link to share it somewhere?
-- Adjust settings in draft
 - Add sound effect (iconic draft sound effect)
 
 TRADES:
@@ -73,7 +71,6 @@ SAVED DRAFTS:
 
 MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
 - Add drag and drop
-- Be able to star prospects or put them in a watchlist
 - Add ability to add notes to each selection?
 - Be able to write a summary of the entire draft?
 - Scouting reports for teams?
@@ -95,7 +92,6 @@ MOCK DRAFT MAKER TOOL (PLAYGROUND MODE):
 MOCK DRAFT SIMULATOR (SIMULATION MODE):
 - When you click restart, it brings you back to picking the team and the other settings?
 - Be able to select multiple teams to select for?
-- Add loading icon when simulating
 - Improve algorithm for selecting best player to draft
    - Make QB needy teams much more likely to pick one
    - Sometimes have teams go for BPA if no positions of need are near the top of the board
@@ -104,7 +100,6 @@ MOCK DRAFT SIMULATOR (SIMULATION MODE):
    - Have different levels of need?
    - Could just be based on most commonly mocked player for that pick
    - Have certain players that teams like (e.g. Panthers are likely to draft Stroud, Seahawks like Richardson, etc.)
-- Add ability to change speed
 - Have a team's need get eliminated when they draft a player that fits that need
 - Have your "assistant GM" suggest picks when you're on the clock?
    - Give the user a short list to choose from?
@@ -125,7 +120,7 @@ CONTEST:
 
 "BACKEND":
 - Add all picks
-- Add RAS for all players
+- Update RAS
 - Update player measurements
 - Add arm length to some positions?
 - update team needs for more realistic draft experience
