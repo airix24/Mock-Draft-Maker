@@ -98,7 +98,14 @@ function PlayerContainer(props) {
           ></input>
         </label>
       </div>
-      <div className="playerContainer">{playerElements}</div>
+      <div className="playerContainer">
+        {playerElements}
+        {playerElements.length === 0 ? (
+          <div className="no-players-message">
+            <h3>Watchlist is Empty</h3>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }
