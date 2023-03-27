@@ -69,7 +69,7 @@ function DraftSettings(props) {
               <option value="TEN">Tennessee Titans</option>
               <option value="WAS">Washington Commanders</option>
             </select>
-            <h3>Number of Rounds</h3>
+            {/* <h3>Number of Rounds</h3>
             <select
               value={form.rounds}
               onChange={(e) =>
@@ -86,7 +86,7 @@ function DraftSettings(props) {
               <option value="5">5</option>
               <option value="6">6</option>
               <option value="7">7</option>
-            </select>
+            </select> */}
             <h3>Speed</h3>
             <select
               value={form.speed}

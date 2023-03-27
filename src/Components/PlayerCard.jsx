@@ -130,7 +130,11 @@ function PlayerCard(props) {
           )}
         </div>
         {props.hoveredCard ? null : (
-          <div className="player-card-btns">
+          <div
+            className={`player-card-btns ${
+              props.mode === "gm" && props.isUserPick() ? "player-card-btns-gm" : ""
+            }`}
+          >
             {expanded ? (
               <FaChevronUp
                 className="icon"
@@ -150,7 +154,7 @@ function PlayerCard(props) {
                 }}
               />
             )}
-            {(props.mode === "builder" || props.isUserPick()) && !props.isDraftFinished() ? (
+            {props.mode == "builder" && !props.isDraftFinished() ? (
               <FaPlus
                 className={
                   props.isSimulating
@@ -164,6 +168,17 @@ function PlayerCard(props) {
                   e.stopPropagation();
                 }}
               />
+            ) : props.isUserPick() ? (
+              <button
+                className={"draft-btn"}
+                onClick={(e) => {
+                  props.addPlayer(props.id);
+                  setExpanded(false);
+                  e.stopPropagation();
+                }}
+              >
+                Draft
+              </button>
             ) : null}
           </div>
         )}
