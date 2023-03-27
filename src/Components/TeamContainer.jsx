@@ -21,13 +21,14 @@ function TeamContainer(props) {
         mode={props.mode}
         userTeam={props.userTeam}
         abr={currTeam.abr}
+        mobileView={props.mobileView}
       />
     );
   });
 
   return (
     <div className="box">
-      <div className="top-bar"></div>
+      {!props.mobileView && <div className="top-bar"></div>}
       <div className="teamContainer">{teamElements}</div>
     </div>
   );

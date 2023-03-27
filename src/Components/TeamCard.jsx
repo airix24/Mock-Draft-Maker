@@ -10,27 +10,6 @@ function TeamCard(props) {
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isPlayerHovered, setIsPlayerHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  // const [boxPosition, setBoxPosition] = useState({ top: 0, left: 0 });
-
-  // function handleBoxPosition(boxRef) {
-  //   if (!boxRef) return;
-  //   const boxWidth = boxRef.offsetWidth;
-  //   const boxHeight = boxRef.offsetHeight;
-  //   const screenWidth = window.innerWidth;
-  //   const screenHeight = window.innerHeight;
-  //   let newLeft = mousePosition.x + 10;
-  //   let newTop = mousePosition.y + 10;
-
-  //   if (newLeft + boxWidth > screenWidth) {
-  //     newLeft = mousePosition.x - boxWidth - 10;
-  //   }
-
-  //   if (newTop + boxHeight > screenHeight) {
-  //     newTop = mousePosition.y - boxHeight - 10;
-  //   }
-
-  //   setBoxPosition({ top: newTop, left: newLeft });
-  // };
 
   return (
     <div className={`card team-card ${props.userTeam === props.abr ? "user-team-card" : ""}`}>
@@ -68,9 +47,8 @@ function TeamCard(props) {
                 setMousePosition({ x: e.clientX, y: e.clientY })
               }
             >
-              {isPlayerHovered && (
+              {isPlayerHovered && !props.mobileView && (
                 <div
-                  // ref={handleBoxPosition}
                   style={{
                     position: "absolute",
                     top: mousePosition.y - 150,

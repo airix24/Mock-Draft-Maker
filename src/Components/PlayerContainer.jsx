@@ -102,7 +102,7 @@ function PlayerContainer(props) {
         {playerElements}
         {playerElements.length === 0 ? (
           <div className="no-players-message">
-            <h3>Watchlist is Empty</h3>
+            <h3>{search !== "" ? "No Players Match Search" : showWatchlist ? "Watchlist is Empty" : "No Players Left at Position"}</h3>
           </div>
         ) : null}
       </div>

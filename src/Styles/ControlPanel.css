@@ -1,5 +1,5 @@
 .control-panel {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   background-color: #03277a;
@@ -21,6 +21,12 @@
   flex-direction: column;
   align-items: center;
   width: 100px;
+}
+
+@media (max-width: 515px) {
+  .control-panel-btn {
+    width: 65px;
+  }
 }
 
 .control-panel-btn:hover {

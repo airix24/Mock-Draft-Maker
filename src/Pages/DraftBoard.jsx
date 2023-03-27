@@ -28,6 +28,10 @@ function DraftBoard(props) {
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
   const [speed, setSpeed] = useState(draftSettings ? draftSettings.speed : 200);
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
+  const [mobileView, setMobileView] = useState(
+    window.innerWidth < 790 ? true : false
+  );
+  const [currList, setCurrList] = useState("draftResults");
 
   function useInitializeMockDraft(teams) {
     useEffect(() => {
@@ -141,6 +145,21 @@ function DraftBoard(props) {
     });
   }
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 790) {
+        setMobileView(true);
+      } else {
+        setMobileView(false);
+      }
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   function isDraftStarted() {
     return mockDraft.find((slot) => slot.pick !== null);
   }
@@ -156,6 +175,26 @@ function DraftBoard(props) {
 
   return (
     <div className="draft-screen">
+      {mobileView && (
+        <div className="container-select">
+          <div
+            className={`container-select-btn ${
+              currList === "draftResults" && "selected"
+            }`}
+            onClick={() => setCurrList("draftResults")}
+          >
+            Draft Results
+          </div>
+          <div
+            className={`container-select-btn ${
+              currList === "playerPool" && "selected"
+            }`}
+            onClick={() => setCurrList("playerPool")}
+          >
+            Player Pool
+          </div>
+        </div>
+      )}
       {showSaveScreen && (
         <SaveScreen
           setShowSaveScreen={setShowSaveScreen}
@@ -168,21 +207,26 @@ function DraftBoard(props) {
         <TradeScreen setShowTradeScreen={setShowTradeScreen} />
       )}
       <div className="container">
-        <TeamContainer
-          mockDraft={mockDraft}
-          mode={mode}
-          userTeam={userTeam}
-          removePlayer={removePlayer}
-        />
-        <PlayerContainer
-          playerPool={playerPool}
-          addPlayer={addPlayer}
-          isSimulating={isSimulating}
-          mode={mode}
-          isUserPick={isUserPick}
-          isDraftFinished={isDraftFinished}
-          setPlayerPool={setPlayerPool}
-        />
+        {(!mobileView || currList === "draftResults") && (
+          <TeamContainer
+            mockDraft={mockDraft}
+            mode={mode}
+            userTeam={userTeam}
+            removePlayer={removePlayer}
+            mobileView={mobileView}
+          />
+        )}
+        {(!mobileView || currList === "playerPool") && (
+          <PlayerContainer
+            playerPool={playerPool}
+            addPlayer={addPlayer}
+            isSimulating={isSimulating}
+            mode={mode}
+            isUserPick={isUserPick}
+            isDraftFinished={isDraftFinished}
+            setPlayerPool={setPlayerPool}
+          />
+        )}
       </div>
       <ControlPanel
         mode={mode}

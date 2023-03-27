@@ -1,37 +1,6 @@
-/* .new-saved-drafts-screen {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.saved-drafts-container {
-  width: 50%;
-  max-width: 400px;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.saved-drafts-container > h1 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.saved-drafts-container > hr {
-  border: 1px solid;
-  width: 100%;
-  margin-bottom: 1rem;
-} */
-
 .inner-modal-saved-drafts {
-  height: 70vh;
-  width: 50vw;
+  height: 400px;
+  width: 400px;
 }
 
 .saved-draft-card {
