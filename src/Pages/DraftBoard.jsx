@@ -26,11 +26,8 @@ function DraftBoard(props) {
   const [mode] = useState(draftSettings ? "gm" : "builder");
   const [userTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
-  const [speed, setSpeed] = useState(draftSettings ? draftSettings.speed : 200);
+  const [speed, setSpeed] = useState(draftSettings ? draftSettings.speed : 1000);
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
-  const [mobileView, setMobileView] = useState(
-    window.innerWidth < 790 ? true : false
-  );
   const [currList, setCurrList] = useState("draftResults");
 
   function useInitializeMockDraft(teams) {
@@ -145,21 +142,6 @@ function DraftBoard(props) {
     });
   }
 
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 790) {
-        setMobileView(true);
-      } else {
-        setMobileView(false);
-      }
-    }
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   function isDraftStarted() {
     return mockDraft.find((slot) => slot.pick !== null);
   }
@@ -175,7 +157,7 @@ function DraftBoard(props) {
 
   return (
     <div className="draft-screen">
-      {mobileView && (
+      {props.screenSize !== "desktop" && (
         <div className="container-select">
           <div
             className={`container-select-btn ${
@@ -183,7 +165,7 @@ function DraftBoard(props) {
             }`}
             onClick={() => setCurrList("draftResults")}
           >
-            Draft Results
+            <h3>Draft Results</h3>
           </div>
           <div
             className={`container-select-btn ${
@@ -191,7 +173,7 @@ function DraftBoard(props) {
             }`}
             onClick={() => setCurrList("playerPool")}
           >
-            Player Pool
+            <h3>Player Pool</h3>
           </div>
         </div>
       )}
@@ -207,16 +189,16 @@ function DraftBoard(props) {
         <TradeScreen setShowTradeScreen={setShowTradeScreen} />
       )}
       <div className="container">
-        {(!mobileView || currList === "draftResults") && (
+        {(props.screenSize === "desktop" || currList === "draftResults") && (
           <TeamContainer
             mockDraft={mockDraft}
             mode={mode}
             userTeam={userTeam}
             removePlayer={removePlayer}
-            mobileView={mobileView}
+            screenSize={props.screenSize}
           />
         )}
-        {(!mobileView || currList === "playerPool") && (
+        {(props.screenSize === "desktop" || currList === "playerPool") && (
           <PlayerContainer
             playerPool={playerPool}
             addPlayer={addPlayer}
@@ -225,6 +207,7 @@ function DraftBoard(props) {
             isUserPick={isUserPick}
             isDraftFinished={isDraftFinished}
             setPlayerPool={setPlayerPool}
+            screenSize={props.screenSize}
           />
         )}
       </div>

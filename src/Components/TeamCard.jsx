@@ -47,7 +47,7 @@ function TeamCard(props) {
                 setMousePosition({ x: e.clientX, y: e.clientY })
               }
             >
-              {isPlayerHovered && !props.mobileView && (
+              {isPlayerHovered && props.screenSize === "desktop" && (
                 <div
                   style={{
                     position: "absolute",

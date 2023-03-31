@@ -23,12 +23,6 @@
   width: 100px;
 }
 
-@media (max-width: 515px) {
-  .control-panel-btn {
-    width: 65px;
-  }
-}
-
 .control-panel-btn:hover {
   opacity: 0.85;
   cursor: pointer;
@@ -62,4 +56,20 @@
 
 .control-panel-settings-btn {
   z-index: 2;
+}
+
+@media (max-width: 515px) {
+  .control-panel-btn {
+    width: 65px;
+  }
+  .control-panel-btns {
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 250px) {
+  .control-panel-settings {
+    justify-content: right;
+  }
 }

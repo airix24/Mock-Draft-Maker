@@ -12,7 +12,7 @@ function StartupScreen(props) {
   const [currDraft, setCurrDraft] = useState({});
 
   return (
-    <div>
+    <div className="start-screen">
       <div className="context">
         <div className="startup-menu-content">
           <button

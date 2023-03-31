@@ -1,13 +1,5 @@
 .teamContainer {
-  width: 100%;
-  height: 92.5%;
   overflow-y: scroll;
-}
-
-@media (max-width: 790px) {
-  .teamContainer {
-    height: 100%;
-  }
 }
 
 .stop-btn {

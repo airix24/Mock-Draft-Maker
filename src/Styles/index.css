@@ -20,7 +20,7 @@ body {
 }
 
 .top-bar {
-  height: 2vh;
+  height: 20px;
   padding: 0.8em;
   background-color: #03277a;
   color: white;
@@ -60,6 +60,26 @@ button:active {
   text-decoration: none;
 }
 
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.2em;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  h3 {
+    font-size: 0.8em;
+  }
+  h4 {
+    font-size: 0.6em;
+  }
+  h5 {
+    font-size: 0.4em;
+  }
+}
+
+/* scroll bar */
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -80,4 +100,41 @@ button:active {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #7d7d7d;
+}
+
+/* select menu */
+
+select {
+  font-weight: 400;
+  color: #555555;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: #ffffff;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 4px #b4d5ff;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* text boxes */
+input[type="text"] {
+  /* font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px; */
+  font-weight: 400;
+  color: #555555;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: #ffffff;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 4px #b4d5ff;
 }

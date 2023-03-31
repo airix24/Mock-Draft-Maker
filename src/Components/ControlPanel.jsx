@@ -94,12 +94,12 @@ function ControlPanel(props) {
                 <p>Speed</p>
                 <input
                   type="range"
-                  min="100"
+                  min="0"
                   max="4000"
                   step="100"
-                  value={Math.abs(props.speed - 4100)}
+                  value={Math.abs(props.speed - 4000)}
                   onChange={(e) => {
-                    props.setSpeed(4100 - e.target.value);
+                    props.setSpeed(4000 - e.target.value);
                   }}
                 />
               </div>

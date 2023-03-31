@@ -97,7 +97,7 @@ function DraftSettings(props) {
                 })
               }
             >
-              <option value="200">Fast</option>
+              <option value="100">Fast</option>
               <option value="1000">Normal</option>
               <option value="3000">Slow</option>
             </select>

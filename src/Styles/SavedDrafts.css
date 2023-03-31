@@ -1,8 +1,3 @@
-.inner-modal-saved-drafts {
-  height: 400px;
-  width: 400px;
-}
-
 .saved-draft-card {
   padding: 0.4rem;
   margin: 1rem;
@@ -26,7 +21,7 @@
 
 .saved-drafts-content {
   overflow-y: auto;
-  height: 55vh;
+  height: 79%;
 }
 
 .idk {

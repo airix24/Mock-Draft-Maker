@@ -47,6 +47,7 @@ function PlayerContainer(props) {
           starred={player.starred}
           playerPool={props.playerPool}
           setPlayerPool={props.setPlayerPool}
+          screenSize={props.screenSize}
         />
       );
     }
@@ -54,7 +55,7 @@ function PlayerContainer(props) {
 
   return (
     <div className="box">
-      <div className="top-bar">
+      <div className="player-cont-top-bar top-bar">
         <label>
           {/* Position:{" "} */}
           <select

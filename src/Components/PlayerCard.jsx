@@ -132,7 +132,9 @@ function PlayerCard(props) {
         {props.hoveredCard ? null : (
           <div
             className={`player-card-btns ${
-              props.mode === "gm" && props.isUserPick() ? "player-card-btns-gm" : ""
+              props.mode === "gm" && props.isUserPick()
+                ? "player-card-btns-gm"
+                : ""
             }`}
           >
             {expanded ? (
@@ -185,9 +187,11 @@ function PlayerCard(props) {
       </div>
       {expanded ? (
         <div className="expanded">
-          <div className="img-container">
-            <img className="player-img" src={props.img}></img>
-          </div>
+          {props.screenSize !== "mobile" && (
+            <div className="img-container">
+              <img className="player-img" src={props.img}></img>
+            </div>
+          )}
           <div className="exp-player-info">
             <div>
               <h4>
