@@ -66,13 +66,7 @@
     width: 100%;
     justify-content: space-around;
   }
-  .control-panel-settings-gm {
+  .control-panel-settings {
     justify-content: right;
   }
 }
-
-/* @media (max-width: 250px) {
-  .control-panel-settings-gm {
-    justify-content: right;
-  }
-} */
