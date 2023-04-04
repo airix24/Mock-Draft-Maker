@@ -8,9 +8,9 @@ MAIN STUFF:
 - Multiple rounds
 - Trading
 - Edit saved drafts
-- Responsive (mobile view)
 - Drag and drop
 - Grades accuracy of mock drafts once draft happens
+- Be able to upload mock draft and see others' mock drafts
 
 APPLICATION:
 - Move images to assets folder in public folder
@@ -22,11 +22,8 @@ APPLICATION:
 CSS:
 - Styling
 - Better format?
-- Make it responsive
 - Update CSS naming conventions
 - Maybe complete rehaul of design eventually?
-- Add mobile view
-- Have draft button instead of plus?
 
 FEATURES:
 - Add loading icon when simulating
