@@ -11,6 +11,15 @@ MAIN STUFF:
 - Drag and drop
 - Grades accuracy of mock drafts once draft happens
 - Be able to upload mock draft and see others' mock drafts
+- prompt user to save draft and/or enter it in the contest
+- improve algorithm
+
+GET RID OF TO MAKE MORE PROFESSIONAL?:
+- archetypes
+- strengths/weaknesses
+- CSS squares
+- team needs
+- hover over to see player?
 
 APPLICATION:
 - Move images to assets folder in public folder
@@ -105,7 +114,7 @@ MOCK DRAFT SIMULATOR (SIMULATION MODE):
 - Actually be on the clock (timer)?
 - Show what pick each team has when you're selecting what team you are
 - Allow non-user teams to make trades
-- Have a recap screen at the end that shows your draft and trades and maybe the entire draft (this could be where you can save the draft)
+- Have a recap screen at the end that shows your draft and trades and maybe the entire draft (this could be where you can save the draft) (prompt user to save draft and/or enter it in the contest)
 
 GAMIFY IT:
 - Have a list of goals for the draft that the owner gives you? (ex. "Draft a top 3 WR", "get a first round pick for next year", etc.)
@@ -128,6 +137,7 @@ BUGS:
 - When you expand bottom player, have it so that player's card is completely visible
 - Make it so pop up player card is always visible on the screen
 - Fix weird expand bug (might be a lot of work)
+- Make it so player pool container doesn't shrink when you toggle watchlist on
 
 MISCELLANEOUS:
 - Incorporate AI?
