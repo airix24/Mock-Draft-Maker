@@ -4,17 +4,41 @@ import "./Styles/App.css";
 import Header from "./Components/Header";
 import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
+import Contest from "./Pages/Contest";
+
+import { auth } from "./config/firebase-config";
 
 function App() {
-  // mobile view: 254 x 462
   const [screenSize, setScreenSize] = useState(
-    window.innerWidth < 360 ? "mobile" : window.innerWidth < 790 ? "tablet" : "desktop"
+    window.innerWidth < 420
+      ? "mobile"
+      : window.innerWidth < 790
+      ? "tablet"
+      : "desktop"
   );
   const [savedDrafts, setSavedDrafts] = useState(
     localStorage.getItem("savedDrafts")
       ? JSON.parse(localStorage.getItem("savedDrafts"))
       : []
   );
+  const [user, setUser] = useState(null);
+
+  // Listen for changes in user authentication state
+  useEffect(() => {
+    // Listen for changes in user authentication state
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is logged in
+        setUser(user);
+      } else {
+        // User is logged out
+        setUser(null);
+      }
+    });
+
+    // Clean up the listener when the component unmounts
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     function handleResize() {
@@ -35,7 +59,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header user={user} />
       <Routes>
         <Route
           path="/"
@@ -57,6 +81,7 @@ function App() {
             />
           }
         />
+        <Route path="/contest" element={<Contest user={user} />} />
       </Routes>
     </div>
   );

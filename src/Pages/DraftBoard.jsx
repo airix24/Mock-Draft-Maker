@@ -26,7 +26,9 @@ function DraftBoard(props) {
   const [mode] = useState(draftSettings ? "gm" : "builder");
   const [userTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
-  const [speed, setSpeed] = useState(draftSettings ? draftSettings.speed : 1000);
+  const [speed, setSpeed] = useState(
+    draftSettings ? draftSettings.speed : 1000
+  );
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
   const [currList, setCurrList] = useState("draftResults");
 
@@ -186,7 +188,11 @@ function DraftBoard(props) {
         />
       )}
       {showTradeScreen && (
-        <TradeScreen setShowTradeScreen={setShowTradeScreen} />
+        <TradeScreen
+          setShowTradeScreen={setShowTradeScreen}
+          mode={mode}
+          userTeam={userTeam}
+        />
       )}
       <div className="container">
         {(props.screenSize === "desktop" || currList === "draftResults") && (
@@ -222,6 +228,7 @@ function DraftBoard(props) {
         clearDraft={clearDraft}
         speed={speed}
         setSpeed={setSpeed}
+        setShowTradeScreen={setShowTradeScreen}
       />
     </div>
   );

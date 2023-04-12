@@ -40,6 +40,12 @@
   justify-content: center;
 }
 
+@media (max-width: 420px) {
+  .container-select {
+    height: 40px;
+  }
+}
+
 .container-select-btn {
   background-color: rgb(63, 63, 63);
   color: white;
@@ -69,7 +75,7 @@
 
 @media (max-width: 790px) {
   .draft-screen {
-    top: 70px;
+    top: 80px;
     bottom: 60px;
   }
 }

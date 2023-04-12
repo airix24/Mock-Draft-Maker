@@ -32,9 +32,14 @@ function StartupScreen(props) {
           >
             <h3>Saved Drafts</h3>
           </button>
+          <Link to="/contest" className="startup-link">
+            <button className="startup-btn contest-btn">
+              <h3>Contest</h3>
+            </button>
+          </Link>
         </div>
       </div>
-      <div className="area">
+      {/* <div className="area">
         <ul className="circles">
           <li></li>
           <li></li>
@@ -47,7 +52,7 @@ function StartupScreen(props) {
           <li></li>
           <li></li>
         </ul>
-      </div>
+      </div> */}
       {showDraftSettings && (
         <DraftSettings setShowDraftSettings={setShowDraftSettings} />
       )}

@@ -24,6 +24,10 @@
   z-index: 100;
 }
 
+.contest-btn {
+  color: rgb(3, 144, 190);
+}
+
 /* -------------------- */
 
 /* .context {

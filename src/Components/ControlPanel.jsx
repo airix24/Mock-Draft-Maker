@@ -74,7 +74,10 @@ function ControlPanel(props) {
           )}
           <p>{props.mode === "builder" ? "Clear" : "Restart"}</p>
         </div>
-        <div className="control-panel-btn disabled">
+        <div
+          className={`control-panel-btn disabled ${props.isSimulating && "disabled"}`}
+          onClick={() => props.setShowTradeScreen(true)}
+        >
           <FaExchangeAlt size={20} />
           <p>Trade</p>
         </div>

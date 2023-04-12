@@ -1,0 +1,25 @@
+.auth-modal-content {
+  justify-content: center;
+}
+
+.google-login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.google-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.google-button-text {
+  margin-right: 8px;
+}
