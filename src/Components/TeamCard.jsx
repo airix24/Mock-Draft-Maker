@@ -26,7 +26,7 @@ function TeamCard(props) {
             className="card"
             style={{
               position: "absolute",
-              top: mousePosition.y - 30,
+              top: mousePosition.y - 70,
               left: mousePosition.x + 10,
               boxShadow: "0 0 5px gray",
               zIndex: 100,
@@ -36,10 +36,10 @@ function TeamCard(props) {
           </div>
         )}
 
-        <h3 className="pick-position">{props.draftPosition}.</h3>
+        <h4 className="pick-position">{props.draftPosition}.</h4>
         {props.pick && (
           <div className="drafted-player-info">
-            <h3
+            <h4
               className="drafted-player-name"
               onMouseEnter={() => setIsPlayerHovered(true)}
               onMouseLeave={() => setIsPlayerHovered(false)}
@@ -81,8 +81,8 @@ function TeamCard(props) {
                 </div>
               )}
               {draftPick.firstName} {draftPick.lastName}
-            </h3>
-            <h3 className="light">{draftPick.position}</h3>
+            </h4>
+            <h4 className="light">{draftPick.position}</h4>
           </div>
         )}
       </div>

@@ -22,7 +22,7 @@ function ViewDraft(props) {
 
   return (
     <div
-      className="outer-modal"
+      className="outer-modal outer-modal-view-draft"
       onClick={() => {
         props.setShowViewDraft(false);
         props.setShowSavedDrafts(false);

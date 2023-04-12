@@ -1,13 +1,41 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: monospace;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   user-select: none;
 }
 
 body {
   background-color: #bdb8c4;
   cursor: default;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+h4 {
+  font-size: 0.9em;
+}
+
+h5 {
+  font-size: 0.7em;
+}
+
+h6 {
+  font-size: 0.5em;
+}
+
+p {
+  font-size: 0.8em;
 }
 
 .light {
@@ -20,7 +48,7 @@ body {
 }
 
 .top-bar {
-  height: 20px;
+  height: 10px;
   padding: 0.8em;
   background-color: #03277a;
   color: white;

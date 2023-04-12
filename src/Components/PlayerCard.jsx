@@ -37,7 +37,7 @@ function PlayerCard(props) {
         <div className="unexpanded-player-info">
           {expanded ? (
             <div className="exp-player-name">
-              <h3>{props.rank}.</h3>
+              {!props.hoveredCard && <h3>{props.rank}.</h3>}
               <div>
                 <div className="name-star">
                   {props.hoveredCard ? null : props.starred ? (
@@ -85,7 +85,7 @@ function PlayerCard(props) {
             </div>
           ) : (
             <div className="unexp-player-name">
-              <h3>{props.rank}.</h3>
+              <h4>{props.rank}.</h4>
               <div className="star-player-stuff">
                 {props.starred ? (
                   <FaStar
@@ -120,10 +120,10 @@ function PlayerCard(props) {
                   />
                 )}
                 <div className="name-position">
-                  <h3>
+                  <h4>
                     {props.firstName} {props.lastName}
-                  </h3>
-                  <h4 className="light">{props.position}</h4>
+                  </h4>
+                  <h5 className="light">{props.position}</h5>
                 </div>
               </div>
             </div>
