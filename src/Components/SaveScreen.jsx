@@ -2,6 +2,8 @@ import React from "react";
 import "../Styles/SaveScreen.css";
 import { FaTimes } from "react-icons/fa";
 import { nanoid } from "nanoid";
+import Modal from "./Modal";
+import Auth from "./Auth";
 
 function SaveScreen(props) {
   // save the mock draft to local storage
@@ -32,27 +34,28 @@ function SaveScreen(props) {
   }
 
   return (
-    <div className="outer-modal" onClick={() => props.setShowSaveScreen(false)}>
-      <div className="inner-modal save-inner-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="top-bar modal-bar">
-          <FaTimes
-            className="icon"
-            size={20}
-            onClick={() => props.setShowSaveScreen(false)}
-          />
-        </div>
-        <div className="modal-content">
+    <Modal setShowSelf={props.setShowSaveScreen}>
+      {props.user ? (
+        <div>
           <h3 className="save-text">Enter a name for your draft</h3>
-          <form className="save-form" onSubmit={(e) => {
-            e.preventDefault();
-            saveDraft(e.target[0].value);
-          }}>
+          <form
+            className="save-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              saveDraft(e.target[0].value);
+            }}
+          >
             <input type="text" className="save-bar" autoFocus maxLength={30} />
             <button className="save-btn">Save</button>
           </form>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className="save-login-div">
+          <h3 className="light">Must be logged in to save draft</h3>
+          <Auth />
+        </div>
+      )}
+    </Modal>
   );
 }
 

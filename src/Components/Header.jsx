@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/Header.css";
 import { FaUserCircle } from "react-icons/fa";
+import Modal from "./Modal";
 import Auth from "../Components/Auth";
 
 function Header(props) {
@@ -28,7 +29,11 @@ function Header(props) {
           )}
         </div>
       </div>
-      {showAuth && <Auth user={props.user} setShowAuth={setShowAuth} />}
+      {showAuth && (
+        <Modal setShowSelf={setShowAuth}>
+          <Auth user={props.user} setShowAuth={setShowAuth} />
+        </Modal>
+      )}
     </div>
   );
 }

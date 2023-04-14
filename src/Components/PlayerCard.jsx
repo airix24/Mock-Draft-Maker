@@ -42,8 +42,8 @@ function PlayerCard(props) {
                 <div className="name-star">
                   {props.hoveredCard ? null : props.starred ? (
                     <FaStar
-                      // size={18}
-                      size={props.screenSize === "mobile" ? 24 : 18}
+                      size={18}
+                      // size={props.screenSize === "mobile" ? 24 : 18}
                       color={"#DBCE1E"}
                       // on click, set starred to false
                       onClick={(e) => {
@@ -60,7 +60,7 @@ function PlayerCard(props) {
                     />
                   ) : (
                     <FaRegStar
-                    size={props.screenSize === "mobile" ? 24 : 18}
+                    size={18}
                       onClick={(e) => {
                         props.setPlayerPool(
                           props.playerPool.map((player) => {
@@ -90,7 +90,7 @@ function PlayerCard(props) {
               <div className="star-player-stuff">
                 {props.starred ? (
                   <FaStar
-                  size={props.screenSize === "mobile" ? 24 : 18}
+                  size={18}
                     color={"#DBCE1E"}
                     onClick={(e) => {
                       props.setPlayerPool(
@@ -106,7 +106,7 @@ function PlayerCard(props) {
                   />
                 ) : (
                   <FaRegStar
-                  size={props.screenSize === "mobile" ? 24 : 18}
+                  size={18}
                     onClick={(e) => {
                       props.setPlayerPool(
                         props.playerPool.map((player) => {
@@ -141,7 +141,7 @@ function PlayerCard(props) {
             {expanded ? (
               <FaChevronUp
                 className="icon"
-                size={props.screenSize === "mobile" ? 24 : 18}
+                size={18}
                 onClick={(e) => {
                   setExpanded(false);
                   e.stopPropagation();
@@ -150,7 +150,7 @@ function PlayerCard(props) {
             ) : (
               <FaChevronDown
                 className="icon"
-                size={props.screenSize === "mobile" ? 24 : 18}
+                size={18}
                 onClick={(e) => {
                   setExpanded(true);
                   e.stopPropagation();
@@ -164,7 +164,7 @@ function PlayerCard(props) {
                     ? "disabled icon plus-icon"
                     : "icon plus-icon"
                 }
-                size={props.screenSize === "mobile" ? 24 : 18}
+                size={18}
                 onClick={(e) => {
                   props.addPlayer(props.id);
                   setExpanded(false);

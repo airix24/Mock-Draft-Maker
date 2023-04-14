@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import "../Styles/Contest.css";
+import Modal from "../Components/Modal";
 import Auth from "../Components/Auth";
+import ViewEntrants from "../Components/ViewEntrants";
+import EnterContest from "../Components/EnterContest";
 
 function Contest(props) {
   const [showAuth, setShowAuth] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [timeUntilClose, setTimeUntilClose] = useState(0);
+  const [showEntrants, setShowEntrants] = useState(false);
+  const [showEnterContest, setShowEnterContest] = useState(false);
 
   //calculate time until contest closes (4/27/23 6 PM ET), updates every second
   useEffect(() => {
@@ -40,8 +45,16 @@ function Contest(props) {
 
   return (
     <div className="contest-screen">
+      {showEntrants && <ViewEntrants setShowEntrants={setShowEntrants} />}
+      {showEnterContest && (
+        <EnterContest setShowEnterContest={setShowEnterContest} />
+      )}
       <div className="contest-container">
-        {showAuth ? <Auth setShowAuth={setShowAuth} /> : null}
+        {showAuth ? (
+          <Modal setShowSelf={setShowAuth}>
+            <Auth setShowAuth={setShowAuth} />
+          </Modal>
+        ) : null}
         <h1 className="contest-header">Mock Draft Contest 2023</h1>
         <h4>Closes in: {convertTime(timeUntilClose)}</h4>
         <div className="contest-desc">
@@ -65,14 +78,25 @@ function Contest(props) {
         {/* when the draft is on and after it's over, display a leaderboard instead or button to get to leaderboard */}
         {props.user ? (
           <div className="contest-btns">
-            <button className="big-blue-btn disabled">Enter</button>
-            <button className="disabled">View Entrants</button>
+            {/* if you have a draft entered, you're able to view that draft and edit it (or remove it ig) (or change the name) */}
+            <button
+              className="big-blue-btn"
+              onClick={() => setShowEnterContest(true)}
+            >
+              Enter
+            </button>
+            <button onClick={() => setShowEntrants(true)}>View Entrants</button>
           </div>
         ) : (
           <div>
             <div className="contest-btns">
               <h3>You must be signed in to enter the contest</h3>
-              <button onClick={() => setShowAuth(true)} className="big-blue-btn">Sign In</button>
+              <button
+                onClick={() => setShowAuth(true)}
+                className="big-blue-btn"
+              >
+                Sign In
+              </button>
             </div>
           </div>
         )}

@@ -78,6 +78,7 @@ function App() {
               setSavedDrafts={setSavedDrafts}
               screenSize={screenSize}
               setScreenSize={setScreenSize}
+              user={user}
             />
           }
         />

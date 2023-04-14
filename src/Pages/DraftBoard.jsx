@@ -185,6 +185,7 @@ function DraftBoard(props) {
           mockDraft={mockDraft}
           setSavedDrafts={props.setSavedDrafts}
           clearDraft={clearDraft}
+          user={props.user}
         />
       )}
       {showTradeScreen && (

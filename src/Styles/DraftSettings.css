@@ -9,10 +9,10 @@ form > select {
 }
 
 .settings-btn {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
-/* .inner-modal-settings {
-  width: 250px;
-  height: 250px;
-} */
+.settings-form > h3 {
+  margin-top: 10px;
+  margin-bottom: 2px;
+}

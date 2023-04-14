@@ -1,0 +1,10 @@
+.enter-contest-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 20px 0; */
+}
+
+.enter-contest-content > * {
+  margin: 10px 0;
+}

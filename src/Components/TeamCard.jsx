@@ -90,7 +90,7 @@ function TeamCard(props) {
       {props.pick && props.mode === "builder" ? (
         <FaTimes
           className="icon"
-          size={props.screenSize === "mobile" ? 20 : 15}
+          size={18}
           onClick={() => props.removePlayer(draftPick.id)}
         />
       ) : (

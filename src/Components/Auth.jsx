@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import auth from firebse-config
 import { auth, googleProvider } from "../config/firebase-config";
 import {
   createUserWithEmailAndPassword,
@@ -39,17 +38,8 @@ function Auth(props) {
   }
 
   return (
-    <div className="outer-modal" onClick={() => props.setShowAuth(false)}>
-      <div className="inner-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="top-bar">
-          <FaTimes
-            className="icon"
-            size={20}
-            onClick={() => props.setShowAuth(false)}
-          />
-        </div>
-        <div className="modal-content auth-modal-content">
-          {/* <input
+    <div>
+      {/* <input
             type="email"
             placeholder="email"
             onChange={(e) => {
@@ -65,35 +55,37 @@ function Auth(props) {
           />
           <button onClick={signIn}>Sign In</button> */}
 
-          {/* <button onClick={signInWithGoogle}>Sign in with Google</button> */}
+      {/* <button onClick={signInWithGoogle}>Sign in with Google</button> */}
 
-          {props.user ? (
-            <button
-              onClick={() => {
-                logOut();
-                props.setShowAuth(false);
-              }}
-            >
-              Log Out
-            </button>
-          ) : (
-            <button
-              className="google-login-button"
-              onClick={() => {
-                signInWithGoogle();
-                props.setShowAuth(false);
-              }}
-            >
-              <img
-                className="google-icon"
-                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                alt="Google Icon"
-              />
-              <span className="google-button-text">Log in with Google</span>
-            </button>
-          )}
-        </div>
-      </div>
+      {props.user ? (
+        <button
+          onClick={() => {
+            logOut();
+            if (props.setShowAuth) {
+              props.setShowAuth(false);
+            }
+          }}
+        >
+          Log Out
+        </button>
+      ) : (
+        <button
+          className="google-login-button"
+          onClick={() => {
+            signInWithGoogle();
+            if (props.setShowAuth) {
+              props.setShowAuth(false);
+            }
+          }}
+        >
+          <img
+            className="google-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            alt="Google Icon"
+          />
+          <span className="google-button-text">Log in with Google</span>
+        </button>
+      )}
     </div>
   );
 }
