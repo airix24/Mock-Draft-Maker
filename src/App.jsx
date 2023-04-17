@@ -67,6 +67,7 @@ function App() {
             <StartupScreen
               savedDrafts={savedDrafts}
               setSavedDrafts={setSavedDrafts}
+              user={user}
             />
           }
         />

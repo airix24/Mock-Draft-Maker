@@ -1,42 +1,71 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "../Styles/SaveScreen.css";
-import { FaTimes } from "react-icons/fa";
-import { nanoid } from "nanoid";
 import Modal from "./Modal";
 import Auth from "./Auth";
+import { nanoid } from "nanoid";
+
+import { db } from "../config/firebase-config";
+import { collection, doc, setDoc, getDocs } from "firebase/firestore";
 
 function SaveScreen(props) {
-  // save the mock draft to local storage
+  const [tooManyDrafts, setTooManyDrafts] = useState(false);
+
+  // check if the user has 30 saved drafts already
+  useEffect(() => {
+    if (props.user) {
+      const usersCollection = collection(db, "users");
+      const savedDraftsCollection = collection(
+        usersCollection,
+        props.user.uid,
+        "savedDrafts"
+      );
+      getDocs(savedDraftsCollection).then((querySnapshot) => {
+        if (querySnapshot.docs.length >= 30) {
+          setTooManyDrafts(true);
+        }
+      });
+    }
+  }, [props.user]);
+
+  // save the mock draft to the database
   function saveDraft(name) {
+    const usersCollection = collection(db, "users");
+    const savedDraftsCollection = collection(
+      usersCollection,
+      props.user.uid,
+      "savedDrafts"
+    );
     name = name === "" ? "Untitled" : name;
-    // if the name already exists, append a number to the end of it
-    // let i = 1;
-    // while (props.savedDrafts.some((draft) => draft.name === name)) {
-    //   i++;
-    // }
-    // if (i > 1) {
-    //   name = `${name}(${i})`;
-    // }
+    const draftId = nanoid();
     const draft = {
-      id: nanoid(),
-      name: name,
-      date: new Date().toLocaleDateString(),
+      draftId: draftId,
+      draftName: name,
+      createdAt: new Date(),
       draft: props.mockDraft,
+      contestsEntered: [],
     };
-    props.setSavedDrafts((prev) => {
-      const newDraft = [...prev];
-      newDraft.push(draft);
-      localStorage.setItem("savedDrafts", JSON.stringify(newDraft));
-      return newDraft;
-    });
-    props.setShowSaveScreen(false);
-    props.clearDraft();
+    // Set the document ID as a field in the data object
+    setDoc(doc(savedDraftsCollection, draftId), draft)
+      .then(() => {
+        props.setShowSaveScreen(false);
+        props.clearDraft();
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
   }
 
   return (
     <Modal setShowSelf={props.setShowSaveScreen}>
-      {props.user ? (
-        <div>
+      {!props.user ? (
+        <div className="save-login-div">
+          <h3 className="light">Must be logged in to save draft</h3>
+          <Auth />
+        </div>
+      ) : tooManyDrafts ? (
+        <h1>You have 30 saved drafts already bro, chill. Delete some first</h1>
+      ) : (
+        <div className="save-screen">
           <h3 className="save-text">Enter a name for your draft</h3>
           <form
             className="save-form"
@@ -45,14 +74,9 @@ function SaveScreen(props) {
               saveDraft(e.target[0].value);
             }}
           >
-            <input type="text" className="save-bar" autoFocus maxLength={30} />
+            <input type="text" className="save-bar" autoFocus maxLength={15} />
             <button className="save-btn">Save</button>
           </form>
-        </div>
-      ) : (
-        <div className="save-login-div">
-          <h3 className="light">Must be logged in to save draft</h3>
-          <Auth />
         </div>
       )}
     </Modal>

@@ -8,8 +8,6 @@
   height: 50px;
   display: flex;
   z-index: 100;
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .header > h1 {
@@ -23,7 +21,6 @@
   cursor: pointer;
 }
 
-/* center in the middle of the header */
 .profile-icon {
   position: absolute;
   top: 25%;

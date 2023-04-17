@@ -1,7 +1,12 @@
 import { prospects } from "./Prospects";
+import { teams } from "./Teams";
 
 function findProspect(id) {
   return prospects.find((prospect) => prospect.id === id);
+}
+
+function findTeam(abr) {
+  return teams.find((team) => team.abr === abr);
 }
 
 // initialize the mock draft
@@ -25,4 +30,4 @@ function sortProspects(prospects) {
   return prospects.sort((a, b) => a.rank - b.rank);
 }
 
-export { findProspect, initializeMock, sortProspects };
+export { findProspect, findTeam, initializeMock, sortProspects };

@@ -1,75 +1,111 @@
 import { useState } from "react";
+import { FaArrowLeft, FaTrash, FaEdit, FaTimes, FaCheck } from "react-icons/fa";
 import "../Styles/ViewDraft.css";
-import { FaArrowLeft, FaEdit, FaTrash } from "react-icons/fa";
-import { findProspect } from "../util.js";
-import DeleteConfirmation from "./DeleteConfirmation";
+import { findProspect, findTeam } from "../util";
+import { db } from "../config/firebase-config";
+import { collection, doc, deleteDoc } from "firebase/firestore";
 
 function ViewDraft(props) {
-  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const isContestEntry = props.draft.contestsEntered.includes("mainContest");
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
-  const draftElements = props.currDraft.draft.map((team, index) => {
-    const currProspect = findProspect(team.pick) ? findProspect(team.pick) : {};
-    return (
-      <div className="draft-element" key={index}>
-        <h2>{index + 1}.</h2>
-        <h2>{team.team} -</h2>
-        <h3>
-          {currProspect.firstName} {currProspect.lastName}
-        </h3>
-      </div>
-    );
+  // make date readable in string form
+  const date = new Date(
+    props.draft.createdAt.seconds * 1000
+  ).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
+  // delete the draft from the database
+  function deleteDraft() {
+    const usersCollection = collection(db, "users");
+    const savedDraftsCollection = collection(
+      usersCollection,
+      props.user.uid,
+      "savedDrafts"
+    );
+    const draftDoc = doc(savedDraftsCollection, props.draft.draftId);
+    deleteDoc(draftDoc);
+    props.setCurrDraft(null);
+  }
+
   return (
-    <div
-      className="outer-modal outer-modal-view-draft"
-      onClick={() => {
-        props.setShowViewDraft(false);
-        props.setShowSavedDrafts(false);
-      }}
-    >
-      {showDeleteConfirmation ? (
-        <DeleteConfirmation
-          setShowDeleteConfirmation={setShowDeleteConfirmation}
-          currDraft={props.currDraft}
-          setSavedDrafts={props.setSavedDrafts}
-          setShowViewDraft={props.setShowViewDraft}
-        />
-      ) : null}
+    <div className="view-draft">
       <div
-        className="inner-modal inner-modal-view-draft"
-        onClick={(e) => e.stopPropagation()}
+        className={`view-draft-top ${
+          props.isViewingFromContestPage && "view-draft-top-contest-page"
+        }`}
       >
-        <div className="top-bar modal-bar">
-          <FaArrowLeft
-            className="icon"
-            size={20}
-            onClick={() => {
-              props.setShowViewDraft(false);
-              props.setShowSavedDrafts(true);
-            }}
-          />
+        {!props.isViewingFromContestPage && (
+          <div className="idk-bro">
+            <FaArrowLeft
+              className="icon"
+              size={20}
+              onClick={() => props.setCurrDraft(null)}
+            />
+          </div>
+        )}
+
+        <div className="view-draft-info">
+          <h3 className="view-draft-name">{props.draft.draftName}</h3>
+          <h4 className="light">{date}</h4>
+          {isContestEntry && !props.isViewingFromContestPage && (
+            <h4 className="contest-indicator">Entered in Main Contest</h4>
+          )}
+          {props.isViewingFromContestPage && (
+            <div className="view-draft-contest-page-btns">
+              <button onClick={props.removeEntryFromMainContest}>Remove</button>
+              <button>Edit</button>
+            </div>
+          )}
         </div>
-        <div className="modal-content modal-content-view-draft">
-          <div className="view-draft-header">
-            <div className="view-draft-top">
-              <h2>{props.currDraft.name}</h2>
+        {!props.isViewingFromContestPage && (
+          <div className="idk-bro">
+            {!showDeleteConfirm ? (
               <div className="view-draft-btns">
-                <FaEdit className="icon disabled" size={20} />
                 <FaTrash
+                  className={`icon ${isContestEntry && "disabled"}`}
+                  size={20}
+                  onClick={() => setShowDeleteConfirm(true)}
+                  // onClick={deleteDraft}
+                />{" "}
+                <FaEdit className="icon disabled" size={20} />{" "}
+              </div>
+            ) : (
+              <div className="view-draft-btns">
+                <FaTimes
                   className="icon"
                   size={20}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setShowDeleteConfirmation(true);
-                  }}
+                  onClick={() => setShowDeleteConfirm(false)}
                 />
+                <FaCheck className="icon" size={20} onClick={deleteDraft} />
               </div>
-            </div>
-            <h3 className="light">{props.currDraft.date}</h3>
+            )}
           </div>
-          {draftElements}
-        </div>
+        )}
+      </div>
+      <div className="view-draft-mock-draft">
+        {props.draft.draft.map((slot, index) => {
+          const player = findProspect(slot.pick)
+            ? findProspect(slot.pick)
+            : "---";
+          const team = findTeam(slot.team);
+          return (
+            <div className="view-draft-slot" key={index}>
+              <img
+                className="view-draft-slot-logo"
+                src={team.logo}
+                alt={`${team.teamName} logo`}
+              ></img>
+              <p className="view-draft-slot-pos">{index + 1}.</p>
+              <p className="view-draft-slot-name">
+                {player.firstName} {player.lastName}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

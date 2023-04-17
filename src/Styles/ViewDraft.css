@@ -1,43 +1,81 @@
-.outer-modal-view-draft {
-  background-color: transparent;
-}
-
-.inner-modal-view-draft {
-  height: 400px;
-  width: 400px;
-}
-
-.modal-content-view-draft {
-  height: 87%;
-  overflow-y: scroll;
-}
-
-.draft-element {
-  margin: 10px;
+.view-draft {
+  width: 100%;
   display: flex;
-  width: 50%;
+  flex-direction: column;
+}
+
+.view-draft-top {
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #e5e5e5;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.draft-element > *:nth-child(2) {
-  margin-right: 10px;
+.view-draft-top-contest-page {
+  justify-content: center;
 }
 
-.view-draft-header {
+.view-draft-info {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.view-draft-top {
-  display: flex;
-  align-items: center;
+.view-draft-slot-pos,
+.view-draft-slot-name {
+  font-size: 1rem;
+}
+
+.view-draft-slot-pos {
+  margin-right: 0.5rem;
 }
 
 .view-draft-btns {
-  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.view-draft-btns > :nth-child(2) {
-  margin-left: 0.5rem;
+.view-draft-btns > :nth-child(1) {
+  margin-right: 0.5rem;
+}
+
+.view-draft-mock-draft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.view-draft-slot {
+  width: 65%;
+  padding: 0.5rem;
+  border: 1px solid #e5e5e5;
+  display: flex;
+}
+
+.view-draft-slot-logo {
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.idk-bro {
+  /* border: 1px solid #000000; */
+  width: 50px;
+}
+
+.view-draft-contest-page-btns {
+  margin-top: 2px;
+}
+
+.view-draft-contest-page-btns > :nth-child(1) {
+  margin-right: 0.5rem;
+}
+
+.view-draft-contest-page-btns > button {
+  background-color: #03277a;
+  color: white;
+  width: 70px;
 }

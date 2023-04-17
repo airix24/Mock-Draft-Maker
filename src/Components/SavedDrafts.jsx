@@ -1,82 +1,81 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "../Styles/SavedDrafts.css";
-import { FaTimes } from "react-icons/fa";
-// import DeleteConfirmation from "./DeleteConfirmation";
+import { db } from "../config/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
+import Modal from "./Modal";
+import ViewDraft from "./ViewDraft";
 
 function SavedDrafts(props) {
-  // const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [currDraft, setCurrDraft] = useState(null);
+  const [savedDrafts, setSavedDrafts] = useState([]);
 
-  const savedDraftElements = props.savedDrafts
-    .map((draft, index) => {
-      // show only the first 10 characters of the saved draft name
-      const name =
-        draft.name != null && draft.name.length > 30
-          ? `${draft.name.slice(0, 30)}...`
-          : draft.name;
-      return (
-        <div className="saved-draft-card" key={index}>
-          <div
-            className="saved-draft-info"
-            onClick={() => {
-              // props.setShowSavedDrafts(false);
-              props.setShowViewDraft(true);
-              props.setCurrDraft(draft);
-            }}
-          >
-            <h2>{name}</h2>
-            <h4 className="light">{draft.date}</h4>
-          </div>
-          {/* <button
-            className="edit-draft-btn"
-            onClick={() => {
-              console.log("edit");
-            }}
-          >
-            Edit
-          </button>
-          <button
-            className="delete-draft-btn"
-            onClick={(e) => {
-              e.stopPropagation();
-              setShowDeleteConfirmation(true);
-            }}
-          >
-            Delete
-          </button> */}
-        </div>
-      );
-    })
-    .reverse();
+  // get the saved drafts collection from the database
+  const usersCollection = collection(db, "users");
+  const savedDraftsCollection = collection(
+    usersCollection,
+    props.user.uid,
+    "savedDrafts"
+  );
+
+  // get the saved drafts from the database
+  useEffect(() => {
+    const getSavedDrafts = async () => {
+      try {
+        const data = await getDocs(savedDraftsCollection);
+        setSavedDrafts(data.docs.map((doc) => doc.data()));
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    getSavedDrafts();
+  }, [currDraft]);
+
+  // create a div for each saved draft
+  const savedDraftElements = savedDrafts.map((draft, index) => {
+    // format the date
+    const date = new Date(draft.createdAt.seconds * 1000).toLocaleDateString(
+      "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }
+    );
+    return (
+      <div
+        key={index}
+        className="saved-draft-card"
+        onClick={() => {
+          setCurrDraft(draft);
+        }}
+      >
+        <h2>{draft.draftName}</h2>
+        <h4 className="light">{date}</h4>
+        {draft.contestsEntered &&
+          draft.contestsEntered.includes("mainContest") && (
+            <h4 className="contest-indicator">Entered in Main Contest</h4>
+          )}
+      </div>
+    );
+  });
 
   return (
-    <div
-      className="outer-modal"
-      onClick={() => props.setShowSavedDrafts(false)}
-    >
-      <div
-        className="inner-modal inner-modal-saved-drafts"
-        onClick={(e) => e.stopPropagation(e)}
-      >
-        <div className="top-bar modal-bar">
-          <FaTimes
-            className="icon"
-            size={20}
-            onClick={() => props.setShowSavedDrafts(false)}
-          />
-        </div>
-        <div className="idk">
-          <h1>Saved Drafts</h1>
-        </div>
-        <hr></hr>
-        <div className="modal-content saved-drafts-content">
+    <Modal setShowSelf={props.setShowSavedDrafts}>
+      {currDraft !== null ? (
+        <ViewDraft draft={currDraft} setCurrDraft={setCurrDraft} user={props.user} />
+      ) : (
+        <div className="saved-draft-container">
+          <div className="saved-drafts-top">
+            <h1>Saved Drafts</h1>
+          </div>
           {savedDraftElements.length === 0 ? (
-            <h3 className="light">No saved drafts</h3>
+            <h3 className="no-saved-drafts-message light">No saved drafts</h3>
           ) : (
-            <div className="">{savedDraftElements}</div>
+            <div className="saved-draft-card-list">{savedDraftElements}</div>
           )}
         </div>
-      </div>
-    </div>
+      )}
+    </Modal>
   );
 }
 

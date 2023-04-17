@@ -27,7 +27,7 @@ function StartupScreen(props) {
             </button>
           </Link>
           <button
-            className="startup-btn"
+            className={`startup-btn ${props.user ? "" : "disabled"}`}
             onClick={() => setShowSavedDrafts(true)}
           >
             <h3>Saved Drafts</h3>
@@ -63,6 +63,7 @@ function StartupScreen(props) {
           setSavedDrafts={props.setSavedDrafts}
           setShowViewDraft={setShowViewDraft}
           setCurrDraft={setCurrDraft}
+          user={props.user}
         />
       )}
       {showViewDraft && (

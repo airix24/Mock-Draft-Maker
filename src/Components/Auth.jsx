@@ -1,26 +1,9 @@
-import { useState } from "react";
-import { auth, googleProvider } from "../config/firebase-config";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
-import { FaTimes } from "react-icons/fa";
+import { auth, googleProvider, db } from "../config/firebase-config";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { collection, doc, setDoc, getDocs } from "firebase/firestore";
 import "../Styles/Auth.css";
 
-// log in with email and password
 function Auth(props) {
-  //   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
-
-  //   async function signIn() {
-  //     try {
-  //       await createUserWithEmailAndPassword(auth, email, password);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-
   async function signInWithGoogle() {
     try {
       await signInWithPopup(auth, googleProvider);
@@ -38,41 +21,48 @@ function Auth(props) {
   }
 
   return (
-    <div>
-      {/* <input
-            type="email"
-            placeholder="email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <button onClick={signIn}>Sign In</button> */}
-
-      {/* <button onClick={signInWithGoogle}>Sign in with Google</button> */}
-
+    <div className="auth">
       {props.user ? (
-        <button
-          onClick={() => {
-            logOut();
-            if (props.setShowAuth) {
-              props.setShowAuth(false);
-            }
-          }}
-        >
-          Log Out
-        </button>
+        <div className="logout-div">
+          <img
+            className="user-photo"
+            src={props.user.photoURL}
+            alt="User Profile"
+          />
+          <h3 className="light user-email">{props.user.email}</h3>
+          <button
+            onClick={() => {
+              logOut();
+              if (props.setShowAuth) {
+                props.setShowAuth(false);
+              }
+            }}
+          >
+            Log Out
+          </button>
+        </div>
       ) : (
         <button
           className="google-login-button"
           onClick={() => {
-            signInWithGoogle();
+            signInWithGoogle().then(() => {
+              const user = auth.currentUser;
+              const usersCollection = collection(db, "users");
+              getDocs(usersCollection).then((querySnapshot) => {
+                const userExists = querySnapshot.docs.some(
+                  (doc) => doc.data().uid === user.uid
+                );
+                if (!userExists) {
+                  // Use setDoc() to set the document data with the custom document ID
+                  setDoc(doc(db, "users", user.uid), {
+                    uid: user.uid,
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                  });
+                }
+              });
+            });
             if (props.setShowAuth) {
               props.setShowAuth(false);
             }
@@ -83,7 +73,7 @@ function Auth(props) {
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="Google Icon"
           />
-          <span className="google-button-text">Log in with Google</span>
+          <span className="google-button-text">Sign in with Google</span>
         </button>
       )}
     </div>

@@ -1,3 +1,17 @@
+.auth {
+  padding: 20px 0;
+}
+
+.user-photo {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-email {
+  margin-bottom: 10px;
+}
+
 .google-login-button {
   display: flex;
   align-items: center;
@@ -9,6 +23,7 @@
   padding: 8px 16px;
   cursor: pointer;
   font-size: 16px;
+  margin: 40px 0;
 }
 
 .google-icon {
