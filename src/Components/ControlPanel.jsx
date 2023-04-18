@@ -54,7 +54,7 @@ function ControlPanel(props) {
       {props.mode === "editor" ? (
         <div className="control-panel-btns">
           <div
-            className="control-panel-btn"
+            className="control-panel-btn save-changes-btn"
             onClick={() => props.setShowSaveScreen(true)}
           >
             <FaSave size={20} />

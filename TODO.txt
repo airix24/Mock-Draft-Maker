@@ -3,13 +3,13 @@ TODO:
 RN:
 - Get rid of stuff to make it more professional
 - LEADERBOARD
-- Add more players
+- Add more players?
 - Accessibility
 - Security?
-- Make it so you can't enter mock to contest or update contest mock once contest closes
-- Save sceen loads a little? Sends you back to either home or conest page
-- Change wording on contest page? say something about trades?
-- Make it so it's not a pop up (new window) when signing in (annoying for mobile)
+- Make it so you can't enter mock in contest or update contest mock once contest closes
+- Save screen loads a little? Sends you back to either home or conest page
+- Change wording on contest page? say something about irl trades?
+- Make it so it's not a pop up (new window) when signing in (annoying for mobile), need to save state though
 - Make expanding player card less weird (rework player card maybe since already getting rid of some stuff)
 - New name probably
 - Custom Domain
@@ -18,6 +18,7 @@ RN:
 - Add uid to mock drafts?
 - Sort saved drafts by last updated
 - Change it so it's not date created at, but last updated at?
+- Expand thing?
 
 GET RID OF TO MAKE MORE PROFESSIONAL?:
 - New name?

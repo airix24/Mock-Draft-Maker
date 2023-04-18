@@ -70,3 +70,7 @@
     justify-content: right;
   }
 }
+
+.save-changes-btn {
+  width: 200px;
+}
