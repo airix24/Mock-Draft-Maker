@@ -60,7 +60,7 @@ function PlayerCard(props) {
                     />
                   ) : (
                     <FaRegStar
-                    size={18}
+                      size={18}
                       onClick={(e) => {
                         props.setPlayerPool(
                           props.playerPool.map((player) => {
@@ -90,7 +90,7 @@ function PlayerCard(props) {
               <div className="star-player-stuff">
                 {props.starred ? (
                   <FaStar
-                  size={18}
+                    size={18}
                     color={"#DBCE1E"}
                     onClick={(e) => {
                       props.setPlayerPool(
@@ -106,7 +106,7 @@ function PlayerCard(props) {
                   />
                 ) : (
                   <FaRegStar
-                  size={18}
+                    size={18}
                     onClick={(e) => {
                       props.setPlayerPool(
                         props.playerPool.map((player) => {
@@ -157,7 +157,7 @@ function PlayerCard(props) {
                 }}
               />
             )}
-            {props.mode == "builder" && !props.isDraftFinished() ? (
+            {props.mode !== "gm" && !props.isDraftFinished() ? (
               <FaPlus
                 className={
                   props.isSimulating

@@ -3,12 +3,18 @@ import "../Styles/SaveScreen.css";
 import Modal from "./Modal";
 import Auth from "./Auth";
 import { nanoid } from "nanoid";
-
+import { useNavigate } from "react-router-dom";
 import { db } from "../config/firebase-config";
 import { collection, doc, setDoc, getDocs } from "firebase/firestore";
 
 function SaveScreen(props) {
+  // const [isLoading, setIsLoading] = useState(false);
   const [tooManyDrafts, setTooManyDrafts] = useState(false);
+  const [nameInBox, setNameInBox] = useState(
+    props.mode === "editor" ? props.draftSettings.draftName : ""
+  );
+  const navigate = useNavigate();
+
 
   // check if the user has 30 saved drafts already
   useEffect(() => {
@@ -55,6 +61,39 @@ function SaveScreen(props) {
       });
   }
 
+  // update the mock draft in the database
+  function updateDraft() {
+    const usersCollection = collection(db, "users");
+    const savedDraftsCollection = collection(
+      usersCollection,
+      props.user.uid,
+      "savedDrafts"
+    );
+    const name = nameInBox === "" ? "Untitled" : nameInBox;
+    const draft = {
+      draftId: props.draftSettings.draftId,
+      draftName: name,
+      createdAt: props.draftSettings.createdAt,
+      draft: props.mockDraft,
+      contestsEntered: props.draftSettings.contestsEntered,
+    };
+    // Set the document ID as a field in the data object
+    setDoc(doc(savedDraftsCollection, props.draftSettings.draftId), draft)
+      .then(() => {
+        props.setShowSaveScreen(false);
+        props.clearDraft();
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.mode === "editor" ? updateDraft() : saveDraft(e.target[0].value);
+    navigate("/");
+  }
+
   return (
     <Modal setShowSelf={props.setShowSaveScreen}>
       {!props.user ? (
@@ -66,16 +105,26 @@ function SaveScreen(props) {
         <h1>You have 30 saved drafts already bro, chill. Delete some first</h1>
       ) : (
         <div className="save-screen">
-          <h3 className="save-text">Enter a name for your draft</h3>
+          <h3 className="save-text">
+            {props.mode === "editor"
+              ? "Save changes to your draft"
+              : "Enter a name for your draft"}
+          </h3>
           <form
             className="save-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              saveDraft(e.target[0].value);
-            }}
+            onSubmit={handleSubmit}
           >
-            <input type="text" className="save-bar" autoFocus maxLength={15} />
-            <button className="save-btn">Save</button>
+            <input
+              type="text"
+              className="save-bar"
+              autoFocus
+              maxLength={15}
+              value={nameInBox}
+              onChange={(e) => setNameInBox(e.target.value)}
+            />
+            <button className="save-btn">
+              {props.mode === "editor" ? "Save Changes" : "Save"}
+            </button>
           </form>
         </div>
       )}

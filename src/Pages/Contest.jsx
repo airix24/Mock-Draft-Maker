@@ -173,14 +173,14 @@ function Contest(props) {
           </div>
         ) : props.user ? (
           <div className="contest-btns">
-            {/* if you have a draft entered, you're able to view that draft and edit it (or remove it ig) (or change the name) */}
+            <h5>(Once you enter a mock draft, you are still able to edit it up until the contest closes)</h5>
             <button
               className="big-blue-btn"
               onClick={() => setShowEnterContest(true)}
             >
               Enter
             </button>
-            <button onClick={() => setShowEntrants(true)}>View Entrants</button>
+            <button onClick={() => setShowEntrants(true)}>Leaderboard</button>
           </div>
         ) : (
           <div>

@@ -87,7 +87,7 @@ function TeamCard(props) {
         )}
       </div>
 
-      {props.pick && props.mode === "builder" ? (
+      {props.pick && props.mode !== "gm" ? (
         <FaTimes
           className="icon"
           size={18}

@@ -23,7 +23,9 @@ function DraftBoard(props) {
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [showTradeScreen, setShowTradeScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
-  const [mode] = useState(draftSettings ? "gm" : "builder");
+  const [mode] = useState(
+    !draftSettings ? "builder" : draftSettings.draftId ? "editor" : "gm"
+  );
   const [userTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
   const [speed, setSpeed] = useState(
@@ -34,19 +36,37 @@ function DraftBoard(props) {
 
   function useInitializeMockDraft(teams) {
     useEffect(() => {
-      setMockDraft(initializeMock(teams));
+      if (mode === "editor") {
+        setMockDraft(draftSettings.draft);
+      } else {
+        setMockDraft(initializeMock(teams));
+      }
     }, []);
   }
 
   function useInitializePlayerPool(prospects) {
     useEffect(() => {
-      const sortedProspects = sortProspects(prospects);
-      const newPlayerPool = sortedProspects.map((prospect) => ({
-        ...prospect,
-        drafted: false,
-        starred: false,
-      }));
-      setPlayerPool(newPlayerPool);
+      if (mode === "editor") {
+        // cycle through the mock draft and set the drafted property of the corresponding player to true
+        const newPlayerPool = prospects.map((prospect) => {
+          const player = { ...prospect };
+          draftSettings.draft.forEach((slot) => {
+            if (slot.pick === player.id) {
+              player.drafted = true;
+            }
+          });
+          return player;
+        });
+        setPlayerPool(sortProspects(newPlayerPool));
+      } else {
+        const sortedProspects = sortProspects(prospects);
+        const newPlayerPool = sortedProspects.map((prospect) => ({
+          ...prospect,
+          drafted: false,
+          starred: false,
+        }));
+        setPlayerPool(newPlayerPool);
+      }
     }, []);
   }
 
@@ -186,6 +206,8 @@ function DraftBoard(props) {
           setSavedDrafts={props.setSavedDrafts}
           clearDraft={clearDraft}
           user={props.user}
+          mode={mode}
+          draftSettings={draftSettings}
         />
       )}
       {showTradeScreen && (

@@ -4,6 +4,7 @@ import "../Styles/ViewDraft.css";
 import { findProspect, findTeam } from "../util";
 import { db } from "../config/firebase-config";
 import { collection, doc, deleteDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 function ViewDraft(props) {
   const isContestEntry = props.draft.contestsEntered.includes("mainContest");
@@ -56,8 +57,10 @@ function ViewDraft(props) {
           )}
           {props.isViewingFromContestPage && (
             <div className="view-draft-contest-page-btns">
-              <button onClick={props.removeEntryFromMainContest}>Remove</button>
-              <button>Edit</button>
+              <button className="view-draft-contest-page-btn" onClick={props.removeEntryFromMainContest}>Remove</button>
+              <Link to="/draft-board" state={props.draft}>
+                <button className="view-draft-contest-page-btn">Edit</button>
+              </Link>
             </div>
           )}
         </div>
@@ -69,9 +72,10 @@ function ViewDraft(props) {
                   className={`icon ${isContestEntry && "disabled"}`}
                   size={20}
                   onClick={() => setShowDeleteConfirm(true)}
-                  // onClick={deleteDraft}
-                />{" "}
-                <FaEdit className="icon disabled" size={20} />{" "}
+                />
+                <Link to="/draft-board" state={props.draft}>
+                  <FaEdit className="icon" size={20} color={"black"} />
+                </Link>
               </div>
             ) : (
               <div className="view-draft-btns">

@@ -51,7 +51,18 @@ function ControlPanel(props) {
 
   return (
     <div className="control-panel">
-      <div className="control-panel-btns">
+      {props.mode === "editor" ? (
+        <div className="control-panel-btns">
+          <div
+            className="control-panel-btn"
+            onClick={() => props.setShowSaveScreen(true)}
+          >
+            <FaSave size={20} />
+            <p>Save Changes</p>
+          </div>
+        </div>
+      ) : (
+        <div className="control-panel-btns">
         <div
           className={`control-panel-btn ${
             props.isUserPick() || props.isDraftFinished() ? "disabled" : ""
@@ -74,13 +85,13 @@ function ControlPanel(props) {
           )}
           <p>{props.mode === "builder" ? "Clear" : "Restart"}</p>
         </div>
-        <div
+        {/* <div
           className={`control-panel-btn disabled ${props.isSimulating && "disabled"}`}
           onClick={() => props.setShowTradeScreen(true)}
         >
           <FaExchangeAlt size={20} />
           <p>Trade</p>
-        </div>
+        </div> */}
 
         <div
           className="control-panel-settings"
@@ -122,6 +133,8 @@ function ControlPanel(props) {
           </div>
         ) : null}
       </div>
+      )}
+      
     </div>
   );
 }

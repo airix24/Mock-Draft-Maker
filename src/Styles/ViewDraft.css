@@ -35,7 +35,6 @@
 .view-draft-btns {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .view-draft-btns > :nth-child(1) {
@@ -62,8 +61,8 @@
 }
 
 .idk-bro {
-  /* border: 1px solid #000000; */
   width: 50px;
+  display: flex;
 }
 
 .view-draft-contest-page-btns {
@@ -74,7 +73,7 @@
   margin-right: 0.5rem;
 }
 
-.view-draft-contest-page-btns > button {
+.view-draft-contest-page-btn {
   background-color: #03277a;
   color: white;
   width: 70px;

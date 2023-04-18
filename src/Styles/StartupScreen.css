@@ -12,6 +12,7 @@
   width: 200px;
   padding: 10px;
   z-index: 100;
+  color: black;
 }
 
 .startup-btn:hover {
