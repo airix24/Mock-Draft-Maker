@@ -17,7 +17,7 @@ function Contest(props) {
   const [contestEntry, setContestEntry] = useState(null);
   const [showViewEntry, setShowViewEntry] = useState(null);
 
-  //calculate time until contest closes (4/27/23 6 PM ET), updates every second
+  //calculate time until contest closes (4/27/23 7 PM ET), updates every second
   useEffect(() => {
     const closeDate = new Date("April 27, 2023 18:00:00");
     const timeDiff = closeDate - new Date();
@@ -107,7 +107,7 @@ function Contest(props) {
   const maxEntiesDesc = "One entry max";
   const feeDesc = "Free to enter";
   const closeDateDesc =
-    "Contest closes on 4/27/23 at 6 PM ET (One hour before the draft)";
+    "Contest closes on 4/27/23 at 7 PM ET (One hour before the draft)";
 
   return (
     <div className="contest-screen">

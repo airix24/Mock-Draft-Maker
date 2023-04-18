@@ -20,7 +20,7 @@ export const prospects = [
   {
     id: 1,
 
-    rank: 6,
+    rank: 5,
     firstName: "Jalen",
     lastName: "Carter",
     position: "DI",
@@ -38,7 +38,7 @@ export const prospects = [
   {
     id: 2,
 
-    rank: 9,
+    rank: 11,
     firstName: "Will",
     lastName: "Levis",
     position: "QB",
@@ -91,8 +91,7 @@ export const prospects = [
   },
   {
     id: 5,
-
-    rank: 17,
+    rank: 16,
     firstName: "Myles",
     lastName: "Murphy",
     position: "ED",
@@ -127,8 +126,7 @@ export const prospects = [
   },
   {
     id: 7,
-
-    rank: 27,
+    rank: 28,
     firstName: "Bryan",
     lastName: "Bresee",
     position: "DI",
@@ -145,8 +143,7 @@ export const prospects = [
   },
   {
     id: 8,
-
-    rank: 11,
+    rank: 10,
     firstName: "Paris",
     lastName: "Johnson Jr.",
     position: "T",
@@ -163,7 +160,6 @@ export const prospects = [
   },
   {
     id: 9,
-
     rank: 20,
     firstName: "Brian",
     lastName: "Branch",
@@ -218,7 +214,7 @@ export const prospects = [
   {
     id: 12,
 
-    rank: 14,
+    rank: 12,
     firstName: "Peter",
     lastName: "Skoronski",
     position: "T",
@@ -237,7 +233,7 @@ export const prospects = [
   {
     id: 13,
 
-    rank: 5,
+    rank: 6,
     firstName: "Christian",
     lastName: "Gonzalez",
     position: "CB",
@@ -254,8 +250,7 @@ export const prospects = [
   },
   {
     id: 14,
-
-    rank: 16,
+    rank: 19,
     firstName: "Quentin",
     lastName: "Johnston",
     position: "WR",
@@ -290,8 +285,7 @@ export const prospects = [
   },
   {
     id: 16,
-
-    rank: 22,
+    rank: 25,
     firstName: "Michael",
     lastName: "Mayer",
     position: "TE",
@@ -309,7 +303,7 @@ export const prospects = [
   {
     id: 17,
 
-    rank: 10,
+    rank: 9,
     firstName: "Bijan",
     lastName: "Robinson",
     position: "RB",
@@ -325,8 +319,7 @@ export const prospects = [
   },
   {
     id: 18,
-
-    rank: 25,
+    rank: 26,
     firstName: "Zay",
     lastName: "Flowers",
     position: "WR",
@@ -344,7 +337,7 @@ export const prospects = [
   {
     id: 19,
 
-    rank: 12,
+    rank: 13,
     firstName: "Jaxon",
     lastName: "Smith-Njigba",
     position: "WR",
@@ -361,8 +354,7 @@ export const prospects = [
   },
   {
     id: 20,
-
-    rank: 32,
+    rank: 31,
     firstName: "Anton",
     lastName: "Harrison",
     position: "T",
@@ -379,8 +371,7 @@ export const prospects = [
   },
   {
     id: 21,
-
-    rank: 19,
+    rank: 18,
     firstName: "Nolan",
     lastName: "Smith",
     position: "ED",
@@ -397,7 +388,6 @@ export const prospects = [
   },
   {
     id: 22,
-
     rank: 21,
     firstName: "Jordan",
     lastName: "Addison",
@@ -415,8 +405,7 @@ export const prospects = [
   },
   {
     id: 23,
-
-    rank: 18,
+    rank: 17,
     firstName: "Broderick",
     lastName: "Jones",
     position: "T",
@@ -433,8 +422,7 @@ export const prospects = [
   },
   {
     id: 24,
-
-    rank: 30,
+    rank: 35,
     firstName: "Cam",
     lastName: "Smith",
     position: "CB",
@@ -450,8 +438,7 @@ export const prospects = [
   },
   {
     id: 25,
-
-    rank: 13,
+    rank: 14,
     firstName: "Joey",
     lastName: "Porter Jr.",
     position: "CB",
@@ -467,7 +454,6 @@ export const prospects = [
   },
   {
     id: 26,
-
     rank: 29,
     firstName: "O'Cyrus",
     lastName: "Torrence",
@@ -483,27 +469,25 @@ export const prospects = [
     strengths: ["Physicality", "Run Blocking", "Anchor"],
     weaknesses: ["Lateral Agility"],
   },
-  {
-    id: 27,
-
-    rank: 98,
-    firstName: "Tanner",
-    lastName: "McKee",
-    position: "QB",
-    class: "Jr.",
-    height: 78,
-    weight: 230,
-    ras: 8.69,
-    school: "Stanford",
-    img: "https://media.pff.com/player-photos/nfl/131770.webp",
-    archetype: "Pocket Passer",
-    strengths: ["Arm Strength", "Accuracy"],
-    weaknesses: ["Pocket Awareness", "Playmaking"],
-  },
+  // {
+  //   id: 27,
+  //   rank: 126,
+  //   firstName: "Tanner",
+  //   lastName: "McKee",
+  //   position: "QB",
+  //   class: "Jr.",
+  //   height: 78,
+  //   weight: 230,
+  //   ras: 8.69,
+  //   school: "Stanford",
+  //   img: "https://media.pff.com/player-photos/nfl/131770.webp",
+  //   archetype: "Pocket Passer",
+  //   strengths: ["Arm Strength", "Accuracy"],
+  //   weaknesses: ["Pocket Awareness", "Playmaking"],
+  // },
   {
     id: 28,
-
-    rank: 45,
+    rank: 43,
     firstName: "Trenton",
     lastName: "Simpson",
     position: "LB",
@@ -519,7 +503,6 @@ export const prospects = [
   },
   {
     id: 29,
-
     rank: 49,
     firstName: "Luke",
     lastName: "Musgrave",
@@ -534,26 +517,24 @@ export const prospects = [
     strengths: ["Athleticism", "Upside"],
     weaknesses: ["Route Running"],
   },
-  {
-    id: 30,
-
-    rank: 59,
-    firstName: "Siaki",
-    lastName: "Ika",
-    position: "DI",
-    class: "Jr.",
-    height: 76,
-    weight: 358,
-    ras: 2.02,
-    school: "Baylor",
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Wh4Ov64e5xpgWQO9hKacnwHaFY%26pid%3DApi&f=1&ipt=e561230bf33e11ba647a904fb93cf8e4cb57a2830c0c363c9cd3120693daab20&ipo=images",
-    archetype: "Nose Tackle",
-    strengths: ["Strength"],
-    weaknesses: ["Weight"],
-  },
+  // {
+  //   id: 30,
+  //   rank: 65,
+  //   firstName: "Siaki",
+  //   lastName: "Ika",
+  //   position: "DI",
+  //   class: "Jr.",
+  //   height: 76,
+  //   weight: 358,
+  //   ras: 2.02,
+  //   school: "Baylor",
+  //   img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Wh4Ov64e5xpgWQO9hKacnwHaFY%26pid%3DApi&f=1&ipt=e561230bf33e11ba647a904fb93cf8e4cb57a2830c0c363c9cd3120693daab20&ipo=images",
+  //   archetype: "Nose Tackle",
+  //   strengths: ["Strength"],
+  //   weaknesses: ["Weight"],
+  // },
   {
     id: 31,
-
     rank: 44,
     firstName: "BJ",
     lastName: "Ojulari",
@@ -568,27 +549,25 @@ export const prospects = [
     strengths: ["Pass Rush Plan"],
     weaknesses: ["Strength"],
   },
-  {
-    id: 32,
-
-    rank: 80,
-    firstName: "Andre",
-    lastName: "Carter II",
-    position: "ED",
-    class: "Sr.",
-    height: 79,
-    weight: 260,
-    ras: 6.27,
-    school: "Army",
-    img: "https://media.pff.com/player-photos/nfl/102780.webp",
-    archetype: "",
-    strengths: ["Size"],
-    weaknesses: ["Muscle Mass", "Flexibility"],
-  },
+  // {
+  //   id: 32,
+  //   rank: 78,
+  //   firstName: "Andre",
+  //   lastName: "Carter II",
+  //   position: "ED",
+  //   class: "Sr.",
+  //   height: 79,
+  //   weight: 260,
+  //   ras: 6.27,
+  //   school: "Army",
+  //   img: "https://media.pff.com/player-photos/nfl/102780.webp",
+  //   archetype: "",
+  //   strengths: ["Size"],
+  //   weaknesses: ["Muscle Mass", "Flexibility"],
+  // },
   {
     id: 33,
-
-    rank: 26,
+    rank: 27,
     firstName: "Dalton",
     lastName: "Kincaid",
     position: "TE",
@@ -604,8 +583,7 @@ export const prospects = [
   },
   {
     id: 34,
-
-    rank: 23,
+    rank: 22,
     firstName: "Calijah",
     lastName: "Kancey",
     position: "DI",
@@ -621,8 +599,7 @@ export const prospects = [
   },
   {
     id: 35,
-
-    rank: 24,
+    rank: 23,
     firstName: "Deonte",
     lastName: "Banks",
     position: "CB",
@@ -638,8 +615,7 @@ export const prospects = [
   },
   {
     id: 36,
-
-    rank: 36,
+    rank: 33,
     firstName: "Will",
     lastName: "McDonald IV",
     position: "ED",
@@ -655,8 +631,7 @@ export const prospects = [
   },
   {
     id: 37,
-
-    rank: 52,
+    rank: 53,
     firstName: "Antonio",
     lastName: "Johnson",
     position: "S",
@@ -672,8 +647,7 @@ export const prospects = [
   },
   {
     id: 38,
-
-    rank: 34,
+    rank: 37,
     firstName: "Mazi",
     lastName: "Smith",
     position: "DI",
@@ -687,44 +661,41 @@ export const prospects = [
     strengths: ["Run Defense", "Strength"],
     weaknesses: ["Hand Usage"],
   },
-  {
-    id: 39,
-
-    rank: 77,
-    firstName: "Nathaniel",
-    lastName: "Dell",
-    position: "WR",
-    class: "Jr.",
-    height: 70,
-    weight: 165,
-    ras: 5.81,
-    school: "Houston",
-    img: "https://media.pff.com/player-photos/nfl/78874.webp",
-    archetype: "Slot/Gadget",
-    strengths: ["Shiftiness", "YAC"],
-    weaknesses: ["Size"],
-  },
-  {
-    id: 40,
-
-    rank: 72,
-    firstName: "Daiyan",
-    lastName: "Henley",
-    position: "LB",
-    class: "RS Sr.",
-    height: 74,
-    weight: 232,
-    ras: 8.57,
-    school: "Washington State",
-    img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6PQIZ5MzisaZqgCL4-XgTwAAAA%26pid%3DApi&f=1&ipt=0ee7575fcd6b315e5a7d8a00c3e1c95b570de09ebd2742afeffc873ddb9a1b70&ipo=images",
-    archetype: "WLB",
-    strengths: ["Twitchiness"],
-    weaknesses: ["Zone Coverage"],
-  },
+  // {
+  //   id: 39,
+  //   rank: 76,
+  //   firstName: "Nathaniel",
+  //   lastName: "Dell",
+  //   position: "WR",
+  //   class: "Jr.",
+  //   height: 70,
+  //   weight: 165,
+  //   ras: 5.81,
+  //   school: "Houston",
+  //   img: "https://media.pff.com/player-photos/nfl/78874.webp",
+  //   archetype: "Slot/Gadget",
+  //   strengths: ["Shiftiness", "YAC"],
+  //   weaknesses: ["Size"],
+  // },
+  // {
+  //   id: 40,
+  //   rank: 69,
+  //   firstName: "Daiyan",
+  //   lastName: "Henley",
+  //   position: "LB",
+  //   class: "RS Sr.",
+  //   height: 74,
+  //   weight: 232,
+  //   ras: 8.57,
+  //   school: "Washington State",
+  //   img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.6PQIZ5MzisaZqgCL4-XgTwAAAA%26pid%3DApi&f=1&ipt=0ee7575fcd6b315e5a7d8a00c3e1c95b570de09ebd2742afeffc873ddb9a1b70&ipo=images",
+  //   archetype: "WLB",
+  //   strengths: ["Twitchiness"],
+  //   weaknesses: ["Zone Coverage"],
+  // },
   {
     id: 41,
-
-    rank: 63,
+    rank: 72,
     firstName: "Tyrique",
     lastName: "Stevenson",
     position: "CB",
@@ -740,8 +711,7 @@ export const prospects = [
   },
   {
     id: 42,
-
-    rank: 46,
+    rank: 50,
     firstName: "Josh",
     lastName: "Downs",
     position: "WR",
@@ -757,7 +727,6 @@ export const prospects = [
   },
   {
     id: 43,
-
     rank: 39,
     firstName: "Jalin",
     lastName: "Hyatt",
@@ -774,8 +743,7 @@ export const prospects = [
   },
   {
     id: 44,
-
-    rank: 38,
+    rank: 32,
     firstName: "Jahmyr",
     lastName: "Gibbs",
     position: "RB",
@@ -791,8 +759,7 @@ export const prospects = [
   },
   {
     id: 45,
-
-    rank: 31,
+    rank: 36,
     firstName: "Kelee",
     lastName: "Ringo",
     position: "CB",
@@ -808,8 +775,7 @@ export const prospects = [
   },
   {
     id: 46,
-
-    rank: 37,
+    rank: 38,
     firstName: "Drew",
     lastName: "Sanders",
     position: "LB",
@@ -825,8 +791,7 @@ export const prospects = [
   },
   {
     id: 47,
-
-    rank: 40,
+    rank: 34,
     firstName: "Emmanuel",
     lastName: "Forbes",
     position: "CB",
@@ -842,8 +807,7 @@ export const prospects = [
   },
   {
     id: 48,
-
-    rank: 33,
+    rank: 30,
     firstName: "Darnell",
     lastName: "Washington",
     position: "TE",
@@ -859,8 +823,7 @@ export const prospects = [
   },
   {
     id: 49,
-
-    rank: 51,
+    rank: 52,
     firstName: "Isaiah",
     lastName: "Foskey",
     position: "ED",
@@ -876,8 +839,7 @@ export const prospects = [
   },
   {
     id: 50,
-
-    rank: 35,
+    rank: 41,
     firstName: "Dawand",
     lastName: "Jones",
     position: "T",
@@ -893,8 +855,7 @@ export const prospects = [
   },
   {
     id: 51,
-
-    rank: 28,
+    rank: 24,
     firstName: "Darnell",
     lastName: "Wright",
     position: "T",
@@ -910,7 +871,6 @@ export const prospects = [
   },
   {
     id: 52,
-
     rank: 48,
     firstName: "Keion",
     lastName: "White",
@@ -927,8 +887,7 @@ export const prospects = [
   },
   {
     id: 53,
-
-    rank: 55,
+    rank: 59,
     firstName: "Clark",
     lastName: "Phillips III",
     position: "CB",
@@ -944,8 +903,7 @@ export const prospects = [
   },
   {
     id: 54,
-
-    rank: 43,
+    rank: 46,
     firstName: "Jack",
     lastName: "Campbell",
     position: "LB",
@@ -961,8 +919,7 @@ export const prospects = [
   },
   {
     id: 55,
-
-    rank: 47,
+    rank: 42,
     firstName: "Felix",
     lastName: "Anudike-Uzomah",
     position: "ED",
@@ -978,7 +935,6 @@ export const prospects = [
   },
   {
     id: 56,
-
     rank: 60,
     firstName: "Derick",
     lastName: "Hall",
@@ -995,8 +951,7 @@ export const prospects = [
   },
   {
     id: 57,
-
-    rank: 58,
+    rank: 54,
     firstName: "Cody",
     lastName: "Mauch",
     position: "G",
@@ -1012,7 +967,6 @@ export const prospects = [
   },
   {
     id: 58,
-
     rank: 57,
     firstName: "Tuli",
     lastName: "Tuipulotu",
@@ -1029,8 +983,7 @@ export const prospects = [
   },
   {
     id: 59,
-
-    rank: 41,
+    rank: 45,
     firstName: "Adetomiwa",
     lastName: "Adebawore",
     position: "ED",
@@ -1046,8 +999,7 @@ export const prospects = [
   },
   {
     id: 60,
-
-    rank: 53,
+    rank: 55,
     firstName: "Zach",
     lastName: "Charbonnet",
     position: "RB",
@@ -1063,8 +1015,7 @@ export const prospects = [
   },
   {
     id: 61,
-
-    rank: 42,
+    rank: 47,
     firstName: "John Michael",
     lastName: "Schmitz",
     position: "C",
@@ -1080,8 +1031,7 @@ export const prospects = [
   },
   {
     id: 62,
-
-    rank: 50,
+    rank: 40,
     firstName: "Hendon",
     lastName: "Hooker",
     position: "QB",
@@ -1097,8 +1047,7 @@ export const prospects = [
   },
   {
     id: 63,
-
-    rank: 54,
+    rank: 51,
     firstName: "Steve",
     lastName: "Avila",
     position: "G",
@@ -1111,5 +1060,37 @@ export const prospects = [
     archetype: "",
     strengths: ["Anchor", "Strength"],
     weaknesses: ["Agility", "Run Blocking"],
+  },
+  {
+    id: 64,
+    rank: 56,
+    firstName: "Joe",
+    lastName: "Tippmann",
+    position: "C",
+    class: "Jr.",
+    height: 78,
+    weight: 313,
+    ras: null,
+    school: "Wisconsin",
+    img: "https://media.pff.com/player-photos/nfl/101568.webp",
+    archetype: "",
+    strengths: ["Athleticism"],
+    weaknesses: ["Strength"],
+  },
+  {
+    id: 65,
+    rank: 58,
+    firstName: "Sam",
+    lastName: "LaPorta",
+    position: "TE",
+    class: "Sr.",
+    height: 75,
+    weight: 245,
+    ras: 9.02,
+    school: "Iowa",
+    img: "https://media.pff.com/player-photos/nfl/101690.webp",
+    archetype: "Vertical Threat",
+    strengths: ["YAC", "Route Running", "Hands"],
+    weaknesses: ["Catch Point"],
   },
 ];
