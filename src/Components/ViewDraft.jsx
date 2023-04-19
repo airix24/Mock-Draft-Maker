@@ -41,11 +41,12 @@ function ViewDraft(props) {
       >
         {!props.isViewingFromContestPage && (
           <div className="idk-bro">
-            <FaArrowLeft
-              className="icon"
-              size={20}
+            <button
+              className="icon-button-black"
               onClick={() => props.setCurrDraft(null)}
-            />
+            >
+              <FaArrowLeft className="icon" size={20} alt="back" />
+            </button>
           </div>
         )}
 
@@ -57,7 +58,12 @@ function ViewDraft(props) {
           )}
           {props.isViewingFromContestPage && (
             <div className="view-draft-contest-page-btns">
-              <button className="view-draft-contest-page-btn" onClick={props.removeEntryFromMainContest}>Remove</button>
+              <button
+                className="view-draft-contest-page-btn"
+                onClick={props.removeEntryFromMainContest}
+              >
+                Remove
+              </button>
               <Link to="/draft-board" state={props.draft}>
                 <button className="view-draft-contest-page-btn">Edit</button>
               </Link>
@@ -68,23 +74,36 @@ function ViewDraft(props) {
           <div className="idk-bro">
             {!showDeleteConfirm ? (
               <div className="view-draft-btns">
-                <FaTrash
-                  className={`icon ${isContestEntry && "disabled"}`}
-                  size={20}
+                <button
+                  className="icon-button-black"
                   onClick={() => setShowDeleteConfirm(true)}
-                />
+                >
+                  <FaTrash
+                    className={`icon ${isContestEntry && "disabled"}`}
+                    size={20}
+                    alt="delete"
+                  />
+                </button>
                 <Link to="/draft-board" state={props.draft}>
-                  <FaEdit className="icon" size={20} color={"black"} />
+                  <FaEdit
+                    className="icon"
+                    size={20}
+                    color={"black"}
+                    alt="edit"
+                  />
                 </Link>
               </div>
             ) : (
               <div className="view-draft-btns">
-                <FaTimes
-                  className="icon"
-                  size={20}
+                <button
+                  className="icon-button-black"
                   onClick={() => setShowDeleteConfirm(false)}
-                />
-                <FaCheck className="icon" size={20} onClick={deleteDraft} />
+                >
+                  <FaTimes className="icon" size={20} alt="cancel" />
+                </button>
+                <button className="icon-button-black" onClick={deleteDraft}>
+                  <FaCheck className="icon" size={20} alt="confirm" />
+                </button>
               </div>
             )}
           </div>

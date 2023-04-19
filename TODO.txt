@@ -1,33 +1,39 @@
 TODO:
 
 RN:
-- Get rid of stuff to make it more professional
-- LEADERBOARD
-- Add more players?
-- Accessibility
-- Security?
-- Make it so you can't enter mock in contest or update contest mock once contest closes
+- Get rid of stuff to make it more professional?
+* LEADERBOARD
+* Add more players?
+* Accessibility
+* Security?
+* Make it so you can't enter mock in contest or update contest mock once contest closes
 - Save screen loads a little? Sends you back to either home or conest page
-- Change wording on contest page? say something about irl trades?
+* Change wording on contest page? say something about irl trades? something about ties?
 - Make it so it's not a pop up (new window) when signing in (annoying for mobile), need to save state though
 - Make expanding player card less weird (rework player card maybe since already getting rid of some stuff)
-- New name probably
-- Custom Domain
-- fix CSS on speed pop up thing on mobile
-- Make it so the time for the contest close is server time?
+* New name probably
+* Custom Domain
+* Make it so the time for the contest close is server time?
 - Add uid to mock drafts?
 - Sort saved drafts by last updated
-- Change it so it's not date created at, but last updated at?
+* Change it so it's not date created at, but last updated at?
 - Expand thing?
+- Make it so you can click drafted player and see their info?
+* Prize????
+    - Figure out how to make sure nobody enters twice (need this bc I won't have entry fee)
+- Update RAS
+- Change star color
 
 GET RID OF TO MAKE MORE PROFESSIONAL?:
 - New name?
-- archetypes
-- strengths/weaknesses
-- team needs
+- archetypes?
+- strengths/weaknesses?
+- team needs?
 - hover over to see player?
-- Be the GM mode?
-- trade button
+- Be the GM mode
+
+RANDO:
+- Make discord quick if it somehow gets popular (have link to it in the header probably)
 
 APPLICATION:
 - Move images to assets folder in public folder

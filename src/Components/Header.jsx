@@ -13,7 +13,7 @@ function Header(props) {
       <div className="header">
         <h1>
           <Link to="/" className="link">
-            Mock Draft Machine
+            Mock Mayhem
           </Link>
         </h1>
         <div
@@ -23,9 +23,15 @@ function Header(props) {
           }}
         >
           {props.user ? (
-            <img className="profile-icon-pic" src={props.user.photoURL}></img>
+            <button className="icon-button">
+              <img
+                className="profile-icon-pic"
+                src={props.user.photoURL}
+                alt="user icon"
+              ></img>
+            </button>
           ) : (
-            <FaUserCircle className="icon" size={25} />
+            <FaUserCircle className="icon" size={25} alt="user icon" />
           )}
         </div>
       </div>

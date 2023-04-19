@@ -12,11 +12,16 @@ function TeamCard(props) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   return (
-    <div className={`card team-card ${props.userTeam === props.abr ? "user-team-card" : ""}`}>
+    <div
+      className={`card team-card ${
+        props.userTeam === props.abr ? "user-team-card" : ""
+      }`}
+    >
       <div className="team-card-info">
         <img
           className="team-logo"
           src={props.logo}
+          alt={`${props.teamName} logo`}
           onMouseEnter={() => setIsLogoHovered(true)}
           onMouseLeave={() => setIsLogoHovered(false)}
           onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
@@ -87,14 +92,13 @@ function TeamCard(props) {
         )}
       </div>
 
-      {props.pick && props.mode !== "gm" ? (
-        <FaTimes
-          className="icon"
-          size={18}
+      {props.pick && props.mode !== "gm" && (
+        <button
+          className="icon-button-black"
           onClick={() => props.removePlayer(draftPick.id)}
-        />
-      ) : (
-        <div></div>
+        >
+          <FaTimes className="icon" size={18} alt="remove player" />
+        </button>
       )}
     </div>
   );

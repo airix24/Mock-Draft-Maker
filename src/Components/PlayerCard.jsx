@@ -41,10 +41,8 @@ function PlayerCard(props) {
               <div>
                 <div className="name-star">
                   {props.hoveredCard ? null : props.starred ? (
-                    <FaStar
-                      size={18}
-                      // size={props.screenSize === "mobile" ? 24 : 18}
-                      color={"#DBCE1E"}
+                    <button
+                      className="icon-button-black"
                       // on click, set starred to false
                       onClick={(e) => {
                         props.setPlayerPool(
@@ -57,10 +55,17 @@ function PlayerCard(props) {
                         );
                         e.stopPropagation();
                       }}
-                    />
+                    >
+                      <FaStar
+                        size={18}
+                        // size={props.screenSize === "mobile" ? 24 : 18}
+                        color={"#DBCE1E"}
+                        alt="starred"
+                      />
+                    </button>
                   ) : (
-                    <FaRegStar
-                      size={18}
+                    <button
+                      className="icon-button-black"
                       onClick={(e) => {
                         props.setPlayerPool(
                           props.playerPool.map((player) => {
@@ -72,7 +77,9 @@ function PlayerCard(props) {
                         );
                         e.stopPropagation();
                       }}
-                    />
+                    >
+                      <FaRegStar size={18} alt="not starred" />
+                    </button>
                   )}
                   <h2>
                     {props.firstName} {props.lastName}
@@ -89,9 +96,8 @@ function PlayerCard(props) {
               <h4>{props.rank}.</h4>
               <div className="star-player-stuff">
                 {props.starred ? (
-                  <FaStar
-                    size={18}
-                    color={"#DBCE1E"}
+                  <button
+                    className="icon-button-black"
                     onClick={(e) => {
                       props.setPlayerPool(
                         props.playerPool.map((player) => {
@@ -103,10 +109,12 @@ function PlayerCard(props) {
                       );
                       e.stopPropagation();
                     }}
-                  />
+                  >
+                    <FaStar size={18} color={"#DBCE1E"} alt="starred" />
+                  </button>
                 ) : (
-                  <FaRegStar
-                    size={18}
+                  <button
+                    className="icon-button-black"
                     onClick={(e) => {
                       props.setPlayerPool(
                         props.playerPool.map((player) => {
@@ -118,7 +126,9 @@ function PlayerCard(props) {
                       );
                       e.stopPropagation();
                     }}
-                  />
+                  >
+                    <FaRegStar size={18} alt="not starred" />
+                  </button>
                 )}
                 <div className="name-position">
                   <h4>
@@ -139,38 +149,45 @@ function PlayerCard(props) {
             }`}
           >
             {expanded ? (
-              <FaChevronUp
-                className="icon"
-                size={18}
+              <button
+                className="icon-button-black"
                 onClick={(e) => {
                   setExpanded(false);
                   e.stopPropagation();
                 }}
-              />
+              >
+                <FaChevronUp className="icon" size={18} alt="collapse" />
+              </button>
             ) : (
-              <FaChevronDown
-                className="icon"
-                size={18}
+              <button
+                className="icon-button-black"
                 onClick={(e) => {
                   setExpanded(true);
                   e.stopPropagation();
                 }}
-              />
+              >
+                <FaChevronDown className="icon" size={18} alt="expand" />
+              </button>
             )}
             {props.mode !== "gm" && !props.isDraftFinished() ? (
-              <FaPlus
-                className={
-                  props.isSimulating
-                    ? "disabled icon plus-icon"
-                    : "icon plus-icon"
-                }
-                size={18}
+              <button
+                className="icon-button-black"
                 onClick={(e) => {
                   props.addPlayer(props.id);
                   setExpanded(false);
                   e.stopPropagation();
                 }}
-              />
+              >
+                <FaPlus
+                  className={
+                    props.isSimulating
+                      ? "disabled icon plus-icon"
+                      : "icon plus-icon"
+                  }
+                  size={18}
+                  alt="add player"
+                />
+              </button>
             ) : props.isUserPick() ? (
               <button
                 className={"draft-btn"}
@@ -189,7 +206,11 @@ function PlayerCard(props) {
       {expanded ? (
         <div className="expanded">
           <div className="img-container">
-            <img className="player-img" src={props.img}></img>
+            <img
+              className="player-img"
+              src={props.img}
+              alt="player image"
+            ></img>
           </div>
 
           <div className="exp-player-info">

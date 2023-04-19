@@ -5,7 +5,7 @@ import {
   FaPause,
   FaStop,
   FaSyncAlt,
-  FaExchangeAlt,
+  // FaExchangeAlt,
   FaSlidersH,
   FaSave,
   FaEraser,
@@ -53,39 +53,40 @@ function ControlPanel(props) {
     <div className="control-panel">
       {props.mode === "editor" ? (
         <div className="control-panel-btns">
-          <div
-            className="control-panel-btn save-changes-btn"
+          <button
+            className="control-panel-btn save-changes-btn icon-button"
             onClick={() => props.setShowSaveScreen(true)}
           >
             <FaSave size={20} />
             <p>Save Changes</p>
-          </div>
+          </button>
         </div>
       ) : (
         <div className="control-panel-btns">
-        <div
-          className={`control-panel-btn ${
-            props.isUserPick() || props.isDraftFinished() ? "disabled" : ""
-          }`}
-          onClick={() => props.setIsSimulating(!props.isSimulating)}
-        >
-          {getLabelAndIcon().icon}
-          <p>{getLabelAndIcon().label}</p>
-        </div>
-        <div
-          className={`control-panel-btn ${
-            props.isDraftStarted() ? "" : "disabled"
-          }`}
-          onClick={() => props.clearDraft()}
-        >
-          {props.mode === "builder" ? (
-            <FaEraser size={20} />
-          ) : (
-            <FaSyncAlt size={20} />
-          )}
-          <p>{props.mode === "builder" ? "Clear" : "Restart"}</p>
-        </div>
-        {/* <div
+          <button
+            className={`control-panel-btn icon-button ${
+              props.isUserPick() || props.isDraftFinished() ? "disabled" : ""
+            }`}
+            type="button"
+            onClick={() => props.setIsSimulating(!props.isSimulating)}
+          >
+            {getLabelAndIcon().icon}
+            <p>{getLabelAndIcon().label}</p>
+          </button>
+          <button
+            className={`control-panel-btn icon-button ${
+              props.isDraftStarted() ? "" : "disabled"
+            }`}
+            onClick={() => props.clearDraft()}
+          >
+            {props.mode === "builder" ? (
+              <FaEraser size={20} />
+            ) : (
+              <FaSyncAlt size={20} />
+            )}
+            <p>{props.mode === "builder" ? "Clear" : "Restart"}</p>
+          </button>
+          {/* <div
           className={`control-panel-btn disabled ${props.isSimulating && "disabled"}`}
           onClick={() => props.setShowTradeScreen(true)}
         >
@@ -93,48 +94,48 @@ function ControlPanel(props) {
           <p>Trade</p>
         </div> */}
 
-        <div
-          className="control-panel-settings"
-          onMouseEnter={() => setShowSettings(true)}
-          onMouseLeave={() => setShowSettings(false)}
-        >
-          <div className="control-panel-btn control-panel-settings-btn">
-            <FaSlidersH size={20} />
-            <p>Settings</p>
-          </div>
-          {showSettings && (
-            <div className="settings-pop-up">
-              <div className="speed-slider">
-                <p>Speed</p>
-                <input
-                  type="range"
-                  min="0"
-                  max="4000"
-                  step="100"
-                  value={Math.abs(props.speed - 4000)}
-                  onChange={(e) => {
-                    props.setSpeed(4000 - e.target.value);
-                  }}
-                />
-              </div>
-            </div>
-          )}
-        </div>
-
-        {props.mode === "builder" || props.isDraftFinished() ? (
           <div
-            className={`control-panel-btn ${
-              props.isSimulating ? "disabled" : ""
-            }`}
-            onClick={() => props.setShowSaveScreen(true)}
+            className="control-panel-settings"
+            onMouseEnter={() => setShowSettings(true)}
+            onMouseLeave={() => setShowSettings(false)}
+            onClick={() => setShowSettings(!showSettings)}
           >
-            <FaSave size={20} />
-            <p>Save</p>
+            <button className="control-panel-btn control-panel-settings-btn icon-button">
+              <FaSlidersH size={20} />
+              <p>Settings</p>
+            </button>
+            {showSettings && (
+              <div className="settings-pop-up">
+                <div className="speed-slider">
+                  <p>Speed</p>
+                  <input
+                    type="range"
+                    min="0"
+                    max="4000"
+                    step="100"
+                    value={Math.abs(props.speed - 4000)}
+                    onChange={(e) => {
+                      props.setSpeed(4000 - e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
-        ) : null}
-      </div>
+
+          {props.mode === "builder" || props.isDraftFinished() ? (
+            <button
+              className={`control-panel-btn icon-button ${
+                props.isSimulating ? "disabled" : ""
+              }`}
+              onClick={() => props.setShowSaveScreen(true)}
+            >
+              <FaSave size={20} />
+              <p>Save</p>
+            </button>
+          ) : null}
+        </div>
       )}
-      
     </div>
   );
 }

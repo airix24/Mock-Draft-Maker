@@ -22,7 +22,7 @@ function StartupScreen(props) {
             <h3>Be The GM</h3>
           </button>
           <Link to="/draft-board" className="startup-link">
-            <button className="startup-btn">
+            <button className="startup-btn" tabIndex={-1}>
               <h3>Mock Builder</h3>
             </button>
           </Link>
@@ -33,7 +33,7 @@ function StartupScreen(props) {
             <h3>Saved Drafts</h3>
           </button>
           <Link to="/contest" className="startup-link">
-            <button className="startup-btn contest-btn">
+            <button className="startup-btn contest-btn" tabIndex={-1}>
               <h3>Contest</h3>
             </button>
           </Link>

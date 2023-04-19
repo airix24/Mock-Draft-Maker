@@ -42,27 +42,31 @@ function SavedDrafts(props) {
       }
     );
     return (
-      <div
-        key={index}
-        className="saved-draft-card"
-        onClick={() => {
-          setCurrDraft(draft);
-        }}
-      >
-        <h2>{draft.draftName}</h2>
-        <h4 className="light">{date}</h4>
-        {draft.contestsEntered &&
-          draft.contestsEntered.includes("mainContest") && (
-            <h4 className="contest-indicator">Entered in Main Contest</h4>
-          )}
-      </div>
+        <button
+          key={index}
+          className="saved-draft-card"
+          onClick={() => {
+            setCurrDraft(draft);
+          }}
+        >
+          <h2>{draft.draftName}</h2>
+          <h4 className="light">{date}</h4>
+          {draft.contestsEntered &&
+            draft.contestsEntered.includes("mainContest") && (
+              <h4 className="contest-indicator">Entered in Main Contest</h4>
+            )}
+        </button>
     );
   });
 
   return (
     <Modal setShowSelf={props.setShowSavedDrafts}>
       {currDraft !== null ? (
-        <ViewDraft draft={currDraft} setCurrDraft={setCurrDraft} user={props.user} />
+        <ViewDraft
+          draft={currDraft}
+          setCurrDraft={setCurrDraft}
+          user={props.user}
+        />
       ) : (
         <div className="saved-draft-container">
           <div className="saved-drafts-top">

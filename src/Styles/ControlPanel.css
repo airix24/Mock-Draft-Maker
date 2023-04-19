@@ -66,11 +66,8 @@
     width: 100%;
     justify-content: space-around;
   }
-  .control-panel-settings {
-    justify-content: right;
-  }
 }
 
 .save-changes-btn {
-  width: 200px;
+  width: auto;
 }

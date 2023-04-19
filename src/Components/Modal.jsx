@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
+import "../Styles/Modal.css";
 
 function Modal(props) {
   return (
@@ -14,15 +15,17 @@ function Modal(props) {
         onClick={(e) => {
           e.stopPropagation();
         }}
+        aria-modal="true"
       >
         <div className="top-bar">
-          <FaTimes
-            className="icon"
+          <button
+            className="icon-button"
             onClick={() => {
               props.setShowSelf(false);
             }}
-            size={20}
-          />
+          >
+            <FaTimes className="icon" size={20} alt="close modal" />
+          </button>
         </div>
         <div className="modal-content">{props.children}</div>
       </div>
