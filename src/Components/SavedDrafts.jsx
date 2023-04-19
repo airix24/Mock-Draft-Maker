@@ -31,17 +31,19 @@ function SavedDrafts(props) {
   }, [currDraft]);
 
   // create a div for each saved draft
-  const savedDraftElements = savedDrafts.map((draft, index) => {
-    // format the date
-    const date = new Date(draft.createdAt.seconds * 1000).toLocaleDateString(
-      "en-US",
-      {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }
-    );
-    return (
+  // sort the drafts by date
+  const savedDraftElements = savedDrafts
+    .map((draft, index) => {
+      // format the date
+      const date = new Date(draft.createdAt.seconds * 1000).toLocaleDateString(
+        "en-US",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }
+      );
+      return (
         <button
           key={index}
           className="saved-draft-card"
@@ -56,8 +58,14 @@ function SavedDrafts(props) {
               <h4 className="contest-indicator">Entered in Main Contest</h4>
             )}
         </button>
-    );
-  });
+      );
+    })
+    .sort((a, b) => {
+      return (
+        new Date(b.props.children[1].props.children) -
+        new Date(a.props.children[1].props.children)
+      );
+    });
 
   return (
     <Modal setShowSelf={props.setShowSavedDrafts}>

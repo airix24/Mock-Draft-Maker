@@ -3,10 +3,8 @@ TODO:
 RN:
 - Get rid of stuff to make it more professional?
 * LEADERBOARD
-* Add more players?
-* Accessibility
-* Security?
 * Make it so you can't enter mock in contest or update contest mock once contest closes
+* Add more players?
 - Save screen loads a little? Sends you back to either home or conest page
 * Change wording on contest page? say something about irl trades? something about ties?
 - Make it so it's not a pop up (new window) when signing in (annoying for mobile), need to save state though
@@ -15,8 +13,6 @@ RN:
 * Custom Domain
 * Make it so the time for the contest close is server time?
 - Add uid to mock drafts?
-- Sort saved drafts by last updated
-* Change it so it's not date created at, but last updated at?
 - Expand thing?
 - Make it so you can click drafted player and see their info?
 * Prize????

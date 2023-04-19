@@ -73,7 +73,7 @@ function SaveScreen(props) {
     const draft = {
       draftId: props.draftSettings.draftId,
       draftName: name,
-      createdAt: props.draftSettings.createdAt,
+      createdAt: new Date(),
       draft: props.mockDraft,
       contestsEntered: props.draftSettings.contestsEntered,
     };

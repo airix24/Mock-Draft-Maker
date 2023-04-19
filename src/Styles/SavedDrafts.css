@@ -27,6 +27,7 @@
   width: 100%;
   border-radius: 5px 5px 0 0;
   background-color: transparent;
+  color: black;
 }
 
 .saved-draft-card:hover {
