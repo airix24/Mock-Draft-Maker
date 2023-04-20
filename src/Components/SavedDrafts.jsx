@@ -8,6 +8,7 @@ import ViewDraft from "./ViewDraft";
 function SavedDrafts(props) {
   const [currDraft, setCurrDraft] = useState(null);
   const [savedDrafts, setSavedDrafts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // get the saved drafts collection from the database
   const usersCollection = collection(db, "users");
@@ -23,6 +24,7 @@ function SavedDrafts(props) {
       try {
         const data = await getDocs(savedDraftsCollection);
         setSavedDrafts(data.docs.map((doc) => doc.data()));
+        setIsLoading(false);
       } catch (e) {
         console.error(e);
       }
@@ -69,23 +71,35 @@ function SavedDrafts(props) {
 
   return (
     <Modal setShowSelf={props.setShowSavedDrafts}>
-      {currDraft !== null ? (
-        <ViewDraft
-          draft={currDraft}
-          setCurrDraft={setCurrDraft}
-          user={props.user}
-        />
-      ) : (
-        <div className="saved-draft-container">
-          <div className="saved-drafts-top">
-            <h1>Saved Drafts</h1>
-          </div>
-          {savedDraftElements.length === 0 ? (
-            <h3 className="no-saved-drafts-message light">No saved drafts</h3>
-          ) : (
-            <div className="saved-draft-card-list">{savedDraftElements}</div>
-          )}
+      {isLoading ? (
+        <div className="loading-container-for-modal">
+          <p>Loading...</p>
         </div>
+      ) : (
+        <>
+          {currDraft !== null ? (
+            <ViewDraft
+              draft={currDraft}
+              setCurrDraft={setCurrDraft}
+              user={props.user}
+            />
+          ) : (
+            <div className="saved-draft-container">
+              <div className="saved-drafts-top">
+                <h1>Saved Drafts</h1>
+              </div>
+              {savedDraftElements.length === 0 ? (
+                <h3 className="no-saved-drafts-message light">
+                  No saved drafts
+                </h3>
+              ) : (
+                <div className="saved-draft-card-list">
+                  {savedDraftElements}
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
     </Modal>
   );

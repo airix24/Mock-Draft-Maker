@@ -15,12 +15,12 @@ function StartupScreen(props) {
     <div className="start-screen">
       <div className="context">
         <div className="startup-menu-content">
-          <button
+          {/* <button
             className="startup-btn"
             onClick={() => setShowDraftSettings(true)}
           >
             <h3>Be The GM</h3>
-          </button>
+          </button> */}
           <Link to="/draft-board" className="startup-link">
             <button className="startup-btn" tabIndex={-1}>
               <h3>Mock Builder</h3>

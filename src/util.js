@@ -30,4 +30,13 @@ function sortProspects(prospects) {
   return prospects.sort((a, b) => a.rank - b.rank);
 }
 
-export { findProspect, findTeam, initializeMock, sortProspects };
+//function that converts milliseconds to days, hours, minutes, seconds, returns a string
+function convertTime(time) {
+  const days = Math.floor(time / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((time % (1000 * 60)) / 1000);
+  return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+export { findProspect, findTeam, initializeMock, sortProspects, convertTime };

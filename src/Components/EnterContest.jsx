@@ -14,6 +14,7 @@ import {
 function EnterContest(props) {
   // get saved drafts from database
   const [savedDrafts, setSavedDrafts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const usersCollection = collection(db, "users");
   const savedDraftsCollection = collection(
@@ -27,6 +28,7 @@ function EnterContest(props) {
       try {
         const data = await getDocs(savedDraftsCollection);
         setSavedDrafts(data.docs.map((doc) => doc.data()));
+        setIsLoading(false);
       } catch (e) {
         console.error(e);
       }
@@ -34,7 +36,7 @@ function EnterContest(props) {
     getSavedDrafts();
   }, []);
 
-  // add the mock id to the collection, "mainContestEntries", and add the contest to the mock draft's "contestsEntered" array (commented out adding to mainContestEntries collection)
+  // add the mock id to the collection, "mainContestEntries"
   const EnterContest = async () => {
     if (!props.contestEntry) {
       // const mainContestEntriesCollection = collection(db, "mainContestEntries");
@@ -43,9 +45,6 @@ function EnterContest(props) {
       const contestsEntered = mockDraft.contestsEntered;
       contestsEntered.push("mainContest");
       try {
-        // await addDoc(mainContestEntriesCollection, {
-        //   draft: mockDraft,
-        // });
         await updateDoc(
           doc(db, "users", props.user.uid, "savedDrafts", mockId),
           {
@@ -65,30 +64,38 @@ function EnterContest(props) {
 
   return (
     <Modal setShowSelf={props.setShowEnterContest}>
-      {savedDrafts.length === 0 ? (
-        <div className="enter-contest-content">
-          <p className="light">
-            You have no saved drafts. Create and save a mock draft to enter the
-            contest.
-          </p>
-          <Link to="/draft-board">
-            <button className="med-blue-btn">Go to Mock Builder</button>
-          </Link>
+      {isLoading ? (
+        <div className="loading-container-for-modal">
+          <p>Loading...</p>
         </div>
       ) : (
-        <div className="enter-contest-content">
-          <h2>Choose a Draft</h2>
-          <select>
-            {savedDrafts.map((draft, index) => (
-              <option key={index} value={draft.draftId}>
-                {draft.draftName}
-              </option>
-            ))}
-          </select>
-          <button className="med-blue-btn" onClick={EnterContest}>
-            Enter
-          </button>
-        </div>
+        <>
+          {savedDrafts.length === 0 ? (
+            <div className="enter-contest-content">
+              <p className="light">
+                You have no saved drafts. Create and save a mock draft to enter
+                the contest.
+              </p>
+              <Link to="/draft-board">
+                <button className="med-blue-btn">Go to Mock Builder</button>
+              </Link>
+            </div>
+          ) : (
+            <div className="enter-contest-content">
+              <h2>Choose a Draft</h2>
+              <select>
+                {savedDrafts.map((draft, index) => (
+                  <option key={index} value={draft.draftId}>
+                    {draft.draftName}
+                  </option>
+                ))}
+              </select>
+              <button className="med-blue-btn" onClick={EnterContest}>
+                Enter
+              </button>
+            </div>
+          )}
+        </>
       )}
     </Modal>
   );

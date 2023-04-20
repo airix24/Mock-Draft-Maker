@@ -3,18 +3,20 @@ import { db } from "../config/firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 import Modal from "./Modal";
 import "../Styles/ViewEntrants.css";
+import { query, where, getDocs as getDocsQuery } from "firebase/firestore";
 
 function ViewEntrants(props) {
-  const usersCollection = collection(db, "users");
-
   const [users, setUsers] = useState([]);
   const [entryNames, setEntryNames] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  // get every user from the database
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const data = await getDocs(usersCollection);
+        const data = await getDocs(collection(db, "users"));
         setUsers(data.docs.map((doc) => doc.data()));
+        setIsLoading(false);
       } catch (e) {
         console.error(e);
       }
@@ -22,35 +24,50 @@ function ViewEntrants(props) {
     getUsers();
   }, []);
 
-  // access the subcollection savedDrafts of each user and add the draft name to the entryNames array
+  // get every draft from the database that is entered in the main contest
   useEffect(() => {
     users.forEach((user) => {
-      const savedDraftsCollection = collection(usersCollection, user.uid, "savedDrafts");
-      const getSavedDrafts = async () => {
+      const getDrafts = async () => {
         try {
-          const data = await getDocs(savedDraftsCollection);
-          // check if the draft has the mainContest in its contestsEntered array
+          const q = query(
+            collection(db, "users", user.uid, "savedDrafts"),
+            where("contestsEntered", "array-contains", "mainContest")
+          );
+          const data = await getDocsQuery(q);
           data.docs.forEach((doc) => {
-            if (doc.data().contestsEntered.includes("mainContest")) {
-              setEntryNames((entryNames) => [...entryNames, doc.data().draftName]);
-            }
+            setEntryNames((entryNames) => [
+              ...entryNames,
+              doc.data().draftName,
+            ]);
           });
         } catch (e) {
           console.error(e);
         }
       };
-      getSavedDrafts();
+      getDrafts();
     });
   }, [users]);
 
   return (
     <Modal setShowSelf={props.setShowEntrants}>
-      <h2 className="view-entrants-header">Total Entries: {entryNames.length}</h2>
-      <div className="entry-name-container">
-        {entryNames.map((entryName, index) => (
-          <div className="entry-name" key={index}>{entryName}</div>
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="loading-container-for-modal">
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <>
+          <h2 className="view-entrants-header">
+            Total Entries: {entryNames.length}
+          </h2>
+          <div className="entry-name-container">
+            {entryNames.map((entryName, index) => (
+              <div className="entry-name" key={index}>
+                {entryName}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </Modal>
   );
 }

@@ -4,14 +4,12 @@ RN:
 - Get rid of stuff to make it more professional?
 * LEADERBOARD
 * Make it so you can't enter mock in contest or update contest mock once contest closes
-* Add more players?
+* Add more players (get to 90 or however many it takes to get all of Amico's potential first rounders in)
 - Save screen loads a little? Sends you back to either home or conest page
 * Change wording on contest page? say something about irl trades? something about ties?
 - Make it so it's not a pop up (new window) when signing in (annoying for mobile), need to save state though
 - Make expanding player card less weird (rework player card maybe since already getting rid of some stuff)
-* New name probably
-* Custom Domain
-* Make it so the time for the contest close is server time?
+- Make it so the time for the contest close is server time?
 - Add uid to mock drafts?
 - Expand thing?
 - Make it so you can click drafted player and see their info?

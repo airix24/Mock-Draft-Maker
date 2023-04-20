@@ -8,13 +8,11 @@ import { db } from "../config/firebase-config";
 import { collection, doc, setDoc, getDocs } from "firebase/firestore";
 
 function SaveScreen(props) {
-  // const [isLoading, setIsLoading] = useState(false);
-  const [tooManyDrafts, setTooManyDrafts] = useState(false);
+  const [tooManyDrafts, setTooManyDrafts] = useState(true);
   const [nameInBox, setNameInBox] = useState(
     props.mode === "editor" ? props.draftSettings.draftName : ""
   );
   const navigate = useNavigate();
-
 
   // check if the user has 30 saved drafts already
   useEffect(() => {
@@ -26,8 +24,8 @@ function SaveScreen(props) {
         "savedDrafts"
       );
       getDocs(savedDraftsCollection).then((querySnapshot) => {
-        if (querySnapshot.docs.length >= 30) {
-          setTooManyDrafts(true);
+        if (querySnapshot.docs.length < 30) {
+          setTooManyDrafts(false);
         }
       });
     }
@@ -51,6 +49,7 @@ function SaveScreen(props) {
       contestsEntered: [],
     };
     // Set the document ID as a field in the data object
+    if (tooManyDrafts) return;
     setDoc(doc(savedDraftsCollection, draftId), draft)
       .then(() => {
         props.setShowSaveScreen(false);
@@ -101,8 +100,6 @@ function SaveScreen(props) {
           <h3 className="light">Must be logged in to save draft</h3>
           <Auth />
         </div>
-      ) : tooManyDrafts ? (
-        <h1>You have 30 saved drafts already bro, chill. Delete some first</h1>
       ) : (
         <div className="save-screen">
           <h3 className="save-text">
@@ -112,7 +109,15 @@ function SaveScreen(props) {
           </h3>
           <form
             className="save-form"
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
+            onSubmit={(e) => {
+              if (tooManyDrafts && props.mode !== "editor") {
+                e.preventDefault();
+                alert("You have too many saved drafts already");
+              } else {
+                handleSubmit(e);
+              }
+            }}
           >
             <input
               type="text"
