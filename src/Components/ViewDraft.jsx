@@ -54,7 +54,7 @@ function ViewDraft(props) {
           <h3 className="view-draft-name">{props.draft.draftName}</h3>
           <h4 className="light">{date}</h4>
           {isContestEntry && !props.isViewingFromContestPage && (
-            <h4 className="contest-indicator">Entered in Main Contest</h4>
+            <h4 className="contest-indicator">Entered in Contest</h4>
           )}
           {props.isViewingFromContestPage && (
             <div className="view-draft-contest-page-btns">

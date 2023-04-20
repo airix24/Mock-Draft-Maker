@@ -19,12 +19,10 @@ RN:
 - Change star color
 
 GET RID OF TO MAKE MORE PROFESSIONAL?:
-- New name?
 - archetypes?
 - strengths/weaknesses?
 - team needs?
 - hover over to see player?
-- Be the GM mode
 
 RANDO:
 - Make discord quick if it somehow gets popular (have link to it in the header probably)
