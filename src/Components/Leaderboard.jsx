@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { db } from "../config/firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 import Modal from "./Modal";
-import "../Styles/ViewEntrants.css";
+import "../Styles/Leaderboard.css";
 import { query, where, getDocs as getDocsQuery } from "firebase/firestore";
 
-function ViewEntrants(props) {
+function Leaderboard(props) {
   const [users, setUsers] = useState([]);
   const [entryNames, setEntryNames] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -49,14 +49,14 @@ function ViewEntrants(props) {
   }, [users]);
 
   return (
-    <Modal setShowSelf={props.setShowEntrants}>
+    <Modal setShowSelf={props.setShowLeaderboard}>
       {isLoading ? (
         <div className="loading-container-for-modal">
           <p>Loading...</p>
         </div>
       ) : (
         <>
-          <h2 className="view-entrants-header">
+          <h2 className="leaderboard-view-entries-header">
             Total Entries: {entryNames.length}
           </h2>
           <div className="entry-name-container">
@@ -72,4 +72,4 @@ function ViewEntrants(props) {
   );
 }
 
-export default ViewEntrants;
+export default Leaderboard;

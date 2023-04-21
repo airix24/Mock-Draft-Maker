@@ -3,7 +3,7 @@ import "../Styles/Contest.css";
 import Modal from "../Components/Modal";
 import Auth from "../Components/Auth";
 import ViewDraft from "../Components/ViewDraft";
-import ViewEntrants from "../Components/ViewEntrants";
+import Leaderboard from "../Components/Leaderboard";
 import EnterContest from "../Components/EnterContest";
 import { db } from "../config/firebase-config";
 import { collection, getDocs, updateDoc } from "firebase/firestore";
@@ -14,7 +14,7 @@ function Contest(props) {
   const [showAuth, setShowAuth] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [timeUntilClose, setTimeUntilClose] = useState(0);
-  const [showEntrants, setShowEntrants] = useState(false);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showEnterContest, setShowEnterContest] = useState(false);
   const [contestEntry, setContestEntry] = useState(null);
   const [showViewEntry, setShowViewEntry] = useState(null);
@@ -101,7 +101,7 @@ function Contest(props) {
         </div>
       ) : (
         <>
-          {showEntrants && <ViewEntrants setShowEntrants={setShowEntrants} />}
+          {showLeaderboard && <Leaderboard setShowLeaderboard={setShowLeaderboard} />}
           {showEnterContest && (
             <EnterContest
               setShowEnterContest={setShowEnterContest}
@@ -155,7 +155,7 @@ function Contest(props) {
                   >
                     View Your Entry
                   </button>
-                  <button onClick={() => setShowEntrants(true)}>
+                  <button onClick={() => setShowLeaderboard(true)}>
                     Leaderboard
                   </button>
                 </div>
@@ -168,7 +168,7 @@ function Contest(props) {
                   >
                     View Your Entry
                   </button>
-                  <button onClick={() => setShowEntrants(true)}>
+                  <button onClick={() => setShowLeaderboard(true)}>
                     Leaderboard
                   </button>
                 </div>
@@ -184,7 +184,7 @@ function Contest(props) {
                   >
                     Enter
                   </button>
-                  <button onClick={() => setShowEntrants(true)}>
+                  <button onClick={() => setShowLeaderboard(true)}>
                     Leaderboard
                   </button>
                 </div>

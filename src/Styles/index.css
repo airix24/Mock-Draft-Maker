@@ -63,6 +63,7 @@ button {
   border: none;
   padding: 0.4em;
   border-radius: 2px;
+  color: black;
 }
 
 button:hover {
