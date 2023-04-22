@@ -44,3 +44,7 @@
   color: white;
   width: 70px;
 }
+
+.edit-link {
+  display: flex;
+}

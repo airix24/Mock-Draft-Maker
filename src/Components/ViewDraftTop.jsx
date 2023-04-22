@@ -77,7 +77,7 @@ function ViewDraftTop(props) {
               >
                 <FaTrash className="icon" size={20} alt="delete" />
               </button>
-              <Link to="/draft-board" state={props.draft}>
+              <Link to="/draft-board" state={props.draft} className="edit-link">
                 <FaEdit className="icon" size={20} color={"black"} alt="edit" />
               </Link>
             </div>
