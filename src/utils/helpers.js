@@ -1,5 +1,5 @@
-import { prospects } from "./Prospects";
-import { teams } from "./Teams";
+import { prospects } from "../Prospects";
+import { teams } from "../Teams";
 
 function findProspect(id) {
   return prospects.find((prospect) => prospect.id === id);

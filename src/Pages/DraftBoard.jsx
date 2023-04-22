@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { prospects } from "../Prospects";
 import { teams } from "../Teams";
 
-import { initializeMock, sortProspects } from "../util";
+import { initializeMock, sortProspects } from "../utils/helpers";
 
 import SaveScreen from "../Components/SaveScreen";
 import TradeScreen from "../Components/TradeScreen";

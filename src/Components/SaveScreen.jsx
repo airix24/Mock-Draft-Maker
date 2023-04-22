@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import "../Styles/SaveScreen.css";
 import Modal from "./Modal";
 import Auth from "./Auth";
-import { nanoid } from "nanoid";
 import { useNavigate } from "react-router-dom";
-import { db } from "../config/firebase-config";
-import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import {
+  saveDraft,
+  updateDraft,
+  checkNumberOfDrafts,
+} from "../utils/firebaseFunctions";
 
 function SaveScreen(props) {
+  const MAX_DRAFTS = 30;
   const [tooManyDrafts, setTooManyDrafts] = useState(true);
   const [nameInBox, setNameInBox] = useState(
     props.mode === "editor" ? props.draftSettings.draftName : ""
@@ -17,80 +20,44 @@ function SaveScreen(props) {
   // check if the user has 30 saved drafts already
   useEffect(() => {
     if (props.user) {
-      const usersCollection = collection(db, "users");
-      const savedDraftsCollection = collection(
-        usersCollection,
-        props.user.uid,
-        "savedDrafts"
-      );
-      getDocs(savedDraftsCollection).then((querySnapshot) => {
-        if (querySnapshot.docs.length < 30) {
-          setTooManyDrafts(false);
-        }
+      checkNumberOfDrafts(props.user.uid, MAX_DRAFTS).then((result) => {
+        setTooManyDrafts(!result);
       });
     }
   }, [props.user]);
 
-  // save the mock draft to the database
-  function saveDraft(name) {
-    const usersCollection = collection(db, "users");
-    const savedDraftsCollection = collection(
-      usersCollection,
-      props.user.uid,
-      "savedDrafts"
-    );
-    name = name === "" ? "Untitled" : name;
-    const draftId = nanoid();
-    const draft = {
-      draftId: draftId,
-      draftName: name,
-      createdAt: new Date(),
-      draft: props.mockDraft,
-      contestsEntered: [],
-    };
-    // Set the document ID as a field in the data object
-    if (tooManyDrafts) return;
-    setDoc(doc(savedDraftsCollection, draftId), draft)
-      .then(() => {
-        props.setShowSaveScreen(false);
-        props.clearDraft();
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  }
-
-  // update the mock draft in the database
-  function updateDraft() {
-    const usersCollection = collection(db, "users");
-    const savedDraftsCollection = collection(
-      usersCollection,
-      props.user.uid,
-      "savedDrafts"
-    );
-    const name = nameInBox === "" ? "Untitled" : nameInBox;
-    const draft = {
-      draftId: props.draftSettings.draftId,
-      draftName: name,
-      createdAt: new Date(),
-      draft: props.mockDraft,
-      contestsEntered: props.draftSettings.contestsEntered,
-    };
-    // Set the document ID as a field in the data object
-    setDoc(doc(savedDraftsCollection, props.draftSettings.draftId), draft)
-      .then(() => {
-        props.setShowSaveScreen(false);
-        props.clearDraft();
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    props.mode === "editor" ? updateDraft() : saveDraft(e.target[0].value);
+    if (props.mode === "editor") {
+      handleUpdate();
+    } else {
+      handleSave();
+    }
     navigate("/");
+  }
+
+  function handleSave() {
+    saveDraft(props.user.uid, nameInBox, props.mockDraft).then((result) => {
+      if (result) {
+        props.setShowSaveScreen(false);
+        props.clearDraft();
+      }
+    });
+  }
+
+  function handleUpdate() {
+    updateDraft(
+      props.user.uid,
+      nameInBox,
+      props.draftSettings.draftId,
+      props.mockDraft,
+      props.draftSettings.contestsEntered
+    ).then((result) => {
+      if (result) {
+        props.setShowSaveScreen(false);
+        props.clearDraft();
+      }
+    });
   }
 
   return (

@@ -7,7 +7,7 @@ import Leaderboard from "../Components/Leaderboard";
 import EnterContest from "../Components/EnterContest";
 import { db } from "../config/firebase-config";
 import { collection, getDocs, updateDoc } from "firebase/firestore";
-import { convertTime } from "../util";
+import { convertTime } from "../utils/helpers";
 import ContestRules from "../Components/ContestRules";
 
 function Contest(props) {
@@ -19,6 +19,8 @@ function Contest(props) {
   const [contestEntry, setContestEntry] = useState(null);
   const [showViewEntry, setShowViewEntry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isContestClosed, setIsContestClosed] = useState(false);
+  const [draftResults, setDraftResults] = useState([]);
   // time is in UTC
   const CLOSE_TIME = new Date("April 27, 2023 23:00:00");
 
@@ -60,12 +62,37 @@ function Contest(props) {
     const closeDateLocalTimezone = new Date(closeDateUTC - localTimezoneOffset); // Adjust for local timezone
     const timeDiff = closeDateLocalTimezone - new Date();
     setTimeUntilClose(timeDiff);
-    const interval = setInterval(() => {
-      const timeDiff = closeDateLocalTimezone - new Date();
-      setTimeUntilClose(timeDiff);
-    }, 1000);
-    setIsLoading(false);
-    return () => clearInterval(interval);
+
+    if (timeUntilClose > 0) {
+      const interval = setInterval(() => {
+        const timeDiff = closeDateLocalTimezone - new Date();
+        setTimeUntilClose(timeDiff);
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+
+    setIsContestClosed(true);
+  }, [isContestClosed]);
+
+  // set isContestClosed to true if timeUntilClose is less than 0
+  useEffect(() => {
+    if (timeUntilClose <= 0) {
+      setIsContestClosed(true);
+    } else {
+      setIsContestClosed(false);
+    }
+  }, [timeUntilClose]);
+
+  // get draft results
+  useEffect(() => {
+    const getDraftResults = async () => {
+      const data = await getDocs(collection(db, "NFLDraftResults2023"));
+      return data.docs.map((doc) => doc.data());
+    };
+    getDraftResults().then((results) => {
+      setDraftResults(results[0].results);
+    });
   }, []);
 
   // function that removes mainContest from contestsEntered array of a draft in the database
@@ -101,13 +128,25 @@ function Contest(props) {
         </div>
       ) : (
         <>
-          {showLeaderboard && <Leaderboard setShowLeaderboard={setShowLeaderboard} />}
+          {showAuth ? (
+            <Modal setShowSelf={setShowAuth}>
+              <Auth setShowAuth={setShowAuth} />
+            </Modal>
+          ) : null}
+          {showLeaderboard && (
+            <Leaderboard
+              setShowLeaderboard={setShowLeaderboard}
+              isContestClosed={isContestClosed}
+              draftResults={draftResults}
+            />
+          )}
           {showEnterContest && (
             <EnterContest
               setShowEnterContest={setShowEnterContest}
               user={props.user}
               contestEntry={contestEntry}
               setContestEntry={setContestEntry}
+              isContestClosed={isContestClosed}
             />
           )}
           {showViewEntry && (
@@ -118,62 +157,61 @@ function Contest(props) {
                 user={props.user}
                 isViewingFromContestPage={true}
                 removeEntryFromMainContest={removeEntryFromMainContest}
+                isContestClosed={isContestClosed}
+                draftResults={draftResults}
               />
             </Modal>
           )}
 
           <div className="contest-container">
-            {showAuth ? (
-              <Modal setShowSelf={setShowAuth}>
-                <Auth setShowAuth={setShowAuth} />
-              </Modal>
-            ) : null}
             <h1 className="contest-header">Mock Draft Contest 2023</h1>
-            {timeUntilClose > 0 && (
+            {!isContestClosed && (
               <h4>Closes in: {convertTime(timeUntilClose)}</h4>
             )}
             <div className="contest-desc-div">
               <h4 className="main-info">
-                Enter this contest and see how your first round mock draft
-                stacks up against others. May the most accurate mock win!
+                See how your first round mock draft stacks up against others.
+                Free to enter! Most accurate draft wins $100!
               </h4>
-              {showInfo ? (
-                <ContestRules setShowInfo={setShowInfo} />
-              ) : (
-                <button onClick={() => setShowInfo(true)}>More Info</button>
-              )}
+              {showInfo && <ContestRules />}
             </div>
-            {/* once the draft has started, display a leaderboard instead or button to get to leaderboard */}
+            <div className="toggle-info-div">
+              <button
+                className="toggle-info-btn"
+                onClick={() => setShowInfo(!showInfo)}
+              >
+                {showInfo ? "Hide Info" : "More Info"}
+              </button>
+            </div>
 
             <div className="contest-lower">
-              {timeUntilClose <= 0 ? (
-                <div>
-                  <h1>It's contest Time</h1>
+              {!props.user && (
+                <div className="contest-lower-content">
+                  <h4>
+                    {isContestClosed
+                      ? "Must be signed in to view leaderboard"
+                      : "Must be signed in to enter contest"}
+                  </h4>
+                  <button
+                    onClick={() => setShowAuth(true)}
+                    className="big-blue-btn"
+                  >
+                    Sign In
+                  </button>
+                </div>
+              )}
+              {props.user && contestEntry && (
+                <div className="contest-lower-content">
                   <button
                     className="med-blue-btn view-entry-btn"
                     onClick={() => setShowViewEntry(true)}
                   >
                     View Your Entry
                   </button>
-                  <button onClick={() => setShowLeaderboard(true)}>
-                    Leaderboard
-                  </button>
                 </div>
-              ) : props.user && contestEntry ? (
-                <div className="already-entered">
-                  <h4 className="already-entered-text">You are Entered</h4>
-                  <button
-                    className="med-blue-btn view-entry-btn"
-                    onClick={() => setShowViewEntry(true)}
-                  >
-                    View Your Entry
-                  </button>
-                  <button onClick={() => setShowLeaderboard(true)}>
-                    Leaderboard
-                  </button>
-                </div>
-              ) : props.user ? (
-                <div className="contest-btns">
+              )}
+              {props.user && !contestEntry && !isContestClosed && (
+                <div className="contest-lower-content">
                   <h5>
                     (Once you enter a mock draft, you are still able to edit it
                     up until the contest closes)
@@ -184,22 +222,17 @@ function Contest(props) {
                   >
                     Enter
                   </button>
-                  <button onClick={() => setShowLeaderboard(true)}>
-                    Leaderboard
-                  </button>
                 </div>
-              ) : (
-                <div>
-                  <div className="contest-btns">
-                    <h4>You must be signed in to enter the contest</h4>
-                    <button
-                      onClick={() => setShowAuth(true)}
-                      className="big-blue-btn"
-                    >
-                      Sign In
-                    </button>
-                  </div>
-                </div>
+              )}
+              {/* Leaderboard. Disabled because this is the janky solution */}
+              {props.user && (
+                <button
+                  disabled={true}
+                  className="disabled"
+                  onClick={() => setShowLeaderboard(true)}
+                >
+                  Leaderboard
+                </button>
               )}
             </div>
           </div>

@@ -39,7 +39,6 @@ function EnterContest(props) {
   // add the mock id to the collection, "mainContestEntries"
   const EnterContest = async () => {
     if (!props.contestEntry) {
-      // const mainContestEntriesCollection = collection(db, "mainContestEntries");
       const mockId = document.querySelector("select").value;
       const mockDraft = savedDrafts.find((draft) => draft.draftId === mockId);
       const contestsEntered = mockDraft.contestsEntered;
@@ -70,30 +69,38 @@ function EnterContest(props) {
         </div>
       ) : (
         <>
-          {savedDrafts.length === 0 ? (
-            <div className="enter-contest-content">
-              <p className="light">
-                You have no saved drafts. Create and save a mock draft to enter
-                the contest.
-              </p>
-              <Link to="/draft-board">
-                <button className="med-blue-btn">Go to Mock Builder</button>
-              </Link>
+          {props.isContestClosed ? (
+            <div className="loading-container-for-modal">
+              <h2 className="light">Contest is closed.</h2>
             </div>
           ) : (
-            <div className="enter-contest-content">
-              <h2>Choose a Draft</h2>
-              <select>
-                {savedDrafts.map((draft, index) => (
-                  <option key={index} value={draft.draftId}>
-                    {draft.draftName}
-                  </option>
-                ))}
-              </select>
-              <button className="med-blue-btn" onClick={EnterContest}>
-                Enter
-              </button>
-            </div>
+            <>
+              {savedDrafts.length === 0 ? (
+                <div className="enter-contest-content">
+                  <p className="light">
+                    You have no saved drafts. Create and save a mock draft to
+                    enter the contest.
+                  </p>
+                  <Link to="/draft-board">
+                    <button className="med-blue-btn">Go to Mock Builder</button>
+                  </Link>
+                </div>
+              ) : (
+                <div className="enter-contest-content">
+                  <h2>Choose a Draft</h2>
+                  <select>
+                    {savedDrafts.map((draft, index) => (
+                      <option key={index} value={draft.draftId}>
+                        {draft.draftName}
+                      </option>
+                    ))}
+                  </select>
+                  <button className="med-blue-btn" onClick={EnterContest}>
+                    Enter
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </>
       )}

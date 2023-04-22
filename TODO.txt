@@ -1,22 +1,31 @@
 TODO:
 
-RN:
-- Get rid of stuff to make it more professional?
-* LEADERBOARD
-* Make it so you can't enter mock in contest or update contest mock once contest closes
-* Add more players (get to 90 or however many it takes to get all of Amico's potential first rounders in)
-- Save screen loads a little? Sends you back to either home or conest page
-* Change wording on contest page? say something about irl trades? something about ties?
+NEED BEFORE PROMOTING:
+- Make sure rules are good (make a page for the full rules and guidelines)
 - Make it so it's not a pop up (new window) when signing in (annoying for mobile), need to save state though
+   - Or just make it redirect only if it's not on the save screen?
+
+NEED BEFORE DRAFT:
+- Leaderboard styling
+- Make it so you can't enter mock in contest or update contest mock once contest closes
+    - DB rules
+    - Front end
+- Add more players (get to 90 or however many it takes to get all of Amico's potential first rounders in)
+- Make it so the time for the contest close is server time? (or at least use the janky solution of making it impossible to view leaderboard before draft and then deploying update once contest closes?)
+
+- Share feature: Easy way to download and share your mock draft as an image?
+
+IF YOU'RE DONE WITH THE NEEDS:
+- Fix scroll bug on savedDrafts modal and leaderboard modal
+- Save screen loads a little? Sends you back to either home or contest page
 - Make expanding player card less weird (rework player card maybe since already getting rid of some stuff)
-- Make it so the time for the contest close is server time?
-- Add uid to mock drafts?
 - Expand thing?
 - Make it so you can click drafted player and see their info?
-* Prize????
-    - Figure out how to make sure nobody enters twice (need this bc I won't have entry fee)
 - Update RAS
 - Change star color
+- Ads?
+- Get rid of stuff to make it more professional?
+- Add something to explain the points? Like a tooltip or something idk?
 
 GET RID OF TO MAKE MORE PROFESSIONAL?:
 - archetypes?

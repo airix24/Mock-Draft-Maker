@@ -64,6 +64,7 @@ function ControlPanel(props) {
       ) : (
         <div className="control-panel-btns">
           <button
+            disabled={props.isUserPick() || props.isDraftFinished()}
             className={`control-panel-btn icon-button ${
               props.isUserPick() || props.isDraftFinished() ? "disabled" : ""
             }`}
@@ -74,6 +75,7 @@ function ControlPanel(props) {
             <p>{getLabelAndIcon().label}</p>
           </button>
           <button
+            disabled={!props.isDraftStarted()}
             className={`control-panel-btn icon-button ${
               props.isDraftStarted() ? "" : "disabled"
             }`}
@@ -125,6 +127,7 @@ function ControlPanel(props) {
 
           {props.mode === "builder" || props.isDraftFinished() ? (
             <button
+              disabled={props.isSimulating}
               className={`control-panel-btn icon-button ${
                 props.isSimulating ? "disabled" : ""
               }`}

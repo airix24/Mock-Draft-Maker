@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.saved-drafts-title {
+  font-size: 1.8rem;
+}
+
 .saved-draft-card-list {
   display: flex;
   flex-direction: column;
@@ -42,4 +46,13 @@
 
 .contest-indicator {
   color: blue;
+  font-size: 1rem;
+}
+
+.saved-draft-name {
+  font-size: 1.4rem;
+}
+
+.saved-draft-date {
+  font-size: 1rem;
 }

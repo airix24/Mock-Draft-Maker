@@ -5,14 +5,14 @@
   justify-content: center;
 }
 
-.entry-name-container {
+.entry-card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-.entry-name {
+.entry-card {
   border-bottom: 1px solid #646464;
   width: 100%;
   display: flex;
@@ -21,6 +21,7 @@
   padding: 10px 0;
 }
 
-.entry-name:hover {
+.entry-card:hover {
   background-color: #f2f2f2;
+  cursor: pointer;
 }

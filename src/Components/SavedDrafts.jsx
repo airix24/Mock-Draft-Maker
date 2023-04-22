@@ -53,8 +53,8 @@ function SavedDrafts(props) {
             setCurrDraft(draft);
           }}
         >
-          <h2>{draft.draftName}</h2>
-          <h4 className="light">{date}</h4>
+          <h2 className="saved-draft-name">{draft.draftName}</h2>
+          <h4 className="saved-draft-date light">{date}</h4>
           {draft.contestsEntered &&
             draft.contestsEntered.includes("mainContest") && (
               <h4 className="contest-indicator">Entered in Contest</h4>
@@ -86,7 +86,7 @@ function SavedDrafts(props) {
           ) : (
             <div className="saved-draft-container">
               <div className="saved-drafts-top">
-                <h1>Saved Drafts</h1>
+                <h1 className="saved-drafts-title">Saved Drafts</h1>
               </div>
               {savedDraftElements.length === 0 ? (
                 <h3 className="no-saved-drafts-message light">

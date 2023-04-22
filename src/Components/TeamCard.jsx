@@ -7,7 +7,7 @@ import PlayerCard from "./PlayerCard";
 function TeamCard(props) {
   const draftPick = prospects.find((prospect) => prospect.id === props.pick);
   const teamNeedsString = props.teamNeeds.join(", ");
-  const [isLogoHovered, setIsLogoHovered] = useState(false);
+  // const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isPlayerHovered, setIsPlayerHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -22,11 +22,11 @@ function TeamCard(props) {
           className="team-logo"
           src={props.logo}
           alt={`${props.teamName} logo`}
-          onMouseEnter={() => setIsLogoHovered(true)}
-          onMouseLeave={() => setIsLogoHovered(false)}
-          onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
+          // onMouseEnter={() => setIsLogoHovered(true)}
+          // onMouseLeave={() => setIsLogoHovered(false)}
+          // onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
         ></img>
-        {isLogoHovered && (
+        {/* {isLogoHovered && (
           <div
             className="card"
             style={{
@@ -39,7 +39,7 @@ function TeamCard(props) {
           >
             <h5>Needs: {teamNeedsString}</h5>
           </div>
-        )}
+        )} */}
 
         <h4 className="pick-position">{props.draftPosition}.</h4>
         {props.pick && (

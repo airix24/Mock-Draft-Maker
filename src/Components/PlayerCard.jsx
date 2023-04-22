@@ -171,7 +171,10 @@ function PlayerCard(props) {
             )}
             {props.mode !== "gm" && !props.isDraftFinished() ? (
               <button
-                className="icon-button-black"
+                disabled={props.isSimulating}
+                className={`icon-button-black ${
+                  props.isSimulating ? "disabled" : ""
+                  }`}
                 onClick={(e) => {
                   props.addPlayer(props.id);
                   setExpanded(false);
@@ -179,11 +182,7 @@ function PlayerCard(props) {
                 }}
               >
                 <FaPlus
-                  className={
-                    props.isSimulating
-                      ? "disabled icon plus-icon"
-                      : "icon plus-icon"
-                  }
+                  className="icon plus-icon"
                   size={18}
                   alt="add player"
                 />

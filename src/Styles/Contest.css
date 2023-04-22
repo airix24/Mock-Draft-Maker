@@ -15,14 +15,16 @@
   flex-direction: column;
   align-items: center;
   width: 60%;
+  max-width: 650px;
   min-width: 350px;
-  padding: 10px;
+  padding: 10px 60px;
   border-radius: 5px;
 }
 
 @media screen and (max-width: 790px) {
   .contest-container {
     width: 90%;
+    padding: 10px;
   }
 }
 
@@ -33,6 +35,16 @@
 
 .contest-desc-div {
   font-size: 1.2em;
+}
+
+.toggle-info-div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.toggle-info-btn {
+  margin-bottom: 15px;
 }
 
 .main-info {
@@ -49,6 +61,9 @@
   background-color: white;
   border-radius: 5px;
   padding: 10px 40px;
+  margin-bottom: 15px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .more-info-li {
@@ -56,12 +71,21 @@
   font-size: 0.8em;
 }
 
-.contest-btns {
+.more-info-sub-list {
+  margin-left: 20px;
+}
+
+.contest-lower {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
+}
+
+.contest-lower-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .big-blue-btn {
@@ -73,16 +97,51 @@
   font-size: 1.3em;
 }
 
-.already-entered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.already-entered-text {
-  margin: 10px;
-}
-
 .view-entry-btn {
   margin-bottom: 10px;
 }
+
+/* .track-results-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.track-results-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.beeping-dot {
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ff0000; /* change this to the desired color */
+/* animation: pulse 1.5s ease-out infinite;
+} */
+
+/* @keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */

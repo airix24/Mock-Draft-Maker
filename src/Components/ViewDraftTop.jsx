@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FaArrowLeft, FaTrash, FaEdit, FaTimes, FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { db } from "../config/firebase-config";
-import { collection, doc, deleteDoc } from "firebase/firestore";
+import "../Styles/ViewDraftTop.css";
+import { deleteDraft } from "../utils/firebaseFunctions";
 
 function ViewDraftTop(props) {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -16,26 +16,14 @@ function ViewDraftTop(props) {
     day: "numeric",
   });
 
-  // delete the draft from the database
-  function deleteDraft() {
-    const usersCollection = collection(db, "users");
-    const savedDraftsCollection = collection(
-      usersCollection,
-      props.user.uid,
-      "savedDrafts"
-    );
-    const draftDoc = doc(savedDraftsCollection, props.draft.draftId);
-    deleteDoc(draftDoc);
-    props.setCurrDraft(null);
-  }
-
   return (
     <div
       className={`view-draft-top ${
         props.isViewingFromContestPage && "view-draft-top-contest-page"
       }`}
     >
-      {!props.isViewingFromContestPage && (
+      {/* Left Side */}
+      {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
         <div className="idk-bro">
           <button
             className="icon-button-black"
@@ -45,39 +33,49 @@ function ViewDraftTop(props) {
           </button>
         </div>
       )}
+
+      {/* Middle */}
       <div className="view-draft-info">
         <h3 className="view-draft-name">{props.draft.draftName}</h3>
-        <h4 className="light">{date}</h4>
+        {!props.isContestClosed && <h4 className="light">{date}</h4>}
         {props.isContestEntry && !props.isViewingFromContestPage && (
           <h4 className="contest-indicator">Entered in Contest</h4>
         )}
-        {props.isViewingFromContestPage && (
-          <div className="view-draft-contest-page-btns">
-            <button
-              className="view-draft-contest-page-btn"
-              onClick={props.removeEntryFromMainContest}
-            >
-              Remove
-            </button>
-            <Link to="/draft-board" state={props.draft}>
-              <button className="view-draft-contest-page-btn">Edit</button>
-            </Link>
-          </div>
+        {props.isViewingFromContestPage &&
+          !props.isContestClosed &&
+          !props.isViewingFromLeaderboard && (
+            <div className="view-draft-contest-page-btns">
+              <button
+                className="view-draft-contest-page-btn"
+                onClick={props.removeEntryFromMainContest}
+              >
+                Remove
+              </button>
+              <Link to="/draft-board" state={props.draft}>
+                <button className="view-draft-contest-page-btn">Edit</button>
+              </Link>
+            </div>
+          )}
+        {props.isContestClosed && (
+          <h3>
+            Score: <span style={{ color: "blue" }}>{props.totalScore}</span>
+          </h3>
         )}
       </div>
+
+      {/* Right Side */}
       {!props.isViewingFromContestPage && (
         <div className="idk-bro">
           {!showDeleteConfirm ? (
             <div className="view-draft-btns">
               <button
-                className="icon-button-black"
+                disabled={props.isContestEntry}
+                className={`icon-button-black ${
+                  props.isContestEntry && "disabled"
+                }`}
                 onClick={() => setShowDeleteConfirm(true)}
               >
-                <FaTrash
-                  className={`icon ${props.isContestEntry && "disabled"}`}
-                  size={20}
-                  alt="delete"
-                />
+                <FaTrash className="icon" size={20} alt="delete" />
               </button>
               <Link to="/draft-board" state={props.draft}>
                 <FaEdit className="icon" size={20} color={"black"} alt="edit" />
@@ -91,7 +89,13 @@ function ViewDraftTop(props) {
               >
                 <FaTimes className="icon" size={20} alt="cancel" />
               </button>
-              <button className="icon-button-black" onClick={deleteDraft}>
+              <button
+                className="icon-button-black"
+                onClick={() => {
+                  deleteDraft(props.user.uid, props.draft.draftId);
+                  props.setCurrDraft(null);
+                }}
+              >
                 <FaCheck className="icon" size={20} alt="confirm" />
               </button>
             </div>
