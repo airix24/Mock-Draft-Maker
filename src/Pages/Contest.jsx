@@ -225,13 +225,13 @@ function Contest(props) {
                 </div>
               )}
               {/* Leaderboard. Disabled because this is the janky solution */}
-              {props.user && isContestClosed && (
+              {/* {props.user && isContestClosed && (
                 <button
                   onClick={() => setShowLeaderboard(true)}
                 >
                   Leaderboard
                 </button>
-              )}
+              )} */}
             </div>
           </div>
         </>

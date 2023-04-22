@@ -6,6 +6,7 @@ NEED BEFORE DRAFT:
 - Leaderboard styling
     - put total entries somewhere
     - make leaderboard btn bigger and maybe view entry btn too
+    - little trophy icon next to first
 - Make it so you can't enter mock in contest or update contest mock once contest closes
     - DB rules
     - Front end
