@@ -5,12 +5,12 @@ function ContestRules() {
     <div className="more-info-div">
       <ul className="more-info-list">
         <li className="more-info-li">
-          <span className="bold">Scoring</span>
-          :
+          <span className="bold">Scoring</span>:
         </li>
         <ul className="more-info-sub-list">
           <li className="more-info-li">
-            1 point awarded for each player correctly included in the first round
+            1 point awarded for each player correctly included in the first
+            round
           </li>
           <li className="more-info-li">
             2 points awarded for each correct player/team match
@@ -32,7 +32,9 @@ function ContestRules() {
         </li>
         <li className="more-info-li">The contest is free to enter.</li>
         <li className="more-info-li">
-          Contest closes on 4/27/23 at 6 PM CT. (One hour before the draft). After this you will no longer be able to enter or edit your mock draft.
+          Contest closes on 4/27/23 at 6 PM CT. (One hour before the draft).
+          After this you will no longer be able to enter or edit your mock
+          draft.
         </li>
         <li className="more-info-li">
           Whoever scores the most points after round 1 will be deemed the
@@ -44,6 +46,9 @@ function ContestRules() {
         </li>
         <li className="more-info-li">
           The winner will be contacted by email for payment information.
+        </li>
+        <li className="more-info-li">
+          If there is a trade that affects the first round draft order, entrie submitted before the trade will still have the old order.
         </li>
       </ul>
     </div>
