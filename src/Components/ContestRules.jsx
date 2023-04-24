@@ -48,7 +48,7 @@ function ContestRules() {
           The winner will be contacted by email for payment information.
         </li>
         <li className="more-info-li">
-          If there is a trade that affects the first round draft order, entrie submitted before the trade will still have the old order.
+          If there is a trade that affects the first round draft order, entries submitted before the trade will still have the old order.
         </li>
       </ul>
     </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import "../Styles/ViewDraft.css";
 import { findProspect, findTeam } from "../utils/helpers";
 import ViewDraftTop from "./ViewDraftTop";
@@ -57,7 +56,9 @@ function ViewDraft(props) {
             ? findProspect(slot.pick)
             : "---";
           const team = findTeam(slot.team);
-          const pts = !props.isViewingFromContestPage ? null : calculatePoints(player.id, team.abr);
+          const pts = !props.isViewingFromContestPage
+            ? null
+            : calculatePoints(player.id, team.abr);
           return (
             <div className="view-draft-slot" key={index}>
               <div className="view-draft-slot-left-side">

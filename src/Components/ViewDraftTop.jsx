@@ -1,11 +1,22 @@
-import { useState } from "react";
-import { FaArrowLeft, FaTrash, FaEdit, FaTimes, FaCheck } from "react-icons/fa";
+import { useState, useRef } from "react";
+import {
+  FaArrowLeft,
+  FaTrash,
+  FaEdit,
+  FaTimes,
+  FaCheck,
+  FaDownload,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../Styles/ViewDraftTop.css";
 import { deleteDraft } from "../utils/firebaseFunctions";
+import MockDraftImage from "./MockDraftImage";
+import html2canvas from "html2canvas";
 
 function ViewDraftTop(props) {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+  const divRef = useRef(null);
 
   // make date readable in string form
   const date = new Date(
@@ -16,12 +27,22 @@ function ViewDraftTop(props) {
     day: "numeric",
   });
 
+  function handleDownload() {
+    html2canvas(divRef.current).then((canvas) => {
+      const link = document.createElement("a");
+      link.download = "mock-mayhem.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  }
+
   return (
     <div
       className={`view-draft-top ${
         props.isViewingFromContestPage && "view-draft-top-contest-page"
       }`}
     >
+      <MockDraftImage draft={props.draft.draft} divRef={divRef}></MockDraftImage>
       {/* Left Side */}
       {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
         <div className="idk-bro">
@@ -65,7 +86,7 @@ function ViewDraftTop(props) {
 
       {/* Right Side */}
       {!props.isViewingFromContestPage && (
-        <div className="idk-bro">
+        <div className="idk-bro idk-bro-confirm-btns">
           {!showDeleteConfirm ? (
             <div className="view-draft-btns">
               <button
@@ -80,6 +101,9 @@ function ViewDraftTop(props) {
               <Link to="/draft-board" state={props.draft} className="edit-link">
                 <FaEdit className="icon" size={20} color={"black"} alt="edit" />
               </Link>
+              <button className={"icon-button-black"} onClick={handleDownload}>
+                <FaDownload className="icon" size={20} alt="download" />
+              </button>
             </div>
           ) : (
             <div className="view-draft-btns">

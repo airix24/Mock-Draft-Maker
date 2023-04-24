@@ -1,0 +1,59 @@
+.mock-draft-image {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  background-color: white;
+}
+
+.mock-image-top,
+.mock-image-bottom {
+  background-color: #03277a;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mock-image-top {
+  font-size: 2rem;
+}
+
+.mock-image-bottom {
+  font-size: 15px;
+  height: 40px;
+}
+
+.mock-draft-image-container {
+  display: grid;
+  grid-template-rows: repeat(16, 40px);
+  grid-auto-flow: column;
+  grid-gap: 4px;
+  padding: 4px;
+}
+
+.mock-draft-image-slot {
+  width: 250px;
+  padding: 0.5rem;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+}
+
+.mock-draft-image-logo {
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.mock-draft-image-team {
+  margin-right: 0.5rem;
+}
+
+.mock-draft-image-pick,
+.mock-draft-image-player {
+  font-size: 1rem;
+}
+
+.mock-draft-image-pick {
+  margin-right: 0.5rem;
+}

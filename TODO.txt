@@ -7,6 +7,7 @@ NEED BEFORE DRAFT:
     - put total entries somewhere
     - make leaderboard btn bigger and maybe view entry btn too
     - little trophy icon next to first
+    - show place in view entry?? might be too hard and not super necessary
 - Make it so you can't enter mock in contest or update contest mock once contest closes
     - DB rules
     - Front end
