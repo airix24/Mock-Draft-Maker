@@ -11,7 +11,9 @@ function deleteDraft(uid, draftId) {
 }
 
 // save the mock draft to the database
-async function saveDraft(userUid, name, mockDraft) {
+async function saveDraft(userUid, name, mockDraft, enterContest) {
+  const contest = enterContest ? ["mainContest"] : [];
+
   const usersCollection = collection(db, "users");
   const savedDraftsCollection = collection(
     usersCollection,
@@ -25,7 +27,7 @@ async function saveDraft(userUid, name, mockDraft) {
     draftName: name,
     createdAt: new Date(),
     draft: mockDraft,
-    contestsEntered: [],
+    contestsEntered: contest,
     userUid: userUid,
   };
   try {
@@ -43,8 +45,12 @@ async function updateDraft(
   nameInBox,
   draftId,
   mockDraft,
-  contestsEntered
+  contestsEntered,
+  enterContest
 ) {
+  if (enterContest) {
+    contestsEntered.push("mainContest");
+  }
   const usersCollection = collection(db, "users");
   const savedDraftsCollection = collection(
     usersCollection,
@@ -76,4 +82,18 @@ async function checkNumberOfDrafts(userUid, maxDrafts) {
   return querySnapshot.docs.length < maxDrafts;
 }
 
-export { deleteDraft, saveDraft, updateDraft, checkNumberOfDrafts };
+// check if the user has a draft entered in the contest, return a boolean
+async function checkIfUserEnteredContest(userUid) {
+  const usersCollection = collection(db, "users");
+  const savedDraftsCollection = collection(
+    usersCollection,
+    userUid,
+    "savedDrafts"
+  );
+  const querySnapshot = await getDocs(savedDraftsCollection);
+  const drafts = querySnapshot.docs.map((doc) => doc.data());
+  const isContestEntered = drafts.some((draft) => draft.contestsEntered.length > 0);
+  return isContestEntered;
+}
+
+export { deleteDraft, saveDraft, updateDraft, checkNumberOfDrafts, checkIfUserEnteredContest };

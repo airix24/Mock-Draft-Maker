@@ -26,3 +26,10 @@
 .save-login-div > * {
   margin-top: 20px;
 }
+
+.save-and-enter-btn {
+  margin-top: 10px;
+  background-color: #03277a;
+  color: white;
+  padding: 10px;
+}

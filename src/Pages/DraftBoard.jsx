@@ -33,6 +33,7 @@ function DraftBoard(props) {
   );
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
   const [currList, setCurrList] = useState("draftResults");
+  // const [isDraftFull, setIsDraftFull] = useState(false);
 
   function useInitializeMockDraft(teams) {
     useEffect(() => {
@@ -73,6 +74,14 @@ function DraftBoard(props) {
   // usage
   useInitializeMockDraft(teams);
   useInitializePlayerPool(prospects);
+
+  // if mock draft is full, set isDraftFull to true
+  // useEffect(() => {
+  //   if (mockDraft.every((slot) => slot.pick !== null)) {
+  //     console.log("Mock draft is full.")
+  //     setIsDraftFull(true);
+  //   }
+  // }, [mockDraft]);
 
   // simulate draft
   useEffect(() => {

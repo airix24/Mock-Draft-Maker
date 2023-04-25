@@ -10,6 +10,7 @@ import {
   FaSave,
   FaEraser,
 } from "react-icons/fa";
+import SaveReminder from "./SaveReminder";
 
 function ControlPanel(props) {
   const [showSettings, setShowSettings] = useState(false);
@@ -126,16 +127,19 @@ function ControlPanel(props) {
           </div>
 
           {props.mode === "builder" || props.isDraftFinished() ? (
-            <button
-              disabled={props.isSimulating}
-              className={`control-panel-btn icon-button ${
-                props.isSimulating ? "disabled" : ""
-              }`}
-              onClick={() => props.setShowSaveScreen(true)}
-            >
-              <FaSave size={20} />
-              <p>Save</p>
-            </button>
+            <div>
+              {props.isDraftFinished() && <SaveReminder />}
+              <button
+                disabled={props.isSimulating}
+                className={`control-panel-btn icon-button ${
+                  props.isSimulating ? "disabled" : ""
+                }`}
+                onClick={() => props.setShowSaveScreen(true)}
+              >
+                <FaSave size={20} />
+                <p>Save</p>
+              </button>
+            </div>
           ) : null}
         </div>
       )}

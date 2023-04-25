@@ -7,10 +7,12 @@ import {
   saveDraft,
   updateDraft,
   checkNumberOfDrafts,
+  checkIfUserEnteredContest,
 } from "../utils/firebaseFunctions";
 
 function SaveScreen(props) {
   const MAX_DRAFTS = 30;
+  const [hasUserEnteredContest, setHasUserEnteredContest] = useState(true);
   const [tooManyDrafts, setTooManyDrafts] = useState(true);
   const [nameInBox, setNameInBox] = useState(
     props.mode === "editor" ? props.draftSettings.draftName : ""
@@ -26,32 +28,49 @@ function SaveScreen(props) {
     }
   }, [props.user]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (props.mode === "editor") {
-      handleUpdate();
-    } else {
-      handleSave();
+  // check if the user has already entered the contest
+  useEffect(() => {
+    if (props.user) {
+      checkIfUserEnteredContest(props.user.uid).then((result) => {
+        setHasUserEnteredContest(result);
+      });
     }
-    navigate("/");
-  }
+  }, [props.user]);
 
-  function handleSave() {
-    saveDraft(props.user.uid, nameInBox, props.mockDraft).then((result) => {
-      if (result) {
-        props.setShowSaveScreen(false);
-        props.clearDraft();
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   if (props.mode === "editor") {
+  //     handleUpdate();
+  //   } else {
+  //     if (e.nativeEvent.submitter.name === "saveAndEnter") {
+  //       handleSave(true);
+  //       navigate("/contest");
+  //     } else {
+  //       handleSave();
+  //     }
+  //   }
+  //   navigate("/");
+  // }
+
+  function handleSave(andEnter = false) {
+    saveDraft(props.user.uid, nameInBox, props.mockDraft, andEnter).then(
+      (result) => {
+        if (result) {
+          props.setShowSaveScreen(false);
+          props.clearDraft();
+        }
       }
-    });
+    );
   }
 
-  function handleUpdate() {
+  function handleUpdate(andEnter = false) {
     updateDraft(
       props.user.uid,
       nameInBox,
       props.draftSettings.draftId,
       props.mockDraft,
-      props.draftSettings.contestsEntered
+      props.draftSettings.contestsEntered,
+      andEnter
     ).then((result) => {
       if (result) {
         props.setShowSaveScreen(false);
@@ -76,13 +95,22 @@ function SaveScreen(props) {
           </h3>
           <form
             className="save-form"
-            // onSubmit={handleSubmit}
             onSubmit={(e) => {
-              if (tooManyDrafts && props.mode !== "editor") {
-                e.preventDefault();
-                alert("You have too many saved drafts already");
+              e.preventDefault();
+              let andEnter = false;
+              if (e.nativeEvent.submitter.name === "save-and-enter") {
+                andEnter = true;
+              }
+              if (props.mode === "editor") {
+                handleUpdate(andEnter);
               } else {
-                handleSubmit(e);
+                handleSave(andEnter);
+              }
+              //navigate to /contest if the user clicked save and enter
+              if (andEnter) {
+                navigate("/contest");
+              } else {
+                navigate("/");
               }
             }}
           >
@@ -94,9 +122,18 @@ function SaveScreen(props) {
               value={nameInBox}
               onChange={(e) => setNameInBox(e.target.value)}
             />
-            <button className="save-btn">
+            <button type="submit" name="save" className="save-btn">
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
+            {!hasUserEnteredContest && (
+              <button
+                type="submit"
+                name="save-and-enter"
+                className="save-and-enter-btn"
+              >
+                Save and Enter Contest
+              </button>
+            )}
           </form>
         </div>
       )}

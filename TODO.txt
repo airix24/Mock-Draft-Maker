@@ -27,6 +27,7 @@ IF YOU'RE DONE WITH THE NEEDS:
 - Ads?
 - Get rid of stuff to make it more professional?
 - Add something to explain the points? Like a tooltip or something idk?
+- Have draft saved in local storage if you go off of it
 
 GET RID OF TO MAKE MORE PROFESSIONAL?:
 - archetypes?

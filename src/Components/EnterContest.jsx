@@ -87,7 +87,7 @@ function EnterContest(props) {
                 </div>
               ) : (
                 <div className="enter-contest-content">
-                  <h2>Choose a Draft</h2>
+                  <h2>Choose a Saved Draft</h2>
                   <select>
                     {savedDrafts.map((draft, index) => (
                       <option key={index} value={draft.draftId}>
