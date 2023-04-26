@@ -29,6 +29,24 @@
   color: blue;
 }
 
+.contact-div {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.contact-twitter {
+  margin-bottom: 10px;
+}
+
+.twitter-link {
+  text-decoration: none;
+}
+
+.contact-email {
+  user-select: text;
+}
+
 /* -------------------- */
 
 /* .context {

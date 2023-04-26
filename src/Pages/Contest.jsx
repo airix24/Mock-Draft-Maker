@@ -235,6 +235,7 @@ function Contest(props) {
               {/* Leaderboard. Disabled because this is the janky solution */}
               {/* {props.user && isContestClosed && (
                 <button
+                  className="med-blue-btn"
                   onClick={() => setShowLeaderboard(true)}
                 >
                   Leaderboard

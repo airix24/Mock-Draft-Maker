@@ -38,6 +38,21 @@ function StartupScreen(props) {
             </button>
           </Link>
         </div>
+        <div className="contact-div light">
+          {/* link opens new page */}
+          <h4 className="contact-twitter">
+            Twitter:{" "}
+            <a
+              className="twitter-link light"
+              href="https://twitter.com/Mock_Mayhem"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @Mock_Mayhem
+            </a>
+          </h4>
+          <h4 className="contact-email">Email: MockMayhem1@gmail.com</h4>
+        </div>
       </div>
       {/* <div className="area">
         <ul className="circles">
