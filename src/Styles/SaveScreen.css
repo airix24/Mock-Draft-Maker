@@ -33,3 +33,8 @@
   color: white;
   padding: 10px;
 }
+
+.edit-reminder {
+  font-size: 0.5rem;
+  margin-top: 10px;
+}

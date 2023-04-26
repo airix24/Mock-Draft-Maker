@@ -202,6 +202,14 @@ function Contest(props) {
               )}
               {props.user && contestEntry && (
                 <div className="contest-lower-content">
+                  {!isContestClosed && (
+                    <div className="check-back-live-div">
+                      <h4 className="check-back-live-reminder">
+                        Make sure to check back during the draft to track your
+                        results live on the leaderboard!
+                      </h4>
+                    </div>
+                  )}
                   <button
                     className="med-blue-btn view-entry-btn"
                     onClick={() => setShowViewEntry(true)}

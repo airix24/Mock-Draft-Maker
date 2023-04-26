@@ -101,6 +101,15 @@
   margin-bottom: 10px;
 }
 
+.check-back-live-div {
+  width: 70%;
+}
+
+.check-back-live-reminder {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+  color: #03277a;
+}
 /* .track-results-div {
   display: flex;
   align-items: center;

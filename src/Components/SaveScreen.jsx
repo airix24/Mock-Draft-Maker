@@ -126,13 +126,18 @@ function SaveScreen(props) {
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
             {!hasUserEnteredContest && (
-              <button
-                type="submit"
-                name="save-and-enter"
-                className="save-and-enter-btn"
-              >
-                Save and Enter Contest
-              </button>
+              <>
+                <button
+                  type="submit"
+                  name="save-and-enter"
+                  className="save-and-enter-btn"
+                >
+                  Save and Enter Contest
+                </button>
+                <h5 className="light edit-reminder">
+                  (You can edit your entry up until one hour before the draft)
+                </h5>
+              </>
             )}
           </form>
         </div>
