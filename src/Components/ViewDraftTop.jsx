@@ -39,10 +39,13 @@ function ViewDraftTop(props) {
   return (
     <div
       className={`view-draft-top ${
-        props.isViewingFromContestPage && "view-draft-top-contest-page"
+        props.isViewingFromContestPage && !props.isViewingFromLeaderboard && "view-draft-top-contest-page"
       }`}
     >
-      <MockDraftImage draft={props.draft.draft} divRef={divRef}></MockDraftImage>
+      <MockDraftImage
+        draft={props.draft.draft}
+        divRef={divRef}
+      ></MockDraftImage>
       {/* Left Side */}
       {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
         <div className="idk-bro">
@@ -85,6 +88,11 @@ function ViewDraftTop(props) {
       </div>
 
       {/* Right Side */}
+      {props.isViewingFromLeaderboard && (
+        <div className="idk-bro">
+          
+        </div>
+      )}
       {!props.isViewingFromContestPage && (
         <div className="idk-bro idk-bro-confirm-btns">
           {!showDeleteConfirm ? (

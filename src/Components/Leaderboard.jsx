@@ -6,6 +6,7 @@ import ViewDraft from "./ViewDraft";
 import "../Styles/Leaderboard.css";
 import { query, where, getDocs as getDocsQuery } from "firebase/firestore";
 import { findProspect, findTeam } from "../utils/helpers";
+import { FaTrophy } from "react-icons/fa";
 
 function Leaderboard(props) {
   const [users, setUsers] = useState([]);
@@ -86,21 +87,24 @@ function Leaderboard(props) {
         <>
           {currDraft ? (
             <ViewDraft
-            draft={currDraft}
-            setCurrDraft={setCurrDraft}
-            user={props.user}
-            isViewingFromContestPage={true}
-            draftResults={props.draftResults}
-            isContestClosed={props.isContestClosed}
-            isViewingFromLeaderboard={true}
-          />
+              draft={currDraft}
+              setCurrDraft={setCurrDraft}
+              user={props.user}
+              isViewingFromContestPage={true}
+              draftResults={props.draftResults}
+              isContestClosed={props.isContestClosed}
+              isViewingFromLeaderboard={true}
+            />
           ) : (
             <>
-              <h2 className="leaderboard-view-entries-header">
-                {props.isContestClosed
-                  ? "Leaderboard"
-                  : `Total Entries: ${entries.length}`}
-              </h2>
+              <div className="leaderboard-view-entries-top">
+                <h1 className="leaderboard-view-entries-header">
+                  {props.isContestClosed
+                    ? "Leaderboard"
+                    : `Total Entries: ${entries.length}`}
+                </h1>
+              </div>
+
               <div className="entry-card-container">
                 {entries.map((entry, index) => {
                   const totalScore = calculateDraftScore(entry.draft);
@@ -112,8 +116,14 @@ function Leaderboard(props) {
                         setCurrDraft(entry);
                       }}
                     >
-                      <h4 className="entry-card-rank">{index + 1}.</h4>
-                      <h4 className="entry-card-name">{entry.draftName}</h4>
+                      <div className="entry-card-left">
+                        <h4 className="entry-card-rank">{index + 1}.</h4>
+                        <h4 className="entry-card-name">{entry.draftName}</h4>
+                        {index === 0 && (
+                          <FaTrophy className="entry-card-trophy" color="blue" />
+                        )}
+                      </div>
+
                       <h4 className="entry-card-score">{totalScore}</h4>
                     </div>
                   );

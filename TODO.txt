@@ -1,16 +1,12 @@
 TODO:
 
-- Put my email somewhere?
-
 NEED BEFORE DRAFT:
-- Leaderboard styling
-    - put total entries somewhere
-    - make leaderboard btn bigger and maybe view entry btn too
-    - little trophy icon next to first
-    - show place in view entry?? might be too hard and not super necessary
 - Make it so you can't enter mock in contest or update contest mock once contest closes
     - DB rules
     - Front end
+        - No "Save and Enter" button (or even normal save ig) on save screen (maybe no save button at all to simplify things)
+        - No edit or delete buttons in view draft
+        - No remove or edit buttons (not sure how you'd even get there though)
 - Make it so the time for the contest close is server time? (or at least use the janky solution of making it impossible to view leaderboard before draft and then deploying update once contest closes?)
 
 - Share feature: Easy way to download and share your mock draft as an image?
@@ -167,3 +163,5 @@ MISCELLANEOUS:
     - Talk with AI to figure out who the best pick is? (kind wack)
 - Add basketball eventually
 - Add ability to create draft board?
+
+- Set up analytics
