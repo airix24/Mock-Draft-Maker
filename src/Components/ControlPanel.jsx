@@ -54,13 +54,13 @@ function ControlPanel(props) {
     <div className="control-panel">
       {props.mode === "editor" ? (
         <div className="control-panel-btns">
-          <button
+          {/* <button
             className="control-panel-btn save-changes-btn icon-button"
             onClick={() => props.setShowSaveScreen(true)}
           >
             <FaSave size={20} />
             <p>Save Changes</p>
-          </button>
+          </button> */}
         </div>
       ) : (
         <div className="control-panel-btns">
@@ -126,7 +126,7 @@ function ControlPanel(props) {
             )}
           </div>
 
-          {props.mode === "builder" || props.isDraftFinished() ? (
+          {/* {props.mode === "builder" || props.isDraftFinished() ? (
             <div>
               {props.isDraftFinished() && <SaveReminder />}
               <button
@@ -140,7 +140,7 @@ function ControlPanel(props) {
                 <p>Save</p>
               </button>
             </div>
-          ) : null}
+          ) : null} */}
         </div>
       )}
     </div>

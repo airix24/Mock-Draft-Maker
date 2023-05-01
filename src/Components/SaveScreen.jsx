@@ -81,7 +81,7 @@ function SaveScreen(props) {
 
   return (
     <Modal setShowSelf={props.setShowSaveScreen}>
-      {!props.user ? (
+      {/* {!props.user ? (
         <div className="save-login-div">
           <h3 className="light">Must be logged in to save draft</h3>
           <Auth />
@@ -141,7 +141,7 @@ function SaveScreen(props) {
             )}
           </form>
         </div>
-      )}
+      )} */}
     </Modal>
   );
 }

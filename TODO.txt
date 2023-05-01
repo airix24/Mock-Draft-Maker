@@ -1,16 +1,5 @@
 TODO:
 
-NEED BEFORE DRAFT:
-- Make it so you can't enter mock in contest or update contest mock once contest closes
-    - DB rules
-    - Front end
-        - No "Save and Enter" button (or even normal save ig) on save screen (maybe no save button at all to simplify things)
-        - No edit or delete buttons in view draft
-        - No remove or edit buttons (not sure how you'd even get there though)
-- Make it so the time for the contest close is server time? (or at least use the janky solution of making it impossible to view leaderboard before draft and then deploying update once contest closes?)
-
-- Share feature: Easy way to download and share your mock draft as an image?
-
 IF YOU'RE DONE WITH THE NEEDS:
 - Split up the one's and two's when looking at scores
 - Fix scroll bug on savedDrafts modal and leaderboard modal

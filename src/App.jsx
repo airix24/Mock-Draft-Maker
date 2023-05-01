@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
 import Contest from "./Pages/Contest";
+import SecretAdminPage from "./Pages/SecretAdminPage";
 
 import { auth } from "./config/firebase-config";
 
@@ -84,6 +85,7 @@ function App() {
           }
         />
         <Route path="/contest" element={<Contest user={user} />} />
+        <Route path="/admin-page" element={<SecretAdminPage />} />
       </Routes>
     </div>
   );

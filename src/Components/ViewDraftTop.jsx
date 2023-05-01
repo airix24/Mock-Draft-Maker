@@ -39,7 +39,9 @@ function ViewDraftTop(props) {
   return (
     <div
       className={`view-draft-top ${
-        props.isViewingFromContestPage && !props.isViewingFromLeaderboard && "view-draft-top-contest-page"
+        props.isViewingFromContestPage &&
+        !props.isViewingFromLeaderboard &&
+        "view-draft-top-contest-page"
       }`}
     >
       <MockDraftImage
@@ -69,15 +71,15 @@ function ViewDraftTop(props) {
           !props.isContestClosed &&
           !props.isViewingFromLeaderboard && (
             <div className="view-draft-contest-page-btns">
-              <button
+              {/* <button
                 className="view-draft-contest-page-btn"
                 onClick={props.removeEntryFromMainContest}
               >
                 Remove
-              </button>
-              <Link to="/draft-board" state={props.draft}>
+              </button> */}
+              {/* <Link to="/draft-board" state={props.draft}>
                 <button className="view-draft-contest-page-btn">Edit</button>
-              </Link>
+              </Link> */}
             </div>
           )}
         {props.isContestClosed && (
@@ -90,14 +92,16 @@ function ViewDraftTop(props) {
       {/* Right Side */}
       {props.isViewingFromLeaderboard && (
         <div className="idk-bro">
-          
+          <button className={"icon-button-black"} onClick={handleDownload}>
+            <FaDownload className="icon" size={20} alt="download" />
+          </button>
         </div>
       )}
       {!props.isViewingFromContestPage && (
         <div className="idk-bro idk-bro-confirm-btns">
           {!showDeleteConfirm ? (
             <div className="view-draft-btns">
-              <button
+              {/* <button
                 disabled={props.isContestEntry}
                 className={`icon-button-black ${
                   props.isContestEntry && "disabled"
@@ -105,10 +109,10 @@ function ViewDraftTop(props) {
                 onClick={() => setShowDeleteConfirm(true)}
               >
                 <FaTrash className="icon" size={20} alt="delete" />
-              </button>
-              <Link to="/draft-board" state={props.draft} className="edit-link">
+              </button> */}
+              {/* <Link to="/draft-board" state={props.draft} className="edit-link">
                 <FaEdit className="icon" size={20} color={"black"} alt="edit" />
-              </Link>
+              </Link> */}
               <button className={"icon-button-black"} onClick={handleDownload}>
                 <FaDownload className="icon" size={20} alt="download" />
               </button>

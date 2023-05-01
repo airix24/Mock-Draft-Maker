@@ -95,9 +95,9 @@ function EnterContest(props) {
                       </option>
                     ))}
                   </select>
-                  <button className="med-blue-btn" onClick={EnterContest}>
+                  {/* <button className="med-blue-btn" onClick={EnterContest}>
                     Enter
-                  </button>
+                  </button> */}
                 </div>
               )}
             </>

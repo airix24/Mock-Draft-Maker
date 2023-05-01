@@ -37,6 +37,14 @@ function StartupScreen(props) {
               <h3>Contest</h3>
             </button>
           </Link>
+
+          {props.user && props.user.uid === "BVnEi6DW17aGbUDopPT0IvgXBZB3" && (
+            <Link to="/admin-page" className="startup-link">
+              <button className="startup-btn contest-btn" tabIndex={-1}>
+                <h3>Secret Admin Page</h3>
+              </button>
+            </Link>
+          )}
         </div>
         <div className="contact-div light">
           {/* link opens new page */}

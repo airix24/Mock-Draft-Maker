@@ -224,23 +224,23 @@ function Contest(props) {
                     (Once you enter a mock draft, you are still able to edit it
                     up until the contest closes)
                   </h4>
-                  <button
+                  {/* <button
                     className="big-blue-btn"
                     onClick={() => setShowEnterContest(true)}
                   >
                     Enter
-                  </button>
+                  </button> */}
                 </div>
               )}
               {/* Leaderboard. Disabled because this is the janky solution */}
-              {/* {props.user && isContestClosed && (
+              {props.user && isContestClosed && (
                 <button
                   className="med-blue-btn"
                   onClick={() => setShowLeaderboard(true)}
                 >
                   Leaderboard
                 </button>
-              )} */}
+              )}
             </div>
           </div>
         </>
