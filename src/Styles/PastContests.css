@@ -1,0 +1,18 @@
+.past-contests-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back-to-curr-contests-btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 0;
+}
+
+.back-to-curr-contests-btn-div > * {
+  margin-left: 10px;
+}

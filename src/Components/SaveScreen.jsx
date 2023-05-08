@@ -108,7 +108,7 @@ function SaveScreen(props) {
               }
               //navigate to /contest if the user clicked save and enter
               if (andEnter) {
-                navigate("/contest");
+                navigate("/contests");
               } else {
                 navigate("/");
               }

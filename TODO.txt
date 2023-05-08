@@ -1,5 +1,28 @@
 TODO:
 
+NEXT STEPS:
+- Put back all the save features and whatnot, but lock 2023 NFL mocks (at least the contest entries)
+    - Make it so all mocks are locked after contest time is up?
+- Clean up code
+    - Make it more modular so I can easily do the NBA draft
+- More sign-in options. Make sign in pop-up look more professional
+- Make contest page look much better and more professional
+    - Make it so multiple contests can be shown at once
+- Make home page look much better/cooler
+- Incorportate NBA (and make it really easy to add any league's draft, NHL on May 27?)
+    - When you click mock builder, you decide which draft to do
+    - In saved drafts, you can choose which drafts you want to view (NFL or NBA and what year?)
+- Make it look nicer in general. Different colors etc.
+    - Copy UI elements from other places, no need to reinvent the wheel
+- Set up analytics and events or whatever
+- Get players from API (might need to web scrape)
+- Better social buttons
+- Set up Discord?
+- Better DB security
+- Fix weird CSS things (header?)
+
+- Could leaderboard and draft view be their own pages?
+
 IF YOU'RE DONE WITH THE NEEDS:
 - Split up the one's and two's when looking at scores
 - Fix scroll bug on savedDrafts modal and leaderboard modal
@@ -152,5 +175,6 @@ MISCELLANEOUS:
     - Talk with AI to figure out who the best pick is? (kind wack)
 - Add basketball eventually
 - Add ability to create draft board?
+- Mobile app
 
 - Set up analytics

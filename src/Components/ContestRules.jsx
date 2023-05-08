@@ -15,13 +15,7 @@ function ContestRules() {
           <li className="more-info-li">
             2 points awarded for each correct player/team match
           </li>
-          {/* <span className="bold">Scoring</span>: 1 point awarded for each player
-          correctly included in the first round, 2 points for every correct
-          player/team pair. (E.G. if you correctly mock Bryce Young to the
-          Panthers, you will receive 3 points in total, 1 for having Young in
-          the first round, and 2 for having him go to the Panthers) */}
         </ul>
-
         <li className="more-info-li">
           This contest is for the first round only.
         </li>
@@ -48,7 +42,8 @@ function ContestRules() {
           The winner will be contacted by email for payment information.
         </li>
         <li className="more-info-li">
-          If there is a trade that affects the first round draft order, entries submitted before the trade will still have the old order.
+          If there is a trade that affects the first round draft order, entries
+          submitted before the trade will still have the old order.
         </li>
       </ul>
     </div>

@@ -1,0 +1,125 @@
+.contest-card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 300px;
+  margin: 15px;
+  padding: 0px;
+  transition: transform 0.3s ease;
+  border: #03277a 5px solid;
+
+  position: relative;
+}
+
+.contest-card:hover {
+  transform: translateY(-3px);
+}
+
+.contest-card-top {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #03277a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.contest-card-name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.contest-card-close-date {
+  font-size: 16px;
+  font-weight: 500;
+  color: #777;
+}
+
+.contest-card-image {
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.contest-card-info-bar {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #03277a;
+  border-top: 2px solid #03277a;
+  padding: 10px 0;
+}
+
+.contest-card-entrants {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+}
+
+.contest-card-fee {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contest-card-prize {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.contest-card-enter-btn {
+  background-color: #03277a;
+  color: white;
+  border: none;
+  /* border-radius: 5px; */
+  border-radius: 0;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 22px;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.contest-card-info-btn {
+  width: 100%;
+  font-size: 16px;
+  /* border-bottom: 2px solid #03277a; */
+  /* margin-bottom: 10px; */
+  padding: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.contest-card-info-btn:hover {
+  background-color: #dddddd;
+  cursor: pointer;
+}
+
+.live-contest-card {
+  border: 5px solid #c90000;
+}
+
+.coming-soon-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.coming-soon-label {
+  font-size: 2rem;
+  color: white;
+}

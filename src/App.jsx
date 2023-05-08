@@ -4,12 +4,14 @@ import "./Styles/App.css";
 import Header from "./Components/Header";
 import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
-import Contest from "./Pages/Contest";
+import ContestPage from "./Pages/ContestPage";
 import SecretAdminPage from "./Pages/SecretAdminPage";
+import PastContests from "./Pages/PastContests";
 
 import { auth } from "./config/firebase-config";
 
 function App() {
+  const [user, setUser] = useState(null);
   const [screenSize, setScreenSize] = useState(
     window.innerWidth < 420
       ? "mobile"
@@ -17,30 +19,21 @@ function App() {
       ? "tablet"
       : "desktop"
   );
-  const [savedDrafts, setSavedDrafts] = useState(
-    localStorage.getItem("savedDrafts")
-      ? JSON.parse(localStorage.getItem("savedDrafts"))
-      : []
-  );
-  const [user, setUser] = useState(null);
 
   // Listen for changes in user authentication state
   useEffect(() => {
-    // Listen for changes in user authentication state
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        // User is logged in
         setUser(user);
       } else {
-        // User is logged out
         setUser(null);
       }
     });
-
     // Clean up the listener when the component unmounts
     return () => unsubscribe();
   }, []);
 
+  // handle screen size changes
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 360) {
@@ -51,7 +44,6 @@ function App() {
         setScreenSize("desktop");
       }
     }
-
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -61,32 +53,24 @@ function App() {
   return (
     <div className="app">
       <Header user={user} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <StartupScreen
-              savedDrafts={savedDrafts}
-              setSavedDrafts={setSavedDrafts}
-              user={user}
-            />
-          }
-        />
-        <Route
-          path="/draft-board"
-          element={
-            <DraftBoard
-              savedDrafts={savedDrafts}
-              setSavedDrafts={setSavedDrafts}
-              screenSize={screenSize}
-              setScreenSize={setScreenSize}
-              user={user}
-            />
-          }
-        />
-        <Route path="/contest" element={<Contest user={user} />} />
-        <Route path="/admin-page" element={<SecretAdminPage />} />
-      </Routes>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<StartupScreen user={user} />} />
+          <Route
+            path="/draft-board"
+            element={
+              <DraftBoard
+                screenSize={screenSize}
+                setScreenSize={setScreenSize}
+                user={user}
+              />
+            }
+          />
+          <Route path="/contests" element={<ContestPage user={user} />} />
+          <Route path="/past-contests" element={<PastContests user={user} />} />
+          <Route path="/admin-page" element={<SecretAdminPage />} />
+        </Routes>
+      </div>
     </div>
   );
 }

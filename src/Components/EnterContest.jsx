@@ -3,13 +3,7 @@ import Modal from "./Modal";
 import "../Styles/EnterContest.css";
 import { Link } from "react-router-dom";
 import { db } from "../config/firebase-config";
-import {
-  collection,
-  getDocs,
-  // addDoc,
-  updateDoc,
-  doc,
-} from "firebase/firestore";
+import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
 
 function EnterContest(props) {
   // get saved drafts from database
