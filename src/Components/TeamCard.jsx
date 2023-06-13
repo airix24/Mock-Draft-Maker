@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../Styles/TeamCard.css";
-import { prospects } from "../Prospects";
+import { prospects } from "../Prospects/NFL_2023";
 import { FaTimes } from "react-icons/fa";
 import PlayerCard from "./PlayerCard";
 

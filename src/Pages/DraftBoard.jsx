@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { prospects } from "../Prospects";
-import { teams } from "../Teams";
+import { prospects } from "../Prospects/NFL_2023";
+import { teams } from "../Teams/NFL_Teams";
 
 import { initializeMock, sortProspects } from "../utils/helpers";
 

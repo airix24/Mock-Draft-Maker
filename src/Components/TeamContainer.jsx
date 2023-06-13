@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/TeamContainer.css";
 import TeamCard from "./TeamCard";
-import { teams as teamList } from "../Teams";
+import { teams as teamList } from "../Teams/NFL_Teams";
 
 function TeamContainer(props) {
   const teamElements = props.mockDraft.map((mockSlot, index) => {

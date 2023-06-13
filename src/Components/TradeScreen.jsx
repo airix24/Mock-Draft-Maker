@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import "../Styles/TradeScreen.css";
-import { teams } from "../Teams";
+import { teams } from "../Teams/NFL_Teams";
 
 function TradeScreen(props) {
   const [team1Abr, setTeam1] = useState(
