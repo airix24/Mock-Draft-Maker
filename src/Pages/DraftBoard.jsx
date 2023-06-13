@@ -4,10 +4,9 @@ import { useLocation } from "react-router-dom";
 import { prospects } from "../Prospects/NFL_2023";
 import { teams } from "../Teams/NFL_Teams";
 
-import { initializeMock, sortProspects } from "../utils/helpers";
+import { sortProspects } from "../utils/helpers";
 
 import SaveScreen from "../Components/SaveScreen";
-import TradeScreen from "../Components/TradeScreen";
 import PlayerContainer from "../Components/PlayerContainer";
 import TeamContainer from "../Components/TeamContainer";
 import ControlPanel from "../Components/ControlPanel";
@@ -21,7 +20,6 @@ function DraftBoard(props) {
   const [playerPool, setPlayerPool] = useState([]);
   const [mockDraft, setMockDraft] = useState([]);
   const [showSaveScreen, setShowSaveScreen] = useState(false);
-  const [showTradeScreen, setShowTradeScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
   const [mode] = useState(
     !draftSettings ? "builder" : draftSettings.draftId ? "editor" : "gm"
@@ -33,8 +31,8 @@ function DraftBoard(props) {
   );
   const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
   const [currList, setCurrList] = useState("draftResults");
-  // const [isDraftFull, setIsDraftFull] = useState(false);
 
+  // initialize mock draft
   function useInitializeMockDraft(teams) {
     useEffect(() => {
       if (mode === "editor") {
@@ -45,6 +43,22 @@ function DraftBoard(props) {
     }, []);
   }
 
+  function initializeMock(teams) {
+    const mockSlots = new Array(31);
+    teams.map((team) => {
+      if (team.picks) {
+        team.picks.map((pick) => {
+          mockSlots[pick - 1] = {
+            team: team.abr,
+            pick: null,
+          };
+        });
+      }
+    });
+    return mockSlots;
+  }
+
+  // initialize player pool
   function useInitializePlayerPool(prospects) {
     useEffect(() => {
       if (mode === "editor") {
@@ -71,17 +85,9 @@ function DraftBoard(props) {
     }, []);
   }
 
-  // usage
+  // initialize mock draft and player pool
   useInitializeMockDraft(teams);
   useInitializePlayerPool(prospects);
-
-  // if mock draft is full, set isDraftFull to true
-  // useEffect(() => {
-  //   if (mockDraft.every((slot) => slot.pick !== null)) {
-  //     console.log("Mock draft is full.")
-  //     setIsDraftFull(true);
-  //   }
-  // }, [mockDraft]);
 
   // simulate draft
   useEffect(() => {
@@ -219,13 +225,6 @@ function DraftBoard(props) {
           draftSettings={draftSettings}
         />
       )}
-      {showTradeScreen && (
-        <TradeScreen
-          setShowTradeScreen={setShowTradeScreen}
-          mode={mode}
-          userTeam={userTeam}
-        />
-      )}
       <div className="container">
         {(props.screenSize === "desktop" || currList === "draftResults") && (
           <TeamContainer
@@ -260,7 +259,6 @@ function DraftBoard(props) {
         clearDraft={clearDraft}
         speed={speed}
         setSpeed={setSpeed}
-        setShowTradeScreen={setShowTradeScreen}
       />
     </div>
   );

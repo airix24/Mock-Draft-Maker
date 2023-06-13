@@ -37,20 +37,20 @@ function SaveScreen(props) {
     }
   }, [props.user]);
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   if (props.mode === "editor") {
-  //     handleUpdate();
-  //   } else {
-  //     if (e.nativeEvent.submitter.name === "saveAndEnter") {
-  //       handleSave(true);
-  //       navigate("/contest");
-  //     } else {
-  //       handleSave();
-  //     }
-  //   }
-  //   navigate("/");
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (props.mode === "editor") {
+      handleUpdate();
+    } else {
+      if (e.nativeEvent.submitter.name === "saveAndEnter") {
+        handleSave(true);
+        navigate("/contest");
+      } else {
+        handleSave();
+      }
+    }
+    navigate("/");
+  }
 
   function handleSave(andEnter = false) {
     saveDraft(props.user.uid, nameInBox, props.mockDraft, andEnter).then(
@@ -81,7 +81,7 @@ function SaveScreen(props) {
 
   return (
     <Modal setShowSelf={props.setShowSaveScreen}>
-      {/* {!props.user ? (
+      {!props.user ? (
         <div className="save-login-div">
           <h3 className="light">Must be logged in to save draft</h3>
           <Auth />
@@ -125,7 +125,7 @@ function SaveScreen(props) {
             <button type="submit" name="save" className="save-btn">
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
-            {!hasUserEnteredContest && (
+            {/* {!hasUserEnteredContest && (
               <>
                 <button
                   type="submit"
@@ -138,10 +138,10 @@ function SaveScreen(props) {
                   (You can edit your entry up until one hour before the draft)
                 </h5>
               </>
-            )}
+            )} */}
           </form>
         </div>
-      )} */}
+      )}
     </Modal>
   );
 }

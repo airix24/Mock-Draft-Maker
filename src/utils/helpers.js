@@ -9,22 +9,6 @@ function findTeam(abr) {
   return teams.find((team) => team.abr === abr);
 }
 
-// initialize the mock draft
-function initializeMock(teams) {
-  const mockSlots = new Array(31);
-  teams.map((team) => {
-    if (team.picks) {
-      team.picks.map((pick) => {
-        mockSlots[pick - 1] = {
-          team: team.abr,
-          pick: null,
-        };
-      });
-    }
-  });
-  return mockSlots;
-}
-
 // return an array of prospects sorted by rank
 function sortProspects(prospects) {
   return prospects.sort((a, b) => a.rank - b.rank);
@@ -39,4 +23,4 @@ function convertTime(time) {
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
-export { findProspect, findTeam, initializeMock, sortProspects, convertTime };
+export { findProspect, findTeam, sortProspects, convertTime };

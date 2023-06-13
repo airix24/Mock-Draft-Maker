@@ -30,7 +30,6 @@ function MockDraftImage({ draft, divRef }) {
       <div className="mock-image-top">MockMayhem.com</div>
       <div className="mock-draft-image-container">{draftElements}</div>
       <div className="mock-image-bottom">
-        Enter the FREE 2023 Mock Draft Contest! $100 to first!
       </div>
     </div>
   );

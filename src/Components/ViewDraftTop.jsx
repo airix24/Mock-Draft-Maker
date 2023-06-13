@@ -101,7 +101,7 @@ function ViewDraftTop(props) {
         <div className="idk-bro idk-bro-confirm-btns">
           {!showDeleteConfirm ? (
             <div className="view-draft-btns">
-              {/* <button
+              <button
                 disabled={props.isContestEntry}
                 className={`icon-button-black ${
                   props.isContestEntry && "disabled"
@@ -109,10 +109,21 @@ function ViewDraftTop(props) {
                 onClick={() => setShowDeleteConfirm(true)}
               >
                 <FaTrash className="icon" size={20} alt="delete" />
-              </button> */}
-              {/* <Link to="/draft-board" state={props.draft} className="edit-link">
-                <FaEdit className="icon" size={20} color={"black"} alt="edit" />
-              </Link> */}
+              </button>
+              {!props.isContestEntry && (
+                <Link
+                  to="/draft-board"
+                  state={props.draft}
+                  className="edit-link"
+                >
+                  <FaEdit
+                    className="icon"
+                    size={20}
+                    color={"black"}
+                    alt="edit"
+                  />
+                </Link>
+              )}
               <button className={"icon-button-black"} onClick={handleDownload}>
                 <FaDownload className="icon" size={20} alt="download" />
               </button>
