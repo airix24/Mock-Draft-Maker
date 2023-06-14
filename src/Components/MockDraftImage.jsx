@@ -2,10 +2,10 @@ import React from "react";
 import { findProspect, findTeam } from "../utils/helpers";
 import "../Styles/MockDraftImage.css";
 
-function MockDraftImage({ draft, divRef }) {
+function MockDraftImage({ draft, divRef, league, prospectClass }) {
   const draftElements = draft.map((slot, index) => {
-    const player = findProspect(slot.pick) ? findProspect(slot.pick) : "---";
-    const team = findTeam(slot.team);
+    const player = findProspect(slot.pick, prospectClass) ? findProspect(slot.pick, prospectClass) : "---";
+    const team = findTeam(slot.team, league);
     return (
       <div key={index} className="mock-draft-image-slot">
         {/* <img

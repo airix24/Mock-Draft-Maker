@@ -1,4 +1,4 @@
-export const prospects = [
+export const NFL_2023_Prospects = [
   {
     id: 100000,
     rank: 1,

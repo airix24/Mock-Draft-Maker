@@ -11,7 +11,7 @@ function deleteDraft(uid, draftId) {
 }
 
 // save the mock draft to the database
-async function saveDraft(userUid, name, mockDraft, enterContest) {
+async function saveDraft(userUid, name, mockDraft, enterContest, league, prospectClass) {
   const contest = enterContest ? ["mainContest"] : [];
 
   const usersCollection = collection(db, "users");
@@ -29,6 +29,8 @@ async function saveDraft(userUid, name, mockDraft, enterContest) {
     draft: mockDraft,
     contestsEntered: contest,
     userUid: userUid,
+    league,
+    prospectClass,
   };
   try {
     await setDoc(doc(savedDraftsCollection, draftId), draft);
@@ -46,7 +48,9 @@ async function updateDraft(
   draftId,
   mockDraft,
   contestsEntered,
-  enterContest
+  enterContest,
+  league,
+  prospectClass,
 ) {
   if (enterContest) {
     contestsEntered.push("mainContest");
@@ -65,6 +69,8 @@ async function updateDraft(
     draft: mockDraft,
     contestsEntered: contestsEntered,
     userUid: userUid,
+    league,
+    prospectClass,
   };
   try {
     await setDoc(doc(savedDraftsCollection, draftId), draft);

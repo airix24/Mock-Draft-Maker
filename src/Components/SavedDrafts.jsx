@@ -9,6 +9,7 @@ function SavedDrafts(props) {
   const [currDraft, setCurrDraft] = useState(null);
   const [savedDrafts, setSavedDrafts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currLeague, setCurrLeague] = useState("NFL");
 
   // get the saved drafts collection from the database
   const usersCollection = collection(db, "users");
@@ -36,6 +37,13 @@ function SavedDrafts(props) {
   // sort the drafts by date
   const savedDraftElements = savedDrafts
     .map((draft, index) => {
+      // NBA tab gets all drafts with a league of NBA, NFL tab gets all drafts with a league of NFL and all drafts with no league
+      if (
+        (currLeague === "NBA" && draft.league !== "NBA") ||
+        (currLeague === "NFL" && draft.league !== "NFL" && draft.league)
+      ) {
+        return;
+      }
       // format the date
       const date = new Date(draft.createdAt.seconds * 1000).toLocaleDateString(
         "en-US",
@@ -82,11 +90,37 @@ function SavedDrafts(props) {
               draft={currDraft}
               setCurrDraft={setCurrDraft}
               user={props.user}
+              league={currDraft.league ? currDraft.league : "NFL"}
+              prospectClass={
+                currDraft.prospectClass ? currDraft.prospectClass : "NFL_2023"
+              }
             />
           ) : (
             <div className="saved-draft-container">
               <div className="saved-drafts-top">
                 <h1 className="saved-drafts-title">Saved Drafts</h1>
+                <div className="saved-drafts-league-selector">
+                  <button
+                    className={`league-selector-button ${
+                      currLeague === "NFL" ? "saved-drafts-selected" : ""
+                    }`}
+                    onClick={() => {
+                      setCurrLeague("NFL");
+                    }}
+                  >
+                    NFL
+                  </button>
+                  <button
+                    className={`league-selector-button ${
+                      currLeague === "NBA" ? "saved-drafts-selected" : ""
+                    }`}
+                    onClick={() => {
+                      setCurrLeague("NBA");
+                    }}
+                  >
+                    NBA
+                  </button>
+                </div>
               </div>
               {savedDraftElements.length === 0 ? (
                 <h3 className="no-saved-drafts-message light">

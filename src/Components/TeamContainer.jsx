@@ -1,9 +1,12 @@
 import React from "react";
 import "../Styles/TeamContainer.css";
 import TeamCard from "./TeamCard";
-import { teams as teamList } from "../Teams/NFL_Teams";
+import { NFL_Teams } from "../Teams/NFL_Teams";
+import { NBA_Teams } from "../Teams/NBA_Teams";
 
 function TeamContainer(props) {
+  const teamList = props.league === "NFL" ? NFL_Teams : NBA_Teams;
+
   const teamElements = props.mockDraft.map((mockSlot, index) => {
     const currTeam = teamList.find((team) => team.abr === mockSlot.team);
     return (
@@ -22,6 +25,7 @@ function TeamContainer(props) {
         userTeam={props.userTeam}
         abr={currTeam.abr}
         screenSize={props.screenSize}
+        league={props.league}
       />
     );
   });

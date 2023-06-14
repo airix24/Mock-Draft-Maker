@@ -1,4 +1,4 @@
-export const teams = [
+export const NFL_Teams = [
   {
     city: "Arizona",
     teamName: "Cardinals",

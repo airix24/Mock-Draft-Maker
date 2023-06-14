@@ -1,0 +1,18 @@
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form > select {
+  width: 200px;
+}
+
+.settings-btn {
+  margin-top: 20px;
+}
+
+.settings-form > h3 {
+  margin-top: 10px;
+  margin-bottom: 2px;
+}

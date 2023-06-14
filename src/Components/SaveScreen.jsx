@@ -15,7 +15,7 @@ function SaveScreen(props) {
   const [hasUserEnteredContest, setHasUserEnteredContest] = useState(true);
   const [tooManyDrafts, setTooManyDrafts] = useState(true);
   const [nameInBox, setNameInBox] = useState(
-    props.mode === "editor" ? props.draftSettings.draftName : ""
+    props.mode === "editor" ? props.draftSettings.draftData.draftName : ""
   );
   const navigate = useNavigate();
 
@@ -37,23 +37,23 @@ function SaveScreen(props) {
     }
   }, [props.user]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (props.mode === "editor") {
-      handleUpdate();
-    } else {
-      if (e.nativeEvent.submitter.name === "saveAndEnter") {
-        handleSave(true);
-        navigate("/contest");
-      } else {
-        handleSave();
-      }
-    }
-    navigate("/");
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   if (props.mode === "editor") {
+  //     handleUpdate();
+  //   } else {
+  //     if (e.nativeEvent.submitter.name === "saveAndEnter") {
+  //       handleSave(true);
+  //       navigate("/contest");
+  //     } else {
+  //       handleSave();
+  //     }
+  //   }
+  //   navigate("/");
+  // }
 
   function handleSave(andEnter = false) {
-    saveDraft(props.user.uid, nameInBox, props.mockDraft, andEnter).then(
+    saveDraft(props.user.uid, nameInBox, props.mockDraft, andEnter, props.league, props.prospectClass).then(
       (result) => {
         if (result) {
           props.setShowSaveScreen(false);
@@ -64,13 +64,16 @@ function SaveScreen(props) {
   }
 
   function handleUpdate(andEnter = false) {
+    console.log(props.draftSettings)    
     updateDraft(
       props.user.uid,
       nameInBox,
-      props.draftSettings.draftId,
-      props.mockDraft,
-      props.draftSettings.contestsEntered,
-      andEnter
+      props.draftSettings.draftData.draftId,
+      props.draftSettings.draftData.draft,
+      props.draftSettings.draftData.contestsEntered,
+      andEnter,
+      props.league,
+      props.prospectClass,
     ).then((result) => {
       if (result) {
         props.setShowSaveScreen(false);

@@ -1,15 +1,10 @@
 TODO:
 
 NEXT STEPS:
-- StartupScreen
-- DraftBoard
-- helpers
-- View draft
-- Saved Drafts
 - Player Card
 - Contest Stuff
 
-
+- EXPAND BUG
 - Put back all the save features and whatnot, but lock 2023 NFL mocks (at least the contest entries)
     - Make it so all mocks are locked after contest time is up?
 - Clean up code

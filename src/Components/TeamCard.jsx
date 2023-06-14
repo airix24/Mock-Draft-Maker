@@ -1,10 +1,14 @@
 import { useState } from "react";
 import "../Styles/TeamCard.css";
-import { prospects } from "../Prospects/NFL_2023";
+import { NFL_2023_Prospects } from "../Prospects/NFL_2023";
+import { NBA_2023_Prospects } from "../Prospects/NBA_2023";
 import { FaTimes } from "react-icons/fa";
 import PlayerCard from "./PlayerCard";
 
 function TeamCard(props) {
+  const prospects =
+    props.league === "NFL" ? NFL_2023_Prospects : NBA_2023_Prospects;
+
   const draftPick = prospects.find((prospect) => prospect.id === props.pick);
   const teamNeedsString = props.teamNeeds.join(", ");
   // const [isLogoHovered, setIsLogoHovered] = useState(false);

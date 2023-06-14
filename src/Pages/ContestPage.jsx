@@ -3,8 +3,9 @@ import ContestCard from "../Components/ContestCard";
 import ContestInfo from "../Components/ContestInfo";
 import "../Styles/ContestPage.css";
 import hockeyLogo from "../Assets/hockey.svg";
-import basketballLogo from "../Assets/basketball.svg";
+import basketballLogo from "../Assets/basketball_new.svg";
 import baseballLogo from "../Assets/baseball.svg";
+import lotteryLogo from "../Assets/lottery.svg";
 import { Link } from "react-router-dom";
 
 function ContestPage() {
@@ -20,17 +21,27 @@ function ContestPage() {
         />
       )}
       <div className="contest-card-container">
-        <ContestCard
-          name="2023 NBA Draft"
+      <ContestCard
+          name="2023 NBA Draft Lottery"
           closeTime={new Date("June 22, 2023 23:00:00")}
-          image={basketballLogo}
+          image={lotteryLogo}
           currentEntrants="0"
-          prize={0}
-          fee={0}
+          prize={"TBD"}
+          fee={"TBD"}
           setShowContestInfo={setShowContestInfo}
           setContestInfo={setContestInfo}
         />
         <ContestCard
+          name="2023 NBA Draft 1st Round"
+          closeTime={new Date("June 22, 2023 23:00:00")}
+          image={basketballLogo}
+          currentEntrants="0"
+          prize={"TBD"}
+          fee={"TBD"}
+          setShowContestInfo={setShowContestInfo}
+          setContestInfo={setContestInfo}
+        />
+        {/* <ContestCard
           name="2023 NHL Draft"
           closeTime={new Date("June 28, 2023 23:00:00")}
           image={hockeyLogo}
@@ -49,11 +60,13 @@ function ContestPage() {
           fee={0}
           setShowContestInfo={setShowContestInfo}
           setContestInfo={setContestInfo}
-        />
+        /> */}
       </div>
-      <Link to="/past-contests">
+
+      {/* disabled until I get it working */}
+      {/* <Link to="/past-contests">
         <button className="view-past-contests-btn">View Past Contests</button>
-      </Link>
+      </Link> */}
     </div>
   );
 }

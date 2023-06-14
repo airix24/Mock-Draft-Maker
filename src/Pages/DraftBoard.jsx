@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { prospects } from "../Prospects/NFL_2023";
-import { teams } from "../Teams/NFL_Teams";
+import { NFL_2023_Prospects } from "../Prospects/NFL_2023";
+import { NBA_2023_Prospects } from "../Prospects/NBA_2023";
+import { NFL_Teams } from "../Teams/NFL_Teams";
+import { NBA_Teams } from "../Teams/NBA_Teams";
 
 import { sortProspects } from "../utils/helpers";
 
@@ -17,37 +19,53 @@ function DraftBoard(props) {
   const location = useLocation();
   const draftSettings = location.state;
 
+  const [teams] = useState(
+    draftSettings.league === "NFL" ? NFL_Teams : NBA_Teams
+  );
+  const [prospects] = useState(
+    draftSettings.prospectClass === "NFL_2023"
+      ? NFL_2023_Prospects
+      : NBA_2023_Prospects
+  );
+
   const [playerPool, setPlayerPool] = useState([]);
   const [mockDraft, setMockDraft] = useState([]);
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
-  const [mode] = useState(
-    !draftSettings ? "builder" : draftSettings.draftId ? "editor" : "gm"
-  );
+  const [mode, setMode] = useState(draftSettings.mode);
+  // const [mode] = useState(
+  //   !draftSettings ? "builder" : draftSettings.draftId ? "editor" : "gm"
+  // );
   const [userTeam] = useState(draftSettings ? draftSettings.team : null);
   // const [rounds, setRounds] = useState(draftSettings ? draftSettings.rounds : 1);
-  const [speed, setSpeed] = useState(
-    draftSettings ? draftSettings.speed : 1000
-  );
-  const [randomFactor] = useState(draftSettings ? draftSettings.randomness : 3);
+  // const [draftLength] = useState(
+  //   draftSettings.draftLength ? draftSettings.draftLength : 31
+  // );
+  const [speed, setSpeed] = useState(1000);
+  const [randomFactor] = useState(3);
   const [currList, setCurrList] = useState("draftResults");
 
   // initialize mock draft
   function useInitializeMockDraft(teams) {
     useEffect(() => {
       if (mode === "editor") {
-        setMockDraft(draftSettings.draft);
+        setMockDraft(draftSettings.draftData.draft);
       } else {
-        setMockDraft(initializeMock(teams));
+        setMockDraft(initializeMock(teams, draftSettings.draftLength));
       }
     }, []);
   }
 
-  function initializeMock(teams) {
-    const mockSlots = new Array(31);
-    teams.map((team) => {
+  function initializeMock(teams, draftLength) {
+    const mockSlots = new Array().fill(null).map(() => ({
+      team: null,
+      pick: null,
+    }));
+
+    teams.forEach((team) => {
       if (team.picks) {
-        team.picks.map((pick) => {
+        team.picks.forEach((pick) => {
+          if (pick > draftLength) return;
           mockSlots[pick - 1] = {
             team: team.abr,
             pick: null,
@@ -55,8 +73,24 @@ function DraftBoard(props) {
         });
       }
     });
+
     return mockSlots;
   }
+
+  // function initializeMock(teams) {
+  //   const mockSlots = new Array();
+  //   teams.map((team) => {
+  //     if (team.picks) {
+  //       team.picks.map((pick) => {
+  //         mockSlots[pick - 1] = {
+  //           team: team.abr,
+  //           pick: null,
+  //         };
+  //       });
+  //     }
+  //   });
+  //   return mockSlots;
+  // }
 
   // initialize player pool
   function useInitializePlayerPool(prospects) {
@@ -65,7 +99,7 @@ function DraftBoard(props) {
         // cycle through the mock draft and set the drafted property of the corresponding player to true
         const newPlayerPool = prospects.map((prospect) => {
           const player = { ...prospect };
-          draftSettings.draft.forEach((slot) => {
+          draftSettings.draftData.draft.forEach((slot) => {
             if (slot.pick === player.id) {
               player.drafted = true;
             }
@@ -94,6 +128,11 @@ function DraftBoard(props) {
     if (!isSimulating) {
       return;
     }
+    //if player pool is empty, don't simulate
+    if (playerPool.every((player) => player.drafted === true)) {
+      setIsSimulating(false);
+      return;
+    }
     // if mock draft is full, don't simulate
     if (mockDraft.every((slot) => slot.pick !== null)) {
       setIsSimulating(false);
@@ -114,21 +153,52 @@ function DraftBoard(props) {
     return () => clearInterval(interval);
   }, [isSimulating, mockDraft, speed, userTeam]);
 
-  // Randomly choose among the three highest ranked players that have not been drafted and that match the team's needs
+  // Randomly choose among the three highest ranked players that have not been drafted and that match the team's needs if it's NFL, if it's NBA, don't worry about team needs
   function selectPlayer(team) {
     const potentialPicks = [];
-    const unselectedPlayers = playerPool.filter(
-      (player) =>
-        player.drafted === false &&
-        team.needs.includes(player.position) &&
-        !potentialPicks.includes(player.id)
-    );
-    for (let i = 0; i < randomFactor && unselectedPlayers.length > 0; i++) {
+    const unselectedPlayers =
+      draftSettings.league === "NBA"
+        ? playerPool.filter(
+            (player) =>
+              player.drafted === false && !potentialPicks.includes(player.id)
+          )
+        : playerPool.filter(
+            (player) =>
+              player.drafted === false &&
+              team.needs.includes(player.position) &&
+              !potentialPicks.includes(player.id)
+          );
+  
+    const numPlayersToSelect = Math.min(randomFactor, unselectedPlayers.length); // Determine the number of players to select
+  
+    for (let i = 0; i < numPlayersToSelect; i++) { // Use numPlayersToSelect as the loop condition
       potentialPicks.push(unselectedPlayers[i].id);
     }
+  
     const randomIndex = Math.floor(Math.random() * potentialPicks.length);
     return potentialPicks[randomIndex];
   }
+  
+  // function selectPlayer(team) {
+  //   const potentialPicks = [];
+  //   const unselectedPlayers =
+  //     draftSettings.league === "NBA"
+  //       ? playerPool.filter(
+  //           (player) =>
+  //             player.drafted === false && !potentialPicks.includes(player.id)
+  //         )
+  //       : playerPool.filter(
+  //           (player) =>
+  //             player.drafted === false &&
+  //             team.needs.includes(player.position) &&
+  //             !potentialPicks.includes(player.id)
+  //         );
+  //   for (let i = 0; i < randomFactor && unselectedPlayers.length > 0; i++) {
+  //     potentialPicks.push(unselectedPlayers[i].id);
+  //   }
+  //   const randomIndex = Math.floor(Math.random() * potentialPicks.length);
+  //   return potentialPicks[randomIndex];
+  // }
 
   function addPlayer(playerId, slotIndex) {
     const index =
@@ -223,6 +293,8 @@ function DraftBoard(props) {
           user={props.user}
           mode={mode}
           draftSettings={draftSettings}
+          league={draftSettings.league}
+          prospectClass={draftSettings.prospectClass}
         />
       )}
       <div className="container">
@@ -233,6 +305,7 @@ function DraftBoard(props) {
             userTeam={userTeam}
             removePlayer={removePlayer}
             screenSize={props.screenSize}
+            league={draftSettings.league}
           />
         )}
         {(props.screenSize === "desktop" || currList === "playerPool") && (
@@ -245,6 +318,7 @@ function DraftBoard(props) {
             isDraftFinished={isDraftFinished}
             setPlayerPool={setPlayerPool}
             screenSize={props.screenSize}
+            league={draftSettings.league}
           />
         )}
       </div>

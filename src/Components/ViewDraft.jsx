@@ -29,10 +29,10 @@ function ViewDraft(props) {
   const totalScore = !props.isViewingFromContestPage
     ? null
     : props.draft.draft.reduce((total, slot) => {
-        const player = findProspect(slot.pick)
-          ? findProspect(slot.pick)
+        const player = findProspect(slot.pick, props.prospectClass)
+          ? findProspect(slot.pick, props.prospectClass)
           : "---";
-        const team = findTeam(slot.team);
+        const team = findTeam(slot.team, props.league);
         const pts = calculatePoints(player.id, team.abr);
         return total + pts;
       }, 0);
@@ -52,10 +52,10 @@ function ViewDraft(props) {
       />
       <div className="view-draft-mock-draft">
         {props.draft.draft.map((slot, index) => {
-          const player = findProspect(slot.pick)
-            ? findProspect(slot.pick)
+          const player = findProspect(slot.pick, props.prospectClass)
+            ? findProspect(slot.pick, props.prospectClass)
             : "---";
-          const team = findTeam(slot.team);
+          const team = findTeam(slot.team, props.league);
           const pts = !props.isViewingFromContestPage
             ? null
             : calculatePoints(player.id, team.abr);

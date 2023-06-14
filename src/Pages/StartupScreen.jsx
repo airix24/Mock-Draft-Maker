@@ -16,11 +16,17 @@ function StartupScreen(props) {
   return (
     <div className="start-screen-container">
       <div className="startup-menu-btns">
-        <Link to="/draft-board" className="startup-link">
+        {/* <Link to="/draft-board" className="startup-link">
           <button className="startup-btn" tabIndex={-1}>
             <h3>Mock Builder</h3>
           </button>
-        </Link>
+        </Link> */}
+        <button
+          className="startup-btn"
+          onClick={() => setShowDraftSettings(true)}
+        >
+          <h3>Mock Builder</h3>
+        </button>
         <button
           className={`startup-btn ${props.user ? "" : "disabled"}`}
           onClick={() => setShowSavedDrafts(true)}

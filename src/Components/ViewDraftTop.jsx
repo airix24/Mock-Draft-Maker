@@ -47,6 +47,10 @@ function ViewDraftTop(props) {
       <MockDraftImage
         draft={props.draft.draft}
         divRef={divRef}
+        league={props.draft.league ? props.draft.league : "NFL"}
+        prospectClass={
+          props.draft.prospectClass ? props.draft.prospectClass : "NFL_2023"
+        }
       ></MockDraftImage>
       {/* Left Side */}
       {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
@@ -113,7 +117,14 @@ function ViewDraftTop(props) {
               {!props.isContestEntry && (
                 <Link
                   to="/draft-board"
-                  state={props.draft}
+                  // state={props.draft}
+                  state={{
+                    league: props.draft.league ? props.draft.league : "NFL",
+                    prospectClass: props.draft.prospectClass ? props.draft.prospectClass : "NFL_2023",
+                    mode: "editor",
+                    draftLength: props.draft.draftLength ? props.draft.draftLength : 31,
+                    draftData: props.draft,
+                  }}
                   className="edit-link"
                 >
                   <FaEdit

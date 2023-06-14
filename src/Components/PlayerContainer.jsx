@@ -8,6 +8,24 @@ function PlayerContainer(props) {
   const [showWatchlist, setShowWatchList] = useState(false);
   const [search, setSearch] = useState("");
 
+  const NFL_Positions = [
+    "All",
+    "QB",
+    "RB",
+    "WR",
+    "TE",
+    "T",
+    "G",
+    "C",
+    "DI",
+    "ED",
+    "LB",
+    "S",
+    "CB",
+  ];
+
+  const NBA_Positions = ["All", "PG", "SG", "SF", "PF", "C"];
+
   function filterPlayers(newPool) {
     return newPool.filter(
       (player) =>
@@ -53,18 +71,28 @@ function PlayerContainer(props) {
     }
   );
 
+  const positionOptions =
+    props.league === "NFL" ? NFL_Positions : NBA_Positions;
+
+  const positionElements = positionOptions.map((position, index) => {
+    return (
+      <option key={index} value={position.toLowerCase()}>
+        {position}
+      </option>
+    );
+  });
+
   return (
     <div className="box">
       <div className="player-cont-top-bar top-bar">
         <label>
-          {/* Position:{" "} */}
           <select
             name="positions"
             className="position-select"
             value={selectedPosition}
             onChange={(e) => setSelectedPosition(e.target.value)}
           >
-            <option value="all">All</option>
+            {/* <option value="all">All</option>
             <option value="qb">QB</option>
             <option value="rb">RB</option>
             <option value="wr">WR</option>
@@ -76,7 +104,8 @@ function PlayerContainer(props) {
             <option value="ed">ED</option>
             <option value="lb">LB</option>
             <option value="s">S</option>
-            <option value="cb">CB</option>
+            <option value="cb">CB</option> */}
+            {positionElements}
           </select>
         </label>
         <div className="watchlist-toggle">
@@ -103,7 +132,13 @@ function PlayerContainer(props) {
         {playerElements}
         {playerElements.length === 0 ? (
           <div className="no-players-message">
-            <h3>{search !== "" ? "No Players Match Search" : showWatchlist ? "Watchlist is Empty" : "No Players Left at Position"}</h3>
+            <h3>
+              {search !== ""
+                ? "No Players Match Search"
+                : showWatchlist
+                ? "Watchlist is Empty"
+                : "No Players Left at Position"}
+            </h3>
           </div>
         ) : null}
       </div>

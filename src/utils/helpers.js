@@ -1,12 +1,26 @@
-import { prospects } from "../Prospects/NFL_2023";
-import { teams } from "../Teams/NFL_Teams";
+import { NFL_2023_Prospects } from "../Prospects/NFL_2023";
+import { NBA_2023_Prospects } from "../Prospects/NBA_2023";
+import { NFL_Teams } from "../Teams/NFL_Teams";
+import { NBA_Teams } from "../Teams/NBA_Teams";
 
-function findProspect(id) {
-  return prospects.find((prospect) => prospect.id === id);
+function findProspect(id, prospectClass) {
+  // return NFL_2023_Prospects.find((prospect) => prospect.id === id);
+  if (prospectClass === "NFL_2023") {
+    return NFL_2023_Prospects.find((prospect) => prospect.id === id);
+  }
+  if (prospectClass === "NBA_2023") {
+    return NBA_2023_Prospects.find((prospect) => prospect.id === id);
+  }
 }
 
-function findTeam(abr) {
-  return teams.find((team) => team.abr === abr);
+function findTeam(abr, league) {
+  // return NFL_Teams.find((team) => team.abr === abr);
+  if (league === "NFL") {
+    return NFL_Teams.find((team) => team.abr === abr);
+  }
+  if (league === "NBA") {
+    return NBA_Teams.find((team) => team.abr === abr);
+  }
 }
 
 // return an array of prospects sorted by rank
