@@ -62,11 +62,13 @@ function ViewDraft(props) {
           return (
             <div className="view-draft-slot" key={index}>
               <div className="view-draft-slot-left-side">
-                <img
-                  className="view-draft-slot-logo"
-                  src={team.logo}
-                  alt={`${team.teamName} logo`}
-                />
+                <div className="view-draft-slot-logo-container">
+                  <img
+                    className="view-draft-slot-logo"
+                    src={team.logo}
+                    alt={`${team.teamName} logo`}
+                  />
+                </div>
                 <p className="view-draft-slot-pos">{index + 1}.</p>
                 <p className="view-draft-slot-name">
                   {player.firstName} {player.lastName}

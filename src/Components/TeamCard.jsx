@@ -22,14 +22,16 @@ function TeamCard(props) {
       }`}
     >
       <div className="team-card-info">
-        <img
-          className="team-logo"
-          src={props.logo}
-          alt={`${props.teamName} logo`}
-          // onMouseEnter={() => setIsLogoHovered(true)}
-          // onMouseLeave={() => setIsLogoHovered(false)}
-          // onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
-        ></img>
+        <div className="team-card-logo-container">
+          <img
+            className="team-logo"
+            src={props.logo}
+            alt={`${props.teamName} logo`}
+            // onMouseEnter={() => setIsLogoHovered(true)}
+            // onMouseLeave={() => setIsLogoHovered(false)}
+            // onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
+          ></img>
+        </div>
         {/* {isLogoHovered && (
           <div
             className="card"

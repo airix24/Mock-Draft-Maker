@@ -216,7 +216,7 @@ function PlayerCard(props) {
                   props.setPlayerPool(
                     props.playerPool.map((player) => {
                       if (player.id === props.id) {
-                        player.expanded = !player.expanded;
+                        player.expanded = false;
                       }
                       return player;
                     })
@@ -243,7 +243,7 @@ function PlayerCard(props) {
                   props.setPlayerPool(
                     props.playerPool.map((player) => {
                       if (player.id === props.id) {
-                        player.expanded = !player.expanded;
+                        player.expanded = false;
                       }
                       return player;
                     })

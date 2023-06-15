@@ -13,9 +13,23 @@
   margin-right: 5px;
 }
 
-.team-logo {
+.team-card-logo-container {
+  /* background-color: rgb(85, 121, 153); */
   height: 20px;
   margin-right: 5px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-logo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  /* height: 20px; */
+  /* width: 20px; */
+  /* margin-right: 5px; */
 }
 
 .drafted-player-info {

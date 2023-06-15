@@ -26,9 +26,16 @@
   justify-content: center;
 }
 
-.view-draft-slot-logo {
+.view-draft-slot-logo-container {
   height: 20px;
+  width: 30px;
   margin-right: 0.5rem;
+}
+
+.view-draft-slot-logo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .view-draft-slot-pos,

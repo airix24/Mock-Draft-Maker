@@ -33,7 +33,6 @@ IF YOU'RE DONE WITH THE NEEDS:
 - Fix scroll bug on savedDrafts modal and leaderboard modal
 - Save screen loads a little? Sends you back to either home or contest page
 - Make expanding player card less weird (rework player card maybe since already getting rid of some stuff)
-- Expand thing?
 - Make it so you can click drafted player and see their info?
 - Update RAS
 - Change star color
