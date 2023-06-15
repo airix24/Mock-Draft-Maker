@@ -3,8 +3,9 @@ TODO:
 NEXT STEPS:
 - Player Card
 - Contest Stuff
+- fix logos
+- add wingspan for NBA players
 
-- EXPAND BUG
 - Put back all the save features and whatnot, but lock 2023 NFL mocks (at least the contest entries)
     - Make it so all mocks are locked after contest time is up?
 - Clean up code

@@ -66,6 +66,7 @@ function PlayerContainer(props) {
           playerPool={props.playerPool}
           setPlayerPool={props.setPlayerPool}
           screenSize={props.screenSize}
+          expanded={player.expanded}
         />
       );
     }
@@ -92,19 +93,6 @@ function PlayerContainer(props) {
             value={selectedPosition}
             onChange={(e) => setSelectedPosition(e.target.value)}
           >
-            {/* <option value="all">All</option>
-            <option value="qb">QB</option>
-            <option value="rb">RB</option>
-            <option value="wr">WR</option>
-            <option value="te">TE</option>
-            <option value="t">T</option>
-            <option value="g">G</option>
-            <option value="c">C</option>
-            <option value="di">DI</option>
-            <option value="ed">ED</option>
-            <option value="lb">LB</option>
-            <option value="s">S</option>
-            <option value="cb">CB</option> */}
             {positionElements}
           </select>
         </label>

@@ -113,6 +113,7 @@ function DraftBoard(props) {
           ...prospect,
           drafted: false,
           starred: false,
+          expanded: false,
         }));
         setPlayerPool(newPlayerPool);
       }
@@ -226,6 +227,7 @@ function DraftBoard(props) {
         ...player,
         drafted: false,
         starred: false,
+        expanded: false,
       }));
       return newPool;
     });

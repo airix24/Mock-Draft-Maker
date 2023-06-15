@@ -108,3 +108,7 @@
   color: white;
   border-radius: 5px;
 }
+
+.hovered-card-indent {
+  margin-left: 5px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import "../Styles/PlayerCard.css";
 import {
   FaChevronUp,
@@ -10,8 +10,6 @@ import {
 } from "react-icons/fa";
 
 function PlayerCard(props) {
-  const [expanded, setExpanded] = useState(props.hoveredCard ? true : false);
-
   function convertHeight(height) {
     return `${Math.floor(height / 12)}'${height % 12}"`;
   }
@@ -31,11 +29,22 @@ function PlayerCard(props) {
   return (
     <div
       className="card player-card"
-      onClick={() => setExpanded((prev) => !prev)}
+      // onClick={() => setExpanded((prev) => !prev)}
+      onClick={(e) => {
+        props.setPlayerPool(
+          props.playerPool.map((player) => {
+            if (player.id === props.id) {
+              player.expanded = !player.expanded;
+            }
+            return player;
+          })
+        );
+        e.stopPropagation();
+      }}
     >
       <div className="unexpanded">
         <div className="unexpanded-player-info">
-          {expanded ? (
+          {props.expanded || props.hoveredCard ? (
             <div className="exp-player-name">
               {!props.hoveredCard && <h3>{props.rank}.</h3>}
               <div>
@@ -85,7 +94,7 @@ function PlayerCard(props) {
                     {props.firstName} {props.lastName}
                   </h2>
                 </div>
-                <h3 className="light">
+                <h3 className={`light ${props.hoveredCard ? "hovered-card-indent" : ""}`}>
                   {props.position}
                   {props.archetype != "" ? ` - ${props.archetype}` : ""}
                 </h3>
@@ -148,11 +157,22 @@ function PlayerCard(props) {
                 : ""
             }`}
           >
-            {expanded ? (
+            {props.expanded || props.hoveredCard ? (
               <button
                 className="icon-button-black"
+                // onClick={(e) => {
+                //   setExpanded(false);
+                //   e.stopPropagation();
+                // }}
                 onClick={(e) => {
-                  setExpanded(false);
+                  props.setPlayerPool(
+                    props.playerPool.map((player) => {
+                      if (player.id === props.id) {
+                        player.expanded = !player.expanded;
+                      }
+                      return player;
+                    })
+                  );
                   e.stopPropagation();
                 }}
               >
@@ -161,8 +181,19 @@ function PlayerCard(props) {
             ) : (
               <button
                 className="icon-button-black"
+                // onClick={(e) => {
+                //   setExpanded(true);
+                //   e.stopPropagation();
+                // }}
                 onClick={(e) => {
-                  setExpanded(true);
+                  props.setPlayerPool(
+                    props.playerPool.map((player) => {
+                      if (player.id === props.id) {
+                        player.expanded = !player.expanded;
+                      }
+                      return player;
+                    })
+                  );
                   e.stopPropagation();
                 }}
               >
@@ -175,9 +206,21 @@ function PlayerCard(props) {
                 className={`icon-button-black ${
                   props.isSimulating ? "disabled" : ""
                   }`}
+                // onClick={(e) => {
+                //   props.addPlayer(props.id);
+                //   setExpanded(false);
+                //   e.stopPropagation();
+                // }}
                 onClick={(e) => {
                   props.addPlayer(props.id);
-                  setExpanded(false);
+                  props.setPlayerPool(
+                    props.playerPool.map((player) => {
+                      if (player.id === props.id) {
+                        player.expanded = !player.expanded;
+                      }
+                      return player;
+                    })
+                  );
                   e.stopPropagation();
                 }}
               >
@@ -190,9 +233,21 @@ function PlayerCard(props) {
             ) : props.isUserPick() ? (
               <button
                 className={"draft-btn"}
+                // onClick={(e) => {
+                //   props.addPlayer(props.id);
+                //   setExpanded(false);
+                //   e.stopPropagation();
+                // }}
                 onClick={(e) => {
                   props.addPlayer(props.id);
-                  setExpanded(false);
+                  props.setPlayerPool(
+                    props.playerPool.map((player) => {
+                      if (player.id === props.id) {
+                        player.expanded = !player.expanded;
+                      }
+                      return player;
+                    })
+                  );
                   e.stopPropagation();
                 }}
               >
@@ -202,7 +257,7 @@ function PlayerCard(props) {
           </div>
         )}
       </div>
-      {expanded ? (
+      {props.expanded || props.hoveredCard ? (
         <div className="expanded">
           <div className="img-container">
             <img
