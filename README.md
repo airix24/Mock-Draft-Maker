@@ -1,3 +1,3 @@
 # Mock-Draft-Maker
 
-Make a mock draft for the upcoming 2023 NFL draft!
+Make a mock draft for the NFL or NBA drafts and enter contests!
