@@ -3,8 +3,8 @@ TODO:
 NEXT STEPS:
 - Player Card
 - Contest Stuff
-- fix logos
-- add wingspan for NBA players
+- add wingspan for NBA players (instead of RAS)
+- add strengths/weaknesses for NBA players?
 
 - Put back all the save features and whatnot, but lock 2023 NFL mocks (at least the contest entries)
     - Make it so all mocks are locked after contest time is up?
@@ -167,7 +167,6 @@ CONTEST:
 BUGS:
 - When you expand bottom player, have it so that player's card is completely visible
 - Make it so pop up player card is always visible on the screen
-- Fix weird expand bug (might be a lot of work)
 - Make it so player pool container doesn't shrink when you toggle watchlist on
 
 MISCELLANEOUS:
