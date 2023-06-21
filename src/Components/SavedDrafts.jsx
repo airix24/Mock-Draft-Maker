@@ -63,10 +63,9 @@ function SavedDrafts(props) {
         >
           <h2 className="saved-draft-name">{draft.draftName}</h2>
           <h4 className="saved-draft-date light">{date}</h4>
-          {draft.contestsEntered &&
-            draft.contestsEntered.includes("mainContest") && (
-              <h4 className="contest-indicator">Entered in Contest</h4>
-            )}
+          {draft.contestsEntered && draft.contestsEntered.length > 0 && (
+            <h4 className="contest-indicator">Entered in Contest</h4>
+          )}
         </button>
       );
     })

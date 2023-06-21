@@ -1,0 +1,28 @@
+export const contests = [
+    {
+        closeTime: new Date("2021-06-22T18:00:00"),
+        draftLength: 14,
+        entryFee: 0,
+        id: "B9jMFTTGDoVmjv1AgLlz",
+        image: "lottery",
+        info: "idk bro, imma need to write a lot here. LOTTERY",
+        league: "NBA",
+        name: "2023 NBA Lottery",
+        prospectClass: "NBA_2023",
+        status: "upcoming",
+        totalPrizes: 0,
+    },
+    // {
+    //     closeTime: new Date("2023-06-22T18:00:00"),
+    //     draftLength: 30,
+    //     entryFee: 0,
+    //     id: "8dzIKiJDNzMfBg0KjXYP",
+    //     image: "basketball",
+    //     info: "idk bro, imma need to write a lot here",
+    //     league: "NBA",
+    //     name: "2023 NBA First Round",
+    //     prospectClass: "NBA_2023",
+    //     status: "upcoming",
+    //     totalPrizes: 0,
+    // },
+]

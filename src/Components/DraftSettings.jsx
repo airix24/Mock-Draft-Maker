@@ -17,9 +17,9 @@ function DraftSettings(props) {
             draftData: null,
           }}
         >
-          <button>NBA 2023 Lottery</button>
+          <button className="draft-settings-btn">NBA 2023 Lottery</button>
         </Link>
-        <Link
+        {/* <Link
           to="/draft-board"
           state={{
             league: "NBA",
@@ -29,8 +29,8 @@ function DraftSettings(props) {
             draftData: null,
           }}
         >
-          <button>NBA 2023 First Round</button>
-        </Link>
+          <button className="draft-settings-btn">NBA 2023 First Round</button>
+        </Link> */}
         <Link
           to="/draft-board"
           state={{
@@ -41,7 +41,7 @@ function DraftSettings(props) {
             draftData: null,
           }}
         >
-          <button>NFL 2023 First Round</button>
+          <button className="draft-settings-btn">NFL 2023 First Round</button>
         </Link>
       </div>
     </Modal>

@@ -67,6 +67,8 @@ function PlayerContainer(props) {
           setPlayerPool={props.setPlayerPool}
           screenSize={props.screenSize}
           expanded={player.expanded}
+          league={props.league}
+          wingspan={player.wingspan}
         />
       );
     }

@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
 import ContestPage from "./Pages/ContestPage";
+import LotteryContest from "./Pages/LotteryContest";
 import SecretAdminPage from "./Pages/SecretAdminPage";
 import PastContests from "./Pages/PastContests";
 
@@ -66,7 +67,8 @@ function App() {
               />
             }
           />
-          <Route path="/contests" element={<ContestPage user={user} />} />
+          <Route path="/contests" element={<LotteryContest user={user} />} />
+          {/* <Route path="/contests" element={<ContestPage user={user} />} /> */}
           <Route path="/past-contests" element={<PastContests user={user} />} />
           <Route path="/admin-page" element={<SecretAdminPage />} />
         </Routes>

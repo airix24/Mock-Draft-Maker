@@ -22,7 +22,7 @@ function Leaderboard(props) {
   const getDrafts = async (user) => {
     const q = query(
       collection(db, "users", user.uid, "savedDrafts"),
-      where("contestsEntered", "array-contains", "mainContest")
+      where("contestsEntered", "array-contains", "lotteryContest")
     );
     const data = await getDocsQuery(q);
     return data.docs.map((doc) => doc.data());
@@ -70,8 +70,8 @@ function Leaderboard(props) {
 
   function calculateDraftScore(draft) {
     return draft.reduce((total, slot) => {
-      const player = findProspect(slot.pick) ? findProspect(slot.pick) : "---";
-      const team = findTeam(slot.team);
+      const player = findProspect(slot.pick, props.prospectClass) ? findProspect(slot.pick, props.prospectClass) : "---";
+      const team = findTeam(slot.team, props.league);
       const pts = calculatePoints(player.id, team.abr);
       return total + pts;
     }, 0);
@@ -94,6 +94,8 @@ function Leaderboard(props) {
               draftResults={props.draftResults}
               isContestClosed={props.isContestClosed}
               isViewingFromLeaderboard={true}
+              prospectClass={props.prospectClass}
+              league={props.league}
             />
           ) : (
             <>

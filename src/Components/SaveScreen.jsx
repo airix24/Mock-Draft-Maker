@@ -7,12 +7,13 @@ import {
   saveDraft,
   updateDraft,
   checkNumberOfDrafts,
-  checkIfUserEnteredContest,
+  checkIfUserEnteredLotteryContest,
 } from "../utils/firebaseFunctions";
 
 function SaveScreen(props) {
   const MAX_DRAFTS = 30;
-  const [hasUserEnteredContest, setHasUserEnteredContest] = useState(true);
+  const [hasUserEnteredLotteryContest, setHasUserEnteredLotteryContest] =
+    useState(true);
   const [tooManyDrafts, setTooManyDrafts] = useState(true);
   const [nameInBox, setNameInBox] = useState(
     props.mode === "editor" ? props.draftSettings.draftData.draftName : ""
@@ -31,8 +32,8 @@ function SaveScreen(props) {
   // check if the user has already entered the contest
   useEffect(() => {
     if (props.user) {
-      checkIfUserEnteredContest(props.user.uid).then((result) => {
-        setHasUserEnteredContest(result);
+      checkIfUserEnteredLotteryContest(props.user.uid).then((result) => {
+        setHasUserEnteredLotteryContest(result);
       });
     }
   }, [props.user]);
@@ -53,18 +54,22 @@ function SaveScreen(props) {
   // }
 
   function handleSave(andEnter = false) {
-    saveDraft(props.user.uid, nameInBox, props.mockDraft, andEnter, props.league, props.prospectClass).then(
-      (result) => {
-        if (result) {
-          props.setShowSaveScreen(false);
-          props.clearDraft();
-        }
+    saveDraft(
+      props.user.uid,
+      nameInBox,
+      props.mockDraft,
+      andEnter,
+      props.league,
+      props.prospectClass
+    ).then((result) => {
+      if (result) {
+        props.setShowSaveScreen(false);
+        props.clearDraft();
       }
-    );
+    });
   }
 
   function handleUpdate(andEnter = false) {
-    console.log(props.draftSettings)    
     updateDraft(
       props.user.uid,
       nameInBox,
@@ -73,7 +78,7 @@ function SaveScreen(props) {
       props.draftSettings.draftData.contestsEntered,
       andEnter,
       props.league,
-      props.prospectClass,
+      props.prospectClass
     ).then((result) => {
       if (result) {
         props.setShowSaveScreen(false);
@@ -128,20 +133,23 @@ function SaveScreen(props) {
             <button type="submit" name="save" className="save-btn">
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
-            {/* {!hasUserEnteredContest && (
-              <>
-                <button
-                  type="submit"
-                  name="save-and-enter"
-                  className="save-and-enter-btn"
-                >
-                  Save and Enter Contest
-                </button>
-                <h5 className="light edit-reminder">
-                  (You can edit your entry up until one hour before the draft)
-                </h5>
-              </>
-            )} */}
+            {!hasUserEnteredLotteryContest &&
+              props.league === "NBA" &&
+              props.prospectClass === "NBA_2023" &&
+              props.draftSettings.draftLength === 14 && (
+                <>
+                  <button
+                    type="submit"
+                    name="save-and-enter"
+                    className="save-and-enter-btn"
+                  >
+                    Save and Enter Contest
+                  </button>
+                  <h5 className="light edit-reminder">
+                    (You can edit your entry up until one hour before the draft)
+                  </h5>
+                </>
+              )}
           </form>
         </div>
       )}

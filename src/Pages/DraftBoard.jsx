@@ -231,7 +231,7 @@ function DraftBoard(props) {
       }));
       return newPool;
     });
-    setMockDraft(initializeMock(teams));
+    setMockDraft(initializeMock(teams, draftSettings.draftLength));
   }
 
   function updatePlayerPool(playerId, isPlayerBeingDrafted) {

@@ -94,7 +94,11 @@ function PlayerCard(props) {
                     {props.firstName} {props.lastName}
                   </h2>
                 </div>
-                <h3 className={`light ${props.hoveredCard ? "hovered-card-indent" : ""}`}>
+                <h3
+                  className={`light ${
+                    props.hoveredCard ? "hovered-card-indent" : ""
+                  }`}
+                >
                   {props.position}
                   {props.archetype != "" ? ` - ${props.archetype}` : ""}
                 </h3>
@@ -205,7 +209,7 @@ function PlayerCard(props) {
                 disabled={props.isSimulating}
                 className={`icon-button-black ${
                   props.isSimulating ? "disabled" : ""
-                  }`}
+                }`}
                 // onClick={(e) => {
                 //   props.addPlayer(props.id);
                 //   setExpanded(false);
@@ -224,11 +228,7 @@ function PlayerCard(props) {
                   e.stopPropagation();
                 }}
               >
-                <FaPlus
-                  className="icon plus-icon"
-                  size={18}
-                  alt="add player"
-                />
+                <FaPlus className="icon plus-icon" size={18} alt="add player" />
               </button>
             ) : props.isUserPick() ? (
               <button
@@ -269,14 +269,18 @@ function PlayerCard(props) {
 
           <div className="exp-player-info">
             <div>
-              <h4>
-                <span className="light">school: </span>
-                {props.school}
-              </h4>
-              <h4 className="class-year">
-                <span className="light">class: </span>
-                {props.class}
-              </h4>
+              <div className="school-class-container">
+                <h4>
+                  <span className="light">school: </span>
+                  {props.school}
+                </h4>
+                {props.class !== "" ? (
+                  <h4 className="class-year">
+                    <span className="light">class: </span>
+                    {props.class}
+                  </h4>
+                ) : null}
+              </div>
               <h4>
                 <span className="light">height: </span>
                 {convertHeight(props.height)}
@@ -285,10 +289,17 @@ function PlayerCard(props) {
                 <span className="light">weight: </span>
                 {props.weight} lbs
               </h4>
-              <h4>
-                <span className="light">RAS: </span>
-                {props.ras ? props.ras : "---"}
-              </h4>
+              {props.league === "NFL" ? (
+                <h4>
+                  <span className="light">RAS: </span>
+                  {props.ras ? props.ras : "---"}
+                </h4>
+              ) : (
+                <h4>
+                  <span className="light">wingspan: </span>
+                  {props.wingspan ? props.wingspan : "---"}
+                </h4>
+              )}
             </div>
             <div className="player-skills">
               <h4>Strengths:</h4>

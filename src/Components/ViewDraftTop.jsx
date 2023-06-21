@@ -73,17 +73,37 @@ function ViewDraftTop(props) {
         )}
         {props.isViewingFromContestPage &&
           !props.isContestClosed &&
-          !props.isViewingFromLeaderboard && (
+          !props.isViewingFromLeaderboard &&
+          props.isContestEntry &&
+          (
             <div className="view-draft-contest-page-btns">
-              {/* <button
+              <button
                 className="view-draft-contest-page-btn"
-                onClick={props.removeEntryFromMainContest}
+                onClick={() =>
+                  props.removeEntryFromLotteryContest(
+                    // props.user.uid,
+                    // props.currContestId
+                  )
+                }
               >
                 Remove
-              </button> */}
-              {/* <Link to="/draft-board" state={props.draft}>
+              </button>
+              <Link
+                to="/draft-board"
+                state={{
+                  league: props.draft.league ? props.draft.league : "NFL",
+                  prospectClass: props.draft.prospectClass
+                    ? props.draft.prospectClass
+                    : "NFL_2023",
+                  mode: "editor",
+                  draftLength: props.draft.draftLength
+                    ? props.draft.draftLength
+                    : 31,
+                  draftData: props.draft,
+                }}
+              >
                 <button className="view-draft-contest-page-btn">Edit</button>
-              </Link> */}
+              </Link>
             </div>
           )}
         {props.isContestClosed && (
@@ -105,35 +125,40 @@ function ViewDraftTop(props) {
         <div className="idk-bro idk-bro-confirm-btns">
           {!showDeleteConfirm ? (
             <div className="view-draft-btns">
-              <button
-                disabled={props.isContestEntry}
-                className={`icon-button-black ${
-                  props.isContestEntry && "disabled"
-                }`}
-                onClick={() => setShowDeleteConfirm(true)}
-              >
-                <FaTrash className="icon" size={20} alt="delete" />
-              </button>
               {!props.isContestEntry && (
-                <Link
-                  to="/draft-board"
-                  // state={props.draft}
-                  state={{
-                    league: props.draft.league ? props.draft.league : "NFL",
-                    prospectClass: props.draft.prospectClass ? props.draft.prospectClass : "NFL_2023",
-                    mode: "editor",
-                    draftLength: props.draft.draftLength ? props.draft.draftLength : 31,
-                    draftData: props.draft,
-                  }}
-                  className="edit-link"
-                >
-                  <FaEdit
-                    className="icon"
-                    size={20}
-                    color={"black"}
-                    alt="edit"
-                  />
-                </Link>
+                <>
+                  <button
+                    disabled={props.isContestEntry}
+                    className={`icon-button-black ${
+                      props.isContestEntry && "disabled"
+                    }`}
+                    onClick={() => setShowDeleteConfirm(true)}
+                  >
+                    <FaTrash className="icon" size={20} alt="delete" />
+                  </button>
+                  <Link
+                    to="/draft-board"
+                    state={{
+                      league: props.draft.league ? props.draft.league : "NFL",
+                      prospectClass: props.draft.prospectClass
+                        ? props.draft.prospectClass
+                        : "NFL_2023",
+                      mode: "editor",
+                      draftLength: props.draft.draftLength
+                        ? props.draft.draftLength
+                        : 31,
+                      draftData: props.draft,
+                    }}
+                    className="edit-link"
+                  >
+                    <FaEdit
+                      className="icon"
+                      size={20}
+                      color={"black"}
+                      alt="edit"
+                    />
+                  </Link>
+                </>
               )}
               <button className={"icon-button-black"} onClick={handleDownload}>
                 <FaDownload className="icon" size={20} alt="download" />

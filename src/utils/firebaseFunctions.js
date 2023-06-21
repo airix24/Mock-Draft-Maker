@@ -1,5 +1,11 @@
 import { db } from "../config/firebase-config";
-import { collection, doc, deleteDoc, setDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  deleteDoc,
+  setDoc,
+  getDocs,
+} from "firebase/firestore";
 import { nanoid } from "nanoid";
 
 // delete the draft from the database
@@ -11,8 +17,15 @@ function deleteDraft(uid, draftId) {
 }
 
 // save the mock draft to the database
-async function saveDraft(userUid, name, mockDraft, enterContest, league, prospectClass) {
-  const contest = enterContest ? ["mainContest"] : [];
+async function saveDraft(
+  userUid,
+  name,
+  mockDraft,
+  enterContest,
+  league,
+  prospectClass
+) {
+  const contest = enterContest ? ["lotteryContest"] : [];
 
   const usersCollection = collection(db, "users");
   const savedDraftsCollection = collection(
@@ -50,7 +63,7 @@ async function updateDraft(
   contestsEntered,
   enterContest,
   league,
-  prospectClass,
+  prospectClass
 ) {
   if (enterContest) {
     contestsEntered.push("mainContest");
@@ -83,7 +96,11 @@ async function updateDraft(
 
 async function checkNumberOfDrafts(userUid, maxDrafts) {
   const usersCollection = collection(db, "users");
-  const savedDraftsCollection = collection(usersCollection, userUid, "savedDrafts");
+  const savedDraftsCollection = collection(
+    usersCollection,
+    userUid,
+    "savedDrafts"
+  );
   const querySnapshot = await getDocs(savedDraftsCollection);
   return querySnapshot.docs.length < maxDrafts;
 }
@@ -98,8 +115,48 @@ async function checkIfUserEnteredContest(userUid) {
   );
   const querySnapshot = await getDocs(savedDraftsCollection);
   const drafts = querySnapshot.docs.map((doc) => doc.data());
-  const isContestEntered = drafts.some((draft) => draft.contestsEntered.length > 0);
+  const isContestEntered = drafts.some(
+    (draft) => draft.contestsEntered.length > 0
+  );
   return isContestEntered;
 }
 
-export { deleteDraft, saveDraft, updateDraft, checkNumberOfDrafts, checkIfUserEnteredContest };
+async function checkIfUserEnteredLotteryContest(userUid) {
+  const usersCollection = collection(db, "users");
+  const savedDraftsCollection = collection(
+    usersCollection,
+    userUid,
+    "savedDrafts"
+  );
+  const querySnapshot = await getDocs(savedDraftsCollection);
+  const drafts = querySnapshot.docs.map((doc) => doc.data());
+  const isContestEntered = drafts.some((draft) =>
+    draft.contestsEntered.includes("lotteryContest")
+  );
+  return isContestEntered;
+}
+
+async function isUserEnteredInContest(userUid, contestId) {
+  const usersCollection = collection(db, "users");
+  const savedDraftsCollection = collection(
+    usersCollection,
+    userUid,
+    "savedDrafts"
+  );
+  const querySnapshot = await getDocs(savedDraftsCollection);
+  const drafts = querySnapshot.docs.map((doc) => doc.data());
+  const isContestEntered = drafts.some((draft) =>
+    draft.contestsEntered.includes(contestId)
+  );
+  return isContestEntered;
+}
+
+export {
+  deleteDraft,
+  saveDraft,
+  updateDraft,
+  checkNumberOfDrafts,
+  checkIfUserEnteredContest,
+  isUserEnteredInContest,
+  checkIfUserEnteredLotteryContest,
+};

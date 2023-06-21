@@ -1,24 +1,9 @@
 import React from "react";
 import "../Styles/ContestCard.css";
 
-function ContestCard({
-  name,
-  info,
-  closeTime,
-  image,
-  currentEntrants,
-  prize,
-  fee,
-  setContestInfo,
-  setShowContestInfo,
-}) {
+function ContestCard({ name, closeTime, image, prize, fee, user, openModal, isUserEntered }) {
   return (
     <div className="contest-card card">
-      {/* overlay to show contest is not ready yet */}
-      <div className="coming-soon-overlay">
-        <span className="coming-soon-label">Coming Soon</span>
-      </div>
-      
       <div className="contest-card-top">
         <h3 className="contest-card-name">{name}</h3>
         <h4 className="contest-card-close-date">
@@ -29,28 +14,52 @@ function ContestCard({
           })}
         </h4>
       </div>
-      <img className="contest-card-image" src={image} alt="contest" />
+      <div className="contest-card-image-container">
+        <img className="contest-card-image" src={image} alt="contest" />
+      </div>
       <div className="contest-card-info-bar">
         <h4 className="contest-card-fee">Entry: ${fee}</h4>
-        {/* <h4 className="contest-card-entrants">
-          Current Entrants: {currentEntrants}
-        </h4> */}
         <h4 className="contest-card-prize">Prizes: ${prize}</h4>
       </div>
 
       <button
         className="contest-card-info-btn"
         onClick={() => {
-          setContestInfo({
-            name: name,
-            info: info,
-          });
-          setShowContestInfo(true);
+          openModal("contestInfo");
         }}
       >
         More Info
       </button>
-      <button className="contest-card-enter-btn">Enter</button>
+      {user ? (
+        !isUserEntered ? (
+          <button
+            className="contest-card-enter-btn"
+            onClick={() => {
+              openModal("enterContest");
+            }}
+          >
+            Enter
+          </button>
+        ) : (
+          <button
+            className="contest-card-enter-btn"
+            onClick={() => {
+              openModal("viewDraft");
+            }}
+          >
+            View your Entry
+          </button>
+        )
+      ) : (
+        <button
+          className="contest-card-enter-btn"
+          onClick={() => {
+            openModal("auth");
+          }}
+        >
+          Sign In to Enter
+        </button>
+      )}
     </div>
   );
 }

@@ -48,7 +48,7 @@ function StartupScreen(props) {
         )}
       </div>
       <div className="contact-div light">
-        <h4 className="contact-twitter">
+        {/* <h4 className="contact-twitter">
           Twitter:{" "}
           <a
             className="twitter-link light"
@@ -58,7 +58,7 @@ function StartupScreen(props) {
           >
             @Mock_Mayhem
           </a>
-        </h4>
+        </h4> */}
         <h4 className="contact-email">Email: MockMayhem1@gmail.com</h4>
       </div>
       {showDraftSettings && (

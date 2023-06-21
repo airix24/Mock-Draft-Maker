@@ -5,18 +5,17 @@ import {
   collection,
   updateDoc,
   doc,
-  getDoc,
   getDocs,
 } from "firebase/firestore";
 
 function SecretAdminPage() {
-  const [teamAbr, setTeamAbr] = useState("ARI");
+  const [teamAbr, setTeamAbr] = useState("ATL");
   const [playerID, setPlayerID] = useState(0);
   const [draftResults, setDraftResults] = useState([]);
 
   useEffect(() => {
     const getDraftResults = async () => {
-      const data = await getDocs(collection(db, "NFLDraftResults2023"));
+      const data = await getDocs(collection(db, "NBADraftResults2023"));
       return data.docs.map((doc) => doc.data());
     };
     getDraftResults().then((results) => {
@@ -25,15 +24,15 @@ function SecretAdminPage() {
   }, []);
 
   const addDraftPick = async (teamAbr, playerID) => {
-    const data = await getDocs(collection(db, "NFLDraftResults2023"));
+    const data = await getDocs(collection(db, "NBADraftResults2023"));
     const results = data.docs.map((doc) => doc.data())[0].results;
     const newResults = [
       ...results,
       { team: teamAbr, player: parseInt(playerID) },
     ];
     console.log("New Results:", newResults);
-    // update the document in the "NFLDraftResults2023" collection with this id: 2tvcZxA0MDo3JTp54dZe
-    await updateDoc(doc(db, "NFLDraftResults2023", "2tvcZxA0MDo3JTp54dZe"), {
+    // update the document in the "NBADraftResults2023" collection with this id: KsYK18meYkTNdv7oyWGL
+    await updateDoc(doc(db, "NBADraftResults2023", "KsYK18meYkTNdv7oyWGL"), {
       results: newResults,
     });
     setDraftResults(newResults);
@@ -42,7 +41,7 @@ function SecretAdminPage() {
   function handleDeletePreviousPick() {
     const newResults = [...draftResults];
     newResults.pop();
-    updateDoc(doc(db, "NFLDraftResults2023", "2tvcZxA0MDo3JTp54dZe"), {
+    updateDoc(doc(db, "NBADraftResults2023", "KsYK18meYkTNdv7oyWGL"), {
       results: newResults,
     });
     setDraftResults(newResults);
@@ -63,37 +62,35 @@ function SecretAdminPage() {
           value={teamAbr}
           onChange={(e) => setTeamAbr(e.target.value)}
         >
-          <option value="ARI">ARI</option>
-          <option value="ATL">ATL</option>
-          <option value="BAL">BAL</option>
-          <option value="BUF">BUF</option>
-          <option value="CAR">CAR</option>
+          <option value="ATL">ATL</option> 
+          <option value="BOS">BOS</option>
+          <option value="BKN">BKN</option>
+          <option value="CHA">CHA</option>
           <option value="CHI">CHI</option>
-          <option value="CIN">CIN</option>
           <option value="CLE">CLE</option>
           <option value="DAL">DAL</option>
           <option value="DEN">DEN</option>
           <option value="DET">DET</option>
-          <option value="GB">GB</option>
+          <option value="GSW">GSW</option>
           <option value="HOU">HOU</option>
           <option value="IND">IND</option>
-          <option value="JAX">JAX</option>
-          <option value="KC">KC</option>
           <option value="LAC">LAC</option>
-          <option value="LAR">LAR</option>
-          <option value="LV">LV</option>
+          <option value="LAL">LAL</option>
+          <option value="MEM">MEM</option>
           <option value="MIA">MIA</option>
+          <option value="MIL">MIL</option>
           <option value="MIN">MIN</option>
-          <option value="NE">NE</option>
-          <option value="NO">NO</option>
-          <option value="NYG">NYG</option>
-          <option value="NYJ">NYJ</option>
+          <option value="NOP">NOP</option>
+          <option value="NYK">NYK</option>
+          <option value="OKC">OKC</option>
+          <option value="ORL">ORL</option>
           <option value="PHI">PHI</option>
-          <option value="PIT">PIT</option>
-          <option value="SEA">SEA</option>
-          <option value="SF">SF</option>
-          <option value="TB">TB</option>
-          <option value="TEN">TEN</option>
+          <option value="PHX">PHX</option>
+          <option value="POR">POR</option>
+          <option value="SAC">SAC</option>
+          <option value="SAS">SAS</option>
+          <option value="TOR">TOR</option>
+          <option value="UTA">UTA</option>
           <option value="WAS">WAS</option>
         </select>
         <label>Player</label>

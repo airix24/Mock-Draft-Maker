@@ -42,7 +42,7 @@
   letter-spacing: 0.8px;
 }
 
-.class-year {
+.school-class-container {
   margin-bottom: 5px;
 }
 
@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.1s;
 }
 
 .exp-player-name > h3 {
@@ -79,7 +79,7 @@
 .unexp-player-name {
   display: flex;
   align-items: center;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.1s;
 }
 
 .unexp-player-name > h4 {
