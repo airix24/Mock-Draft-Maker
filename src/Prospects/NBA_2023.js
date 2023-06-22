@@ -15,6 +15,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 96,
   },
   {
     id: 1,
@@ -32,6 +33,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 81,
   },
   {
     id: 2,
@@ -49,6 +51,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 83,
   },
   {
     id: 3,
@@ -66,6 +69,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 84,
   },
   {
     id: 4,
@@ -83,6 +87,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 84,
   },
   {
     id: 5,
@@ -100,6 +105,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 87,
     },
     {
     id: 6,
@@ -117,6 +123,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 80,
   },
   {
     id: 7,
@@ -134,6 +141,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 85,
   },
   {
     id: 8,
@@ -151,6 +159,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 80,
   },
   {
     id: 9,
@@ -168,6 +177,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 81,
   },
   {
     id: 10,
@@ -185,6 +195,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: null,
   },
   {
     id: 11,
@@ -202,6 +213,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 80,
   },
   {
     id: 12,
@@ -219,6 +231,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 79,
   },
   {
     id: 13,
@@ -236,6 +249,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 80,
   },
   {
     id: 14,
@@ -253,6 +267,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 91,
   },
   {
     id: 15,
@@ -270,6 +285,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 80,
   },
   {
     id: 16,
@@ -287,6 +303,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 82,
   },
   {
     id: 17,
@@ -304,6 +321,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 86,
   },
   {
     id: 18,
@@ -321,6 +339,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: null,
   },
   {
     id: 19,
@@ -338,6 +357,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 85,
   },
   {
     id: 20,
@@ -355,6 +375,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 84,
   },
   {
     id: 21,
@@ -372,6 +393,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: null,
   },
   {
     id: 22,
@@ -389,6 +411,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 82,
   },
   {
     id: 23,
@@ -406,6 +429,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 86,
   },
   {
     id: 24,
@@ -423,6 +447,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: null,
   },
   {
     id: 25,
@@ -440,6 +465,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 83,
   },
   {
     id: 26,
@@ -457,6 +483,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 80,
   },
   {
     id: 27,
@@ -474,6 +501,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 84,
   },
   {
     id: 28,
@@ -491,6 +519,7 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 78,
   },
   {
     id: 29,
@@ -508,5 +537,96 @@ export const NBA_2023_Prospects = [
     archetype: "",
     strengths: [],
     weaknesses: [],
+    wingspan: 82,
+  },
+  {
+    id: 30,
+    rank: 31,
+    firstName: "James",
+    lastName: "Nnaji",
+    position: "C",
+    class: "",
+    height: 82,
+    weight: 251,
+    ras: null,
+    school: "Nigeria",
+    img: "https://www.nbadraft.net/wp-content/uploads/2022/01/James-Nnaji.jpg",
+    desc: [],
+    archetype: "",
+    strengths: [],
+    weaknesses: [],
+    wingspan: 91,
+  },
+  {
+    id: 31,
+    rank: 32,
+    firstName: "Olivier-Maxence",
+    lastName: "Prosper",
+    position: "PF",
+    class: "Jr.",
+    height: 79,
+    weight: 212,
+    ras: null,
+    school: "Marquette",
+    img: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/4595400.png&w=350&h=254",
+    desc: [],
+    archetype: "",
+    strengths: [],
+    weaknesses: [],
+    wingspan: 85,
+  },
+  {
+    id: 32,
+    rank: 33,
+    firstName: "Trayce",
+    lastName: "Jackson-Davis",
+    position: "PF",
+    class: "Sr.",
+    height: 80,
+    weight: 240,
+    ras: null,
+    school: "Indiana",
+    img: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/4431684.png&w=350&h=254",
+    desc: [],
+    archetype: "",
+    strengths: [],
+    weaknesses: [],
+    wingspan: 85,
+  },
+  {
+    id: 33,
+    rank: 34,
+    firstName: "Andre",
+    lastName: "Jackson Jr.",
+    position: "SG",
+    class: "Jr.",
+    height: 78,
+    weight: 198,
+    ras: null,
+    school: "UConn",
+    img: "https://a.espncdn.com/combiner/i?img=/i/headshots/mens-college-basketball/players/full/4432190.png&w=350&h=254",
+    desc: [],
+    archetype: "",
+    strengths: [],
+    weaknesses: [],
+    wingspan: 82,
+  },
+  {
+    id: 34,
+    rank: 35,
+    firstName: "Sidy",
+    lastName: "Cissoko",
+    position: "SG",
+    class: "",
+    height: 78,
+    weight: 224,
+    ras: null,
+    school: "G League Ignite",
+    img: "https://ak-static.cms.nba.com/wp-content/uploads/headshots/gleague/1040x760/1631321.png",
+    desc: [],
+    archetype: "",
+    strengths: [],
+    weaknesses: [],
+    wingspan: 82,
   },
 ];

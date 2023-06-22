@@ -297,7 +297,7 @@ function PlayerCard(props) {
               ) : (
                 <h4>
                   <span className="light">wingspan: </span>
-                  {props.wingspan ? props.wingspan : "---"}
+                  {props.wingspan ? convertHeight(props.wingspan) : "---"}
                 </h4>
               )}
             </div>

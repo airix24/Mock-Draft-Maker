@@ -170,14 +170,19 @@ function LotteryContest(props) {
           )}
 
           <div className="contest-container">
-            <h1 className="contest-header">NBA Draft Lottery Contest</h1>
-            {!isContestClosed && (
-              <h4>Closes in: {convertTime(timeUntilClose)}</h4>
-            )}
-            <div className="contest-desc-div">
-              <h4 className="main-info">
-                Mock Draft Contest for the 2023 NBA Draft
+            <div className="contest-container-top">
+              {" "}
+              <h1 className="contest-header">NBA Draft Lottery Contest</h1>
+              <h4 className="main-info light">
+                Free Mock Draft Contest for the 2023 NBA Draft
               </h4>
+              {!isContestClosed ? (
+                <h4>Closes in: {convertTime(timeUntilClose)}</h4>
+              ) : (
+                <h4>Contest is Live!</h4>
+              )}
+            </div>
+            <div className="contest-desc-div">
               {showInfo && <LotteryContestRules />}
             </div>
             <div className="toggle-info-div">
@@ -239,7 +244,7 @@ function LotteryContest(props) {
               )}
               {props.user && isContestClosed && (
                 <button
-                  className="med-blue-btn"
+                  className="med-blue-btn leaderboard-btn"
                   onClick={() => setShowLeaderboard(true)}
                 >
                   Leaderboard

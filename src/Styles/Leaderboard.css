@@ -1,6 +1,7 @@
 .leaderboard-view-entries-top {
   background-color: #e8e8e8;
-  border-bottom: 3px solid #646464;
+  /* border-bottom: 3px solid #646464; */
+  border-bottom: 3px solid #03277a;
   width: 100%;
   display: flex;
   justify-content: center;
