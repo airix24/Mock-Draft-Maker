@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/StartupScreen.css";
+import "../Styles/index.css";
 import DraftSettings from "../Components/DraftSettings";
 import SavedDrafts from "../Components/SavedDrafts";
 import ViewDraft from "../Components/ViewDraft";
@@ -33,9 +34,10 @@ function StartupScreen(props) {
         >
           <h3>Saved Drafts</h3>
         </button>
-        <Link to="/contests" className="startup-link">
+        {/*disable contest page for now*/}
+        <Link to="" className="startup-link disabled">
           <button className="startup-btn" tabIndex={-1}>
-            <h3>Contests</h3>
+            <h3>Contest - COMING SOON</h3>
           </button>
         </Link>
 

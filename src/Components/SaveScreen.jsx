@@ -133,7 +133,7 @@ function SaveScreen(props) {
             <button type="submit" name="save" className="save-btn">
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
-            {!hasUserEnteredLotteryContest &&
+            {/* {!hasUserEnteredLotteryContest &&
               props.league === "NBA" &&
               props.prospectClass === "NBA_2023" &&
               props.draftSettings.draftLength === 14 && (
@@ -149,7 +149,7 @@ function SaveScreen(props) {
                     (You can edit your entry up until one hour before the draft)
                   </h5>
                 </>
-              )}
+              )} */}
           </form>
         </div>
       )}

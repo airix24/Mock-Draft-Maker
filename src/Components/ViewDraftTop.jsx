@@ -88,7 +88,7 @@ function ViewDraftTop(props) {
               >
                 Remove
               </button>
-              <Link
+              {/* <Link
                 to="/draft-board"
                 state={{
                   league: props.draft.league ? props.draft.league : "NFL",
@@ -103,7 +103,7 @@ function ViewDraftTop(props) {
                 }}
               >
                 <button className="view-draft-contest-page-btn">Edit</button>
-              </Link>
+              </Link> */}
             </div>
           )}
         {props.isContestClosed && (
@@ -136,7 +136,7 @@ function ViewDraftTop(props) {
                   >
                     <FaTrash className="icon" size={20} alt="delete" />
                   </button>
-                  <Link
+                  {/* <Link
                     to="/draft-board"
                     state={{
                       league: props.draft.league ? props.draft.league : "NFL",
@@ -157,7 +157,7 @@ function ViewDraftTop(props) {
                       color={"black"}
                       alt="edit"
                     />
-                  </Link>
+                  </Link> */}
                 </>
               )}
               <button className={"icon-button-black"} onClick={handleDownload}>

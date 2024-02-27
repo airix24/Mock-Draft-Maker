@@ -7,7 +7,7 @@ function DraftSettings(props) {
   return (
     <Modal setShowSelf={props.setShowDraftSettings}>
       <div className="draft-settings-container">
-        <Link
+        {/* <Link
           to="/draft-board"
           state={{
             league: "NBA",
@@ -18,7 +18,7 @@ function DraftSettings(props) {
           }}
         >
           <button className="draft-settings-btn">NBA 2023 Lottery</button>
-        </Link>
+        </Link> */}
         {/* <Link
           to="/draft-board"
           state={{
@@ -35,13 +35,13 @@ function DraftSettings(props) {
           to="/draft-board"
           state={{
             league: "NFL",
-            prospectClass: "NFL_2023",
+            prospectClass: "NFL_2024",
             mode: "builder",
-            draftLength: 31,
+            draftLength: 32,
             draftData: null,
           }}
         >
-          <button className="draft-settings-btn">NFL 2023 First Round</button>
+          <button className="draft-settings-btn">NFL 2024 First Round</button>
         </Link>
       </div>
     </Modal>
