@@ -74,16 +74,16 @@ function ViewDraftTop(props) {
         {props.isViewingFromContestPage &&
           !props.isContestClosed &&
           !props.isViewingFromLeaderboard &&
-          props.isContestEntry &&
-          (
+          props.isContestEntry && (
             <div className="view-draft-contest-page-btns">
               <button
                 className="view-draft-contest-page-btn"
                 onClick={() =>
-                  props.removeEntryFromLotteryContest(
+                  props
+                    .removeEntryFromLotteryContest
                     // props.user.uid,
                     // props.currContestId
-                  )
+                    ()
                 }
               >
                 Remove
@@ -136,28 +136,30 @@ function ViewDraftTop(props) {
                   >
                     <FaTrash className="icon" size={20} alt="delete" />
                   </button>
-                  {/* <Link
-                    to="/draft-board"
-                    state={{
-                      league: props.draft.league ? props.draft.league : "NFL",
-                      prospectClass: props.draft.prospectClass
-                        ? props.draft.prospectClass
-                        : "NFL_2023",
-                      mode: "editor",
-                      draftLength: props.draft.draftLength
-                        ? props.draft.draftLength
-                        : 31,
-                      draftData: props.draft,
-                    }}
-                    className="edit-link"
-                  >
-                    <FaEdit
-                      className="icon"
-                      size={20}
-                      color={"black"}
-                      alt="edit"
-                    />
-                  </Link> */}
+                  {props.draft.prospectClass === "NFL_2024" && (
+                    <Link
+                      to="/draft-board"
+                      state={{
+                        league: props.draft.league ? props.draft.league : "NFL",
+                        prospectClass: props.draft.prospectClass
+                          ? props.draft.prospectClass
+                          : "NFL_2023",
+                        mode: "editor",
+                        draftLength: props.draft.draftLength
+                          ? props.draft.draftLength
+                          : 31,
+                        draftData: props.draft,
+                      }}
+                      className="edit-link"
+                    >
+                      <FaEdit
+                        className="icon"
+                        size={20}
+                        color={"black"}
+                        alt="edit"
+                      />
+                    </Link>
+                  )}
                 </>
               )}
               <button className={"icon-button-black"} onClick={handleDownload}>
