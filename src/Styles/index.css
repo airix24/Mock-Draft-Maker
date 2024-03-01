@@ -5,6 +5,16 @@
   user-select: none;
 }
 
+@font-face {
+  font-family: "BlackOpsOne";
+  src: url("../Assets/fonts/BlackOpsOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BebasNeue";
+  src: url("../Assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
 body {
   background-color: #bdb8c4;
   cursor: default;

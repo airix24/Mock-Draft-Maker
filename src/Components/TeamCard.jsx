@@ -89,6 +89,7 @@ function TeamCard(props) {
                     strengths={draftPick.strengths}
                     weaknesses={draftPick.weaknesses}
                     hoveredCard={true}
+                    league={props.league}
                   />
                 </div>
               )}

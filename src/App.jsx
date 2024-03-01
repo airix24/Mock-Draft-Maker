@@ -8,6 +8,7 @@ import ContestPage from "./Pages/ContestPage";
 import LotteryContest from "./Pages/LotteryContest";
 import SecretAdminPage from "./Pages/SecretAdminPage";
 import PastContests from "./Pages/PastContests";
+import ContestLanding from "./Pages/ContestLanding";
 
 import { auth } from "./config/firebase-config";
 
@@ -67,7 +68,8 @@ function App() {
               />
             }
           />
-          <Route path="/contests" element={<LotteryContest user={user} />} />
+          {/* <Route path="/contests" element={<LotteryContest user={user} />} /> */}
+          <Route path="/contest-landing" element={<ContestLanding user={user} />} />
           {/* <Route path="/contests" element={<ContestPage user={user} />} /> */}
           <Route path="/past-contests" element={<PastContests user={user} />} />
           <Route path="/admin-page" element={<SecretAdminPage />} />

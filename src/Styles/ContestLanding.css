@@ -1,0 +1,55 @@
+.landing-page-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  border: 5px #03277a solid;
+  /* height: 80%; */
+  width: 60%;
+  max-width: 700px;
+  min-width: 320px;
+}
+
+.landing-title {
+  font-size: 2.5rem;
+  font-weight: 1000;
+  font-style: italic;
+  text-decoration: underline;
+  color: #03277a;
+  text-align: center;
+}
+
+.landing-p {
+  margin-bottom: 10px;
+}
+
+.landing-email-input {
+  height: 20px;
+}
+
+.landing-submit-btn {
+  background-color: #03277a;
+  color: white;
+}
+
+.landing-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  font-size: 1.2rem;
+}
+
+.how-it-works {
+  margin-top: 30px;
+}
+
+.landing-submit-btn {
+  margin-left: 0px;
+}

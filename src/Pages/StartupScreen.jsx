@@ -23,23 +23,23 @@ function StartupScreen(props) {
           </button>
         </Link> */}
         <button
-          className="startup-btn"
+          className="startup-btn grid-double mds-btn"
           onClick={() => setShowDraftSettings(true)}
         >
-          <h3>Mock Builder</h3>
+          <h3>Mock Draft Simulator</h3>
         </button>
+        {/*temporarily goes to landing page*/}
+        <Link to="/contest-landing" className="startup-link">
+          <button className="startup-btn" tabIndex={-1}>
+            <h3>Mock Mayhem Draft Contest</h3>
+          </button>
+        </Link>
         <button
           className={`startup-btn ${props.user ? "" : "disabled"}`}
           onClick={() => setShowSavedDrafts(true)}
         >
           <h3>Saved Drafts</h3>
         </button>
-        {/*disable contest page for now*/}
-        <Link to="" className="startup-link disabled">
-          <button className="startup-btn" tabIndex={-1}>
-            <h3>Contest - COMING SOON</h3>
-          </button>
-        </Link>
 
         {props.user && props.user.uid === adminId && (
           <Link to="/admin-page" className="startup-link">
@@ -61,7 +61,7 @@ function StartupScreen(props) {
             @Mock_Mayhem
           </a>
         </h4> */}
-        <h4 className="contact-email">Email: MockMayhem1@gmail.com</h4>
+        {/* <h4 className="contact-email">Email: MockMayhem1@gmail.com</h4> */}
       </div>
       {showDraftSettings && (
         <DraftSettings setShowDraftSettings={setShowDraftSettings} />

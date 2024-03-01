@@ -43,6 +43,7 @@ function DraftSettings(props) {
         >
           <button className="draft-settings-btn">NFL 2024 First Round</button>
         </Link>
+        <button className="draft-settings-btn disabled second-rnd-btn">NFL 2024 Second Round<span>(will open after day one)</span></button>
       </div>
     </Modal>
   );

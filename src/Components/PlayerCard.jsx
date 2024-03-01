@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { useState } from "react";
 import "../Styles/PlayerCard.css";
 import {
@@ -10,6 +10,9 @@ import {
 } from "react-icons/fa";
 
 function PlayerCard(props) {
+  const [isRASHovered, setIsRASHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   function convertHeight(height) {
     return `${Math.floor(height / 12)}'${height % 12}"`;
   }
@@ -35,6 +38,7 @@ function PlayerCard(props) {
           props.playerPool.map((player) => {
             if (player.id === props.id) {
               player.expanded = !player.expanded;
+              isRASHovered && setIsRASHovered(false);
             }
             return player;
           })
@@ -42,6 +46,20 @@ function PlayerCard(props) {
         e.stopPropagation();
       }}
     >
+      {isRASHovered ? (
+        <div
+          className="card"
+          style={{
+            position: "absolute",
+            top: mousePosition.y - 70,
+            left: mousePosition.x + 10,
+            boxShadow: "0 0 5px gray",
+            zIndex: 100,
+          }}
+        >
+          <h5>Relative Athletic Score</h5>
+        </div>
+      ) : null}
       <div className="unexpanded">
         <div className="unexpanded-player-info">
           {props.expanded || props.hoveredCard ? (
@@ -291,7 +309,16 @@ function PlayerCard(props) {
               </h4>
               {props.league === "NFL" ? (
                 <h4>
-                  <span className="light">RAS: </span>
+                  <span
+                    className="light"
+                    onMouseEnter={() => setIsRASHovered(true)}
+                    onMouseLeave={() => setIsRASHovered(false)}
+                    onMouseMove={(e) =>
+                      setMousePosition({ x: e.clientX, y: e.clientY })
+                    }
+                  >
+                    RAS:{" "}
+                  </span>
                   {props.ras ? props.ras : "---"}
                 </h4>
               ) : (
