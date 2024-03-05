@@ -11,6 +11,10 @@
   height: 70px;
   width: 70px;
   margin-right: 20px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .player-img {
@@ -34,16 +38,32 @@
 .expanded {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .exp-player-info {
+  width: auto;
   display: flex;
+  flex-direction: column;
   letter-spacing: 0.8px;
+  border: #cecece 1px solid;
+  border-radius: 5px;
+  padding: 5px 15px;
 }
 
 .school-class-container {
-  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.height-weight-ras-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.player-info-div {
+  padding-right: 30px;
 }
 
 .player-skills {
@@ -58,8 +78,8 @@
 .exp-player-name {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-  transition: all 0.1s;
+  /* margin-bottom: 8px;
+  transition: all 0.1s; */
 }
 
 .exp-player-name > h3 {

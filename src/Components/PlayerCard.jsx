@@ -286,30 +286,30 @@ function PlayerCard(props) {
           </div>
 
           <div className="exp-player-info">
-            <div>
-              <div className="school-class-container">
-                <h4>
-                  <span className="light">school: </span>
-                  {props.school}
-                </h4>
-                {props.class !== "" ? (
-                  <h4 className="class-year">
-                    <span className="light">class: </span>
-                    {props.class}
-                  </h4>
-                ) : null}
+            <div className="school-class-container">
+              <div className="player-info-div">
+                <h4 className="light">school</h4>
+                <h4>{props.school}</h4>
               </div>
-              <h4>
-                <span className="light">height: </span>
-                {convertHeight(props.height)}
-              </h4>
-              <h4>
-                <span className="light">weight: </span>
-                {props.weight} lbs
-              </h4>
+              {props.class !== "" ? (
+                <div className="class-year player-info-div">
+                  <h4 className="light">class</h4>
+                  <h4>{props.class}</h4>
+                </div>
+              ) : null}
+            </div>
+            <div className="height-weight-ras-container">
+              <div className="player-info-div">
+                <h4 className="light">height</h4>
+                <h4>{convertHeight(props.height)}</h4>
+              </div>
+              <div className="player-info-div">
+                <h4 className="light">weight</h4>
+                <h4>{props.weight} lbs</h4>
+              </div>
               {props.league === "NFL" ? (
-                <h4>
-                  <span
+                <div>
+                  <h4
                     className="light"
                     onMouseEnter={() => setIsRASHovered(true)}
                     onMouseLeave={() => setIsRASHovered(false)}
@@ -317,10 +317,10 @@ function PlayerCard(props) {
                       setMousePosition({ x: e.clientX, y: e.clientY })
                     }
                   >
-                    RAS:{" "}
-                  </span>
-                  {props.ras ? props.ras : "---"}
-                </h4>
+                    RAS
+                  </h4>
+                  <h4>{props.ras ? props.ras : "---"}</h4>
+                </div>
               ) : (
                 <h4>
                   <span className="light">wingspan: </span>
@@ -328,12 +328,12 @@ function PlayerCard(props) {
                 </h4>
               )}
             </div>
-            <div className="player-skills">
+            {/* <div className="player-skills">
               <h4>Strengths:</h4>
               {strengthElements}
               <h4>Weaknesses:</h4>
               {weaknessElements}
-            </div>
+            </div> */}
           </div>
         </div>
       ) : null}
