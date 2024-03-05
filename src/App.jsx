@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header user={user} />
+      <Header user={user} screenSize={screenSize} />
       <div className="main-content">
         <Routes>
           <Route path="/" element={<StartupScreen user={user} />} />
@@ -69,7 +69,10 @@ function App() {
             }
           />
           {/* <Route path="/contests" element={<LotteryContest user={user} />} /> */}
-          <Route path="/contest-landing" element={<ContestLanding user={user} />} />
+          <Route
+            path="/contest-landing"
+            element={<ContestLanding user={user} />}
+          />
           {/* <Route path="/contests" element={<ContestPage user={user} />} /> */}
           <Route path="/past-contests" element={<PastContests user={user} />} />
           <Route path="/admin-page" element={<SecretAdminPage />} />

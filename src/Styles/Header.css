@@ -8,16 +8,35 @@
   height: 50px;
   display: flex;
   z-index: 100;
+  justify-content: center;
+  align-items: center;
 }
 
-.header > h1 {
+.desktop-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.mobile-tablet-header {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
   z-index: 100;
-  margin: auto;
   text-align: center;
   font-style: italic;
 }
 
-.header > h1:hover {
+.header-title-desktop {
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.header-title:hover {
   opacity: 70%;
   cursor: pointer;
 }
@@ -39,4 +58,21 @@
   width: 100%;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 1px solid white;
+  padding: 0 10px;
+}
+
+.nav-link:last-child {
+  border-right: 1px solid white;
+}
+
+.nav-link:hover {
+  opacity: 70%;
+  cursor: pointer;
 }
