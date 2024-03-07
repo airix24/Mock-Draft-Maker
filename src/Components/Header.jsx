@@ -37,9 +37,9 @@ function Header(props) {
               <Link to="/contest-landing" className="nav-link">
                 Contests
               </Link>
-              {/* <Link to="/saved-drafts" className="nav-link">
+              <Link to="/saved-drafts" className="nav-link">
                 Saved Drafts
-              </Link> */}
+              </Link>
             </div>
             <div
               className="profile-icon"
@@ -61,14 +61,17 @@ function Header(props) {
             </div>
           </div>
         ) : (
+          <>
           <div className="mobile-tablet-header">
             <h1 className="header-title">
               <Link to="/" className="link">
                 Mock Mayhem
               </Link>
             </h1>
-            <div
-              className="hamburger-containter"
+            
+          </div>
+          <div
+              className="hamburger-container"
               onClick={() => {
                 setShowDropdownMenu((prev) => !prev);
               }}
@@ -79,7 +82,7 @@ function Header(props) {
                 <FaBars className="icon" size={25} alt="menu icon" />
               )}
             </div>
-          </div>
+          </>
         )}
       </div>
       {showAuth && (

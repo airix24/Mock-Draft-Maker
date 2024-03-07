@@ -53,7 +53,7 @@ function ViewDraftTop(props) {
         }
       ></MockDraftImage>
       {/* Left Side */}
-      {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
+      {/* {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
         <div className="idk-bro">
           <button
             className="icon-button-black"
@@ -62,7 +62,10 @@ function ViewDraftTop(props) {
             <FaArrowLeft className="icon" size={20} alt="back" />
           </button>
         </div>
-      )}
+      )} */}
+
+      <div className="idk-bro">
+        </div>
 
       {/* Middle */}
       <div className="view-draft-info">

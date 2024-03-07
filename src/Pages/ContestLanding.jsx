@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../Styles/ContestLanding.css";
 import { db } from "../config/firebase-config";
 import { doc, setDoc } from "firebase/firestore";
+import Footer from "../Components/Footer";
 
 const ContestLanding = () => {
   const [email, setEmail] = useState("");
@@ -26,8 +27,9 @@ const ContestLanding = () => {
   
 
   return (
+    <>
     <div className="landing-page-card">
-      <h1 className="landing-title">2024 NFL Mock Draft Contest</h1>
+      <h1 className="landing-title">Mock Mayhem 2024 Draft Contest</h1>
       <div className="landing-div">
         <strong>
           Think you know the NFL draft? Prove it by entering Mock Mayhem's 2024
@@ -60,6 +62,8 @@ const ContestLanding = () => {
         </form>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

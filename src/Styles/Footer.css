@@ -1,0 +1,27 @@
+.footer {
+  background-color: #03277a;
+  width: 100%;
+  color: white;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.footer-social-link {
+  color: white;
+  font-size: 3rem;
+}
+
+.footer-social-link:hover {
+  opacity: 0.7;
+}

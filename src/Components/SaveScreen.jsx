@@ -91,7 +91,7 @@ function SaveScreen(props) {
     <Modal setShowSelf={props.setShowSaveScreen}>
       {!props.user ? (
         <div className="save-login-div">
-          <h3 className="light">Must be logged in to save draft</h3>
+          <h3 className="must-be-logged-in-to-save light">Must be logged in to save draft</h3>
           <Auth />
         </div>
       ) : (

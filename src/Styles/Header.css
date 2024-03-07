@@ -22,7 +22,7 @@
   display: flex;
   width: 90%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .header-title {
@@ -64,15 +64,21 @@
   color: white;
   text-decoration: none;
   font-size: 14px;
-  border-left: 1px solid white;
+  border-right: 1px solid white;
   padding: 0 10px;
 }
 
 .nav-link:last-child {
-  border-right: 1px solid white;
+  border: none;
 }
 
 .nav-link:hover {
   opacity: 70%;
   cursor: pointer;
+}
+
+.hamburger-container {
+  position: absolute;
+  right: 10px;
+  display: flex;
 }

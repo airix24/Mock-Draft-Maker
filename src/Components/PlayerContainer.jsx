@@ -124,10 +124,10 @@ function PlayerContainer(props) {
           <div className="no-players-message">
             <h3>
               {search !== ""
-                ? "No Players Match Search"
+                ? "No players match search"
                 : showWatchlist
-                ? "Watchlist is Empty"
-                : "No Players Left at Position"}
+                ? "Watchlist is empty"
+                : "No players left at position"}
             </h3>
           </div>
         ) : null}

@@ -39,7 +39,7 @@ function DropdownMenu(props) {
       >
         Contests
       </Link>
-      {/* <Link
+      <Link
         to="/saved-drafts"
         className="dropdown-link"
         onClick={() => {
@@ -47,7 +47,7 @@ function DropdownMenu(props) {
         }}
       >
         Saved Drafts
-      </Link> */}
+      </Link>
       <div
         className="dropdown-link"
         onClick={() => {

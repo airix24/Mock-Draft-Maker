@@ -1,0 +1,39 @@
+.contest-promo-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: white; */
+  height: 85vh;
+  width: calc(100vw - 10px);
+}
+
+@media (max-width: 430px) {
+  .contest-promo-home {
+    width: 100vw;
+  }
+}
+
+.contest-promo-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 30px;
+  color: #03277a;
+}
+
+.contest-promo-btn {
+  background-color: #03277a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.contest-promo-btn:hover {
+  background-color: #003694;
+}

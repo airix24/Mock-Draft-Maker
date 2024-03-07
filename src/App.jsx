@@ -9,8 +9,9 @@ import LotteryContest from "./Pages/LotteryContest";
 import SecretAdminPage from "./Pages/SecretAdminPage";
 import PastContests from "./Pages/PastContests";
 import ContestLanding from "./Pages/ContestLanding";
-
 import { auth } from "./config/firebase-config";
+import SavedDraftsPage from "./Pages/SavedDraftsPage";
+import Home from "./Pages/Home";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -57,7 +58,8 @@ function App() {
       <Header user={user} screenSize={screenSize} />
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<StartupScreen user={user} />} />
+          <Route path="/" element={<Home/>} />
+          {/* <Route path="/" element={<StartupScreen user={user} />} /> */}
           <Route
             path="/draft-board"
             element={
@@ -76,6 +78,7 @@ function App() {
           {/* <Route path="/contests" element={<ContestPage user={user} />} /> */}
           <Route path="/past-contests" element={<PastContests user={user} />} />
           <Route path="/admin-page" element={<SecretAdminPage />} />
+          <Route path="/saved-drafts" element={<SavedDraftsPage user={user} />} />
         </Routes>
       </div>
     </div>

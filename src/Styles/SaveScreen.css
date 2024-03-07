@@ -38,3 +38,7 @@
   font-size: 0.5rem;
   margin-top: 10px;
 }
+
+.must-be-logged-in-to-save {
+  margin-bottom: -50px;
+}

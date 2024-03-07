@@ -2,19 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 1000000px;
+  width: 50vw;
+  min-width: 350px;
+  height: 95vh;
+  background-color: white;
+  border-right: #03277a 2px solid;
+  border-left: #03277a 2px solid;
 }
 
 .saved-drafts-top {
-  /* border-bottom: 2px solid #929292; */
   border-bottom: 2px solid #03277a;
-  padding: 10px 15px;
-  width: 90%;
+  padding: 10px 0px;
+  width: 50vw;
+  min-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 
 .saved-drafts-title {
@@ -26,17 +31,22 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow-y: auto;
+  /* max-height: 70vh; */
 }
 
 .saved-draft-card {
   border-bottom: 1px solid #b3b3b3;
-  padding-top: 0.6rem;
+  /* padding-top: 0.6rem; */
   /* padding-bottom: 0.4rem; */
   /* margin: 0.4rem; */
+  padding: 5px 15px;
   width: 100%;
   border-radius: 5px 5px 0 0;
   background-color: transparent;
   color: black;
+  display: flex;
+  flex-direction: column;
 }
 
 .saved-draft-card:hover {
@@ -78,4 +88,30 @@
   background-color: #03277a;
   color: white;
   box-shadow: 0 0 2px #03277a;
+}
+
+.not-signed-in-message {
+  font-size: 1.5rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in-btn-saved-drafts-page {
+  text-decoration: underline;
+  color: #03277a;
+}
+
+.sign-in-btn-saved-drafts-page:hover {
+  cursor: pointer;
+}
+
+.no-saved-drafts-message-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
