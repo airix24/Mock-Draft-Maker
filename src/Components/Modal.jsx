@@ -17,7 +17,7 @@ function Modal(props) {
         }}
         aria-modal="true"
       >
-        <div className="top-bar">
+        <div className="modal-top-bar">
           <button
             className="icon-button"
             onClick={() => {
