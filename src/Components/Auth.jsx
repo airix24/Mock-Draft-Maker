@@ -48,6 +48,7 @@ function Auth(props) {
             signInWithGoogle().then(() => {
               const user = auth.currentUser;
               const usersCollection = collection(db, "users");
+              // console.log("read operation occurred (Auth)")
               getDocs(usersCollection).then((querySnapshot) => {
                 const userExists = querySnapshot.docs.some(
                   (doc) => doc.data().uid === user.uid

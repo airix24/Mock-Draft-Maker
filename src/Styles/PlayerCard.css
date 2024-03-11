@@ -10,18 +10,18 @@
 .img-container {
   height: 70px;
   width: 70px;
-  margin-right: 20px;
   margin-left: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 }
 
 .player-img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  object-fit: scale-down;
+  /* border-radius: 50%; */
 }
 
 .plus-icon {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { useState } from "react";
 import "../Styles/PlayerCard.css";
+import { college_teams } from "../Teams/college_teams";
 import {
   FaChevronUp,
   FaChevronDown,
@@ -28,6 +28,15 @@ function PlayerCard(props) {
         return <h5 key={index}>{weakness}</h5>;
       })
     : [];
+
+
+  function getSchoolLogo(school) {
+    for (let i = 0; i < college_teams.length; i++) {
+      if (college_teams[i].schoolName === school) {
+        return college_teams[i].schoolLogo;
+      }
+    }
+  }
 
   return (
     <div
@@ -280,7 +289,7 @@ function PlayerCard(props) {
           <div className="img-container">
             <img
               className="player-img"
-              src={props.img}
+              src={getSchoolLogo(props.school)}
               alt="player image"
             ></img>
           </div>

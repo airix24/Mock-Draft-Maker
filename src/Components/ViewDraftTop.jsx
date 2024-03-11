@@ -64,8 +64,7 @@ function ViewDraftTop(props) {
         </div>
       )} */}
 
-      <div className="idk-bro">
-        </div>
+      <div className="idk-bro"></div>
 
       {/* Middle */}
       <div className="view-draft-info">
@@ -182,6 +181,7 @@ function ViewDraftTop(props) {
                 onClick={() => {
                   deleteDraft(props.user.uid, props.draft.draftId);
                   props.setCurrDraft(null);
+                  props.setIsDraftJustDeleted(props.draft.draftId);
                 }}
               >
                 <FaCheck className="icon" size={20} alt="confirm" />

@@ -50,6 +50,7 @@ function ViewDraft(props) {
         totalScore={totalScore}
         isViewingFromLeaderboard={props.isViewingFromLeaderboard}
         currContestId={props.currContestId}
+        setIsDraftJustDeleted={props.setIsDraftJustDeleted}
       />
       <div className="view-draft-mock-draft">
         {props.draft.draft.map((slot, index) => {

@@ -25,7 +25,6 @@ const ContestLanding = () => {
     }
   };
   
-
   return (
     <>
     <div className="landing-page-card">
