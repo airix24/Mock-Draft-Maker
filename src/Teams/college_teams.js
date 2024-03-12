@@ -460,4 +460,10 @@ export const college_teams = [
     schoolLogo:
       "https://content.sportslogos.net/logos/35/918/thumbs/91837222022.gif",
   },
+  {
+    schoolName: "Yale",
+    schoolNickname: "Bulldogs",
+    schoolLogo:
+      "https://content.sportslogos.net/logos/35/920/thumbs/92018352019.gif",
+  }
 ];
