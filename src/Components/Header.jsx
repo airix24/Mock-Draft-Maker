@@ -34,7 +34,7 @@ function Header(props) {
               >
                 Mock Draft Simulator
               </Link>
-              <Link to="/contest-landing" className="nav-link">
+              <Link to="/contests" className="nav-link">
                 Contests
               </Link>
               <Link to="/saved-drafts" className="nav-link">

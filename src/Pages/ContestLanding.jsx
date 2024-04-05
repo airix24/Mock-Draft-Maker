@@ -16,6 +16,7 @@ const ContestLanding = () => {
     const emailDocRef = doc(db, "subscribers", email);
     try {
       await setDoc(emailDocRef, { email: email, timestamp: new Date() });
+      console.log("write operation occurred (ContestLanding)");
       console.log("Email submitted:", email);
       alert("Thank you for subscribing!");
       setEmail("");

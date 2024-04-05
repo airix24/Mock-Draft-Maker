@@ -9,7 +9,10 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../Styles/ViewDraftTop.css";
-import { deleteDraft } from "../utils/firebaseFunctions";
+import {
+  deleteDraft,
+  removeDraftFromContest,
+} from "../utils/firebaseFunctions";
 import MockDraftImage from "./MockDraftImage";
 import html2canvas from "html2canvas";
 
@@ -64,7 +67,7 @@ function ViewDraftTop(props) {
         </div>
       )} */}
 
-      <div className="idk-bro"></div>
+      {!props.isViewingFromContestPage && <div className="idk-bro"></div>}
 
       {/* Middle */}
       <div className="view-draft-info">
@@ -80,13 +83,14 @@ function ViewDraftTop(props) {
             <div className="view-draft-contest-page-btns">
               <button
                 className="view-draft-contest-page-btn"
-                onClick={() =>
-                  props
-                    .removeEntryFromLotteryContest
-                    // props.user.uid,
-                    // props.currContestId
-                    ()
-                }
+                onClick={() => {
+                  removeDraftFromContest(props.user.uid, props.currContestId).then(
+                    () => {
+                      props.setDraftJustRemoved(true);
+                    }
+                  )
+                  props.setShowViewDraft(false);
+                }}
               >
                 Remove
               </button>

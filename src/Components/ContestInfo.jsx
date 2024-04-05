@@ -1,15 +1,23 @@
 import React from "react";
 import Modal from "./Modal";
+import NFLFirstRoundInfo from "../ContestInfo/NFLFirstRoundInfo";
 import "../Styles/ContestInfo.css";
 
-function ContestInfo({ name, info, setShowContestInfo }) {
+function ContestInfo(props) {
+  // object that maps contest names to contest info components
+  const contestInfoComponents = {
+    "Mock Draft Mayhem": <NFLFirstRoundInfo />,
+  };
+
   return (
-    <Modal setShowSelf={setShowContestInfo}>
+    <Modal setShowSelf={props.setShowMoreInfo}>
       <div className="contest-info-container">
-        <div className="contest-info-header">
-          <h1 className="contest-info-name">{name} Contest</h1>
+        <div className="contest-info-top">
+          <h1 className="contest-info-title">{props.currContest.name}</h1>
         </div>
-        <div className="contest-info-details">{info}</div>
+        <div className="contest-info-content">
+          {contestInfoComponents[props.currContest.name]}
+        </div>
       </div>
     </Modal>
   );

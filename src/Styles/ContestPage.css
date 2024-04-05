@@ -1,20 +1,14 @@
-.contest-page-container {
+.contest-page {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 
-.contest-card-container {
-  width: 100%;
+.contest-elements {
   display: flex;
-  justify-content: center;
-  overflow-x: auto;
-  flex-wrap: wrap;
-}
-
-.view-past-contests-btn {
-  margin: 10px 0;
+  flex-direction: column;
+  align-items: center;
 }

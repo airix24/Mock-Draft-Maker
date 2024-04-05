@@ -6,37 +6,37 @@ import { useNavigate } from "react-router-dom";
 import {
   saveDraft,
   updateDraft,
-  checkNumberOfDrafts,
-  checkIfUserEnteredLotteryContest,
+  // checkNumberOfDrafts,
+  // checkIfUserEnteredLotteryContest,
 } from "../utils/firebaseFunctions";
 
 function SaveScreen(props) {
-  const MAX_DRAFTS = 30;
-  const [hasUserEnteredLotteryContest, setHasUserEnteredLotteryContest] =
-    useState(true);
-  const [tooManyDrafts, setTooManyDrafts] = useState(true);
+  // const MAX_DRAFTS = 30;
+  // const [hasUserEnteredLotteryContest, setHasUserEnteredLotteryContest] =
+  //   useState(true);
+  // const [tooManyDrafts, setTooManyDrafts] = useState(true);
   const [nameInBox, setNameInBox] = useState(
     props.mode === "editor" ? props.draftSettings.draftData.draftName : ""
   );
   const navigate = useNavigate();
 
   // check if the user has 30 saved drafts already
-  useEffect(() => {
-    if (props.user) {
-      checkNumberOfDrafts(props.user.uid, MAX_DRAFTS).then((result) => {
-        setTooManyDrafts(!result);
-      });
-    }
-  }, [props.user]);
+  // useEffect(() => {
+  //   if (props.user) {
+  //     checkNumberOfDrafts(props.user.uid, MAX_DRAFTS).then((result) => {
+  //       setTooManyDrafts(!result);
+  //     });
+  //   }
+  // }, [props.user]);
 
   // check if the user has already entered the contest
-  useEffect(() => {
-    if (props.user) {
-      checkIfUserEnteredLotteryContest(props.user.uid).then((result) => {
-        setHasUserEnteredLotteryContest(result);
-      });
-    }
-  }, [props.user]);
+  // useEffect(() => {
+  //   if (props.user) {
+  //     checkIfUserEnteredLotteryContest(props.user.uid).then((result) => {
+  //       setHasUserEnteredLotteryContest(result);
+  //     });
+  //   }
+  // }, [props.user]);
 
   // function handleSubmit(e) {
   //   e.preventDefault();

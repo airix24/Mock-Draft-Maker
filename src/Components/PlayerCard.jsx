@@ -316,7 +316,7 @@ function PlayerCard(props) {
                 <h4 className="light">weight</h4>
                 <h4>{props.weight} lbs</h4>
               </div>
-              {props.league === "NFL" ? (
+              {/* {props.league === "NFL" ? (
                 <div>
                   <h4
                     className="light"
@@ -335,7 +335,7 @@ function PlayerCard(props) {
                   <span className="light">wingspan: </span>
                   {props.wingspan ? convertHeight(props.wingspan) : "---"}
                 </h4>
-              )}
+              )} */}
             </div>
             {/* <div className="player-skills">
               <h4>Strengths:</h4>

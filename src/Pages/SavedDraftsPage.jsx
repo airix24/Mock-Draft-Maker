@@ -43,7 +43,7 @@ function SavedDraftsPage(props) {
         }
         const data = await getDocs(savedDraftsCollection);
         setSavedDrafts(data.docs.map((doc) => doc.data()));
-        // console.log("read operation occurred (SavedDraftsPage)");
+        console.log("read operation occurred (SavedDraftsPage)");
         setIsLoading(false);
       } catch (e) {
         console.error(e);
@@ -151,7 +151,7 @@ function SavedDraftsPage(props) {
                         }}
                         className="link"
                       >
-                        <button className="big-blue-btn">Draft Now</button>
+                        <button className="med-blue-btn">Draft Now</button>
                       </Link>
                     </div>
                   ) : (

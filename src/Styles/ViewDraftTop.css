@@ -41,9 +41,9 @@
   margin-top: 2px;
 }
 
-.view-draft-contest-page-btns > :nth-child(1) {
+/* .view-draft-contest-page-btns > :nth-child(1) {
   margin-right: 0.5rem;
-}
+} */
 
 .view-draft-contest-page-btn {
   background-color: #03277a;

@@ -1,12 +1,29 @@
 import { auth, googleProvider, db } from "../config/firebase-config";
 import { signInWithPopup, signOut } from "firebase/auth";
-import { collection, doc, setDoc, getDocs } from "firebase/firestore";
+import { collection, doc, setDoc, getDoc } from "firebase/firestore";
 import "../Styles/Auth.css";
 
 function Auth(props) {
   async function signInWithGoogle() {
     try {
-      await signInWithPopup(auth, googleProvider);
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+
+      const userDocRef = doc(db, "users", user.uid);
+      const userDocSnapshot = await getDoc(userDocRef);
+
+      if (!userDocSnapshot.exists()) {
+        // User does not exist, so write their data to the database
+        await setDoc(userDocRef, {
+          uid: user.uid,
+          displayName: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+        });
+        console.log("User data written to Firestore");
+      } else {
+        console.log("User already exists in Firestore");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -46,27 +63,10 @@ function Auth(props) {
           className="google-login-button"
           onClick={() => {
             signInWithGoogle().then(() => {
-              const user = auth.currentUser;
-              const usersCollection = collection(db, "users");
-              // console.log("read operation occurred (Auth)")
-              getDocs(usersCollection).then((querySnapshot) => {
-                const userExists = querySnapshot.docs.some(
-                  (doc) => doc.data().uid === user.uid
-                );
-                if (!userExists) {
-                  // Use setDoc() to set the document data with the custom document ID
-                  setDoc(doc(db, "users", user.uid), {
-                    uid: user.uid,
-                    displayName: user.displayName,
-                    email: user.email,
-                    photoURL: user.photoURL,
-                  });
-                }
-              });
+              if (props.setShowAuth) {
+                props.setShowAuth(false);
+              }
             });
-            if (props.setShowAuth) {
-              props.setShowAuth(false);
-            }
           }}
         >
           <img

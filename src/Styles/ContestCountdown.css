@@ -1,0 +1,9 @@
+.contest-countdown {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.contest-is-live-p {
+  color: black;
+}

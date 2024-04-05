@@ -3,7 +3,7 @@ import { findProspect, findTeam } from "../utils/helpers";
 import ViewDraftTop from "./ViewDraftTop";
 
 function ViewDraft(props) {
-  const isContestEntry = props.draft.contestsEntered.length > 0;
+  const isContestEntry = props.isContestEntry ? true : false;
 
   // calculate points for each slot. One point if the player is included at all, 3 points total if the player is matched with the right team. draftResults is a map of team abr to player id
   function calculatePoints(playerId, teamAbr) {
@@ -51,6 +51,8 @@ function ViewDraft(props) {
         isViewingFromLeaderboard={props.isViewingFromLeaderboard}
         currContestId={props.currContestId}
         setIsDraftJustDeleted={props.setIsDraftJustDeleted}
+        setShowViewDraft={props.setShowViewDraft}
+        setDraftJustRemoved={props.setDraftJustRemoved}
       />
       <div className="view-draft-mock-draft">
         {props.draft.draft.map((slot, index) => {

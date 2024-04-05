@@ -1,125 +1,134 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import "../Styles/EnterContest.css";
 import { Link } from "react-router-dom";
 import { db } from "../config/firebase-config";
-import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  setDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 
-function EnterContest({ user, setContest, contest, setShowEnterContest }) {
+function EnterContest(props) {
   const [savedDrafts, setSavedDrafts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedDraftId, setSelectedDraftId] = useState(
-    savedDrafts.length > 0 ? savedDrafts[0].draftId : ""
-  );
 
-  const usersCollection = collection(db, "users");
-  const savedDraftsCollection = collection(
-    usersCollection,
-    user.uid,
-    "savedDrafts"
-  );
-
+  // get saved drafts that are eligible for the current contest
   useEffect(() => {
-    if (
-      contest &&
-      contest.league &&
-      contest.prospectClass &&
-      contest.draftLength
-    ) {
-      const getSavedDrafts = async () => {
-        try {
-          const querySnapshot = await getDocs(savedDraftsCollection);
-          const filteredDrafts = querySnapshot.docs
-            .map((doc) => doc.data())
-            .filter(
-              (draft) =>
-                draft.league === contest.league &&
-                draft.prospectClass === contest.prospectClass &&
-                draft.draft.length === contest.draftLength
-            );
-          setSavedDrafts(filteredDrafts);
-          setIsLoading(false);
-        } catch (e) {
-          console.error(e);
-        }
-      };
-      getSavedDrafts();
-    }
-  }, [contest, savedDraftsCollection]);
+    const getSavedDrafts = async () => {
+      try {
+        // get saved drafts collection reference for the current user
+        const usersCollectionRef = collection(db, "users");
+        const savedDraftsCollectionRef = collection(
+          usersCollectionRef,
+          props.user.uid,
+          "savedDrafts"
+        );
 
-  const handleEnterContest = async (contestId, draftId, isUserEntered) => {
-    if (isUserEntered) {
-      setShowEnterContest(false);
-      return;
-    }
-    const selectedDraft = savedDrafts.find(
-      (draft) => draft.draftId === draftId
+        // query saved drafts that match the current contest's prospect class and league
+        const q = query(
+          savedDraftsCollectionRef,
+          where("prospectClass", "==", props.currContest.prospectClass),
+          where("league", "==", props.currContest.league)
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        // filter saved drafts that match the current contest's draft length
+        const filteredDrafts = querySnapshot.docs
+          .map((doc) => ({ id: doc.id, ...doc.data() }))
+          .filter(
+            (draft) => draft.draft.length === props.currContest.draftLength
+          );
+
+        setSavedDrafts(filteredDrafts);
+        setIsLoading(false);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    getSavedDrafts();
+  }, [props.currContest, props.user.uid]);
+
+  // enter the contest with the selected saved draft
+  const handleEnterContest = async () => {
+    const draftId = document.querySelector("select").value;
+    const selectedDraft = savedDrafts.find((draft) => draft.id === draftId);
+    const entriesCollectionRef = collection(
+      db,
+      "contests",
+      props.currContest.id,
+      "entries"
     );
-    const contestsEntered = [...selectedDraft.contestsEntered, contestId];
     try {
-      await updateDoc(doc(db, "users", user.uid, "savedDrafts", draftId), {
-        contestsEntered: contestsEntered,
+      await setDoc(doc(entriesCollectionRef, props.user.uid), selectedDraft, {
+        merge: true,
       });
+      props.setShowEnterContest(false);
     } catch (e) {
       console.error(e);
     }
-    setContest({ ...contest, isUserEntered: true });
-    setShowEnterContest(false);
   };
 
   return (
-    <Modal setShowSelf={setShowEnterContest}>
+    <Modal setShowSelf={props.setShowEnterContest}>
       {isLoading ? (
         <div className="loading-container-for-modal">
           <p>Loading...</p>
         </div>
       ) : (
         <>
-          {savedDrafts.length === 0 ? (
-            <div className="enter-contest-content">
-              <p className="light">
-                You have no saved drafts that are eligible for this contest.
-              </p>
-              <Link
-                to="/draft-board"
-                state={{
-                  league: contest.league,
-                  prospectClass: contest.prospectClass,
-                  mode: "builder",
-                  draftLength: contest.draftLength,
-                  draftData: null,
-                }}
-              >
-                <button className="med-blue-btn">Go to Mock Builder</button>
-              </Link>
+          {props.isContestClosed ? (
+            <div className="loading-container-for-modal">
+              <h2 className="light">Contest is closed.</h2>
             </div>
           ) : (
-            <div className="enter-contest-content">
-              <label htmlFor="draftSelect">Select a Saved Draft:</label>
-              <select
-                id="draftSelect"
-                value={selectedDraftId}
-                onChange={(e) => setSelectedDraftId(e.target.value)}
-              >
-                {savedDrafts.map((draft, index) => (
-                  <option key={index} value={draft.draftId}>
-                    {draft.draftName}
-                  </option>
-                ))}
-              </select>
-              <button
-                className="med-blue-btn"
-                onClick={() =>
-                  handleEnterContest(
-                    contest.id,
-                    selectedDraftId,
-                    contest.isUserEntered
-                  )
-                }
-              >
-                Enter
-              </button>
-            </div>
+            <>
+              {savedDrafts.length === 0 ? (
+                <div className="enter-contest-content">
+                  <p className="light">
+                    You have no saved drafts that are eligible for this contest.
+                  </p>
+                  <Link
+                    to="/draft-board"
+                    state={{
+                      league: props.currContest.league,
+                      prospectClass: props.currContest.prospectClass,
+                      mode: "builder",
+                      draftLength: props.currContest.draftLength,
+                      draftData: null,
+                    }}
+                  >
+                    <button className="med-blue-btn">Make a Mock Draft</button>
+                  </Link>
+                </div>
+              ) : (
+                <div className="enter-contest-content">
+                  <h2>Choose a Saved Draft</h2>
+                  <select>
+                    {savedDrafts.map((draft, index) => (
+                      <option key={index} value={draft.draftId}>
+                        {draft.draftName}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    className="med-blue-btn"
+                    onClick={() => {
+                      handleEnterContest().then(() => {
+                        props.setDraftJustEntered(prev => !prev);
+                      });
+                    }}
+                  >
+                    Enter
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </>
       )}

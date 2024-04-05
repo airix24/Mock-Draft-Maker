@@ -1,48 +1,65 @@
 .contest-card {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 300px;
-  margin: 15px;
-  padding: 0px;
-  transition: transform 0.3s ease;
-  border: #03277a 5px solid;
+  background-color: white;
+  width: 60vw;
+  /* border-radius: 5px; */
+  margin: 20px;
   position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* border: 2px dashed #03277a; */
+  padding-bottom: 20px;
 }
 
-.contest-card:hover {
-  transform: translateY(-3px);
+.main-contest {
+  width: 90vw;
 }
 
 .contest-card-top {
-  width: 100%;
-  background-color: #f5f5f5;
-  border-bottom: 2px solid #03277a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 0;
+  /* background-color: #03277a; */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px 5px 0 0;
 }
 
-.contest-card-name {
-  font-size: 1.4rem;
+.contest-card-title {
+  font-size: 3.5rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  font-style: italic; /* Added property */
+  color: #ffffff;
+  background-color: #03277a;
+  padding: 15px 0 25px 0;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+  text-align: center;
 }
 
-.contest-card-close-date {
-  font-size: 16px;
-  font-weight: 500;
-  color: #777;
+.contest-card-desc {
+  font-size: 2.2rem;
+  color: black;
 }
 
-.contest-card-image-container {
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 420px) {
+  .contest-card-title {
+    font-size: 2.5rem;
+  }
+  .contest-card-desc {
+    font-size: 1.5rem;
+  }
+  .main-contest {
+    width: 100%;
+  }
+}
+
+.contest-info {
+  color: black;
+  font-size: 1.3rem;
+}
+
+.contest-info > ul {
+  padding: 5px 20px;
+}
+
+.contest-card-mid {
+  width: 100%;
+  height: 300px;
 }
 
 .contest-card-image {
@@ -51,79 +68,57 @@
   object-fit: cover;
 }
 
-.contest-card-info-bar {
+.contest-card-bottom {
+  /* border: #03277a 2px solid; */
+  /* border-radius: 0 0 5px 5px; */
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  background-color: #f5f5f5;
-  border-bottom: 2px solid #03277a;
-  border-top: 2px solid #03277a;
-  padding: 10px 0;
+  justify-content: center;
 }
 
-.contest-card-entrants {
-  font-size: 16px;
-  font-weight: 500;
-  color: #555;
-}
-
-.contest-card-fee {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-}
-
-.contest-card-prize {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-}
-
-.contest-card-enter-btn {
+.contest-card-button {
   background-color: #03277a;
   color: white;
-  border: none;
-  /* border-radius: 5px; */
-  border-radius: 0;
-  width: 100%;
-  padding: 12px 0;
-  font-size: 22px;
-  font-weight: 600;
-  transition: opacity 0.3s ease;
-}
-
-.contest-card-info-btn {
-  width: 100%;
-  font-size: 16px;
-  /* border-bottom: 2px solid #03277a; */
-  /* margin-bottom: 10px; */
-  padding: 10px;
-  transition: opacity 0.3s ease;
-}
-
-.contest-card-info-btn:hover {
-  background-color: #dddddd;
   cursor: pointer;
-}
-
-.live-contest-card {
-  border: 5px solid #c90000;
-}
-
-.coming-soon-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  width: 200px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
-.coming-soon-label {
-  font-size: 2rem;
+.more-info-button {
+  background-color: rgb(220, 220, 220);
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.upcoming-contest {
+  pointer-events: none;
+}
+
+.upcoming-contest-overlay {
+  position: absolute;
+  background-color: rgba(204, 204, 204, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.coming-soon-ribbon {
+  position: absolute;
+  top: 35px;
+  right: -50px;
+  background-color: #03277a;
   color: white;
+  padding: 5px 50px;
+  transform: rotate(45deg);
+}
+
+.leaderboard-arrow {
+  margin-left: 10px;
 }

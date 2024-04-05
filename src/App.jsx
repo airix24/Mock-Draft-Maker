@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./Styles/App.css";
 import Header from "./Components/Header";
-import StartupScreen from "./Pages/StartupScreen";
+// import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
 import ContestPage from "./Pages/ContestPage";
-import LotteryContest from "./Pages/LotteryContest";
+// import LotteryContest from "./Pages/LotteryContest";
 import SecretAdminPage from "./Pages/SecretAdminPage";
-import PastContests from "./Pages/PastContests";
-import ContestLanding from "./Pages/ContestLanding";
+// import PastContests from "./Pages/PastContests";
+// import ContestLanding from "./Pages/ContestLanding";
 import { auth } from "./config/firebase-config";
 import SavedDraftsPage from "./Pages/SavedDraftsPage";
 import Home from "./Pages/Home";
@@ -71,12 +71,13 @@ function App() {
             }
           />
           {/* <Route path="/contests" element={<LotteryContest user={user} />} /> */}
-          <Route
+          {/* <Route
             path="/contest-landing"
             element={<ContestLanding user={user} />}
-          />
+          /> */}
           {/* <Route path="/contests" element={<ContestPage user={user} />} /> */}
-          <Route path="/past-contests" element={<PastContests user={user} />} />
+          {/* <Route path="/past-contests" element={<PastContests user={user} />} /> */}
+          <Route path="/contests" element={<ContestPage user={user} />} />
           <Route path="/admin-page" element={<SecretAdminPage />} />
           <Route path="/saved-drafts" element={<SavedDraftsPage user={user} />} />
         </Routes>

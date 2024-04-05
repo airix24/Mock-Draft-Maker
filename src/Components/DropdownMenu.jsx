@@ -31,7 +31,7 @@ function DropdownMenu(props) {
         Mock Draft Simulator
       </Link>
       <Link
-        to="/contest-landing"
+        to="/contests"
         className="dropdown-link"
         onClick={() => {
           props.setShowDropdownMenu(false);

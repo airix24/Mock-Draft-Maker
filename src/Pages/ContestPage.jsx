@@ -1,164 +1,111 @@
-import { useState, useEffect } from "react";
-import Modal from "../Components/Modal";
-import Auth from "../Components/Auth";
+import React, { useEffect, useState } from "react";
+import Footer from "../Components/Footer";
 import ContestCard from "../Components/ContestCard";
 import ContestInfo from "../Components/ContestInfo";
+import Modal from "../Components/Modal";
+import Auth from "../Components/Auth";
 import EnterContest from "../Components/EnterContest";
 import ViewDraft from "../Components/ViewDraft";
 import "../Styles/ContestPage.css";
-import lotteryLogo from "../Assets/lottery.svg";
 import { db } from "../config/firebase-config";
-import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
-function ContestPage({ user }) {
+function ContestPage(props) {
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
   const [showEnterContest, setShowEnterContest] = useState(false);
   const [showViewDraft, setShowViewDraft] = useState(false);
-  const [showContestInfo, setShowContestInfo] = useState(false);
+  const [currContest, setCurrContest] = useState(null);
+  const [contests, setContests] = useState([]);
+  const [userEntries, setUserEntries] = useState([]);
+  const [draftJustEntered, setDraftJustEntered] = useState(false);
+  const [draftJustRemoved, setDraftJustRemoved] = useState(false);
 
-  const [contestEntry, setContestEntry] = useState(null);
+  console.log("userEntries", userEntries);
 
-  const [loading, setLoading] = useState(true);
+  // fetch contests with status of "open" or "upcoming" or "live"
+  useEffect(() => {
+    const getContests = async () => {
+      try {
+        const contestsCollection = collection(db, "contests");
+        const querySnapshot = await getDocs(
+          query(
+            contestsCollection,
+            where("status", "in", ["open", "upcoming", "live"])
+          )
+        );
 
-  const [contest, setContest] = useState({
-    closeTime: new Date("2023-06-22T18:00:00"),
-    draftLength: 14,
-    entryFee: 0,
-    id: "B9jMFTTGDoVmjv1AgLlz",
-    image: lotteryLogo,
-    info: "idk bro, imma need to write a lot here. LOTTERY",
-    league: "NBA",
-    name: "2023 NBA Lottery",
-    prospectClass: "NBA_2023",
-    status: "upcoming",
-    totalPrizes: 0,
-    isUserEntered: false,
+        const contestsData = querySnapshot.docs.map((doc) => doc.data());
+        setContests(contestsData);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    getContests();
+  }, []);
+
+  // map contests to ContestCard components
+  const ContestElements = contests.map((contest) => {
+    return (
+      <ContestCard
+        key={contest.id}
+        {...contest}
+        setShowAuth={setShowAuth}
+        setShowMoreInfo={setShowMoreInfo}
+        setShowEnterContest={setShowEnterContest}
+        setCurrContest={setCurrContest}
+        setShowViewDraft={setShowViewDraft}
+        setUserEntries={setUserEntries}
+        user={props.user}
+        draftJustEntered={draftJustEntered}
+        draftJustRemoved={draftJustRemoved}
+      />
+    );
   });
 
-  const openModal = (modal) => {
-    switch (modal) {
-      case "auth":
-        setShowAuth(true);
-        break;
-      case "contestInfo":
-        setShowContestInfo(true);
-        break;
-      case "enterContest":
-        setShowEnterContest(true);
-        break;
-      case "viewDraft":
-        setShowViewDraft(true);
-        break;
-      default:
-        break;
-    }
-  };
-
-  // set contest entry if user has already entered. After this is done, set isLoading to false
-  useEffect(() => {
-    if (user) {
-      const usersCollection = collection(db, "users");
-      const savedDraftsCollection = collection(
-        usersCollection,
-        user.uid,
-        "savedDrafts"
-      );
-      const getSavedDrafts = async () => {
-        try {
-          const data = await getDocs(savedDraftsCollection);
-          const savedDrafts = data.docs.map((doc) => doc.data());
-          const enteredDraft = savedDrafts.find((draft) => {
-            return draft.contestsEntered.includes(contest.id);
-          });
-          if (enteredDraft) {
-            setContestEntry(enteredDraft);
-          }
-          setLoading(false);
-        } catch (e) {
-          console.error(e);
-        }
-      };
-      getSavedDrafts();
-    } else {
-      setLoading(false);
-    }
-  }, [user]);
-
-  const removeEntryFromContest = async () => {
-    console.log("removing entry from contest");
-  };
-  
   return (
-    <div className="contest-page-container">
-      {showAuth && (
-        <Modal setShowSelf={setShowAuth}>
-          <Auth setShowAuth={setShowAuth} />
+    <>
+      {showViewDraft && (
+        <Modal setShowSelf={setShowViewDraft}>
+          <ViewDraft
+            draft={userEntries[currContest.id]}
+            setShowViewDraft={setShowViewDraft}
+            user={props.user}
+            isViewingFromContestPage={true}
+            isContestEntry={true}
+            league={currContest.league}
+            prospectClass={currContest.prospectClass}
+            draftResults={[]}
+            currContestId={currContest.id}
+            setDraftJustRemoved={setDraftJustRemoved}
+          />
         </Modal>
       )}
       {showEnterContest && (
         <EnterContest
+          user={props.user}
           setShowEnterContest={setShowEnterContest}
-          user={user}
-          setContest={setContest}
-          contest={contest}
+          currContest={currContest}
+          setDraftJustEntered={setDraftJustEntered}
         />
       )}
-      {showViewDraft && (
-        <Modal setShowSelf={setShowViewDraft}>
-          <ViewDraft
-            draft={contestEntry}
-            setShowViewEntry={setShowViewDraft}
-            user={user}
-            isViewingFromContestPage={true}
-            removeEntryFromContest={removeEntryFromContest}
-            draftResults={[]}
-            league={contest.league}
-            prospectClass={contest.prospectClass}
-            currContestId={contest.id}
-          />
+      {showAuth && (
+        <Modal setShowSelf={setShowAuth}>
+          <Auth user={props.user} setShowAuth={setShowAuth} />
         </Modal>
       )}
-      {showContestInfo && (
+      {showMoreInfo && (
         <ContestInfo
-          setShowContestInfo={setShowContestInfo}
-          name={contest.name}
-          info={contest.info}
+          currContest={currContest}
+          setShowMoreInfo={setShowMoreInfo}
         />
       )}
-      {loading ? (
-        <div className="loading-container">
-          <h1>Loading...</h1>
-        </div>
-      ) : (
-        <div className="contest-card-container">
-          <ContestCard
-            name={contest.name}
-            closeTime={contest.closeTime}
-            image={contest.image}
-            prize={contest.totalPrizes}
-            fee={contest.entryFee}
-            status={contest.status}
-            info={contest.info}
-            user={user}
-            openModal={openModal}
-            isUserEntered={contest.isUserEntered}
-          />
-          {/* {contestElements.length > 0 ? (
-            contestElements
-          ) : (
-            <div className="no-contests-container">
-              <h1 className="no-contests-header">No Contests Available</h1>
-              <p className="no-contests-text">
-                Check back later for more contests!
-              </p>
-            </div>
-          )} */}
-        </div>
-      )}
-      {/* <Link to="/past-contests">
-        <button className="view-past-contests-btn">View Past Contests</button>
-      </Link> */}
-    </div>
+      <div className="contest-page">
+        <div className="contest-elements">{ContestElements}</div>
+      </div>
+      <Footer />
+    </>
   );
 }
 
