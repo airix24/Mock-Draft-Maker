@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 
 function ContestPromoHome() {
   return (
-    <div className="contest-promo-home">
       <div className="promo-container">
         <h1 className="contest-promo-title">
-          <em>The Mock Mayhem Draft Contest is Open</em>
+          <em>The Mock Mayhem Draft Contest is Open!</em>
         </h1>
         <p className="contest-promo-text">
           <em>
@@ -19,7 +18,6 @@ function ContestPromoHome() {
           Learn More
         </Link>
       </div>
-    </div>
   );
 }
 

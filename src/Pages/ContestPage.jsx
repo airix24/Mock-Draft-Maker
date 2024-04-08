@@ -21,8 +21,6 @@ function ContestPage(props) {
   const [draftJustEntered, setDraftJustEntered] = useState(false);
   const [draftJustRemoved, setDraftJustRemoved] = useState(false);
 
-  console.log("userEntries", userEntries);
-
   // fetch contests with status of "open" or "upcoming" or "live"
   useEffect(() => {
     const getContests = async () => {

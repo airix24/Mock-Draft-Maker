@@ -23,7 +23,7 @@ function NFLFirstRoundInfo() {
           This contest is <strong>FREE</strong> to enter.
         </li>
         <li>
-          You are able to edit your mock draft up until the contest closes.
+          You are able to edit and resubmit your mock draft up until the contest closes.
         </li>
         <li>This contest is for the first round only.</li>
         <li>No trades are allowed.</li>
@@ -42,10 +42,16 @@ function NFLFirstRoundInfo() {
           winner.
         </li> */}
       </ul>
-      {/* If there is a tie, the prize money will be split equally. The winner will
-      be contacted by email for payment information. If there is a trade that
-      affects the first round draft order, entries submitted before the trade
+      {/* - If there is a tie, the prize money will be split equally.
+      - The winner willbe contacted by email for payment information.
+      - If there is a trade that affects the first round draft order, entries submitted before the trade
       will still have the old order. */}
+
+      {/*
+        - The slot the player is drafted in does not matter, what matters is the team that drafts the player.
+        - Staff members/family are allowed to enter, but are not eligible for prizes.
+        - Mock Mayhem reserves the right to disqualify any entry for any reason.
+      */}
     </div>
   );
 }

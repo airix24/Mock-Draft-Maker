@@ -14,7 +14,6 @@ function deleteDraft(uid, draftId) {
   const savedDraftsCollection = collection(usersCollection, uid, "savedDrafts");
   const draftDoc = doc(savedDraftsCollection, draftId);
   deleteDoc(draftDoc);
-  console.log("delete operation occurred (deleteDraft)");
 }
 
 // save the mock draft to the database

@@ -20,9 +20,6 @@ function Auth(props) {
           email: user.email,
           photoURL: user.photoURL,
         });
-        console.log("User data written to Firestore");
-      } else {
-        console.log("User already exists in Firestore");
       }
     } catch (error) {
       console.error(error);

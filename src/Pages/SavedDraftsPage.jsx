@@ -43,7 +43,6 @@ function SavedDraftsPage(props) {
         }
         const data = await getDocs(savedDraftsCollection);
         setSavedDrafts(data.docs.map((doc) => doc.data()));
-        console.log("read operation occurred (SavedDraftsPage)");
         setIsLoading(false);
       } catch (e) {
         console.error(e);
