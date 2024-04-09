@@ -1,0 +1,27 @@
+.privacy-policy-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.privacy-policy-container {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(227, 227, 227);
+}
+
+.privacy-policy-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.privacy-policy-container > h2 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.privacy-policy-container > p {
+  font-size: 1rem;
+}

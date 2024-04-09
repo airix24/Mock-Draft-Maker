@@ -25,3 +25,12 @@
 .footer-social-link:hover {
   opacity: 0.7;
 }
+
+.footer-links {
+  margin-top: 5px;
+}
+
+.footer-link {
+  color: white;
+  font-size: 0.8rem;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { FaDiscord } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import "../Styles/Footer.css";
 
 function Footer() {
@@ -26,6 +27,11 @@ function Footer() {
       </div>
       <div className="legal-stuff">
         <p>&copy; 2024 Mock Mayhem. All rights reserved.</p>
+      </div>
+      <div className="footer-links">
+        <Link to="/priv" className="footer-link">
+          Privacy Policy
+        </Link>
       </div>
     </footer>
   );

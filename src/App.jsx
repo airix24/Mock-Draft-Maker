@@ -11,6 +11,7 @@ import SecretAdminPage from "./Pages/SecretAdminPage";
 // import ContestLanding from "./Pages/ContestLanding";
 import { auth } from "./config/firebase-config";
 import SavedDraftsPage from "./Pages/SavedDraftsPage";
+import Priv from "./Pages/Priv";
 import Home from "./Pages/Home";
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
       <Header user={user} screenSize={screenSize} />
       <div className="main-content">
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home />} />
           {/* <Route path="/" element={<StartupScreen user={user} />} /> */}
           <Route
             path="/draft-board"
@@ -79,7 +80,11 @@ function App() {
           {/* <Route path="/past-contests" element={<PastContests user={user} />} /> */}
           <Route path="/contests" element={<ContestPage user={user} />} />
           <Route path="/admin-page" element={<SecretAdminPage />} />
-          <Route path="/saved-drafts" element={<SavedDraftsPage user={user} />} />
+          <Route
+            path="/saved-drafts"
+            element={<SavedDraftsPage user={user} />}
+          />
+          <Route path="/priv" element={<Priv />} />
         </Routes>
       </div>
     </div>
