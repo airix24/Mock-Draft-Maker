@@ -122,3 +122,7 @@
 .leaderboard-arrow {
   margin-left: 10px;
 }
+
+.must-be-signed-in-button {
+  font-size: 1rem;
+}

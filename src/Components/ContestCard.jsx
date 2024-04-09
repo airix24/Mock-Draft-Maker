@@ -144,12 +144,12 @@ function ContestCard(props) {
               </button>
             ) : (
               <button
-                className="contest-card-button"
+                className="contest-card-button must-be-signed-in-button"
                 onClick={() => {
                   props.setShowAuth(true);
                 }}
               >
-                Sign In to Enter
+                Must be signed in to enter
               </button>
             )}
           </>
