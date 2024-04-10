@@ -91,7 +91,9 @@ function SaveScreen(props) {
     <Modal setShowSelf={props.setShowSaveScreen}>
       {!props.user ? (
         <div className="save-login-div">
-          <h3 className="must-be-logged-in-to-save light">Must be logged in to save draft</h3>
+          <h3 className="must-be-logged-in-to-save light">
+            Must be logged in to save draft
+          </h3>
           <Auth />
         </div>
       ) : (
@@ -133,6 +135,9 @@ function SaveScreen(props) {
             <button type="submit" name="save" className="save-btn">
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
+            <h5 className="light edit-reminder">
+              Don't forget to go to the contests page to enter after saving!
+            </h5>
             {/* {!hasUserEnteredLotteryContest &&
               props.league === "NBA" &&
               props.prospectClass === "NBA_2023" &&

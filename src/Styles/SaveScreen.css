@@ -1,5 +1,9 @@
 .save-screen {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .save-text {
@@ -15,6 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .save-login-div {
@@ -35,8 +40,9 @@
 }
 
 .edit-reminder {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   margin-top: 10px;
+  text-align: center;
 }
 
 .must-be-logged-in-to-save {
