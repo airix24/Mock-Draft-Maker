@@ -8,14 +8,14 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="social-links">
-        <a
+        {/* <a
           href="https://discord.gg/qcebSQyGg5"
           target="_blank"
           rel="noopener noreferrer"
           className="footer-social-link"
         >
           <FaDiscord />
-        </a>
+        </a> */}
         <a
           href="https://twitter.com/mock_mayhem"
           target="_blank"
