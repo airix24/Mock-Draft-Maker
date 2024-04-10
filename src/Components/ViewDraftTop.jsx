@@ -84,11 +84,12 @@ function ViewDraftTop(props) {
               <button
                 className="view-draft-contest-page-btn"
                 onClick={() => {
-                  removeDraftFromContest(props.user.uid, props.currContestId).then(
-                    () => {
-                      props.setDraftJustRemoved(true);
-                    }
-                  )
+                  removeDraftFromContest(
+                    props.user.uid,
+                    props.currContestId
+                  ).then(() => {
+                    props.setDraftJustRemoved(true);
+                  });
                   props.setShowViewDraft(false);
                 }}
               >
@@ -182,10 +183,13 @@ function ViewDraftTop(props) {
               </button>
               <button
                 className="icon-button-black"
-                onClick={() => {
-                  deleteDraft(props.user.uid, props.draft.draftId);
-                  props.setCurrDraft(null);
-                  props.setIsDraftJustDeleted(props.draft.draftId);
+                onClick={async () => {
+                  await deleteDraft(props.user.uid, props.draft.draftId).then(
+                    () => {
+                      props.setIsDraftJustDeleted(props.draft.draftId);
+                      props.setCurrDraft(null);
+                    }
+                  );
                 }}
               >
                 <FaCheck className="icon" size={20} alt="confirm" />

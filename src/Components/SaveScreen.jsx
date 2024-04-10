@@ -3,31 +3,48 @@ import "../Styles/SaveScreen.css";
 import Modal from "./Modal";
 import Auth from "./Auth";
 import { useNavigate } from "react-router-dom";
+import { db } from "../config/firebase-config";
+import { doc, getDoc } from "firebase/firestore";
 import {
   saveDraft,
   updateDraft,
-  // checkNumberOfDrafts,
   // checkIfUserEnteredLotteryContest,
 } from "../utils/firebaseFunctions";
 
 function SaveScreen(props) {
-  // const MAX_DRAFTS = 30;
+  const [loading, setLoading] = useState(true);
+  const MAX_DRAFTS = 30;
   // const [hasUserEnteredLotteryContest, setHasUserEnteredLotteryContest] =
   //   useState(true);
-  // const [tooManyDrafts, setTooManyDrafts] = useState(true);
+  const [tooManyDrafts, setTooManyDrafts] = useState(false);
   const [nameInBox, setNameInBox] = useState(
     props.mode === "editor" ? props.draftSettings.draftData.draftName : ""
   );
   const navigate = useNavigate();
 
-  // check if the user has 30 saved drafts already
-  // useEffect(() => {
-  //   if (props.user) {
-  //     checkNumberOfDrafts(props.user.uid, MAX_DRAFTS).then((result) => {
-  //       setTooManyDrafts(!result);
-  //     });
-  //   }
-  // }, [props.user]);
+  // check if the user has reached the maximum number of drafts
+  useEffect(() => {
+    const checkNumberOfDrafts = async (uid, maxDrafts) => {
+      try {
+        const userDoc = await getDoc(doc(db, "users", uid));
+        if (userDoc.data().draftCount === undefined) {
+          return true;
+        }
+        return userDoc.data().draftCount < maxDrafts;
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    if (props.user) {
+      checkNumberOfDrafts(props.user.uid, MAX_DRAFTS).then((result) => {
+        setTooManyDrafts(!result);
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
+    }
+  }, [props.user]);
 
   // check if the user has already entered the contest
   // useEffect(() => {
@@ -89,12 +106,23 @@ function SaveScreen(props) {
 
   return (
     <Modal setShowSelf={props.setShowSaveScreen}>
-      {!props.user ? (
+      {loading ? (
+        <div className="loading-container-for-modal">
+          <p>Loading...</p>
+        </div>
+      ) : !props.user ? (
         <div className="save-login-div">
           <h3 className="must-be-logged-in-to-save light">
             Must be logged in to save draft
           </h3>
           <Auth />
+        </div>
+      ) : tooManyDrafts ? (
+        <div className="too-many-drafts-screen">
+          <h2 className="light">
+            You have reached the maximum number of drafts
+          </h2>
+          <h3 className="light">Please delete a draft to save a new one</h3>
         </div>
       ) : (
         <div className="save-screen">

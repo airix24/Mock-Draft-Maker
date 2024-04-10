@@ -5,18 +5,26 @@ import {
   deleteDoc,
   setDoc,
   getDocs,
+  updateDoc,
+  increment,
 } from "firebase/firestore";
 import { nanoid } from "nanoid";
 
-// delete the draft from the database
-function deleteDraft(uid, draftId) {
+// delete the draft from the database and decrement the draft count in the user document
+async function deleteDraft(uid, draftId) {
   const usersCollection = collection(db, "users");
   const savedDraftsCollection = collection(usersCollection, uid, "savedDrafts");
   const draftDoc = doc(savedDraftsCollection, draftId);
-  deleteDoc(draftDoc);
+  await deleteDoc(draftDoc)
+    .then(() => {
+      decrementDraftCount(uid);
+    })
+    .catch((error) => {
+      console.error("Error removing document: ", error);
+    });
 }
 
-// save the mock draft to the database
+// save the mock draft to the database and increment the draft count in the user document
 async function saveDraft(
   userUid,
   name,
@@ -46,7 +54,13 @@ async function saveDraft(
     prospectClass,
   };
   try {
-    await setDoc(doc(savedDraftsCollection, draftId), draft);
+    await setDoc(doc(savedDraftsCollection, draftId), draft)
+      .then(() => {
+        incrementDraftCount(userUid);
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
     return true;
   } catch (error) {
     console.error("Error adding document: ", error);
@@ -101,6 +115,22 @@ async function removeDraftFromContest(userUid, contestId) {
   const entriesCollection = collection(contestDoc, "entries");
   const entryDoc = doc(entriesCollection, userUid);
   deleteDoc(entryDoc);
+}
+
+// increment the draft count in the user document
+async function incrementDraftCount(userUid) {
+  const userDoc = doc(db, "users", userUid);
+  await updateDoc(userDoc, {
+    draftCount: increment(1),
+  });
+}
+
+// decrement the draft count in the user document
+async function decrementDraftCount(userUid) {
+  const userDoc = doc(db, "users", userUid);
+  await updateDoc(userDoc, {
+    draftCount: increment(-1),
+  });
 }
 
 // async function checkNumberOfDrafts(userUid, maxDrafts) {

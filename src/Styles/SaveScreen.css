@@ -48,3 +48,16 @@
 .must-be-logged-in-to-save {
   margin-bottom: -50px;
 }
+
+.too-many-drafts-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.too-many-drafts-screen > h2 {
+  margin-bottom: 20px;
+}
