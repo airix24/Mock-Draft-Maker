@@ -1,12 +1,12 @@
 import React from "react";
 import Modal from "./Modal";
-import NFLFirstRoundInfo from "../ContestInfo/NFLFirstRoundInfo";
+import NFLFirstRoundRules from "../ContestInfo/NFLFirstRoundRules";
 import "../Styles/ContestInfo.css";
 
 function ContestInfo(props) {
   // object that maps contest names to contest info components
-  const contestInfoComponents = {
-    "Mock Draft Mayhem": <NFLFirstRoundInfo />,
+  const contestRulesComponents = {
+    "Mock Draft Mayhem": <NFLFirstRoundRules />,
   };
 
   return (
@@ -16,7 +16,7 @@ function ContestInfo(props) {
           <h1 className="contest-info-title">{props.currContest.name}</h1>
         </div>
         <div className="contest-info-content">
-          {contestInfoComponents[props.currContest.name]}
+          {contestRulesComponents[props.currContest.name]}
         </div>
       </div>
     </Modal>

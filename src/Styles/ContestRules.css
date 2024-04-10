@@ -1,0 +1,7 @@
+.contest-full-rules {
+  padding: 10px 30px;
+}
+
+.contest-full-rules > ul > li {
+  margin-top: 5px;
+}

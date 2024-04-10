@@ -16,3 +16,7 @@
   padding: 10px 20px;
   font-size: 1rem;
 }
+
+.contest-info > ul > li {
+  margin-top: 5px;
+}
