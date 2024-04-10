@@ -148,7 +148,7 @@ function SaveScreen(props) {
               if (andEnter) {
                 navigate("/contests");
               } else {
-                navigate("/");
+                navigate("/saved-drafts");
               }
             }}
           >
