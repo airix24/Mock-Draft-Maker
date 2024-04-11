@@ -29,8 +29,11 @@ function Footer() {
         <p>&copy; 2024 Mock Mayhem. All rights reserved.</p>
       </div>
       <div className="footer-links">
-        <Link to="/priv" className="footer-link">
+        <Link to="/priv" className="footer-link priv-link">
           Privacy Policy
+        </Link>
+        <Link to="/contact" className="footer-link">
+          Contact Us
         </Link>
       </div>
     </footer>

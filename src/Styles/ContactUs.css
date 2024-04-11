@@ -1,0 +1,19 @@
+.contact-us-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-us-container {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(227, 227, 227);
+  height: 75vh;
+}
+
+.contact-us-container > p {
+  font-size: 1rem;
+  margin-top: 10px;
+}

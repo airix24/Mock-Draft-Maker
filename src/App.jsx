@@ -13,6 +13,7 @@ import { auth } from "./config/firebase-config";
 import SavedDraftsPage from "./Pages/SavedDraftsPage";
 import Priv from "./Pages/Priv";
 import Home from "./Pages/Home";
+import ContactUs from "./Pages/ContactUs";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -85,6 +86,7 @@ function App() {
             element={<SavedDraftsPage user={user} />}
           />
           <Route path="/priv" element={<Priv />} />
+          <Route path="/contact" element={<ContactUs />} />
         </Routes>
       </div>
     </div>
