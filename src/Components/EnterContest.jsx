@@ -6,12 +6,13 @@ import { db } from "../config/firebase-config";
 import {
   collection,
   getDocs,
-  setDoc,
-  doc,
+  // setDoc,
+  // doc,
   query,
   where,
 } from "firebase/firestore";
-import { incrementEntryCount } from "../utils/firebaseFunctions";
+import { enterDraftIntoContest } from "../utils/firebaseFunctions";
+// import { incrementEntryCount } from "../utils/firebaseFunctions";
 
 function EnterContest(props) {
   const [savedDrafts, setSavedDrafts] = useState([]);
@@ -56,26 +57,40 @@ function EnterContest(props) {
   }, [props.currContest, props.user.uid]);
 
   // enter the contest with the selected saved draft
-  const handleEnterContest = async () => {
+  function handleEnterContest() {
     const draftId = document.querySelector("select").value;
     const selectedDraft = savedDrafts.find((draft) => draft.id === draftId);
-    const entriesCollectionRef = collection(
-      db,
-      "contests",
+    enterDraftIntoContest(
+      props.user.uid,
       props.currContest.id,
-      "entries"
-    );
-    try {
-      await setDoc(doc(entriesCollectionRef, props.user.uid), selectedDraft, {
-        merge: true,
-      }).then(() => {
-        incrementEntryCount(props.currContest.id);
-      });
+      selectedDraft
+    ).then(() => {
+      props.setDraftJustEntered((prev) => !prev);
       props.setShowEnterContest(false);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+    });
+  }
+
+  // enter the contest with the selected saved draft
+  // const handleEnterContest = async () => {
+  //   const draftId = document.querySelector("select").value;
+  //   const selectedDraft = savedDrafts.find((draft) => draft.id === draftId);
+  //   const entriesCollectionRef = collection(
+  //     db,
+  //     "contests",
+  //     props.currContest.id,
+  //     "entries"
+  //   );
+  //   try {
+  //     await setDoc(doc(entriesCollectionRef, props.user.uid), selectedDraft, {
+  //       merge: true,
+  //     }).then(() => {
+  //       incrementEntryCount(props.currContest.id);
+  //     });
+  //     props.setShowEnterContest(false);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
 
   return (
     <Modal setShowSelf={props.setShowEnterContest}>
@@ -122,9 +137,10 @@ function EnterContest(props) {
                   <button
                     className="med-blue-btn"
                     onClick={() => {
-                      handleEnterContest().then(() => {
-                        props.setDraftJustEntered((prev) => !prev);
-                      });
+                      handleEnterContest();
+                      // handleEnterContest().then(() => {
+                      //   props.setDraftJustEntered((prev) => !prev);
+                      // });
                     }}
                   >
                     Enter

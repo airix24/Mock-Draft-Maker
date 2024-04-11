@@ -109,6 +109,25 @@ async function updateDraft(
   }
 }
 
+//enter draft into contest and increment entryCount in the contest document
+async function enterDraftIntoContest(userUid, contestId, draft) {
+  const entriesCollectionRef = collection(
+    db,
+    "contests",
+    contestId,
+    "entries"
+  );
+  try {
+    await setDoc(doc(entriesCollectionRef, userUid), draft, {
+      merge: true,
+    }).then(() => {
+      incrementEntryCount(contestId);
+    });
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 //remove draft from contest and decrement entryCount in the contest document
 async function removeDraftFromContest(userUid, contestId) {
   const contestsCollection = collection(db, "contests");
@@ -124,6 +143,16 @@ async function removeDraftFromContest(userUid, contestId) {
   } else {
     console.log("No document found");
   }
+}
+
+// check if user is entered into contest
+async function checkIfUserEnteredContest(userUid, contestId) {
+  const contestsCollection = collection(db, "contests");
+  const contestDoc = doc(contestsCollection, contestId);
+  const entriesCollection = collection(contestDoc, "entries");
+  const entryDoc = doc(entriesCollection, userUid);
+  const docSnapshot = await getDoc(entryDoc);
+  return docSnapshot.exists();
 }
 
 // increment the draft count in the user document
@@ -156,7 +185,6 @@ async function decrementEntryCount(contestId) {
   await updateDoc(contestDoc, {
     entryCount: increment(-1),
   });
-  console.log("entry count decremented");
 }
 
 // async function checkNumberOfDrafts(userUid, maxDrafts) {
@@ -220,10 +248,11 @@ export {
   deleteDraft,
   saveDraft,
   updateDraft,
+  enterDraftIntoContest,
   removeDraftFromContest,
   incrementEntryCount,
   // checkNumberOfDrafts,
-  // checkIfUserEnteredContest,
+  checkIfUserEnteredContest,
   // isUserEnteredInContest,
   // checkIfUserEnteredLotteryContest,
 };

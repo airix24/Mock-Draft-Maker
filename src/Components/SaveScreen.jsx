@@ -8,14 +8,15 @@ import { doc, getDoc } from "firebase/firestore";
 import {
   saveDraft,
   updateDraft,
-  // checkIfUserEnteredLotteryContest,
+  checkIfUserEnteredContest,
+  enterDraftIntoContest,
 } from "../utils/firebaseFunctions";
+import { nanoid } from "nanoid";
 
 function SaveScreen(props) {
   const [loading, setLoading] = useState(true);
   const MAX_DRAFTS = 30;
-  // const [hasUserEnteredLotteryContest, setHasUserEnteredLotteryContest] =
-  //   useState(true);
+  const [hasUserEnteredContest, setHasUserEnteredContest] = useState(true);
   const [tooManyDrafts, setTooManyDrafts] = useState(false);
   const [nameInBox, setNameInBox] = useState(
     props.mode === "editor" ? props.draftSettings.draftData.draftName : ""
@@ -43,6 +44,18 @@ function SaveScreen(props) {
       });
     } else {
       setLoading(false);
+    }
+  }, [props.user]);
+
+  // check if the user has already entered the contest
+  // for now hardcode in contestId: AS7oCfs5C2hrsSlPmc6I
+  useEffect(() => {
+    if (props.user) {
+      checkIfUserEnteredContest(props.user.uid, "AS7oCfs5C2hrsSlPmc6I").then(
+        (result) => {
+          setHasUserEnteredContest(result);
+        }
+      );
     }
   }, [props.user]);
 
@@ -135,9 +148,24 @@ function SaveScreen(props) {
             className="save-form"
             onSubmit={(e) => {
               e.preventDefault();
-              let andEnter = false;
+              let andEnter = false; // this isn't necessary anymore
+              let enterContest = false;
               if (e.nativeEvent.submitter.name === "save-and-enter") {
-                andEnter = true;
+                enterContest = true;
+                const draft = {
+                  draftId: nanoid(),
+                  draftName: nameInBox,
+                  createdAt: new Date(),
+                  draft: props.mockDraft,
+                  userUid: props.user.uid,
+                  league: props.league,
+                  prospectClass: props.prospectClass,
+                };
+                enterDraftIntoContest(
+                  props.user.uid,
+                  "AS7oCfs5C2hrsSlPmc6I",
+                  draft
+                );
               }
               if (props.mode === "editor") {
                 handleUpdate(andEnter);
@@ -145,7 +173,7 @@ function SaveScreen(props) {
                 handleSave(andEnter);
               }
               //navigate to /contest if the user clicked save and enter
-              if (andEnter) {
+              if (enterContest) {
                 navigate("/contests");
               } else {
                 navigate("/saved-drafts");
@@ -163,13 +191,9 @@ function SaveScreen(props) {
             <button type="submit" name="save" className="save-btn">
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
-            <h5 className="light edit-reminder">
-              Don't forget to go to the contests page to enter after saving!
-            </h5>
-            {/* {!hasUserEnteredLotteryContest &&
-              props.league === "NBA" &&
-              props.prospectClass === "NBA_2023" &&
-              props.draftSettings.draftLength === 14 && (
+            {
+              //if the user has not entered the contest, show the save and enter button
+              !hasUserEnteredContest && (
                 <>
                   <button
                     type="submit"
@@ -179,10 +203,12 @@ function SaveScreen(props) {
                     Save and Enter Contest
                   </button>
                   <h5 className="light edit-reminder">
-                    (You can edit your entry up until one hour before the draft)
+                    (You can edit and resubmit your entry up until one hour
+                    before the draft)
                   </h5>
                 </>
-              )} */}
+              )
+            }
           </form>
         </div>
       )}
