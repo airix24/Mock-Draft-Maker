@@ -11,6 +11,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { incrementEntryCount } from "../utils/firebaseFunctions";
 
 function EnterContest(props) {
   const [savedDrafts, setSavedDrafts] = useState([]);
@@ -67,6 +68,8 @@ function EnterContest(props) {
     try {
       await setDoc(doc(entriesCollectionRef, props.user.uid), selectedDraft, {
         merge: true,
+      }).then(() => {
+        incrementEntryCount(props.currContest.id);
       });
       props.setShowEnterContest(false);
     } catch (e) {
@@ -120,7 +123,7 @@ function EnterContest(props) {
                     className="med-blue-btn"
                     onClick={() => {
                       handleEnterContest().then(() => {
-                        props.setDraftJustEntered(prev => !prev);
+                        props.setDraftJustEntered((prev) => !prev);
                       });
                     }}
                   >

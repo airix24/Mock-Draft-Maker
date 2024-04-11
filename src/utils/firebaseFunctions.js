@@ -4,6 +4,7 @@ import {
   doc,
   deleteDoc,
   setDoc,
+  getDoc,
   getDocs,
   updateDoc,
   increment,
@@ -108,13 +109,21 @@ async function updateDraft(
   }
 }
 
-//remove draft from contest
+//remove draft from contest and decrement entryCount in the contest document
 async function removeDraftFromContest(userUid, contestId) {
   const contestsCollection = collection(db, "contests");
   const contestDoc = doc(contestsCollection, contestId);
   const entriesCollection = collection(contestDoc, "entries");
   const entryDoc = doc(entriesCollection, userUid);
-  deleteDoc(entryDoc);
+  
+  // Check if document exists before deletion
+  const docSnapshot = await getDoc(entryDoc);
+  if (docSnapshot.exists()) {
+    await deleteDoc(entryDoc);
+    decrementEntryCount(contestId);
+  } else {
+    console.log("No document found");
+  }
 }
 
 // increment the draft count in the user document
@@ -131,6 +140,23 @@ async function decrementDraftCount(userUid) {
   await updateDoc(userDoc, {
     draftCount: increment(-1),
   });
+}
+
+// increment the entry count in the contest document
+async function incrementEntryCount(contestId) {
+  const contestDoc = doc(db, "contests", contestId);
+  await updateDoc(contestDoc, {
+    entryCount: increment(1),
+  });
+}
+
+// decrement the entry count in the contest document
+async function decrementEntryCount(contestId) {
+  const contestDoc = doc(db, "contests", contestId);
+  await updateDoc(contestDoc, {
+    entryCount: increment(-1),
+  });
+  console.log("entry count decremented");
 }
 
 // async function checkNumberOfDrafts(userUid, maxDrafts) {
@@ -195,6 +221,7 @@ export {
   saveDraft,
   updateDraft,
   removeDraftFromContest,
+  incrementEntryCount,
   // checkNumberOfDrafts,
   // checkIfUserEnteredContest,
   // isUserEnteredInContest,
