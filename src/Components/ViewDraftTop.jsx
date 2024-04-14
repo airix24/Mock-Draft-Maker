@@ -56,6 +56,10 @@ function ViewDraftTop(props) {
         }
       ></MockDraftImage>
       {/* Left Side */}
+      {(props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
+        <div className="idk-bro-contest"></div>
+      )}
+
       {/* {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
         <div className="idk-bro">
           <button
@@ -73,9 +77,9 @@ function ViewDraftTop(props) {
       <div className="view-draft-info">
         <h3 className="view-draft-name">{props.draft.draftName}</h3>
         {!props.isContestClosed && <h4 className="light">{date}</h4>}
-        {props.isContestEntry && !props.isViewingFromContestPage && (
+        {/* {props.isContestEntry && !props.isViewingFromContestPage && (
           <h4 className="contest-indicator">Entered in Contest</h4>
-        )}
+        )} */}
         {props.isViewingFromContestPage &&
           !props.isContestClosed &&
           !props.isViewingFromLeaderboard &&
@@ -121,8 +125,8 @@ function ViewDraftTop(props) {
       </div>
 
       {/* Right Side */}
-      {props.isViewingFromLeaderboard && (
-        <div className="idk-bro">
+      {(props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
+        <div className="idk-bro-contest">
           <button className={"icon-button-black"} onClick={handleDownload}>
             <FaDownload className="icon" size={20} alt="download" />
           </button>
@@ -174,6 +178,7 @@ function ViewDraftTop(props) {
               </button>
             </div>
           ) : (
+            // if showDeleteConfirm is true, show the confirm delete buttons
             <div className="view-draft-btns">
               <button
                 className="icon-button-black"
