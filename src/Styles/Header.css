@@ -29,7 +29,11 @@
 .header-title {
   z-index: 100;
   text-align: center;
-  font-style: italic;
+}
+
+.header-title-link {
+  font-family: "Black Ops One";
+  font-weight: 500;
 }
 
 .header-title-desktop {

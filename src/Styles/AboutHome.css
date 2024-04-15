@@ -12,7 +12,8 @@
   text-align: center;
   color: #03277a;
   width: 60%;
-  /* font-family: "Black Ops One"; */
+  font-family: "Black Ops One";
+  font-weight: 600;
 }
 
 .about-text {

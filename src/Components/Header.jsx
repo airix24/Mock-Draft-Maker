@@ -16,7 +16,7 @@ function Header(props) {
         {props.screenSize === "desktop" ? (
           <div className="desktop-header">
             <h1 className="header-title header-title-desktop">
-              <Link to="/" className="link">
+              <Link to="/" className="link header-title-link">
                 Mock Mayhem
               </Link>
             </h1>
@@ -64,11 +64,10 @@ function Header(props) {
           <>
           <div className="mobile-tablet-header">
             <h1 className="header-title">
-              <Link to="/" className="link">
+              <Link to="/" className="link header-title-link">
                 Mock Mayhem
               </Link>
             </h1>
-            
           </div>
           <div
               className="hamburger-container"

@@ -6,7 +6,7 @@ function ContestPromoHome() {
   return (
       <div className="promo-container">
         <h1 className="contest-promo-title">
-          <em>The Mock Mayhem Draft Contest is Open!</em>
+          The Mock Mayhem Draft Contest is Open!
         </h1>
         <p className="contest-promo-text">
           <em>

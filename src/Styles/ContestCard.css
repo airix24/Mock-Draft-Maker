@@ -23,17 +23,19 @@
 .contest-card-title {
   font-size: 3.5rem;
   font-weight: 600;
-  font-style: italic; /* Added property */
+  /* font-style: italic; */
   color: #ffffff;
   background-color: #03277a;
   padding: 15px 0 25px 0;
   clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
   text-align: center;
+  font-family: "Black Ops One";
 }
 
 .contest-card-desc {
   font-size: 2.2rem;
   color: black;
+  font-style: italic;
 }
 
 @media (max-width: 420px) {
