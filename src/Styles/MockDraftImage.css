@@ -29,6 +29,7 @@
 
 .mock-draft-image-title {
   font-family: "Black Ops One";
+  font-weight: lighter;
 }
 
 .mock-draft-image-icon-container {
@@ -59,7 +60,7 @@
 }
 
 .mock-draft-image-slot {
-  width: 250px;
+  width: 300px;
   padding: 0.5rem;
   border: 1px solid #e5e5e5;
   display: flex;
@@ -73,7 +74,7 @@
   justify-content: center;
   width: 40px;
   object-fit: contain;
-  margin-right: 0.5rem;
+  margin-right: 5px;
 }
 
 .mock-draft-image-logo {
