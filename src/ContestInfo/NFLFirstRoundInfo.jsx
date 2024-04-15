@@ -29,6 +29,10 @@ function NFLFirstRoundInfo() {
         <li>This contest is for the first round only.</li>
         <li>No trades are allowed.</li>
         <li>
+        The slot the player is drafted in does not matter, what matters is the
+          team that drafts the player.
+        </li>
+        <li>
           One entry allowed per person. (users who use multiple accounts to
           enter will be disqualified)
         </li>

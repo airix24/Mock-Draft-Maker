@@ -2,7 +2,12 @@
   position: absolute;
   top: -10000px;
   left: -10000px;
-  background-color: white;
+  background-color: rgb(224, 224, 224);
+}
+
+@font-face {
+  font-family: "Black Ops One";
+  src: url("../Assets/fonts/BlackOpsOne-Regular.ttf");
 }
 
 .mock-image-top,
@@ -17,11 +22,32 @@
 
 .mock-image-top {
   font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.mock-draft-image-title {
+  font-family: "Black Ops One";
+}
+
+.mock-draft-image-icon-container {
+  height: 100%;
+}
+
+.mock-draft-image-icon {
+  height: 100%;
 }
 
 .mock-image-bottom {
   font-size: 15px;
   height: 40px;
+  text-align: center;
+}
+
+.mock-draft-image-link {
+  text-decoration: underline;
+  margin-left: 5px;
 }
 
 .mock-draft-image-container {
@@ -38,11 +64,20 @@
   border: 1px solid #e5e5e5;
   display: flex;
   align-items: center;
+  background-color: white;
+}
+
+.mock-draft-image-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  object-fit: contain;
+  margin-right: 0.5rem;
 }
 
 .mock-draft-image-logo {
-  height: 20px;
-  margin-right: 0.5rem;
+  width: 25px;
 }
 
 .mock-draft-image-team {
