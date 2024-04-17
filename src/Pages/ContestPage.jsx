@@ -11,6 +11,7 @@ import { db } from "../config/firebase-config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 function ContestPage(props) {
+  const [loading, setLoading] = useState(true);
   const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
   const [showEnterContest, setShowEnterContest] = useState(false);
@@ -35,6 +36,7 @@ function ContestPage(props) {
 
         const contestsData = querySnapshot.docs.map((doc) => doc.data());
         setContests(contestsData);
+        setLoading(false);
       } catch (e) {
         console.error(e);
       }
@@ -100,6 +102,7 @@ function ContestPage(props) {
         />
       )}
       <div className="contest-page">
+        {loading && <h1 className="loading-div-contest-page">Loading...</h1>}
         <div className="contest-elements">{ContestElements}</div>
       </div>
       <Footer />
