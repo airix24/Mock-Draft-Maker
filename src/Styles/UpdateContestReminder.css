@@ -1,0 +1,11 @@
+.update-contest-reminder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.update-contest-reminder h4 {
+  margin-bottom: 20px;
+}

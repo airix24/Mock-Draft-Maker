@@ -10,6 +10,7 @@ import { NBA_Teams } from "../Teams/NBA_Teams";
 import { sortProspects } from "../utils/helpers";
 
 import SaveScreen from "../Components/SaveScreen";
+import UpdateContestReminder from "../Components/UpdateContestReminder";
 import PlayerContainer from "../Components/PlayerContainer";
 import TeamContainer from "../Components/TeamContainer";
 import ControlPanel from "../Components/ControlPanel";
@@ -36,6 +37,7 @@ function DraftBoard(props) {
   const [showSaveScreen, setShowSaveScreen] = useState(false);
   const [isSimulating, setIsSimulating] = useState(false);
   const [mode, setMode] = useState(draftSettings.mode);
+  const [showUpdateContestReminder, setShowUpdateContestReminder] = useState(mode === "editor");
   // const [mode] = useState(
   //   !draftSettings ? "builder" : draftSettings.draftId ? "editor" : "gm"
   // );
@@ -289,6 +291,9 @@ function DraftBoard(props) {
             <h3>Player Pool</h3>
           </div>
         </div>
+      )}
+      {showUpdateContestReminder && (
+        <UpdateContestReminder setShowUpdateContestReminder={setShowUpdateContestReminder} />
       )}
       {showSaveScreen && (
         <SaveScreen
