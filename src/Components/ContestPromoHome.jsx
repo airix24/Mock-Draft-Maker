@@ -6,11 +6,11 @@ function ContestPromoHome() {
   return (
       <div className="promo-container">
         <h1 className="contest-promo-title">
-          The Mock Mayhem Draft Contest is Open!
+          The NFL Mock Draft Contest is Open!
         </h1>
         <p className="contest-promo-text">
           <em>
-            Compete against others in an NFL mock draft contest for a chance to
+            Compete against others in a 2024 first round NFL mock draft contest for a chance to
             win prizes! Free to enter!
           </em>
         </p>
