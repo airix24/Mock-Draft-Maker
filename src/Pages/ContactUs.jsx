@@ -10,7 +10,7 @@ function ContactUs() {
         <p>
           If you have any questions or concerns, please feel free to reach out
           to us at{" "}
-          <a href="mailto:mockmayhem1@gmail.com">mockmayhem1@gmail.com</a>
+          <a href="mailto:contact@mockmayhem.com">contact@mockmayhem.com</a>
         </p>
         <p>
           You can also shoot us a DM on X{" "}
