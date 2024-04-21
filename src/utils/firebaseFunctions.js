@@ -117,12 +117,15 @@ async function enterDraftIntoContest(userUid, contestId, draft) {
     contestId,
     "entries"
   );
+  const newDraft = {
+    ...draft,
+    score: 0,
+  };
   try {
-    await setDoc(doc(entriesCollectionRef, userUid), draft, {
+    await setDoc(doc(entriesCollectionRef, userUid), newDraft, {
       merge: true,
-    }).then(() => {
-      incrementEntryCount(contestId);
     });
+    await incrementEntryCount(contestId);
   } catch (e) {
     console.error(e);
   }

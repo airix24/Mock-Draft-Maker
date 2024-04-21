@@ -6,6 +6,7 @@ import axios from "axios";
 import NFLFirstRoundInfo from "../ContestInfo/NFLFirstRoundInfo";
 import { db } from "../config/firebase-config";
 import { doc, getDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 function ContestCard(props) {
   const [isContestClosed, setIsContestClosed] = useState(true);
@@ -33,7 +34,7 @@ function ContestCard(props) {
         const diff = targetDate.seconds * 1000 - currentDate.getTime();
 
         if (diff > 0) {
-          setIsContestClosed(false);
+          setIsContestClosed(false); // change this for testing purposes
         }
 
         setIsTimeFetched(true);
@@ -119,8 +120,12 @@ function ContestCard(props) {
           <>
             {isContestClosed ? (
               <button className="contest-card-button contest-card-main-button">
-                <div>Leaderboard</div>
-                <FaArrowRight size={25} className="leaderboard-arrow" />
+                <Link to={`/leaderboard/${props.id}`}
+                className="link leaderboard-link"
+                  >
+                  Leaderboard
+                  <FaArrowRight size={25} className="leaderboard-arrow" />
+                </Link>
               </button>
             ) : props.user && isUserEntered ? (
               <button

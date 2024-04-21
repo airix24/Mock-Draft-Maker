@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 // import StartupScreen from "./Pages/StartupScreen";
 import DraftBoard from "./Pages/DraftBoard";
 import ContestPage from "./Pages/ContestPage";
+import LeaderboardPage from "./Pages/LeaderboardPage";
 // import LotteryContest from "./Pages/LotteryContest";
 import SecretAdminPage from "./Pages/SecretAdminPage";
 // import PastContests from "./Pages/PastContests";
@@ -87,6 +88,7 @@ function App() {
           />
           <Route path="/priv" element={<Priv />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/leaderboard/:contestId" element={<LeaderboardPage user={user} />} />
         </Routes>
       </div>
     </div>

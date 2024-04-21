@@ -160,6 +160,7 @@ function SaveScreen(props) {
                   userUid: props.user.uid,
                   league: props.league,
                   prospectClass: props.prospectClass,
+                  score: 0,
                 };
                 enterDraftIntoContest(
                   props.user.uid,

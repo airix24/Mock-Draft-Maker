@@ -76,7 +76,7 @@ function ViewDraftTop(props) {
       {/* Middle */}
       <div className="view-draft-info">
         <h3 className="view-draft-name">{props.draft.draftName}</h3>
-        {!props.isContestClosed && <h4 className="light">{date}</h4>}
+        {!props.isViewingFromLeaderboard && <h4 className="light">{date}</h4>}
         {/* {props.isContestEntry && !props.isViewingFromContestPage && (
           <h4 className="contest-indicator">Entered in Contest</h4>
         )} */}
@@ -117,9 +117,9 @@ function ViewDraftTop(props) {
               </Link> */}
             </div>
           )}
-        {props.isContestClosed && (
+        {props.isViewingFromLeaderboard && (
           <h3>
-            Score: <span style={{ color: "blue" }}>{props.totalScore}</span>
+            Score: <span style={{ color: "blue" }}>{props.draft.score}</span>
           </h3>
         )}
       </div>
