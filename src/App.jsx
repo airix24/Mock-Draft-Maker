@@ -81,7 +81,7 @@ function App() {
           {/* <Route path="/contests" element={<ContestPage user={user} />} /> */}
           {/* <Route path="/past-contests" element={<PastContests user={user} />} /> */}
           <Route path="/contests" element={<ContestPage user={user} />} />
-          <Route path="/admin-page" element={<SecretAdminPage />} />
+          <Route path="/f0HuOsXS7XTsJtsXvh197eqBGgw2" element={<SecretAdminPage user={user} /> } />
           <Route
             path="/saved-drafts"
             element={<SavedDraftsPage user={user} />}

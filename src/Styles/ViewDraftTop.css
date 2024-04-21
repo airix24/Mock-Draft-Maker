@@ -19,8 +19,9 @@
 }
 
 .idk-bro {
-  width: 75px;
+  /* width: 75px;
   display: flex;
+  justify-content: flex-end; */
 }
 
 .idk-bro-contest {
@@ -35,13 +36,13 @@
 }
 
 .view-draft-btns {
+  width: 75px;
   display: flex;
   justify-content: center;
 }
 
-.view-draft-btns > :nth-child(1),
-.view-draft-btns > :nth-child(2) {
-  margin-right: 0.5rem;
+.view-draft-btns > :nth-child(1) {
+  margin-right: 0.7rem;
 }
 
 .view-draft-contest-page-btns {

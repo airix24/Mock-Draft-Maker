@@ -6,6 +6,7 @@ import {
   FaTimes,
   FaCheck,
   FaDownload,
+  FaCopy,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../Styles/ViewDraftTop.css";
@@ -39,6 +40,19 @@ function ViewDraftTop(props) {
     });
   }
 
+  function handleCopy() {
+    html2canvas(divRef.current).then((canvas) => {
+      canvas.toBlob((blob) => {
+        const clipboardItem = new ClipboardItem({ 'image/png': blob });
+        navigator.clipboard.write([clipboardItem]).then(() => {
+          alert('Image copied to clipboard');
+        }).catch((error) => {
+          console.error('Error copying image to clipboard:', error);
+        });
+      });
+    });
+  }
+
   return (
     <div
       className={`view-draft-top ${
@@ -56,9 +70,18 @@ function ViewDraftTop(props) {
         }
       ></MockDraftImage>
       {/* Left Side */}
-      {(props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
+      <div className="view-draft-btns">
+        <button className="icon-button-black" onClick={handleCopy}>
+          <FaCopy className="icon" size={20} alt="copy" />
+        </button>
+        <button className={"icon-button-black"} onClick={handleDownload}>
+          <FaDownload className="icon" size={20} alt="download" />
+        </button>
+      </div>
+
+      {/* {(props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
         <div className="idk-bro-contest"></div>
-      )}
+      )} */}
 
       {/* {(!props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
         <div className="idk-bro">
@@ -71,7 +94,7 @@ function ViewDraftTop(props) {
         </div>
       )} */}
 
-      {!props.isViewingFromContestPage && <div className="idk-bro"></div>}
+      {/* {!props.isViewingFromContestPage && <div className="idk-bro"></div>} */}
 
       {/* Middle */}
       <div className="view-draft-info">
@@ -126,14 +149,14 @@ function ViewDraftTop(props) {
 
       {/* Right Side */}
       {(props.isViewingFromContestPage || props.isViewingFromLeaderboard) && (
-        <div className="idk-bro-contest">
-          <button className={"icon-button-black"} onClick={handleDownload}>
-            <FaDownload className="icon" size={20} alt="download" />
-          </button>
+        <div className="view-draft-btns">
+            {/* <button className={"icon-button-black"} onClick={handleDownload}>
+              <FaDownload className="icon" size={20} alt="download" />
+            </button> */}
         </div>
       )}
       {!props.isViewingFromContestPage && (
-        <div className="idk-bro idk-bro-confirm-btns">
+        <div className="idk-bro">
           {!showDeleteConfirm ? (
             <div className="view-draft-btns">
               {!props.isContestEntry && (
@@ -173,9 +196,15 @@ function ViewDraftTop(props) {
                   )}
                 </>
               )}
+              {/* <button
+                className="icon-button-black"
+                onClick={handleCopy}
+              >
+                <FaCopy className="icon" size={20} alt="copy" />
+              </button>
               <button className={"icon-button-black"} onClick={handleDownload}>
                 <FaDownload className="icon" size={20} alt="download" />
-              </button>
+              </button> */}
             </div>
           ) : (
             // if showDeleteConfirm is true, show the confirm delete buttons
