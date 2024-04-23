@@ -29,6 +29,8 @@ function ContestCard(props) {
         );
         const { datetime } = response.data;
         const targetDate = props.closeTime;
+        // for testing purposes, set the target date to the current date
+        // const targetDate = Date.now();
         const currentDate = new Date(datetime);
 
         const diff = targetDate.seconds * 1000 - currentDate.getTime();

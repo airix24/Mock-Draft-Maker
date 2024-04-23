@@ -71,9 +71,9 @@ function ViewDraftTop(props) {
       ></MockDraftImage>
       {/* Left Side */}
       <div className="view-draft-btns">
-        <button className="icon-button-black" onClick={handleCopy}>
+        {/* <button className="icon-button-black" onClick={handleCopy}>
           <FaCopy className="icon" size={20} alt="copy" />
-        </button>
+        </button> */}
         <button className={"icon-button-black"} onClick={handleDownload}>
           <FaDownload className="icon" size={20} alt="download" />
         </button>
@@ -142,7 +142,7 @@ function ViewDraftTop(props) {
           )}
         {props.isViewingFromLeaderboard && (
           <h3>
-            Score: <span style={{ color: "blue" }}>{props.draft.score}</span>
+            Score: <span style={{ color: "" }}>{props.draft.score}</span>
           </h3>
         )}
       </div>

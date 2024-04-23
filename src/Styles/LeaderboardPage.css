@@ -10,13 +10,23 @@
   width: 100%;
 }
 
-.leaderboard-page-header {
+.leaderboard-page-mobile-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
   border-bottom: 2px solid #03277a;
   background-color: #d2d2d2;
+  padding: 10px 0;
+}
+
+.leaderboard-page-mobile-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.leaderboard-page-mobile-header-left {
 }
 
 .leaderboard-page-main-content {
@@ -62,7 +72,7 @@
 
 .leaderboard-page-entry-div {
   background-color: rgb(241, 241, 241);
-  padding: 15px;
+  padding: 10px;
   border-bottom: black 1px solid;
   font-size: 1.3rem;
   display: flex;
@@ -91,13 +101,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-left: 5px solid #03277a; */
-  border-radius: 5px;
+  border-left: 5px solid #03277a;
+  /* border-radius: 5px;
   background-color: #03277a;
-  color: white;
-}
-
-.leaderboard-page-entry-div-score {
+  color: white; */
+  font-size: 1.5rem;
 }
 
 .leaderboard-page-entry {
@@ -111,8 +119,7 @@
 }
 
 .leaderboard-user-entry {
-  color: yellow;
-  font-size: 1.5rem;
+  background-color: rgb(221, 221, 221);
 }
 
 .no-entry-div {
@@ -123,4 +130,30 @@
   font-size: 2rem;
   text-align: center;
   padding: 10px;
+}
+
+.leaderboard-page-medal {
+  margin-right: 5px;
+  background-color: black;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.gold-medal {
+  color: gold;
+}
+
+.silver-medal {
+  color: silver;
+}
+
+.bronze-medal {
+  color: #cd7f32;
+}
+
+.leaderboard-page-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

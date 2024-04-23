@@ -88,7 +88,7 @@ function App() {
           />
           <Route path="/priv" element={<Priv />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/leaderboard/:contestId" element={<LeaderboardPage user={user} />} />
+          <Route path="/leaderboard/:contestId" element={<LeaderboardPage user={user} screenSize={screenSize} />} />
         </Routes>
       </div>
     </div>
