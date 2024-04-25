@@ -110,7 +110,7 @@ async function updateDraft(
 }
 
 //enter draft into contest and increment entryCount in the contest document
-async function enterDraftIntoContest(userUid, contestId, draft) {
+async function enterDraftIntoContest(userUid, contestId, draft, isUpdatingEntry = false) {
   const entriesCollectionRef = collection(
     db,
     "contests",
@@ -125,7 +125,9 @@ async function enterDraftIntoContest(userUid, contestId, draft) {
     await setDoc(doc(entriesCollectionRef, userUid), newDraft, {
       merge: true,
     });
-    await incrementEntryCount(contestId);
+    if (!isUpdatingEntry) {
+      await incrementEntryCount(contestId);
+    }
   } catch (e) {
     console.error(e);
   }

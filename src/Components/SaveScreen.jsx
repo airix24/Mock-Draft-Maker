@@ -152,6 +152,8 @@ function SaveScreen(props) {
               let enterContest = false;
               if (e.nativeEvent.submitter.name === "save-and-enter") {
                 enterContest = true;
+                // const isUpdatingEntry = props.mode === "editor";
+                const isUpdatingEntry = hasUserEnteredContest;
                 const draft = {
                   draftId: nanoid(),
                   draftName: nameInBox,
@@ -165,7 +167,8 @@ function SaveScreen(props) {
                 enterDraftIntoContest(
                   props.user.uid,
                   "AS7oCfs5C2hrsSlPmc6I",
-                  draft
+                  draft,
+                  isUpdatingEntry
                 );
               }
               if (props.mode === "editor") {
@@ -194,14 +197,14 @@ function SaveScreen(props) {
             </button>
             {
               //if the user has not entered the contest, show the save and enter button
-              !hasUserEnteredContest && (
+              (!hasUserEnteredContest || props.mode === "editor") && (
                 <>
                   <button
                     type="submit"
                     name="save-and-enter"
                     className="save-and-enter-btn"
                   >
-                    Save and Enter Contest
+                    Save and {props.mode === "editor" ? "Update Contest Entry" : "Enter Contest"}
                   </button>
                   <h5 className="light edit-reminder">
                     (You can edit and resubmit your entry up until one hour

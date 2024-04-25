@@ -145,6 +145,22 @@ function EnterContest(props) {
                   >
                     Enter
                   </button>
+                  <div className="enter-contest-divider"></div>
+                  <h4 className="light make-new-one">
+                    or{" "}
+                    <Link
+                      to="/draft-board"
+                      state={{
+                        league: props.currContest.league,
+                        prospectClass: props.currContest.prospectClass,
+                        mode: "builder",
+                        draftLength: props.currContest.draftLength,
+                        draftData: null,
+                      }}
+                    >
+                      make a new one
+                    </Link>
+                  </h4>
                 </div>
               )}
             </>

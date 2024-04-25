@@ -36,7 +36,7 @@ function ContestCard(props) {
         const diff = targetDate.seconds * 1000 - currentDate.getTime();
 
         if (diff > 0) {
-          setIsContestClosed(false); // change this for testing purposes
+          setIsContestClosed(false); // change this for testing purposes. false is default
         }
 
         setIsTimeFetched(true);

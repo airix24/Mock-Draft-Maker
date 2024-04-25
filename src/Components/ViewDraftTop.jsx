@@ -115,6 +115,7 @@ function ViewDraftTop(props) {
                     props.user.uid,
                     props.currContestId
                   ).then(() => {
+                    alert("Entry removed from contest. Refresh if the page doesn't update.");
                     props.setDraftJustRemoved(true);
                   });
                   props.setShowViewDraft(false);

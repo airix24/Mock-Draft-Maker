@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;
+  text-align: center;
 }
 
 .enter-contest-content > * {
@@ -13,4 +14,11 @@
   background-color: #03277a;
   color: white;
   padding: 10px 20px;
+}
+
+.enter-contest-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #03277a;
+  margin: 20px 0;
 }

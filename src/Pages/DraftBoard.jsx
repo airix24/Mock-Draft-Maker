@@ -292,9 +292,9 @@ function DraftBoard(props) {
           </div>
         </div>
       )}
-      {showUpdateContestReminder && (
+      {/* {showUpdateContestReminder && (
         <UpdateContestReminder setShowUpdateContestReminder={setShowUpdateContestReminder} />
-      )}
+      )} */}
       {showSaveScreen && (
         <SaveScreen
           setShowSaveScreen={setShowSaveScreen}

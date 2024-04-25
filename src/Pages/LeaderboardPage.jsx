@@ -181,6 +181,7 @@ function LeaderboardPage(props) {
         }}
       >
         <div className="leaderboard-page-rank-name">
+          <p>{entry.userUid}</p>
           <p className="leaderboard-page-rank">{rank}.</p>
           {medal && (
             <FaMedal className={`leaderboard-page-medal ${medal} />`} />
@@ -207,7 +208,7 @@ function LeaderboardPage(props) {
             isContestEntry={true}
             league={contest.league}
             prospectClass={contest.prospectClass}
-            draftResults={[]}
+            draftResults={contest.results}
             currContestId={contestId}
             isViewingFromLeaderboard={true}
           />
@@ -280,7 +281,7 @@ function LeaderboardPage(props) {
                         isContestEntry={true}
                         league={contest.league}
                         prospectClass={contest.prospectClass}
-                        draftResults={[]}
+                        draftResults={contest.results}
                         currContestId={contestId}
                         isViewingFromLeaderboard={true}
                       />
