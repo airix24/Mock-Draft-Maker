@@ -181,7 +181,7 @@ function LeaderboardPage(props) {
         }}
       >
         <div className="leaderboard-page-rank-name">
-          <p>{entry.userUid}</p>
+          {/* <p>{entry.userUid}</p> */}
           <p className="leaderboard-page-rank">{rank}.</p>
           {medal && (
             <FaMedal className={`leaderboard-page-medal ${medal} />`} />

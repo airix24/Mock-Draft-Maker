@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../Styles/SecretAdminPage.css";
 import { db } from "../config/firebase-config";
 import { collection, updateDoc, doc, getDocs } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 function SecretAdminPage(props) {
   const [contestID, setContestID] = useState("");
@@ -132,7 +133,7 @@ function SecretAdminPage(props) {
             </form>
           </div>
 
-          <div className="admin-section">
+          <div className="admin-section admin-section-submit-pick">
             <h2>Submit Pick</h2>
             <form
               onSubmit={(e) => {
@@ -195,6 +196,9 @@ function SecretAdminPage(props) {
                 Submit
               </button>
             </form>
+          </div>
+          <div className="admin-section">
+            <Link to="/manual-enter">Manual Enter Page</Link>
           </div>
           <div className="admin-section reset-section">
             <h2>Reset Entry Scores</h2>
