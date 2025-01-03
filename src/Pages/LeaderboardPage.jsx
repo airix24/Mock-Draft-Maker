@@ -69,7 +69,7 @@ function LeaderboardPage(props) {
         contestId,
         "entries"
       );
-      const batchSize = 10;
+      const batchSize = 20;
       let entriesQuery = query(entriesCollection, orderBy("score", "desc"));
       if (lastDoc) {
         entriesQuery = query(entriesQuery, startAfter(lastDoc));
@@ -110,6 +110,7 @@ function LeaderboardPage(props) {
     const fetchUserEntry = async () => {
       try {
         if (!props.user) {
+          setIsUserEntryFetched(true);
           return;
         }
         const contestDocRef = doc(db, "contests", contestId);

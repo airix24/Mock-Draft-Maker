@@ -103,6 +103,18 @@ function ContestCard(props) {
       <h1 className="contest-card-title">{props.name}</h1>
       <div className="contest-card-top">
         <h2 className="contest-card-desc">{props.desc}</h2>
+        {/* {isContestClosed && !loading && ( */}
+          <div className="contest-card-closed-div">
+            <h1>View Contest Results</h1>
+            <button className="contest-card-button contest-card-main-button">
+                <Link to={`/leaderboard/${props.id}`}
+                className="link leaderboard-link"
+                  >
+                  Leaderboard
+                  <FaArrowRight size={25} className="leaderboard-arrow" />
+                </Link>
+              </button>
+          </div>
         <div className="contest-countdown"></div>
         <div className="contest-rules">{contestInfoComponents[props.name]}</div>
         <button
@@ -120,11 +132,12 @@ function ContestCard(props) {
           <h1>Loading...</h1>
         ) : (
           <>
-            {isContestClosed ? (
+            {true ? ( // temporary
               <button className="contest-card-button contest-card-main-button">
-                <Link to={`/leaderboard/${props.id}`}
-                className="link leaderboard-link"
-                  >
+                <Link
+                  to={`/leaderboard/${props.id}`}
+                  className="link leaderboard-link"
+                >
                   Leaderboard
                   <FaArrowRight size={25} className="leaderboard-arrow" />
                 </Link>
@@ -140,15 +153,16 @@ function ContestCard(props) {
                 View Entry
               </button>
             ) : props.user && !isUserEntered ? (
-              <button
-                className="contest-card-button contest-card-main-button"
-                onClick={() => {
-                  props.setCurrContest(props);
-                  props.setShowEnterContest(true);
-                }}
-              >
-                Enter
-              </button>
+              <div></div> // this is temporary
+              // <button
+              //   className="contest-card-button contest-card-main-button"
+              //   onClick={() => {
+              //     props.setCurrContest(props);
+              //     props.setShowEnterContest(true);
+              //   }}
+              // >
+              //   Enter
+              // </button>
             ) : (
               <button
                 className="contest-card-button must-be-signed-in-button"

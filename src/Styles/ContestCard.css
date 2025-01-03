@@ -134,3 +134,21 @@
 .must-be-signed-in-button {
   font-size: 1rem;
 }
+
+.contest-card-closed-div {
+  background-color: #dcdcdc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  color: #03277a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contest-card-closed-div > h1 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}

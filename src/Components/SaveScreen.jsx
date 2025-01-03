@@ -195,7 +195,7 @@ function SaveScreen(props) {
             <button type="submit" name="save" className="save-btn">
               {props.mode === "editor" ? "Save Changes" : "Save"}
             </button>
-            {
+            {/* {
               //if the user has not entered the contest, show the save and enter button
               (!hasUserEnteredContest || props.mode === "editor") && (
                 <>
@@ -212,7 +212,7 @@ function SaveScreen(props) {
                   </h5>
                 </>
               )
-            }
+            } */}
           </form>
         </div>
       )}

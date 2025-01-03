@@ -108,7 +108,7 @@ function ViewDraftTop(props) {
           !props.isViewingFromLeaderboard &&
           props.isContestEntry && (
             <div className="view-draft-contest-page-btns">
-              <button
+              {/* <button
                 className="view-draft-contest-page-btn"
                 onClick={() => {
                   removeDraftFromContest(
@@ -122,7 +122,7 @@ function ViewDraftTop(props) {
                 }}
               >
                 Remove
-              </button>
+              </button> */}
               {/* <Link
                 to="/draft-board"
                 state={{
