@@ -14,9 +14,14 @@ function ContestPromoHome() {
             win prizes! Free to enter!
           </em>
         </p>
-        <Link to="/contests" className="contest-promo-btn">
-          Learn More
-        </Link>
+        <div>
+          <Link 
+            to="/contests" 
+            className="contest-promo-btn"
+          >
+            Learn More
+          </Link>
+        </div>
       </div>
   );
 }
