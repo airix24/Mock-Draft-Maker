@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { NFL_2023_Prospects } from "../Prospects/NFL_2023";
 import { NFL_2024_Prospects } from "../Prospects/NFL_2024";
+import { NFL_2025_Prospects } from "../Prospects/NFL_2025";
 import { NBA_2023_Prospects } from "../Prospects/NBA_2023";
 import { NFL_Teams } from "../Teams/NFL_Teams";
 import { NBA_Teams } from "../Teams/NBA_Teams";
@@ -24,13 +25,14 @@ function DraftBoard(props) {
   const [teams] = useState(
     draftSettings.league === "NFL" ? NFL_Teams : NBA_Teams
   );
-  const [prospects] = useState(
-    draftSettings.prospectClass === "NFL_2024"
-      ? NFL_2024_Prospects
-      : draftSettings.prospectClass === "NFL_2023"
-      ? NFL_2023_Prospects
-      : NBA_2023_Prospects
-  );
+  // const [prospects] = useState(
+  //   draftSettings.prospectClass === "NFL_2024"
+  //     ? NFL_2024_Prospects
+  //     : draftSettings.prospectClass === "NFL_2023"
+  //     ? NFL_2023_Prospects
+  //     : NBA_2023_Prospects
+  // );
+  const [prospects] = useState(NFL_2025_Prospects);
 
   const [playerPool, setPlayerPool] = useState([]);
   const [mockDraft, setMockDraft] = useState([]);

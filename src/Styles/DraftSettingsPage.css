@@ -1,0 +1,62 @@
+.draft-settings {
+  max-width: 600px;
+  margin: 80px auto 2rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.setting-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.setting-group select {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.setting-group select:hover {
+  border-color: #03277a;
+}
+
+.draft-setting-page-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background-color: #03277a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.draft-setting-page-button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 790px) {
+  .draft-settings {
+    margin: 70px 1rem 2rem;
+    padding: 1.5rem;
+  }
+}

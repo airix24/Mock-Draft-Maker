@@ -171,7 +171,7 @@ function ViewDraftTop(props) {
                   >
                     <FaTrash className="icon" size={20} alt="delete" />
                   </button>
-                  {props.draft.prospectClass === "NFL_2024" && (
+                  {props.draft.prospectClass === "NFL_2025" && (
                     <Link
                       to="/draft-board"
                       state={{

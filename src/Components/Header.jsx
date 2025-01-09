@@ -21,11 +21,11 @@ function Header(props) {
               </Link>
             </h1>
             <div className="nav">
-              <Link
+              {/* <Link
                 to="/draft-board"
                 state={{
                   league: "NFL",
-                  prospectClass: "NFL_2024",
+                  prospectClass: "NFL_2025",
                   mode: "builder",
                   draftLength: 32,
                   draftData: null,
@@ -33,7 +33,8 @@ function Header(props) {
                 className="nav-link"
               >
                 Mock Draft Simulator
-              </Link>
+              </Link> */}
+              <Link to="/draft-settings" className="nav-link">Mock Draft Simulator</Link>
               <Link to="/contests" className="nav-link">
                 Contests
               </Link>

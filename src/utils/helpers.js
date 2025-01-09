@@ -1,5 +1,6 @@
 import { NFL_2023_Prospects } from "../Prospects/NFL_2023";
 import { NFL_2024_Prospects } from "../Prospects/NFL_2024";
+import { NFL_2025_Prospects } from "../Prospects/NFL_2025";
 import { NBA_2023_Prospects } from "../Prospects/NBA_2023";
 import { NFL_Teams } from "../Teams/NFL_Teams";
 import { NBA_Teams } from "../Teams/NBA_Teams";
@@ -14,6 +15,9 @@ function findProspect(id, prospectClass) {
   }
   if (prospectClass === "NFL_2024") {
     return NFL_2024_Prospects.find((prospect) => prospect.id === id);
+  }
+  if (prospectClass === "NFL_2025") {
+    return NFL_2025_Prospects.find((prospect) => prospect.id === id);
   }
 }
 

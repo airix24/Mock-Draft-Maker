@@ -16,6 +16,7 @@ import SavedDraftsPage from "./Pages/SavedDraftsPage";
 import Priv from "./Pages/Priv";
 import Home from "./Pages/Home";
 import ContactUs from "./Pages/ContactUs";
+import DraftSettingsPage from "./Pages/DraftSettingsPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -64,6 +65,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* <Route path="/" element={<StartupScreen user={user} />} /> */}
+          <Route path="/draft-settings" element={<DraftSettingsPage />} />
           <Route
             path="/draft-board"
             element={
