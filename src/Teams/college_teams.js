@@ -48,6 +48,12 @@ export const college_teams = [
       "https://content.sportslogos.net/logos/30/618/thumbs/61849282016.gif",
   },
   {
+    schoolName: "Bowling Green",
+    schoolNickname: "Falcons",
+    schoolLogo:
+      "https://content.sportslogos.net/logos/30/620/full/bowling_green_falcons_logo_primary_2011_sportslogosnet-8773.png",
+  },
+  {
     schoolName: "BYU",
     schoolNickname: "Cougars",
     schoolLogo:
@@ -85,6 +91,12 @@ export const college_teams = [
     schoolNickname: "Blue Devils",
     schoolLogo:
       "https://content.sportslogos.net/logos/31/663/thumbs/66395011978.gif",
+  },
+  {
+    schoolName: "East Carolina",
+    schoolNickname: "Pirates",
+    schoolLogo:
+      "https://content.sportslogos.net/logos/31/665/full/east_carolina_pirates_logo_primary_20143417.png",
   },
   {
     schoolName: "Florida",
@@ -176,6 +188,12 @@ export const college_teams = [
       "https://content.sportslogos.net/logos/32/723/thumbs/s4dleiha8ddfi6cdweqjtgeq9.gif",
   },
   {
+    schoolName: "Marshall",
+    schoolNickname: "Thundering Herd",
+    schoolLogo:
+      "https://content.sportslogos.net/logos/32/742/full/marshall_thundering_herd_logo_primary_2015_sportslogosnet-2274.png",
+  },
+  {
     schoolName: "Maryland",
     schoolNickname: "Terrapins",
     schoolLogo:
@@ -251,6 +269,12 @@ export const college_teams = [
     schoolNickname: "Wolfpack",
     schoolLogo:
       "https://content.sportslogos.net/logos/33/777/thumbs/77724982023.gif",
+  },
+  {
+    schoolName: "North Dakota State",
+    schoolNickname: "Bison",
+    schoolLogo:
+      "https://content.sportslogos.net/logos/33/781/full/north_dakota_state_bison_logo_primary_20129878.png",
   },
   {
     schoolName: "Northwestern",
@@ -378,10 +402,10 @@ export const college_teams = [
     schoolLogo: "https://content.sportslogos.net/logos/34/870/thumbs/4661.gif",
   },
   {
-    schoolName: "Toldeo",
+    schoolName: "Toledo",
     schoolNickname: "Rockets",
     schoolLogo:
-      "https://content.sportslogos.net/logos/34/874/thumbs/87473482019.gif",
+      "https://content.sportslogos.net/logos/34/874/full/toledo_rockets_logo_primary_2019_sportslogosnet-7348.png",
   },
   {
     schoolName: "UCLA",
@@ -412,6 +436,12 @@ export const college_teams = [
     schoolNickname: "Commodores",
     schoolLogo:
       "https://content.sportslogos.net/logos/35/895/thumbs/89595842022.gif",
+  },
+  {
+    schoolName: "Virginia Tech",
+    schoolNickname: "Hokies",
+    schoolLogo:
+      "https://content.sportslogos.net/logos/35/901/full/virginia_tech_hokies_logo_primary_19832480.png",
   },
   {
     schoolName: "Wake Forest",
